@@ -69,12 +69,18 @@ locations = [
 ]
 
 products = [
-  # new IkeaProduct '20205897', 'KROKTORP Tür 60x80 elfenbeinweiss'
-  # new IkeaProduct '20205915', 'KROKTORP Tür 40x40 elfenbeinweiss'
-  # new IkeaProduct '40212444', 'KROKTORP Tür 40x80 elfenbeinweiss'
-  # new IkeaProduct '90205912', 'KROKTORP Schubladenfront 60x20 elfenbeinweiss'
-  # new IkeaProduct '60205918', 'KROKTORP Schubladenfront 60x40 elfenbeinweiss'
-  new IkeaProduct 'S29005238', 'EKTORP - 2er-Sofa und Récamiere, Jonsboda braun'
+  new IkeaProduct '20205897', 'KROKTORP Tür 60x80 elfenbeinweiss'
+  new IkeaProduct '20205915', 'KROKTORP Tür 40x40 elfenbeinweiss'
+  new IkeaProduct '40212444', 'KROKTORP Tür 40x80 elfenbeinweiss'
+  new IkeaProduct '90205912', 'KROKTORP Schubladenfront 60x20 elfenbeinweiss'
+  new IkeaProduct '60205918', 'KROKTORP Schubladenfront 60x40 elfenbeinweiss'
+]
+
+locationsWhichShouldGetChecked = [
+  new IkeaLocation '324', 'Berlin-Lichtenberg'
+  new IkeaLocation '394', 'Berlin-Spandau'
+  new IkeaLocation '421', 'Berlin-Tempelhof'
+  new IkeaLocation '129', 'Berlin-Waltersdorf'
 ]
 
 for product in products
@@ -94,23 +100,20 @@ for product in products
       }
     console.log (product.id + ' ' + product.name).bold
 
-    for location in locations
+    for location in locationsWhichShouldGetChecked
 
       # parse response data and extract number of items available and the 
       # probability when it will be there again
       xmlDoc = libxmljs.parseXml(body)
       locationStockNode = xmlDoc.get("//localStore[@buCode=#{location.id}]/stock")
-      availableStock = locationStockNode.get('//availableStock').text()
-      console.log availableStock
-      inStockProbabilityCode = locationStockNode.get('//inStockProbabilityCode').text()
+      availableStock = locationStockNode.get('availableStock').text()
+      inStockProbabilityCode = locationStockNode.get('inStockProbabilityCode').text()
       
       # color the availability
-      if availableStock > 10
+      if availableStock >= 10
         availableStock = availableStock.green
-      else if availableStock > 5
+      else if availableStock >= 4
         availableStock = availableStock.white
-      else if availableStock > 0
-        availableStock = availableStock.red
       else
         availableStock = availableStock.red
 

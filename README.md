@@ -33,9 +33,10 @@ The script iterates over a (for now) fixed list of product ids and scrapes the a
 
 ## Ideas
 
-* include all Germany IKEA Location ids
-* find out why some product ids need a "S" in front
-* find out which errors could occor or if there are limits
-* web interface instead of cli
-* variable list of products
+[X] include all Germany IKEA Location ids
+[ ] include other countries like Austria (just with `at/de` instead of `de/de` in the uri)
+[ ] find out why some product ids need a "S" in front
+[ ] find out which errors could occor or if there are limits
+[ ] web interface instead of cli
+[ ] variable list of products
 * one kind of notification (e-mail)
