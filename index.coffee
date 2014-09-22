@@ -110,9 +110,9 @@ for product in products
       inStockProbabilityCode = locationStockNode.get('inStockProbabilityCode').text()
       
       # color the availability
-      if availableStock >= 10
+      if availableStock >= 4
         availableStock = availableStock.green
-      else if availableStock >= 4
+      else if availableStock >= 1
         availableStock = availableStock.white
       else
         availableStock = availableStock.red
