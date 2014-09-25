@@ -74,14 +74,18 @@ products = [
   new IkeaProduct '40212444', 'KROKTORP Tür 40x80 elfenbeinweiss'
   new IkeaProduct '90205912', 'KROKTORP Schubladenfront 60x20 elfenbeinweiss'
   new IkeaProduct '60205918', 'KROKTORP Schubladenfront 60x40 elfenbeinweiss'
+  new IkeaProduct 'S19902924', 'BRIMNES Bettgestell weiss'
 ]
 
-locationsWhichShouldGetChecked = [
-  new IkeaLocation '324', 'Berlin-Lichtenberg'
-  new IkeaLocation '394', 'Berlin-Spandau'
-  new IkeaLocation '421', 'Berlin-Tempelhof'
-  new IkeaLocation '129', 'Berlin-Waltersdorf'
-]
+if process.argv[2]? and process.argv[2] is 'all'
+  locationsWhichShouldGetChecked = locations
+else
+  locationsWhichShouldGetChecked = [
+    new IkeaLocation '324', 'Berlin-Lichtenberg'
+    new IkeaLocation '394', 'Berlin-Spandau'
+    new IkeaLocation '421', 'Berlin-Tempelhof'
+    new IkeaLocation '129', 'Berlin-Waltersdorf'
+  ]
 
 for product in products
 
