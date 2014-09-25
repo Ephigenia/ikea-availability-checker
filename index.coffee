@@ -74,7 +74,6 @@ products = [
   new IkeaProduct '40212444', 'KROKTORP Tür 40x80 elfenbeinweiss'
   new IkeaProduct '90205912', 'KROKTORP Schubladenfront 60x20 elfenbeinweiss'
   new IkeaProduct '60205918', 'KROKTORP Schubladenfront 60x40 elfenbeinweiss'
-  new IkeaProduct 'S19902924', 'BRIMNES Bettgestell weiss'
 ]
 
 if process.argv[2]? and process.argv[2] is 'all'
@@ -87,8 +86,7 @@ else
     new IkeaLocation '129', 'Berlin-Waltersdorf'
   ]
 
-for product in products
-
+iterateProdcut = (product) =>
   url = "http://www.ikea.com/de/de/iows/catalog/availability/#{product.id}"
 
   request url, (error, response, body) => 
@@ -102,16 +100,17 @@ for product in products
       style: {
         head: ['white']
       }
-    console.log (product.id + ' ' + product.name).bold
 
+    totalStock = 0
     for location in locationsWhichShouldGetChecked
-
       # parse response data and extract number of items available and the 
       # probability when it will be there again
       xmlDoc = libxmljs.parseXml(body)
       locationStockNode = xmlDoc.get("//localStore[@buCode=#{location.id}]/stock")
       availableStock = locationStockNode.get('availableStock').text()
       inStockProbabilityCode = locationStockNode.get('inStockProbabilityCode').text()
+
+      totalStock += parseInt availableStock
       
       # color the availability
       if availableStock >= 4
@@ -135,5 +134,11 @@ for product in products
         availableStock,
         inStockProbabilityCode
       ]
-    
+
+    console.log ("""
+      #{product.id} #{product.name} (#{totalStock} total)
+    """).bold
     console.log table.toString()
+
+for product in products
+  iterateProdcut(product)
