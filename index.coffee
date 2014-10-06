@@ -239,7 +239,12 @@ iterateProdcut = (locationCode, product, locations) =>
     """).bold
     console.log table.toString()
 
-
+# show available country codes
+if process.argv[2]? and process.argv[2] is 'help'
+  console.log "Available Country Codes:"
+  for countryCode of locations
+    console.log "\t#{countryCode}"
+  process.exit()
 
 countryCode = 'de/de'
 
