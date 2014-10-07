@@ -205,6 +205,13 @@ iterateProdcut = (locationCode, product, locations) =>
       # parse response data and extract number of items available and the 
       # probability when it will be there again
       xmlDoc = libxmljs.parseXml(body)
+
+      # check for an error response
+      msg = xmlDoc.get("//actionResponse/msg")
+      if msg? and msg.text() is not 'OK'
+        console.error "Error while requesting from #{locationCode}: #{msg.text()}".red
+        process.exit 1
+
       locationStockNode = xmlDoc.get("//localStore[@buCode=#{location.id}]/stock")
       availableStock = locationStockNode.get('availableStock').text()
       inStockProbabilityCode = locationStockNode.get('inStockProbabilityCode').text()
