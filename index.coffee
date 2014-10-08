@@ -6,16 +6,13 @@ Table = require 'cli-table'
 class IkeaLocation 
   id: null
   name: null
-  constructor: (id, name) ->
-    @id = id
-    @name = name
+  constructor: (@id, @name) ->
 
 class IkeaProduct
   id: null
   name: null
-  constructor: (id, name) ->
-    @id = id
-    @name = name
+  dimensions: null
+  constructor: (@id, @name, @dimensions) ->
 
 locations = 
   # Netherlands
@@ -178,11 +175,13 @@ locations =
   ]
 
 products = [
-  new IkeaProduct '20205897', 'KROKTORP Tür 60x80 elfenbeinweiss'
-  new IkeaProduct '20205915', 'KROKTORP Tür 40x40 elfenbeinweiss'
-  new IkeaProduct '40212444', 'KROKTORP Tür 40x80 elfenbeinweiss'
-  new IkeaProduct '90205912', 'KROKTORP Schubladenfront 60x20 elfenbeinweiss'
-  new IkeaProduct '60205918', 'KROKTORP Schubladenfront 60x40 elfenbeinweiss'
+  new IkeaProduct '20205897', 'KROKTORP Tür elfenbeinweiss', '60x80'
+  new IkeaProduct '20205915', 'KROKTORP Tür elfenbeinweiss', '40x40'
+  new IkeaProduct '40212444', 'KROKTORP Tür elfenbeinweiss', '40x80'
+  new IkeaProduct '90205912', 'KROKTORP Schubladenfront elfenbeinweiss', '60x20'
+  new IkeaProduct '60205918', 'KROKTORP Schubladenfront elfenbeinweiss', '60x40'
+  new IkeaProduct 'S49903093', 'HEMNES/ODENSVIK Waschbeckenschrank/2 Schubl., weiß', '100x49x89'
+  new IkeaProduct 'S49903111', 'HEMNES/ODENSVIK Waschbeckenschrank/2 Schubl., weiß', '80x49x89 cm'
 ]
 
 iterateProdcut = (locationCode, product, locations) =>
@@ -242,7 +241,7 @@ iterateProdcut = (locationCode, product, locations) =>
       ]
 
     console.log ("""
-      #{product.id} #{product.name} (#{totalStock} total)
+      #{product.id} #{product.name} #{product.dimensions} (#{totalStock} total)
     """).bold
     console.log table.toString()
 
