@@ -259,6 +259,9 @@ if process.argv[2]?
     
   else
     countryCode = process.argv[2]
+  unless locations[countryCode]?
+    console.error "invalid country code '#{countryCode}'".red
+    process.exit(2)
   locationsWhichShouldGetChecked = locations[countryCode]
 else
   locationsWhichShouldGetChecked = [
