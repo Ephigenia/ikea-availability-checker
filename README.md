@@ -1,5 +1,6 @@
 ikea-availability-checker
 =========================
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Ephigenia/ikea-availability-checker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Sometimes there is a high demand on products which then are unavailable in the IKEA online store and even in the locations. So here’s a script which makes it easy to check the availability of a list of products and locations. The results are printed out in the command line like this:
 
