@@ -1,0 +1,13 @@
+dependencies:
+  cache_directories:
+    - node_modules
+
+test:
+  override:
+    - npm run test:ci
+  post:
+    # always show outdated packages to be able to see at which point
+    # the packages got outdated
+    - npm outdated --depth 0
+    # also lint the code but be gracefull with lint errors
+    - npm run lint || true

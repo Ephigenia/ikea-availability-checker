@@ -1,27 +1,60 @@
 {
+  "author": "Ephigenia M. Eichner",
   "name": "ikea-availability-checker",
-  "version": "0.0.0",
   "description": "ikea product in-store availability checker",
-  "main": "index.coffee",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "1.0.0-alpha",
   "keywords": [
-    "ikea",
     "availability",
-    "furniture",
-    "store",
-    "stock",
-    "in-store",
-    "check",
-    "test"
+    "ikea",
+    "iows",
+    "stock"
   ],
-  "author": "Marcel Eichner <love@ephigenia.de>",
   "license": "MIT",
+  "maintainer": {
+    "name": "Marcel Eichner",
+    "email": "marcel.eichner@ephigenia.de"
+  },
+  "contributors": [
+    {
+      "name": "Marcel Eichner",
+      "email": "marcel.eichner@ephigenia.de"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Ephigenia/ikea-availability-checker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ephigenia/ikea-availability-checker/issues"
+  },
+  "main": "source/cli.js",
+  "config": {
+    "paths": {
+      "source": "source"
+    }
+  },
+  "scripts": {
+    "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
+    "commitmsg": "conventional-changelog-lint -e",
+    "lint": "eslint $npm_package_config_paths_source/**/*.js",
+    "postversion": "git push && git push --tags",
+    "preversion": "npm test",
+    "test:ci": "npm test -- --reporter=dot",
+    "test:watch": "npm test -- --watch",
+    "test": "mocha $npm_package_config_paths_source/**/*.test.js",
+    "version": "npm run changelog && git add CHANGELOG.md"
+  },
   "dependencies": {
-    "request": "^2.44.0",
-    "libxmljs": "^0.11.1",
-    "colors": "^0.6.2",
-    "cli-table": "^0.3.0"
+    "chai": "^3.5.0",
+    "commander": "^2.9.0",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "conventional-changelog-cli": "^1.2.0",
+    "conventional-changelog-lint": "^1.1.0",
+    "eslint": "^3.14.1",
+    "eslint-config-google": "^0.7.1",
+    "husky": "^0.13.1",
+    "mocha": "^3.2.0"
   }
 }
