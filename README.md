@@ -1,67 +1,14 @@
-*WIP*
+Sometimes there is a high demand on products which then are unavailable in the IKEA online store and even in the locations. So here’s a script which makes it easy to check the availability of a list of products and locations.
 
-## List Stock numbers for specific product & store
+[![CircleCI](https://circleci.com/gh/Ephigenia/ikea-availability-checker.svg?style=svg&circle-token=1907356b3e852337a9e5f96d9b99ef1942c4ffa2)](https://circleci.com/gh/Ephigenia/ikea-availability-checker)
+[![Code Climate](https://codeclimate.com/repos/58920ec367bbb4005e0076bf/badges/e41dd44da970110ab426/gpa.svg)](https://codeclimate.com/repos/58920ec367bbb4005e0076bf/feed)
+[![Issue Count](https://codeclimate.com/repos/58920ec367bbb4005e0076bf/badges/e41dd44da970110ab426/issue_count.svg)](https://codeclimate.com/repos/58920ec367bbb4005e0076bf/feed)
+[![Test Coverage](https://codeclimate.com/repos/58920ec367bbb4005e0076bf/badges/e41dd44da970110ab426/coverage.svg)](https://codeclimate.com/repos/58920ec367bbb4005e0076bf/coverage)
 
-    cli.js --store=018 S49903093
+# Installation
 
-## List Stock for multiple products & stores
+    npm install ikea-availability-checker
 
-    cli.js --store=018,005,147 S49903093,60205918,90205912
+# Topics
 
-
-
-
-
-
-*OLD TEXT*
-
-Related Articles
-https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52#.f5uh9iht8
-
-Sometimes there is a high demand on products which then are unavailable in the IKEA online store and even in the locations. So here’s a script which makes it easy to check the availability of a list of products and locations. The results are printed out in the command line like this:
-
-
-```
-60205918 KROKTORP Schubladenfront 60x40 elfenbeinweiss
-┌────────────────────┬───────┬─────────────┐
-│ Location           │ Stock │ Probability │
-├────────────────────┼───────┼─────────────┤
-│ Berlin Woltersdorf │     0 │         LOW │
-├────────────────────┼───────┼─────────────┤
-│ Berlin Lichtenberg │     9 │      MEDIUM │
-├────────────────────┼───────┼─────────────┤
-│ Berlin Tempelhof   │     0 │         LOW │
-└────────────────────┴───────┴─────────────┘
-60205918 KROKTORP Schubladenfront 60x40 elfenbeinweiss
-┌────────────────────┬───────┬─────────────┐
-│ Location           │ Stock │ Probability │
-├────────────────────┼───────┼─────────────┤
-│ Berlin Woltersdorf │    22 │        HIGH │
-├────────────────────┼───────┼─────────────┤
-│ Berlin Lichtenberg │     0 │         LOW │
-├────────────────────┼───────┼─────────────┤
-│ Berlin Tempelhof   │     0 │         LOW │
-└────────────────────┴───────┴─────────────┘
-```
-
-## How it works
-
-The script iterates over a (for now) fixed list of product ids and scrapes the availability service of IKEA germany to check the in-store stock for those items. After that it searches for a fixed list of location ids (for now only 4 of them in Berlin) and prints the results in a table per product.
-
-## Usage
-
-	coffee index [country-code]
-
-List available country codes
-
-	coffee index help
-
-## Ideas
-
-- [x] include all Germany IKEA Location ids
-- [ ] include other countries like Austria (just with `at/de` instead of `de/de` in the uri)
-- [ ] find out why some product ids need a "S" in front
-- [ ] find out which errors could occor or if there are limits
-- [ ] web interface instead of cli
-- [ ] variable list of products
-- [ ] one kind of notification (e-mail)
+* [stock examples](docs/stock.md)

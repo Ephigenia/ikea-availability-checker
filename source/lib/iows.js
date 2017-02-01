@@ -1,3 +1,4 @@
+const debug = require('debug')('iows');
 const request = require('request');
 const xml2js = require('xml2js');
 
@@ -30,10 +31,18 @@ iows.country = function(countryCode) {
       let product = {
         id: productId,
         availability: function(done) {
-          let url = 'http://www.ikea.com/' + countryCode +
-            '/iows/catalog/availability/' + productId;
+          let url = 'http://www.ikea.com/' + encodeURIComponent(countryCode) +
+            '/iows/catalog/availability/' + encodeURIComponent(productId);
+          debug('Request', url);
           return request(url, function(err, response) {
             if (err) return done(err);
+            if (response.statusCode !== 200) {
+              let err = new Error(
+                'Invalid HTTP Status code: ' + response.statusCode + ' received'
+              );
+              err.response = response;
+              return done(err);
+            }
             iows.parseAvailabilityFromResponse(response, done);
           });
         },

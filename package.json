@@ -2,7 +2,7 @@
   "author": "Ephigenia M. Eichner",
   "name": "ikea-availability-checker",
   "description": "ikea product in-store availability checker",
-  "version": "1.0.0-alpha",
+  "version": "0.0.0",
   "keywords": [
     "availability",
     "ikea",
@@ -46,6 +46,8 @@
   },
   "dependencies": {
     "chai": "^3.5.0",
+    "chalk": "^1.1.3",
+    "cli-table": "^0.3.1",
     "commander": "^2.9.0",
     "xml2js": "^0.4.17"
   },
