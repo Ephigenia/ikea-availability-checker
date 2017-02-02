@@ -1,5 +1,7 @@
+'use strict';
+
 module.exports = {
-  show: function(countryCode, results) {
-    console.log(JSON.stringify(results));
+  show: function(results) {
+    return JSON.stringify(results);
   },
 };

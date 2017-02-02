@@ -1,3 +1,5 @@
+'use strict';
+
 const debug = require('debug')('iows');
 const request = require('request');
 const xml2js = require('xml2js');
@@ -6,7 +8,7 @@ let iows = {};
 
 iows.parseResponse = function(response, done) {
   // @TODO add error handling when response is no xml or status code is wrong
-  parser = new xml2js.Parser({
+  let parser = new xml2js.Parser({
     // options for json parsing
     // https://www.npmjs.com/package/xml2js
     trim: true, // Trim the whitespace at the beginning and end of text nodes.
@@ -36,8 +38,10 @@ iows.country = function(countryCode) {
         },
         availability: function(done) {
           let url = this.url();
+          debug('request', url);
           return request(url, function(err, response) {
             if (err) return done(err);
+            debug('response', response.statusCode, response.body);
             if (response.statusCode !== 200) {
               let err = new Error(
                 'Invalid HTTP Status code: ' + response.statusCode + ' received'

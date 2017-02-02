@@ -39,9 +39,9 @@
     "lint": "eslint $npm_package_config_paths_source/**/*.js",
     "postversion": "git push && git push --tags",
     "preversion": "npm test",
-    "test:ci": "npm test -- --reporter=dot",
-    "test:watch": "npm test -- --watch",
-    "test": "mocha $npm_package_config_paths_source/**/*.test.js",
+    "test:ci": "mocha --reporter=dot $npm_package_config_paths_source/**/*.test.js",
+    "test:watch": "mocha --watch $npm_package_config_paths_source/**/*.test.js",
+    "test": "mocha \"$npm_package_config_paths_source/**/*.test.js\"",
     "version": "npm run changelog && git add CHANGELOG.md"
   },
   "dependencies": {

@@ -1,3 +1,5 @@
+'use strict';
+
 let Table = require('cli-table');
 let chalk = require('chalk');
 
@@ -52,6 +54,6 @@ module.exports = {
       ]);
     });
 
-    console.log(table.toString());
+    return table.toString();
   },
 };

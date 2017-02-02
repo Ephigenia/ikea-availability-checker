@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 
 let program = require('commander');
 
@@ -73,11 +74,12 @@ program
               return (!storeIds || storeIds.length === 0) ||
                 storeIds.indexOf(item.buCode) > -1;
             });
-            reporter.show({
+            let str = reporter.show({
               countryCode: countryCode,
               productId: productId,
               results: results,
             });
+            console.log(str);
           }
         );
       });
