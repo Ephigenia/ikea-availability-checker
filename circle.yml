@@ -1,3 +1,7 @@
+machine:
+  node:
+    version: 6.9.4
+
 dependencies:
   cache_directories:
     - node_modules
