@@ -11,6 +11,8 @@ Sometimes there is a high demand on products which then are unavailable in the I
 
 # Usage Examples
 
+The default reports prints the results as a human readable table.
+
 ## Specific product, store & country
 
     source/cli.js stock --store=155 --country=at S49903093
