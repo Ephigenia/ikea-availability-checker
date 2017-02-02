@@ -30,10 +30,12 @@ iows.country = function(countryCode) {
     product: function(productId) {
       let product = {
         id: productId,
-        availability: function(done) {
-          let url = 'http://www.ikea.com/' + encodeURIComponent(countryCode) +
+        url: function() {
+          return 'http://www.ikea.com/' + encodeURIComponent(countryCode) +
             '/iows/catalog/availability/' + encodeURIComponent(productId);
-          debug('Request', url);
+        },
+        availability: function(done) {
+          let url = this.url();
           return request(url, function(err, response) {
             if (err) return done(err);
             if (response.statusCode !== 200) {
