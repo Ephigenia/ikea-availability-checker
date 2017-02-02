@@ -58,3 +58,13 @@ The default reports prints the results as a human readable table.
 │ de      │ 40299687 │              224 │    45 │        HIGH │
 └─────────┴──────────┴──────────────────┴───────┴─────────────┘
 ```
+
+## Plans
+
+- [ ] include store names
+- [ ] include country names
+- [ ] add command for listing stores in countries
+      `cli.js stores de`
+- [ ] add command to list / search for products by id / name using http://www.ikea.com/de/de/catalog/productsaz/0/ where 0 = A and 25 = Z
+- [ ] add command to show/list product details
+      `cli.js product 90205912`
