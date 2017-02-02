@@ -2,7 +2,7 @@
   "author": "Ephigenia M. Eichner",
   "name": "ikea-availability-checker",
   "description": "ikea product in-store availability checker",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "keywords": [
     "availability",
     "ikea",
