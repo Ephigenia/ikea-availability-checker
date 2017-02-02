@@ -1,5 +1,6 @@
-const expect = require('chai').expect;
+'use strict';
 
+const expect = require('chai').expect;
 const iows = require('./iows');
 
 describe('iows', function() {

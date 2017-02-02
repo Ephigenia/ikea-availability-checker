@@ -68,3 +68,8 @@ The default reports prints the results as a human readable table.
 - [ ] add command to list / search for products by id / name using http://www.ikea.com/de/de/catalog/productsaz/0/ where 0 = A and 25 = Z
 - [ ] add command to show/list product details
       `cli.js product 90205912`
+
+## Other Projects & Articles
+
+* https://www.npmjs.com/package/ikea-stock-checker
+* https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52
