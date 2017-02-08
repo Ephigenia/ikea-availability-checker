@@ -34,6 +34,7 @@
     }
   },
   "scripts": {
+    "recommend-next-version": "conventional-recommended-bump --preset angular",
     "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
     "commitmsg": "conventional-changelog-lint -e",
     "lint": "eslint $npm_package_config_paths_source/**/*.js",
@@ -58,6 +59,7 @@
   "devDependencies": {
     "conventional-changelog-cli": "^1.2.0",
     "conventional-changelog-lint": "^1.1.0",
+    "conventional-recommended-bump": "^0.3.0",
     "eslint": "^3.14.1",
     "eslint-config-google": "^0.7.1",
     "husky": "^0.13.1",
