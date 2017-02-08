@@ -65,7 +65,7 @@ The default reports prints the results as a human readable table.
 ## Plans
 
 - [ ] include store names
-- [ ] include country names
+- [X] include country names
 - [ ] add command for listing stores in countries
       `cli.js stores de`
 - [ ] add command to list / search for products by id / name using http://www.ikea.com/de/de/catalog/productsaz/0/ where 0 = A and 25 = Z
