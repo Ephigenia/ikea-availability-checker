@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const reporter = require('./stock-json');
+const reporter = require('./json');
 
 let resultFixture = [
   {

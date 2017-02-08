@@ -49,7 +49,12 @@ program
     let storeIds = program.store;
     let countryCodes = program.country;
 
-    let reporter = require('./lib/reporter/stock-' + program.reporter);
+    let reporter = null;
+    if (program.reporter === 'json') {
+      reporter = require('./lib/reporter/' + program.reporter);
+    } else {
+      reporter = require('./lib/reporter/stock-' + program.reporter);
+    }
 
     // make productIds unique
     productIds.filter(function(cur, i, arr) {
