@@ -2,11 +2,13 @@
 
 let Table = require('cli-table');
 let chalk = require('chalk');
+let countries = require('i18n-iso-countries');
 
 module.exports = {
   show: function(data) {
     let table = new Table({
       head: [
+        'countryCode',
         'country',
         'product',
         'storeId (buCode)',
@@ -25,6 +27,7 @@ module.exports = {
     data.results.forEach(function(item) {
       table.push([
         data.countryCode,
+        countries.getName(data.countryCode, 'en'),
         data.productId,
         item.buCode,
         (function(item) {

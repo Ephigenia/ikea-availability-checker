@@ -20,9 +20,10 @@ describe('stock reporter table', function() {
       productId: 'S49903093',
       results: resultFixture,
     };
-    let report = reporter.show(data);
-    expect(report).to.match(/S49903093/);
-    expect(report).to.match(/999/);
-    expect(report).to.match(/123/);
+    let lines = reporter.show(data).split(/\n/);
+    expect(lines[lines.length - 2]).to.match(/S49903093/);
+    expect(lines[lines.length - 2]).to.match(/Germany/);
+    expect(lines[lines.length - 2]).to.match(/999/);
+    expect(lines[lines.length - 2]).to.match(/123/);
   });
 });
