@@ -38,10 +38,10 @@ iows.country = function(countryCode) {
         },
         availability: function(done) {
           let url = this.url();
-          debug('request', url);
+          debug('GET', url);
           return request(url, function(err, response) {
+            debug('RECEIVED', response.statusCode, response.body.length);
             if (err) return done(err);
-            debug('response', response.statusCode, response.body);
             if (response.statusCode !== 200) {
               let err = new Error(
                 'Invalid HTTP Status code: ' + response.statusCode + ' received'

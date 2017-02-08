@@ -3,6 +3,7 @@
 let Table = require('cli-table');
 let chalk = require('chalk');
 let countries = require('i18n-iso-countries');
+let stores = require('./../stores');
 
 module.exports = {
   show: function(data) {
@@ -12,13 +13,16 @@ module.exports = {
         'country',
         'product',
         'storeId (buCode)',
+        'store',
         'stock',
         'probability',
       ],
       colAligns: [
         null,
         null,
-        'right',
+        null,
+        null,
+        null,
         'right',
         'right',
       ],
@@ -30,6 +34,7 @@ module.exports = {
         countries.getName(data.countryCode, 'en'),
         data.productId,
         item.buCode,
+        stores.findNameByBuCode(item.buCode),
         (function(item) {
           let availability = item.stock.availableStock;
           if (availability >= 5) {
