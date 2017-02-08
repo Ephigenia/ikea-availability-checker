@@ -46,6 +46,13 @@ program
     'de'
   )
   .action(function(productIds) {
+    // filter all dublicate productIds
+    productIds = productIds.filter(function(cur, i, arr) {
+      return arr.indexOf(cur, i + 1) === -1;
+    });
+    console.log(productIds);
+    process.exit();
+
     let storeIds = program.store;
     let countryCodes = program.country;
 
