@@ -4,6 +4,7 @@ let data = require('./../data/stores.json');
 
 module.exports = {
   findNameByBuCode: function(buCode) {
+    buCode = String(buCode);
     let store = data.find(function(store) {
       return store.buCode === buCode;
     });

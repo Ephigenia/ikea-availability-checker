@@ -5,7 +5,7 @@ const reporter = require('./stock-table');
 
 let resultFixture = [
   {
-    buCode: 123,
+    buCode: 387,
     stock: {
       availableStock: 999,
       inStockProbabilityCode: 'HIGH',
@@ -24,6 +24,7 @@ describe('stock reporter table', function() {
     expect(lines[lines.length - 2]).to.match(/S49903093/);
     expect(lines[lines.length - 2]).to.match(/Germany/);
     expect(lines[lines.length - 2]).to.match(/999/);
-    expect(lines[lines.length - 2]).to.match(/123/);
+    expect(lines[lines.length - 2]).to.match(/387/);
+    expect(lines[lines.length - 2]).to.match(/Graz/);
   });
 });

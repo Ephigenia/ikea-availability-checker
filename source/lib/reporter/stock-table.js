@@ -34,7 +34,7 @@ module.exports = {
         countries.getName(data.countryCode, 'en'),
         data.productId,
         item.buCode,
-        stores.findNameByBuCode(item.buCode),
+        stores.findNameByBuCode(item.buCode) || '',
         (function(item) {
           let availability = item.stock.availableStock;
           if (availability >= 5) {
