@@ -61,7 +61,6 @@
     "conventional-changelog-lint": "^1.1.0",
     "conventional-recommended-bump": "^0.3.0",
     "eslint": "^3.16.1",
-    "eslint-config-google": "^0.7.1",
     "husky": "^0.13.1",
     "mocha": "^3.2.0"
   }

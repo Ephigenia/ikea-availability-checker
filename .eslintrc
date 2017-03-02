@@ -1,9 +1,13 @@
 {
   "env": {
     "node": true,
-    "es6": true
+    "mocha": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
   },
   "extends": [
-    "google"
+    "eslint:recommended"
   ]
 }
