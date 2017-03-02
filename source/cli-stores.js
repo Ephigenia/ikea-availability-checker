@@ -2,12 +2,12 @@
 'use strict';
 
 let program = require('commander');
-let cheerio = require('cheerio');
-let pkg = require('./../package.json');
+const cheerio = require('cheerio');
+const pkg = require('./../package.json');
 
-let debug = require('debug')('ikea');
+const debug = require('debug')('ikea');
 
-var unsupportedCountryCodes = [
+const unsupportedCountryCodes = [
   'rs',
   'tr',
   'bg',
