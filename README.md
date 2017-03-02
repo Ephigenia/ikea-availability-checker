@@ -7,6 +7,7 @@ Sometimes there is a high demand on products which then are unavailable in the I
 [![Code Climate](https://codeclimate.com/repos/589349c587faa17fe100582d/badges/3242f2d4075babd0dd9f/gpa.svg)](https://codeclimate.com/repos/589349c587faa17fe100582d/feed)
 [![Issue Count](https://codeclimate.com/repos/589349c587faa17fe100582d/badges/3242f2d4075babd0dd9f/issue_count.svg)](https://codeclimate.com/repos/589349c587faa17fe100582d/feed)
 [![Test Coverage](https://codeclimate.com/repos/589349c587faa17fe100582d/badges/3242f2d4075babd0dd9f/coverage.svg)](https://codeclimate.com/repos/589349c587faa17fe100582d/coverage)
+[![Known Vulnerabilities](https://snyk.io/test/github/ephigenia/ikea-availability-checker/badge.svg)](https://snyk.io/test/github/ephigenia/ikea-availability-checker)
 
 # Installation
 
