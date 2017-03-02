@@ -51,7 +51,7 @@
     "cheerio": "^0.22.0",
     "cli-table": "^0.3.1",
     "commander": "^2.9.0",
-    "debug": "^2.6.0",
+    "debug": "^2.6.1",
     "i18n-iso-countries": "^1.10.0",
     "request": "^2.79.0",
     "xml2js": "^0.4.17"
@@ -60,7 +60,7 @@
     "conventional-changelog-cli": "^1.2.0",
     "conventional-changelog-lint": "^1.1.0",
     "conventional-recommended-bump": "^0.3.0",
-    "eslint": "^3.14.1",
+    "eslint": "^3.16.1",
     "eslint-config-google": "^0.7.1",
     "husky": "^0.13.1",
     "mocha": "^3.2.0"
