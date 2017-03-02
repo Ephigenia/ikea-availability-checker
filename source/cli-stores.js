@@ -124,7 +124,6 @@ program
         case 'ae':
         case 'ca':
         case 'jo':
-        case 'th':
           languageCode = 'en';
           break;
         case 'ch':
