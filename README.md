@@ -4,9 +4,9 @@ Sometimes there is a high demand on products which then are unavailable in the I
 [![NPM Package](https://badge.fury.io/js/ikea-availability-checker.svg)](https://www.npmjs.com/package/ikea-availability-checker)
 [![NPM Downloads](https://img.shields.io/npm/dt/ikea-availability-checker.svg)](https://www.npmjs.com/package/ikea-availability-checker)
 [![CircleCI](https://circleci.com/gh/Ephigenia/ikea-availability-checker.svg?style=svg&circle-token=1907356b3e852337a9e5f96d9b99ef1942c4ffa2)](https://circleci.com/gh/Ephigenia/ikea-availability-checker)
-[![Code Climate](https://codeclimate.com/repos/589349c587faa17fe100582d/badges/3242f2d4075babd0dd9f/gpa.svg)](https://codeclimate.com/repos/589349c587faa17fe100582d/feed)
-[![Issue Count](https://codeclimate.com/repos/589349c587faa17fe100582d/badges/3242f2d4075babd0dd9f/issue_count.svg)](https://codeclimate.com/repos/589349c587faa17fe100582d/feed)
-[![Test Coverage](https://codeclimate.com/repos/589349c587faa17fe100582d/badges/3242f2d4075babd0dd9f/coverage.svg)](https://codeclimate.com/repos/589349c587faa17fe100582d/coverage)
+[![Code Climate](https://codeclimate.com/github/Ephigenia/ikea-availability-checker/badges/gpa.svg)](https://codeclimate.com/github/Ephigenia/ikea-availability-checker)
+[![Issue Count](https://codeclimate.com/github/Ephigenia/ikea-availability-checker/badges/issue_count.svg)](https://codeclimate.com/github/Ephigenia/ikea-availability-checker)
+[![Test Coverage](https://codeclimate.com/github/Ephigenia/ikea-availability-checker/badges/coverage.svg)](https://codeclimate.com/github/Ephigenia/ikea-availability-checker/coverage)
 [![Known Vulnerabilities](https://snyk.io/test/github/ephigenia/ikea-availability-checker/badge.svg)](https://snyk.io/test/github/ephigenia/ikea-availability-checker)
 
 # Installation
