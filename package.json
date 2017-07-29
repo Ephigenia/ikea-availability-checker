@@ -61,7 +61,7 @@
     "commander": "^2.9.0",
     "debug": "^2.6.1",
     "i18n-iso-countries": "^1.10.0",
-    "request": "^2.79.0",
+    "request": "^2.81.0",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
