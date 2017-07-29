@@ -1,3 +1,13 @@
+<a name="0.2.2"></a>
+## [0.2.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.2.1...v0.2.2) (2017-07-29)
+
+
+### Bug Fixes
+
+* removes debug output ([ddcba13](https://github.com/Ephigenia/ikea-availability-checker/commit/ddcba13))
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.2.0...v0.2.1) (2017-03-02)
 
