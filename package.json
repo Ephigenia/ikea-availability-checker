@@ -7,9 +7,14 @@
     "availability",
     "ikea",
     "iows",
-    "stock"
+    "stock",
+    "warehouse"
   ],
   "license": "MIT",
+  "engines": {
+    "node": ">= 6.11.0",
+    "npm": ">= 3.10.0"
+  },
   "maintainer": {
     "name": "Marcel Eichner",
     "email": "marcel.eichner@ephigenia.de"
@@ -28,6 +33,9 @@
     "url": "https://github.com/Ephigenia/ikea-availability-checker/issues"
   },
   "main": "source/cli.js",
+  "bin": {
+    "ikea-availability": "source/cli.js"
+  },
   "config": {
     "paths": {
       "source": "source"
@@ -41,13 +49,13 @@
     "postversion": "git push && git push --tags",
     "preversion": "npm test",
     "test:ci": "mocha --reporter=dot \"$npm_package_config_paths_source/**/*.test.js\"",
-    "test:watch": "mocha --watch \"$npm_package_config_paths_source/**/*.test.js\"",
+    "test:watch": "mocha --watch \"$npm_package_10onfig_paths_source/**/*.test.js\"",
     "test": "mocha \"$npm_package_config_paths_source/**/*.test.js\"",
     "version": "npm run changelog && git add CHANGELOG.md"
   },
   "dependencies": {
-    "chai": "^3.5.0",
-    "chalk": "^1.1.3",
+    "chai": "^4.1.0",
+    "chalk": "^2.0.1",
     "cheerio": "^0.22.0",
     "cli-table": "^0.3.1",
     "commander": "^2.9.0",
@@ -58,10 +66,10 @@
   },
   "devDependencies": {
     "conventional-changelog-cli": "^1.2.0",
-    "conventional-changelog-lint": "^1.1.0",
-    "conventional-recommended-bump": "^0.3.0",
-    "eslint": "^3.16.1",
-    "husky": "^0.13.1",
+    "conventional-changelog-lint": "^2.1.1",
+    "conventional-recommended-bump": "^1.0.1",
+    "eslint": "^4.3.0",
+    "husky": "^0.14.3",
     "mocha": "^3.2.0"
   }
 }
