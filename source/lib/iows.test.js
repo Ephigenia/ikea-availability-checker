@@ -31,10 +31,8 @@ describe('iows', function() {
         it('calls the done callback with an error', function(done) {
           let product = iows.country('xx').product('40299687');
           product.availability(function(err, results) {
-            expect(err).not.to.be.empty;
-            expect(err.response).to.be.defined;
             expect(err.response.statusCode).to.equal(404);
-            expect(results).to.be.empty;
+            expect(results).to.be.undefined;
             done();
           });
         });
