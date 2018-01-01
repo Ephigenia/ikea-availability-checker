@@ -4,6 +4,7 @@
 let program = require('commander');
 const cheerio = require('cheerio');
 const pkg = require('./../package.json');
+const request = require('request');
 
 const debug = require('debug')('ikea');
 
@@ -135,7 +136,6 @@ program
       let url = `http://www.ikea.com/${countryCode}/${languageCode}/catalog/products/${productId}/`;
       debug('GET', url);
 
-      let request = require('request');
       request.get(url, function(err, response) {
         debug('RECEIVED', response.statusCode, response.body.length);
         let $ = cheerio.load(response.body);
