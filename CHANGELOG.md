@@ -1,3 +1,13 @@
+<a name="0.2.3"></a>
+## [0.2.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.2.2...v0.2.3) (2018-01-01)
+
+
+### Bug Fixes
+
+* **stores:** removes dublicate store names & codes ([d877820](https://github.com/Ephigenia/ikea-availability-checker/commit/d877820))
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.2.1...v0.2.2) (2017-07-29)
 

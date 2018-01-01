@@ -1,15 +1,17 @@
 {
   "author": "Ephigenia M. Eichner",
   "name": "ikea-availability-checker",
-  "description": "ikea product in-store availability checker",
-  "version": "0.2.2",
+  "description": "ikea product in-store availability checker and product search",
+  "version": "0.2.3",
   "preferGlobal": true,
   "keywords": [
     "availability",
     "ikea",
     "iows",
     "stock",
-    "warehouse"
+    "warehouse",
+    "product",
+    "search"
   ],
   "license": "MIT",
   "engines": {
