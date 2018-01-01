@@ -3,6 +3,7 @@
   "name": "ikea-availability-checker",
   "description": "ikea product in-store availability checker",
   "version": "0.2.2",
+  "preferGlobal": true,
   "keywords": [
     "availability",
     "ikea",
@@ -42,16 +43,17 @@
     }
   },
   "scripts": {
-    "recommend-next-version": "conventional-recommended-bump --preset angular",
     "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
     "commitmsg": "conventional-changelog-lint -e",
     "lint": "eslint $npm_package_config_paths_source/**/*.js",
     "postversion": "git push && git push --tags",
     "preversion": "npm test",
+    "start": "node $npm_package_main",
     "test:ci": "mocha --reporter=dot \"$npm_package_config_paths_source/**/*.test.js\"",
     "test:watch": "mocha --watch \"$npm_package_10onfig_paths_source/**/*.test.js\"",
     "test": "mocha \"$npm_package_config_paths_source/**/*.test.js\"",
-    "version": "npm run changelog && git add CHANGELOG.md"
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "version:recommend": "conventional-recommended-bump --preset angular"
   },
   "dependencies": {
     "chai": "^4.1.0",

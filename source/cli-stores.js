@@ -139,8 +139,8 @@ program
       request.get(url, function(err, response) {
         debug('RECEIVED', response.statusCode, response.body.length);
         let $ = cheerio.load(response.body);
-        let storeDropdownElm = $('#ikeaStoreNumber1');
-        let stores = storeDropdownElm.find('option')
+        let storeDropdownElm = $('#ikeaStoreNumber1')[0];
+        let stores = $(storeDropdownElm).find('option')
           .map(function(index, elm) {
             return {
               buCode: $(elm).attr('value'),
