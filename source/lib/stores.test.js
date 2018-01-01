@@ -12,4 +12,19 @@ describe('stores', function() {
       expect(stores.findNameByBuCode(387)).to.equal('Graz');
     });
   });
+
+  describe('getLanguageCode', function() {
+    it('returns the countryCode when it’s not in the mapping', () => {
+      expect(stores.getLanguageCode('de')).to.equal('de');
+    });
+    it('returns "de" for "at"', () => {
+      expect(stores.getLanguageCode('at')).to.equal('de');
+    });
+    it('returns "en" for "lio"', () => {
+      expect(stores.getLanguageCode('lio')).to.equal('en');
+    });
+    it('returns "en" for "kr"', () => {
+      expect(stores.getLanguageCode('kr')).to.equal('en');
+    });
+  });
 });

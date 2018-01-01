@@ -51,8 +51,8 @@
     "postversion": "git push && git push --tags",
     "preversion": "npm test",
     "start": "node $npm_package_main",
+    "tdd": "mocha --watch \"$npm_package_config_paths_source/**/*.test.js\"",
     "test:ci": "mocha --reporter=dot \"$npm_package_config_paths_source/**/*.test.js\"",
-    "test:watch": "mocha --watch \"$npm_package_10onfig_paths_source/**/*.test.js\"",
     "test": "mocha \"$npm_package_config_paths_source/**/*.test.js\"",
     "version": "npm run changelog && git add CHANGELOG.md",
     "version:recommend": "conventional-recommended-bump --preset angular"

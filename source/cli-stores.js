@@ -7,24 +7,7 @@ const pkg = require('./../package.json');
 const request = require('request');
 
 const debug = require('debug')('ikea');
-
-const unsupportedCountryCodes = [
-  'bg',
-  'cy',
-  'do',
-  'eg',
-  'es_islas',
-  'gb',
-  'gr',
-  'id',
-  'ie',
-  'in',
-  'is',
-  'lio',
-  'ma',
-  'rs',
-  'tr',
-];
+const stores = require('./lib/stores');
 
 program
   .version(pkg.version)
@@ -56,7 +39,7 @@ program
     // some of the ikea country pages are not supported by the cli script
     // check for such codes and exit before scraping anything
     let foundUnsupportedCountryCodes = countryCodes.reduce(function(list, val) {
-      if (unsupportedCountryCodes.indexOf(val) === -1) return list;
+      if (stores.isSupportedCountryCode(val)) return list;
       list.push(val);
       return list;
     }, []);
@@ -78,7 +61,7 @@ program
       // trying to use a fixed productId of a product which must be popular in
       // all countries
       let productId = '30275861';
-      let languageCode = countryCode;
+      let languageCode = stores.getLanguageCode(countryCode);
 
       switch(countryCode) {
         case 'cz':
@@ -140,7 +123,7 @@ program
         debug('RECEIVED', response.statusCode, response.body.length);
         let $ = cheerio.load(response.body);
         let storeDropdownElm = $('#ikeaStoreNumber1')[0];
-        let stores = $(storeDropdownElm).find('option')
+        let foundStores = $(storeDropdownElm).find('option')
           .map(function(index, elm) {
             return {
               buCode: $(elm).attr('value'),
@@ -149,13 +132,13 @@ program
             };
           })
           .toArray()
-          // filter stores where buCode is 3-letter digit and store name is
+          // filter foundStores where buCode is 3-letter digit and store name is
           // not empty
           .filter(function(store) {
             return store.buCode && store.buCode.match(/^\d+$/) && store.name;
           });
 
-        console.log(reporter.show(stores));
+        console.log(reporter.show(foundStores));
       }); // forEach
     }); // action
   })
