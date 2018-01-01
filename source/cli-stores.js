@@ -8,21 +8,21 @@ const pkg = require('./../package.json');
 const debug = require('debug')('ikea');
 
 const unsupportedCountryCodes = [
-  'rs',
-  'tr',
   'bg',
-  'gr',
-  'gb',
-  'ma',
-  'is',
-  'ie',
+  'cy',
   'do',
   'eg',
-  'cy',
-  'id',
-  'in',
-  'lio',
   'es_islas',
+  'gb',
+  'gr',
+  'id',
+  'ie',
+  'in',
+  'is',
+  'lio',
+  'ma',
+  'rs',
+  'tr',
 ];
 
 program
@@ -103,31 +103,31 @@ program
         case 'se':
           languageCode = 'sv';
           break;
-        case 'th':
-        case 'hk':
-        case 'sg':
         case 'aa':
         case 'au':
+        case 'hk':
         case 'my':
+        case 'sg':
+        case 'th':
           languageCode = 'en';
           productId = '00278856';
           break;
-        case 'tw':
         case 'cn':
+        case 'tw':
           languageCode = 'zh';
           productId = '00278856';
           break;
-        case 'kw':
-        case 'us':
-        case 'sa':
-        case 'qa':
         case 'ae':
         case 'ca':
         case 'jo':
+        case 'kw':
+        case 'qa':
+        case 'sa':
+        case 'us':
           languageCode = 'en';
           break;
-        case 'ch':
         case 'at':
+        case 'ch':
           languageCode = 'de';
           break;
       }
