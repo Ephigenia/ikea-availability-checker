@@ -2,9 +2,7 @@
 'use strict';
 
 let program = require('commander');
-const cheerio = require('cheerio');
 const pkg = require('./../package.json');
-const request = require('request');
 const Fuse = require('fuse.js');
 const Table = require('cli-table');
 
@@ -62,7 +60,7 @@ program
       return fuse.search(query);
     }).then((matches) => {
       debug('found ', matches.length, 'collections that fuzzy-math the query');
-      if (matches.length === 0) {
+      if (!(matches || matches.length)) {
         throw new Error(
           'The given query "' + query +'" with the country code ' +
           '"' + countryCode + '" did not lead to any product groups or ' +
@@ -73,7 +71,7 @@ program
       }
       return matches[0].item;
     }).then(firstCollection => {
-      debug('using first collection', firstCollection.name);
+      debug('using first matched collection', firstCollection.name);
       // when there was something found, scrape the collection page and list
       // all products on that page in a table
       return scraper.getProductsFromCollectionUrl(firstCollection.url);
