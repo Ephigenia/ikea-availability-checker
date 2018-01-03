@@ -142,7 +142,6 @@ The default reports prints the results as a human readable table.
 
 ## Plans
 
-- [ ] json reporter for product search
 - [ ] more tests :D
 - [ ] add command to show/list product details (f.e. `cli.js product 90205912`)
 

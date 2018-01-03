@@ -10,6 +10,8 @@ const stores = require('./lib/stores');
 const debug = require('debug')('ikea');
 const Scraper = require('./lib/scraper');
 
+const VALID_REPORTERS = ['table', 'json'];
+
 program
   .version(pkg.version)
   .arguments('[productName]')
@@ -27,6 +29,14 @@ program
     'availability for all stores in germany',
     'de'
   )
+  .option(
+    '-r, --reporter [reporter]',
+    'define the reporter which should be used to print out the results, ' +
+    'by default the results are shown as human readable table. Alternatively ' +
+    'the results can be shown as plain old JSON.',
+    /^json|table$/,
+    'table'
+  )
   .action(function(query) {
     if (!query || query.length < 1) {
       const err = new Error(`The given query "${query}" is not valid.`);
@@ -38,6 +48,7 @@ program
       console.error(err.message);
       process.exit(1);
     }
+
     const countryCode = program.country;
     const languageCode = stores.getLanguageCode(countryCode);
 
@@ -76,22 +87,34 @@ program
       // all products on that page in a table
       return scraper.getProductsFromCollectionUrl(firstCollection.url);
     }).then((products) => {
-      // show the results as a well printed table
-      const table = new Table({
-        head: [
-          'name',
-          'price',
-          'id',
-          'uri',
-          'imageUri',
-        ],
-        colAligns: [null, 'right', 'right']
-      });
-      // transform the array of objects to array of arrays
-      products.map(product => table.push([
-        product.name, product.price, product.id, product.uri, product.imageUri
-      ]));
-      console.log(table.toString());
+      let report = null;
+      switch (program.reporter) {
+        case 'json': {
+          report = JSON.stringify(products);
+          break;
+        }
+        default:
+        case 'table': {
+          // show the results as a well printed table
+          const table = new Table({
+            head: [
+              'name',
+              'price',
+              'id',
+              'uri',
+              'imageUri',
+            ],
+            colAligns: [null, 'right', 'right']
+          });
+          // transform the array of objects to array of arrays
+          products.map(product => table.push([
+            product.name, product.price, product.id, product.uri, product.imageUri
+          ]));
+          report = table.toString();
+          break;
+        }
+      }
+      console.log(report);
       process.exit(0);
     }).catch(err => {
       console.error(err.message);
