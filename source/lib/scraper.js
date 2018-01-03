@@ -21,6 +21,13 @@ module.exports = class Scraper {
         if (err) {
           reject(new Error(err));
         }
+        // non successfull response status code
+        if (!(response.statusCode >= 200 && response.statusCode < 300)) {
+          err = new Error(`Unexpected response status code ${response.statusCode}`);
+          err.response = response;
+          reject(err);
+        }
+        // resolve with the response
         resolve(response);
       });
     });

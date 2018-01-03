@@ -30,15 +30,17 @@ program
     'de'
   )
   .action(function(query) {
+    if (!query || query.length < 1) {
+      const err = new Error(`The given query "${query}" is not valid.`);
+      console.error(err.message);
+      process.exit(1);
+    }
     if (!stores.isSupportedCountryCode(program.country)) {
       const err = new Error(`The given country code "${program.country}" is not supported.`);
       console.error(err.message);
       process.exit(1);
     }
-    // @TODO validate query string, min length = 1
     const countryCode = program.country;
-    // @TODO determine language code from counrtycode using the list from
-    // cli-stores
     const languageCode = stores.getLanguageCode(countryCode);
 
     // the url contains a integer value which is the first letter of the search
@@ -49,18 +51,17 @@ program
     const scraper = new Scraper(countryCode, languageCode);
 
     scraper.getProductCollections(letterCode).then((productCollections) => {
+      debug('found ' + productCollections.length + ' possible productcollections');
       // search the query in the product collection list using fuse.js which
       // provides fuzzy search
-      var opts = {
+      const fuse = new Fuse(productCollections, {
         keys: ['name'],
         shouldSort: true,
         includeScore: true,
-      }
-      console.log(productCollections);
-      const fuse = new Fuse(productCollections, opts);
+      });
       return fuse.search(query);
     }).then((matches) => {
-      debug('found ' + matches.length + ' matches');
+      debug('found ', matches.length, 'collections that fuzzy-math the query');
       if (matches.length === 0) {
         throw new Error(
           'The given query "' + query +'" with the country code ' +
@@ -72,6 +73,7 @@ program
       }
       return matches[0].item;
     }).then(firstCollection => {
+      debug('using first collection', firstCollection.name);
       // when there was something found, scrape the collection page and list
       // all products on that page in a table
       return scraper.getProductsFromCollectionUrl(firstCollection.url);

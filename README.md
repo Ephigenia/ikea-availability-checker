@@ -108,17 +108,45 @@ The default reports prints the results as a human readable table.
 └─────────────┴─────────┴───────────┴──────────────────┴────────────────┴───────┴─────────────┘
 ```
 
+### Search for products / collections
+
+    source/cli.js search --country=us charm
+
+```
+┌────────────────────────────────────────┬────────┬──────────┬───────────────────────────────────┬────────────────────────────────────┐
+│ name                                   │  price │       id │ uri                               │ imageUri                           │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ HJÄRTEVÄN crib duvet cover/pillowcase  │  $4.99 │ 40290205 │ /us/en/catalog/products/40290205/ │ /PIAimages/0379199_PE554355_S3.JPG │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ CHARMTROLL crib duvet cover/pillowcase │  $7.99 │ 90289997 │ /us/en/catalog/products/90289997/ │ /PIAimages/0379195_PE554356_S3.JPG │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ ÄLSKAD 4-piece bedlinen set for crib   │ $24.99 │ 70290181 │ /us/en/catalog/products/70290181/ │ /PIAimages/0376277_PE553765_S3.JPG │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ CHARMTROLL bed canopy                  │ $16.99 │ 80303871 │ /us/en/catalog/products/80303871/ │ /PIAimages/0369813_PE553050_S3.JPG │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ CHARMTROLL wearable blanket            │ $14.99 │ 00290226 │ /us/en/catalog/products/00290226/ │ /PIAimages/0283609_PE421037_S3.JPG │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ CHARMTROLL wearable blanket            │ $19.99 │ 60290228 │ /us/en/catalog/products/60290228/ │ /PIAimages/0283610_PE421036_S3.JPG │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ CHARMTROLL comforter/blanket           │ $14.99 │ 80296088 │ /us/en/catalog/products/80296088/ │ /PIAimages/0283603_PE421028_S3.JPG │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ ÄLSKAD baby towel with hood            │  $7.99 │ 30290201 │ /us/en/catalog/products/30290201/ │ /PIAimages/0283475_PE420987_S3.JPG │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ CHARMTROLL squeaky toy                 │  $3.99 │ 60294660 │ /us/en/catalog/products/60294660/ │ /PIAimages/0292364_PE425193_S3.JPG │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ LEN crib skirt                         │  $6.99 │ 80295913 │ /us/en/catalog/products/80295913/ │ /PIAimages/0292469_PE425250_S3.JPG │
+├────────────────────────────────────────┼────────┼──────────┼───────────────────────────────────┼────────────────────────────────────┤
+│ ÄLSKAD baby blanket                    │  $9.99 │ 60290186 │ /us/en/catalog/products/60290186/ │ /PIAimages/0283473_PE420985_S3.JPG │
+└────────────────────────────────────────┴────────┴──────────┴───────────────────────────────────┴────────────────────────────────────┘
+```
+
 ## Plans
 
-- [x] include store names
-- [X] include country names
-- [x] add command for listing stores in countries
-      `cli.js stores de`
-- [ ] add command to list / search for products by id / name using http://www.ikea.com/de/de/catalog/productsaz/0/ where 0 = A and 25 = Z
-- [ ] add command to show/list product details
-      `cli.js product 90205912`
+- [ ] json reporter for product search
+- [ ] more tests :D
+- [ ] add command to show/list product details (f.e. `cli.js product 90205912`)
 
 ## Other Projects & Articles
 
-* https://www.npmjs.com/package/ikea-stock-checker
-* https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52
+* npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
+* [API of the Day: Checking IKEA Availability and Warehouse Locations]( https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
