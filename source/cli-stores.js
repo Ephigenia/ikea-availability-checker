@@ -64,28 +64,14 @@ program
       let languageCode = stores.getLanguageCode(countryCode);
 
       switch(countryCode) {
-        case 'cz':
-          languageCode = 'cs';
-          break;
-        case 'dk':
-          languageCode = 'da';
-          break;
-        case 'lio':
-          languageCode = 'en';
-          break;
         case 'bg':
           productId = '00278856';
           break;
         case 'jp':
-          languageCode = 'ja';
           productId = 'S79197598';
           break;
         case 'kr':
-          languageCode = 'en';
           productId = 'S79197598';
-          break;
-        case 'se':
-          languageCode = 'sv';
           break;
         case 'aa':
         case 'au':
@@ -100,19 +86,6 @@ program
         case 'tw':
           languageCode = 'zh';
           productId = '00278856';
-          break;
-        case 'ae':
-        case 'ca':
-        case 'jo':
-        case 'kw':
-        case 'qa':
-        case 'sa':
-        case 'us':
-          languageCode = 'en';
-          break;
-        case 'at':
-        case 'ch':
-          languageCode = 'de';
           break;
       }
 
