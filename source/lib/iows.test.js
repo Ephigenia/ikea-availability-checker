@@ -27,6 +27,9 @@ describe('iows', function() {
     }); // url
 
     describe('availability', function() {
+      // increase timeout cause there are HTTP requests made which sometimes
+      // take some time
+      this.timeout(10000);
       describe('failed', function() {
         it('calls the done callback with an error', function(done) {
           let product = iows.country('xx').product('40299687');
