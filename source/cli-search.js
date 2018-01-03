@@ -46,13 +46,6 @@ program
     const firstLetter = query.substr(0, 1).toLowerCase();
     const letterCode = firstLetter.charCodeAt(0) - 97;
 
-    // @TODO error when letterCode is not betewen 0 and 25
-    if (letterCode < 0 || letterCode > 25) {
-      const err = new Error(`The given query starts with an invalid character and cannot be used.`);
-      console.error(err.message);
-      process.exit(1);
-    }
-
     const scraper = new Scraper(countryCode, languageCode);
 
     scraper.getProductCollections(letterCode).then((productCollections) => {
