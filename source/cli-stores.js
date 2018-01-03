@@ -45,9 +45,11 @@ program
     }, []);
     if (foundUnsupportedCountryCodes.length > 0) {
       foundUnsupportedCountryCodes.forEach(function(countryCode) {
-        console.error('country "%s" not supported', countryCode);
+        const err = new Error(`The given country code "${countryCode}" is not supported.`);
+        console.error(err.message);
+        process.exit(1);
       });
-      process.exit(0);
+      process.exit(1);
     }
 
     let reporter = null;
