@@ -1,3 +1,14 @@
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.2.3...v0.3.0) (2018-01-03)
+
+
+### Features
+
+* **search:** adds json reporter for product search ([6493652](https://github.com/Ephigenia/ikea-availability-checker/commit/6493652))
+* **search:** support for other than de countries ([bb3e59e](https://github.com/Ephigenia/ikea-availability-checker/commit/bb3e59e))
+
+
+
 <a name="0.2.3"></a>
 ## [0.2.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.2.2...v0.2.3) (2018-01-01)
 
@@ -5,6 +16,11 @@
 ### Bug Fixes
 
 * **stores:** removes dublicate store names & codes ([d877820](https://github.com/Ephigenia/ikea-availability-checker/commit/d877820))
+
+
+### Features
+
+* **search:** adds product search with query ([ce49f94](https://github.com/Ephigenia/ikea-availability-checker/commit/ce49f94))
 
 
 
