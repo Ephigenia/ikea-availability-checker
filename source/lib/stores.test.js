@@ -23,8 +23,8 @@ describe('stores', function() {
     it('returns "en" for "lio"', () => {
       expect(stores.getLanguageCode('lio')).to.equal('en');
     });
-    it('returns "en" for "kr"', () => {
-      expect(stores.getLanguageCode('kr')).to.equal('en');
+    it('returns "ko" for "kr"', () => {
+      expect(stores.getLanguageCode('kr')).to.equal('ko');
     });
   });
 });

@@ -30,7 +30,7 @@ module.exports = {
         languageCode = 'ja';
         break;
       case 'kr':
-        languageCode = 'en';
+        languageCode = 'ko';
         break;
       case 'se':
         languageCode = 'sv';
