@@ -1,17 +1,62 @@
-machine:
-  node:
-    version: 6.9.4
+version: 2
 
-dependencies:
-  cache_directories:
-    - node_modules
+references:
+  base: &base
+    docker:
+      - image: circleci/node:8.11.3
+    working_directory: ~/repo
+  workspace: &workspace
+    attach_workspace:
+      at: ~/repo
 
-test:
-  override:
-    - npm run test:ci
-  post:
-    # always show outdated packages to be able to see at which point
-    # the packages got outdated
-    - npm outdated --depth 0
-    # also lint the code but be gracefull with lint errors
-    - npm run lint || true
+jobs:
+
+  setup:
+    <<: *base
+    steps:
+      - checkout
+      - restore_cache:
+          name: restore cached npm packages
+          key: npm-packages-{{ checksum "package.json" }}
+      - run: npm config set progress false && npm config set depth 0
+      - run: npm install
+      - save_cache:
+          key: node-modules-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules/
+      - persist_to_workspace:
+          root: ~/repo
+          paths: ./*
+
+  test:
+    <<: *base
+    steps:
+      - *workspace
+      - run: npm run test:ci
+
+  test-outdated:
+    <<: *base
+    steps:
+      - *workspace
+      - run: npm run -s test:outdated
+
+  lint:
+    <<: *base
+    steps:
+      - *workspace
+      - run: npm run -s lint
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - setup
+      - test:
+          requires:
+            - setup
+      - test-outdated:
+          requires:
+            - setup
+      - lint:
+          requires:
+            - setup
