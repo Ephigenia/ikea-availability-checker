@@ -73,7 +73,7 @@ program
           productId = 'S79197598';
           break;
         case 'kr':
-          productId = 'S79197598';
+          productId = '90251046';
           break;
         case 'aa':
         case 'au':
