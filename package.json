@@ -51,14 +51,14 @@
     "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
     "changelog:preview": "conventional-changelog --output-unreleased -p angular",
     "commitmsg": "conventional-changelog-lint -e",
-    "lint": "eslint $npm_package_config_paths_source/**/*.js",
     "lint": "eslint --fix $npm_package_config_paths_source/**/*.js",
     "postversion": "git push && git push --tags",
     "preversion": "npm test",
     "start": "node $npm_package_main",
     "tdd": "mocha --watch \"$npm_package_config_paths_source/**/*.test.js\"",
     "test": "mocha \"$npm_package_config_paths_source/**/*.test.js\"",
-    "test:ci": "mocha --reporter=dot \"$npm_package_config_paths_source/**/*.test.js\"",
+    "test:ci": "npm run -s test",
+    "test:report-junit": "mocha --reporter=mocha-junit-reporter --reporter-options mochaFile=reports/junit.xml \"$npm_package_config_paths_source/**/*.test.js\"",
     "test:outdated": "npm-check --ignore $npm_package_npmCheck_ignore",
     "update": "npm-check --update",
     "version": "npm run changelog && git add CHANGELOG.md",
@@ -83,6 +83,7 @@
     "eslint": "^5.0.1",
     "husky": "^0.14.3",
     "mocha": "^5.2.0",
+    "mocha-junit-reporter": "^1.17.0",
     "npm-check": "^5.7.1"
   }
 }

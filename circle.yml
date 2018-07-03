@@ -32,7 +32,13 @@ jobs:
     <<: *base
     steps:
       - *workspace
+      - run: npm run test
       - run: npm run test:ci
+      - store_test_results:
+          path: reports
+      - store_artifacts:
+          path: reports
+
 
   test-outdated:
     <<: *base
