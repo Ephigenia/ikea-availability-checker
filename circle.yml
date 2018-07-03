@@ -32,8 +32,8 @@ jobs:
     <<: *base
     steps:
       - *workspace
-      - run: npm run test
       - run: npm run test:ci
+      - run: npm run test:report-junit
       - store_test_results:
           path: reports
       - store_artifacts:

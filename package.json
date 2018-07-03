@@ -2,7 +2,7 @@
   "author": "Ephigenia M. Eichner",
   "name": "ikea-availability-checker",
   "description": "ikea product in-store availability checker and product search",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "preferGlobal": true,
   "keywords": [
     "availability",
@@ -45,7 +45,7 @@
     }
   },
   "npmCheck": {
-    "ignore": "husky"
+    "ignore": "{husky,mocha-junit-reporter}"
   },
   "scripts": {
     "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
