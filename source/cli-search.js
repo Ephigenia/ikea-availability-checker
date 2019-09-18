@@ -71,7 +71,7 @@ program
       return fuse.search(query);
     }).then((matches) => {
       debug('found ', matches.length, 'collections that fuzzy-math the query');
-      if (!(matches || matches.length)) {
+      if (!matches || !matches.length) {
         throw new Error(
           'The given query "' + query +'" with the country code ' +
           '"' + countryCode + '" did not lead to any product groups or ' +
