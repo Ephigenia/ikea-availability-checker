@@ -4,6 +4,29 @@ let Table = require('cli-table');
 let chalk = require('chalk');
 let countries = require('i18n-iso-countries');
 
+function availabilityColor(val) {
+  if (val >= 5) {
+    return chalk.green;
+  } else if (val >= 1) {
+    return chalk.yellow;
+  } else {
+    return chalk.red;
+  }
+}
+
+function probabilityColor(val) {
+  switch (val) {
+    case 'HIGH':
+      return chalk.green;
+    case 'MEDIUM':
+      return chalk.yellow;
+    case 'LOW':
+      return chalk.red;
+    default:
+      return (v) => v;
+  }
+}
+
 module.exports = {
   createReport: function(data) {
     let table = new Table({
@@ -26,29 +49,6 @@ module.exports = {
         'right',
       ],
     });
-
-    function availabilityColor(val) {
-      if (val >= 5) {
-        return chalk.green;
-      } else if (val >= 1) {
-        return chalk.yellow;
-      } else {
-        return chalk.red;
-      }
-    }
-
-    function probabilityColor(val) {
-      switch (val) {
-        case 'HIGH':
-          return chalk.green;
-        case 'MEDIUM':
-          return chalk.yellow;
-        case 'LOW':
-          return chalk.red;
-        default:
-          return (v) => v;
-      }
-    }
 
     data
       .map(({ productId, store, availability }) => [

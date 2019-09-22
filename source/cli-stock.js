@@ -82,19 +82,16 @@ program
        * @param {import('./lib/stores').Store} row.store
        */
       ({ store, productId }) => {
-      const languageCode = storesData.getLanguageCode(countryCode);
-      const iows = new IOWS2(countryCode, languageCode);
+      const iows = new IOWS2(countryCode);
       return iows.getStoreProductAvailability(store.buCode, productId)
-        .then((availability) => {
-          return {
-            productId,
-            store,
-            availability
-          }
-        })
+        .then((availability) => ({
+          productId,
+          store,
+          availability
+        }))
     })
 
     Promise.all(promises)
-      .then(results => console.log(reporter.createReport(results)));
+      .then(results => console.log(reporter.createReport(results)))
   })
   .parse(process.argv);

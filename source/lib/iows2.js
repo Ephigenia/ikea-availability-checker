@@ -3,6 +3,7 @@
 const debug = require('debug')('iows');
 const request = require('request');
 const util = require('util');
+const storesData = require('./stores');
 
 
 /**
@@ -14,12 +15,24 @@ const util = require('util');
 
 class IOWS2 {
 
-  constructor(countryCode, languageCode) {
+  /**
+   * @param {String} countryCode - ISO 3166-1 alpha-2 country code
+   * @param {String} [languageCode] - ISO 3166-1 alpha-2 country code
+   */
+  constructor(countryCode, languageCode = '') {
     this.countryCode = countryCode;
-    this.languageCode = languageCode;
+    this.languageCode = languageCode || storesData.getLanguageCode(countryCode);
     this.baseUrl = 'https://iows.ikea.com/retail/iows';
   }
 
+  /**
+   *
+   * @param {String} url
+   * @param {Options<String, any>} params
+   * @param {Options<String, any>} params.headers
+   * @return {Promise<Object, any>}
+   * @throws {Error}
+   */
   async fetch(url, params = {}) {
     params.headers = Object.assign({}, params.headers, {
       'Accept': 'application/vnd.ikea.iows+json;version=1.0',
@@ -30,14 +43,12 @@ class IOWS2 {
     return util.promisify(request)(url, params)
       .then((response) => {
         debug('RECEIVED', response.statusCode, response.body.length);
-        if (response.statusCode === 200) {
-          return JSON.parse(response.body);
+        if (response.statusCode !== 200) {
+          const err = new Error(`Unexpected http status code ${response.statusCode}`);
+          err.response = response;
+          throw err;
         }
-        const err = new Error(
-          'Invalid HTTP Status code: ' + response.statusCode + ' received'
-        );
-        err.response = response;
-        throw err;
+        return JSON.parse(response.body);
       });
   }
 
@@ -71,6 +82,19 @@ class IOWS2 {
       encodeURIComponent(productId)
     ].join('/');
     return this.fetch(url)
+      .catch(err => {
+        switch (err.response.statusCode) {
+          case 410:
+          case 404:
+            err.message =
+              `Unable to receive product ${productId} availability for store `+
+              `${buCode} status code: ${err.response.statusCode}.`
+            break;
+          default:
+            break;
+        }
+        throw err;
+      })
       .then(data => IOWS2.parseAvailabilityFromResponseData(data)
     );
   }
