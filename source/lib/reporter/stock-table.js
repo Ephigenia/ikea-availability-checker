@@ -3,10 +3,9 @@
 let Table = require('cli-table');
 let chalk = require('chalk');
 let countries = require('i18n-iso-countries');
-let stores = require('./../stores');
 
 module.exports = {
-  show: function(data) {
+  createReport: function(data) {
     let table = new Table({
       head: [
         'countryCode',
@@ -28,39 +27,40 @@ module.exports = {
       ],
     });
 
-    data.results.forEach(function(item) {
-      table.push([
-        data.countryCode,
-        countries.getName(data.countryCode, 'en'),
-        data.productId,
-        item.buCode,
-        stores.findNameByBuCode(item.buCode) || '',
-        (function(item) {
-          let availability = item.stock.availableStock;
-          if (availability >= 5) {
-            availability = chalk.green(availability);
-          } else if (availability >= 1) {
-            availability = chalk.yellow(availability);
-          } else {
-            availability = chalk.red(availability);
-          }
-          return availability;
-        })(item),
-        (function(item) {
-          let propability = item.stock.inStockProbabilityCode;
-          switch (propability) {
-            case 'HIGH':
-              return chalk.green(propability);
-            case 'MEDIUM':
-              return chalk.yellow(propability);
-            case 'LOW':
-              return chalk.red(propability);
-            default:
-              return propability;
-          }
-        })(item),
-      ]);
-    });
+    function availabilityColor(val) {
+      if (val >= 5) {
+        return chalk.green;
+      } else if (val >= 1) {
+        return chalk.yellow;
+      } else {
+        return chalk.red;
+      }
+    }
+
+    function probabilityColor(val) {
+      switch (val) {
+        case 'HIGH':
+          return chalk.green;
+        case 'MEDIUM':
+          return chalk.yellow;
+        case 'LOW':
+          return chalk.red;
+        default:
+          return (v) => v;
+      }
+    }
+
+    data
+      .map(({ productId, store, availability }) => [
+        store.countryCode,
+        countries.getName(store.countryCode, 'en'),
+        productId,
+        store.buCode,
+        store.name,
+        availabilityColor(availability.stock)(availability.stock),
+        probabilityColor(availability.probability)(availability.probability),
+      ])
+      .forEach(row => table.push(row));
 
     return table.toString();
   },

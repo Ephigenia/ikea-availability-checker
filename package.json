@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": ">= 6.11.0",
+    "node": ">= 10.16.3",
     "npm": ">= 3.10.0"
   },
   "maintainer": {

@@ -2,9 +2,18 @@
 'use strict';
 
 let program = require('commander');
+const storesData = require('./lib/stores');
 
 let pkg = require('./../package.json');
-let iows = require('./lib/iows.js');
+let IOWS2 = require('./lib/iows2.js');
+
+function optionalSplitOptionCSV(val) {
+  return val.split(/\s*[,]+\s*/)
+    // trim all values
+    .map(val => val.trim())
+    // make unique
+    .filter((cur, i, arr) => arr.indexOf(cur, i + 1) === -1);
+}
 
 program
   .version(pkg.version)
@@ -15,14 +24,11 @@ program
     'results.'
   )
   .option(
-    '-s, --store [storeIds]',
-    'optional single or multiple comma seperated ikea store ids (bu-codes) ' +
-    'where of which the product stock availability should get checked',
-    function(val) {
-      return val.split(/\s*[,]+\s*/).filter(function(cur, i, arr) {
-        return arr.indexOf(cur, i + 1) === -1;
-      });
-    }
+    '-c, --country [countryCode]',
+    'optional single country id or multiple country ids separated by comma, ' +
+    'default value is "de" which would list the availability for all stores ' +
+    'in germany',
+    'de'
   )
   .option(
     '-r, --reporter [reporter]',
@@ -34,25 +40,26 @@ program
     'table'
   )
   .option(
-    '-c, --country [countryCodes ...]',
-    'optional single country id or multiple country ids separated by comma, ' +
-    'default value is "de" which would list the availability for all stores ' +
-    'in germany',
-    function(val) {
-      return val.split(/\s*[,]+\s*/).filter(function(cur, i, arr) {
-        return arr.indexOf(cur, i + 1) === -1;
-      });
-    },
-    'de'
+    '-s, --store [storeIds ...]',
+    'optional single or multiple comma seperated ikea store ids (bu-codes) ' +
+    'where of which the product stock availability should get checked',
+    optionalSplitOptionCSV
   )
-  .action(function(productIds) {
+  .action((productIds = []) => {
     // filter all dublicate productIds
+    // @var {Array<String>}
     productIds = productIds.filter(function(cur, i, arr) {
       return arr.indexOf(cur, i + 1) === -1;
     });
 
-    let storeIds = program.store;
-    let countryCodes = program.country;
+    // TODO when empty countryCodes, use countries derived from store id and
+    // store
+    // @var {String}
+    const countryCode = program.country;
+    let stores = storesData.getStoresById(program.store);
+    if (!program.store) {
+      stores = storesData.getStoresForCountry(countryCode)
+    }
 
     let reporter = null;
     if (program.reporter === 'json') {
@@ -61,38 +68,33 @@ program
       reporter = require('./lib/reporter/stock-' + program.reporter);
     }
 
-    // make productIds unique
-    productIds.filter(function(cur, i, arr) {
-      return arr.indexOf(cur, i + 1) === -1;
+    // merge productids and stores list together to one array to be able
+    // to make one request per array item
+    const data = productIds.map(productId => {
+      return stores.map(store => ({ productId, store }))
     });
+    const flat = [].concat.apply([], data);
 
-    productIds.forEach(function(productId) {
-      // @TODO use country filtering option
-      countryCodes.forEach(function(countryCode) {
-        iows.country(countryCode).product(productId).availability(
-          function(err, results) {
-            if (err) {
-              if (err.response.statusCode === 404) {
-                console.error('Product with id %s not found.', productId);
-                return;
-              }
-              throw err;
-            }
-            // remove those results which are not whitelisted in the store ids
-            // array
-            results = results.filter(function(item) {
-              return (!storeIds || storeIds.length === 0) ||
-                storeIds.indexOf(item.buCode) > -1;
-            });
-            let str = reporter.show({
-              countryCode: countryCode,
-              productId: productId,
-              results: results,
-            });
-            console.log(str);
+    const promises = flat.map(
+      /**
+       * @param {Object} row
+       * @param {String} row.productId
+       * @param {import('./lib/stores').Store} row.store
+       */
+      ({ store, productId }) => {
+      const languageCode = storesData.getLanguageCode(countryCode);
+      const iows = new IOWS2(countryCode, languageCode);
+      return iows.getStoreProductAvailability(store.buCode, productId)
+        .then((availability) => {
+          return {
+            productId,
+            store,
+            availability
           }
-        );
-      });
-    });
+        })
+    })
+
+    Promise.all(promises)
+      .then(results => console.log(reporter.createReport(results)));
   })
   .parse(process.argv);
