@@ -36,6 +36,15 @@ module.exports = {
   },
 
   /**
+   * @param {String} query
+   * @returns {Array<Store>} one or multiple stores as array
+   */
+  getStoresMatchingQuery: function(query) {
+    const regexp = new RegExp(query.toLowerCase(), 'i');
+    return data.filter(d => regexp.test(d.name));
+  },
+
+  /**
    * @param {Array<String>} storeIds - array of store ids where the store should
    *   get returned
    * @returns {Array<Store>} one or no store matchting the given ids

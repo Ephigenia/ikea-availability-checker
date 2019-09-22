@@ -8,7 +8,12 @@ let pkg = require('./../package.json');
 let IOWS2 = require('./lib/iows2.js');
 
 function optionalSplitOptionCSV(val) {
-  return val.split(/\s*[,]+\s*/)
+  const seperator = ',';
+  const splitRegexp = new RegExp('/\s*[' + seperator + ']+\s*/');
+  if (val.indexOf(seperator) === -1) {
+    return val;
+  }
+  return val.split(splitRegexp)
     // trim all values
     .map(val => val.trim())
     // make unique
@@ -39,11 +44,13 @@ program
     /^json|table$/,
     'table'
   )
+  // TODO add option where name of store is matched against --store /Berlin/
   .option(
-    '-s, --store [storeIds ...]',
+    '-s, --store [storeIds ...|regexp]',
     'optional single or multiple comma seperated ikea store ids (bu-codes) ' +
     'where of which the product stock availability should get checked',
-    optionalSplitOptionCSV
+    optionalSplitOptionCSV,
+    ''
   )
   .action((productIds = []) => {
     // filter all dublicate productIds
@@ -56,9 +63,13 @@ program
     // store
     // @var {String}
     const countryCode = program.country;
-    let stores = storesData.getStoresById(program.store);
+    let stores = [];
     if (!program.store) {
       stores = storesData.getStoresForCountry(countryCode)
+    } else if (typeof program.store === 'string') {
+      stores = storesData.getStoresMatchingQuery(program.store);
+    } else {
+      stores = storesData.getStoresById(program.store);
     }
 
     let reporter = null;
