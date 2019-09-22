@@ -37,11 +37,15 @@ module.exports = {
 
   /**
    * @param {String} query
+   * @param {String} [countryCode] - optional additional countryCode that must
+   *  match
    * @returns {Array<Store>} one or multiple stores as array
    */
-  getStoresMatchingQuery: function(query) {
+  getStoresMatchingQuery: function(query, countryCode) {
     const regexp = new RegExp(query.toLowerCase(), 'i');
-    return data.filter(d => regexp.test(d.name));
+    return data
+      .filter(d => regexp.test(d.name))
+      .filter(d => countryCode && d.countryCode === countryCode);
   },
 
   /**

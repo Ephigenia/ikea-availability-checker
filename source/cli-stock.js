@@ -67,7 +67,7 @@ program
     if (!program.store) {
       stores = storesData.getStoresForCountry(countryCode)
     } else if (typeof program.store === 'string') {
-      stores = storesData.getStoresMatchingQuery(program.store);
+      stores = storesData.getStoresMatchingQuery(program.store, countryCode);
     } else {
       stores = storesData.getStoresById(program.store);
     }
