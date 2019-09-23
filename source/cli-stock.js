@@ -95,12 +95,20 @@ program
       ({ store, productId }) => {
       const iows = new IOWS2(countryCode);
       return iows.getStoreProductAvailability(store.buCode, productId)
+        .catch(err => {
+          // when product could not be found return an empty availability
+          if (err.response.statusCode === 404) {
+            return { stock: 0, probability: '' };
+          }
+          throw err;
+        })
         .then((availability) => ({
           productId,
           store,
           availability
-        }))
-    })
+        })
+      )
+    });
 
     Promise.all(promises)
       .then(results => console.log(reporter.createReport(results)))

@@ -40,7 +40,8 @@ class IOWS2 {
       'Consumer': 'MAMMUT',
     });
     debug('GET', url, params);
-    return util.promisify(request)(url, params)
+    const p = util.promisify(request);
+    return p(url, params)
       .then((response) => {
         debug('RECEIVED', response.statusCode, response.body.length);
         if (response.statusCode !== 200) {
