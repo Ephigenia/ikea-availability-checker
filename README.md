@@ -145,6 +145,12 @@ The default reports prints the results as a human readable table.
 - [ ] more tests :D
 - [ ] add command to show/list product details (f.e. `cli.js product 90205912`)
 
+## DEBUG
+
+Set the `DEBUG` environment variable to show more debugging output:
+
+    DEBUG=iows* npm run start
+
 ## Other Projects & Articles
 
 * npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
