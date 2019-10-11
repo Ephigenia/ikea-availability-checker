@@ -5,24 +5,28 @@ const request = require('request');
 const util = require('util');
 const storesData = require('./stores');
 
+const BASE_URL_DEFAULT = 'https://iows.ikea.com/retail/iows';
 
 /**
  * @typedef {Object} ProductAvailability
+ * @property {Date} createdAt - instance of Date when the data was created
  * @property {String} probability - probability of the product beeing
  *   in store, LOW, MEDIUM, HIGH
  * @property {Number} stock - number of items currently in stock
  */
 
+/**
+ * @class IOWS2
+ */
 class IOWS2 {
-
   /**
-   * @param {String} countryCode - ISO 3166-1 alpha-2 country code
-   * @param {String} [languageCode] - ISO 3166-1 alpha-2 country code
+   * @param {String} countryCode - required ISO 3166-1 alpha-2 country code
+   * @param {String} [languageCode] - optional ISO 3166-1 alpha-2 country code
    */
   constructor(countryCode, languageCode = '') {
-    this.countryCode = countryCode;
-    this.languageCode = languageCode || storesData.getLanguageCode(countryCode);
-    this.baseUrl = 'https://iows.ikea.com/retail/iows';
+    this.countryCode = String(countryCode).toLocaleLowerCase();
+    this.languageCode = (languageCode || storesData.getLanguageCode(countryCode)).toLowerCase();
+    this.baseUrl = BASE_URL_DEFAULT;
   }
 
   /**
@@ -61,6 +65,7 @@ class IOWS2 {
     const stock = data.StockAvailability.RetailItemAvailability.AvailableStock.$;
     const probability = data.StockAvailability.RetailItemAvailability.InStockProbabilityCode.$;
     return {
+      createdAt: new Date(),
       probability,
       stock,
     };

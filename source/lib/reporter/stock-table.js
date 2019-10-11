@@ -31,6 +31,7 @@ module.exports = {
   createReport: function(data) {
     let table = new Table({
       head: [
+        'date',
         'countryCode',
         'country',
         'product',
@@ -45,6 +46,7 @@ module.exports = {
         null,
         null,
         null,
+        null,
         'right',
         'right',
       ],
@@ -52,6 +54,7 @@ module.exports = {
 
     data
       .map(({ productId, store, availability }) => [
+        availability.createdAt.toISOString(),
         store.countryCode,
         countries.getName(store.countryCode, 'en'),
         productId,

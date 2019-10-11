@@ -8,6 +8,7 @@ module.exports = {
     const str = data
       .map(({ productId, store, availability }) => {
         return [
+          availability.createdAt.toISOString(),
           productId,
           store.countryCode,
           countries.getName(store.countryCode, 'en'),
