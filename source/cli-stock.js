@@ -41,7 +41,7 @@ program
     'by default the results are shown as human readable tables grouped by ' +
     'country and product. Alternatively the results can be shown as plain ' +
     'JSON objects for further processing.',
-    /^json|table$/,
+    /^json|table|csv$/,
     'table'
   )
   // TODO add option where name of store is matched against --store /Berlin/
