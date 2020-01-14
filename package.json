@@ -44,13 +44,17 @@
       "source": "source"
     }
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "conventional-changelog-lint -e"
+    }
+  },
   "npmCheck": {
     "ignore": "{husky,mocha-junit-reporter}"
   },
   "scripts": {
     "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
     "changelog:preview": "conventional-changelog --output-unreleased -p angular",
-    "commitmsg": "conventional-changelog-lint -e",
     "lint": "eslint --fix $npm_package_config_paths_source/**/*.js",
     "postversion": "git push && git push --tags",
     "preversion": "npm test",
