@@ -66,25 +66,25 @@
   },
   "dependencies": {
     "chai": "^4.2.0",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "cheerio": "^0.22.0",
     "cli-table": "^0.3.1",
-    "commander": "^3.0.2",
-    "csv-string": "^3.1.6",
+    "commander": "^4.1.0",
+    "csv-string": "^3.1.7",
     "debug": "^4.1.1",
-    "fuse.js": "^3.4.5",
+    "fuse.js": "^3.4.6",
     "i18n-iso-countries": "^4.3.1",
     "request": "^2.88.0",
-    "xml2js": "^0.4.17"
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "conventional-changelog-cli": "^2.0.25",
+    "conventional-changelog-cli": "^2.0.31",
     "conventional-changelog-lint": "^2.1.1",
-    "conventional-recommended-bump": "^6.0.2",
-    "eslint": "^5.0.1",
-    "husky": "^0.14.3",
-    "mocha": "^5.2.0",
-    "mocha-junit-reporter": "^1.23.1",
+    "conventional-recommended-bump": "^6.0.5",
+    "eslint": "^6.8.0",
+    "husky": "^4.0.7",
+    "mocha": "^7.0.0",
+    "mocha-junit-reporter": "^1.23.2",
     "npm-check": "^5.9.0"
   }
 }
