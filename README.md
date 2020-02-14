@@ -142,3 +142,7 @@ Running all tests will also create coverage reports shown after the test results
 ## TDD
 
     npm run tdd
+
+## Run Specific tests
+
+    run test -- --grep="stock reporter"
