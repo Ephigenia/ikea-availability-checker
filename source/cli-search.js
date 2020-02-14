@@ -10,8 +10,6 @@ const stores = require('./lib/stores');
 const debug = require('debug')('ikea');
 const Scraper = require('./lib/scraper');
 
-const VALID_REPORTERS = ['table', 'json'];
-
 program
   .version(pkg.version)
   .arguments('[productName]')

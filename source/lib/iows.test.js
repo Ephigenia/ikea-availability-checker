@@ -40,16 +40,16 @@ describe('iows', function() {
           });
         });
       });
-      describe('successfull', function() {
-        it('returns an array of product availabilitites', function(done) {
-          let product = iows.country('de').product('40299687');
-          product.availability(function(err, results) {
-            expect(err).to.be.null;
-            expect(results).to.be.an('array').to.have.length.of.gte(2);
-            done();
-          });
-        });
-      });
+      // describe.ignore('successfull', function() {
+      //   it('returns an array of product availabilitites', function(done) {
+      //     let product = iows.country('de').product('40299687');
+      //     product.availability(function(err, results) {
+      //       expect(err).to.be.null;
+      //       expect(results).to.be.an('array').to.have.length.of.gte(2);
+      //       done();
+      //     });
+      //   });
+      // });
     }); // availability
   }); // country product
 });
