@@ -15,9 +15,7 @@ program
     }
   )
   .description(
-    'Will list the IKEA stores found in a country by scraping an example ' +
-    'detail page from ikea.com or other domains and extracting the store ' +
-    'buCodes and names'
+    'Will list the IKEA stores found in the given country.'
   )
   .option(
     '-r, --reporter [reporter]',
