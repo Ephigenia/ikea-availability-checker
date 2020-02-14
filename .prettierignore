@@ -1,0 +1,7 @@
+# automatic code-formatting should be done by the developer
+# using prettier plugins in the editor that change the files on safe should
+# not be used, therefore this file was added to prevent prettier from changing
+# the files
+
+# Ignore everything
+*
