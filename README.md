@@ -7,6 +7,7 @@ Sometimes there is a high demand on products which then are unavailable in the I
 [![Known Vulnerabilities](https://snyk.io/test/github/ephigenia/ikea-availability-checker/badge.svg)](https://snyk.io/test/github/ephigenia/ikea-availability-checker)
 
 
+
 Installation
 ================================================================================
 
