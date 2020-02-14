@@ -1,7 +1,6 @@
 'use strict';
 
 /**
- * A song
  * @typedef {Object} Store
  * @property {string} buCode - the so called "bu"-code of the store which is
  *   internationally unique
@@ -62,6 +61,11 @@ module.exports = {
    * @param {String} countryCode - ISO 3166-1 alpha 2 country code
    * @returns {String} ISO 3166-1 alpha 2 language code
    */
+  findByCountryCode: function(countryCode) {
+    const cc = countryCode.trim().toLowerCase();
+    return data.filter(store => store.countryCode === cc);
+  },
+
   getLanguageCode: function(countryCode) {
     let languageCode = countryCode;
     switch(countryCode) {

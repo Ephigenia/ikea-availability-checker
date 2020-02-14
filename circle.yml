@@ -3,7 +3,7 @@ version: 2
 references:
   base: &base
     docker:
-      - image: circleci/node:8.11.3
+      - image: circleci/node:10.16.3
     working_directory: ~/repo
   workspace: &workspace
     attach_workspace:
@@ -50,7 +50,7 @@ jobs:
     <<: *base
     steps:
       - *workspace
-      - run: npm run -s lint
+      - run: npm outdated
 
 workflows:
   version: 2
