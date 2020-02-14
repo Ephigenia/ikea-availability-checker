@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": ">= 6.11.0",
+    "node": ">=10.16.3",
     "npm": ">= 3.10.0"
   },
   "maintainer": {
@@ -54,7 +54,8 @@
   "scripts": {
     "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
     "changelog:preview": "conventional-changelog --output-unreleased -p angular",
-    "lint": "eslint --fix $npm_package_config_paths_source/**/*.js",
+    "lint": "eslint $npm_package_config_paths_source/**/*.js",
+    "lint:fix": "npm run -s lint -- --fix",
     "postversion": "git push && git push --tags",
     "preversion": "npm test",
     "start": "node $npm_package_main",
@@ -62,31 +63,28 @@
     "test": "mocha \"$npm_package_config_paths_source/**/*.test.js\"",
     "test:ci": "npm run -s test",
     "test:report-junit": "mocha --reporter=mocha-junit-reporter --reporter-options mochaFile=reports/junit.xml \"$npm_package_config_paths_source/**/*.test.js\"",
-    "test:outdated": "npm-check --ignore $npm_package_npmCheck_ignore",
-    "update": "npm-check --update",
     "version": "npm run changelog && git add CHANGELOG.md",
     "version:recommend": "conventional-recommended-bump --preset angular"
   },
   "dependencies": {
     "chai": "^4.1.0",
-    "chalk": "^2.4.1",
+    "chalk": "^3.0.0",
     "cheerio": "^0.22.0",
     "cli-table": "^0.3.1",
-    "commander": "^2.16.0",
-    "debug": "^3.1.0",
+    "commander": "^4.1.1",
+    "debug": "^4.1.1",
     "fuse.js": "^3.2.1",
-    "i18n-iso-countries": "^3.7.1",
-    "request": "^2.87.0",
+    "i18n-iso-countries": "^4.3.1",
+    "request": "^2.88.2",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
-    "eslint": "^5.0.1",
-    "mocha": "^5.2.0",
-    "mocha-junit-reporter": "^1.17.0",
-    "npm-check": "^5.7.1"
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-angular": "^8.3.4",
     "conventional-changelog-cli": "^2.0.31",
+    "eslint": "^6.8.0",
     "husky": "^4.2.3",
+    "mocha": "^7.0.1",
+    "mocha-junit-reporter": "^1.23.3"
   }
 }
