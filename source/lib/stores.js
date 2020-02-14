@@ -14,6 +14,11 @@ module.exports = {
     return null;
   },
 
+  findByCountryCode: function(countryCode) {
+    const cc = countryCode.trim().toLowerCase();
+    return data.filter(store => store.countryCode === cc);
+  },
+
   getLanguageCode: function(countryCode) {
     let languageCode = countryCode;
     switch(countryCode) {
