@@ -1,3 +1,7 @@
+# JavaScript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
 version: 2
 
 references:
@@ -44,13 +48,13 @@ jobs:
     <<: *base
     steps:
       - *workspace
-      - run: npm run -s test:outdated
+      - run: npm outdated
 
   lint:
     <<: *base
     steps:
       - *workspace
-      - run: npm outdated
+      - run: npm lint
 
 workflows:
   version: 2
