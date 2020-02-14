@@ -63,8 +63,7 @@
     "test": "mocha \"$npm_package_config_paths_source/**/*.test.js\"",
     "test:ci": "npm run -s test",
     "test:report-junit": "mocha --reporter=mocha-junit-reporter --reporter-options mochaFile=reports/junit.xml \"$npm_package_config_paths_source/**/*.test.js\"",
-    "version": "npm run changelog && git add CHANGELOG.md",
-    "version:recommend": "conventional-recommended-bump --preset angular"
+    "version": "npm run changelog && git add CHANGELOG.md"
   },
   "dependencies": {
     "chai": "^4.2.0",
