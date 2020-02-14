@@ -13,29 +13,24 @@
 let data = require('./../data/stores.json');
 
 module.exports = {
+  /**
+   *
+   * @param {string} buCode - ikea store code to find store for
+   * @return {Store|null}
+   */
   findNameByBuCode: function(buCode) {
     buCode = String(buCode);
     let store = data.find(function(store) {
       return store.buCode === buCode;
     });
     if (store) {
-      return store.name;
+      return store.name || null;
     }
     return null;
   },
 
   /**
-   * @param {String} countryCode - ISO 3166-1 alpha 2 country code whos stores
-   *   should get returned. If the countrycode is not valid or known an empty
-   *   array is returned
-   * @returns {Array<Store>} one or multiple stores as array
-   */
-  getStoresForCountry: function(countryCode) {
-    return data.filter(d => d.countryCode === countryCode);
-  },
-
-  /**
-   * @param {String} query
+   * @param {String} query - search query (case-insensitive)
    * @param {String} [countryCode] - optional additional countryCode that must
    *  match
    * @returns {Array<Store>} one or multiple stores as array
@@ -44,21 +39,23 @@ module.exports = {
     const regexp = new RegExp(query.toLowerCase(), 'i');
     return data
       .filter(d => regexp.test(d.name))
-      .filter(d => countryCode && d.countryCode === countryCode);
+      .filter(d => countryCode ? d.countryCode === countryCode : true);
   },
 
   /**
-   * @param {Array<String>} storeIds - array of store ids where the store should
+   * @param {Array<String>} buCodes - array of store ids where the store should
    *   get returned
    * @returns {Array<Store>} one or no store matchting the given ids
    */
-  getStoresById: function(storeIds = []) {
-    if (!Array.isArray(storeIds)) return [];
-    return data.filter(d => storeIds.indexOf(d.buCode) > -1);
+  getStoresById: function(buCodes = []) {
+    if (!Array.isArray(buCodes)) return [];
+    return data.filter(store => buCodes.indexOf(store.buCode) > -1);
   },
 
   /**
-   * @param {String} countryCode - ISO 3166-1 alpha 2 country code
+   * @param {String} countryCode - ISO 3166-1 alpha 2 country code whos stores
+   *   should get returned. If the countrycode is not valid or known an empty
+   *   array is returned
    * @returns {String} ISO 3166-1 alpha 2 language code
    */
   findByCountryCode: function(countryCode) {
