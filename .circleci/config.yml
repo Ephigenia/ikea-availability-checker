@@ -43,18 +43,17 @@ jobs:
       - store_artifacts:
           path: reports
 
-
   test-outdated:
     <<: *base
     steps:
       - *workspace
-      - run: npm outdated
+      - run: npm outdated || true
 
   lint:
     <<: *base
     steps:
       - *workspace
-      - run: npm lint
+      - run: npm run -s lint
 
 workflows:
   version: 2
