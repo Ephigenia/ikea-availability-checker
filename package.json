@@ -44,13 +44,16 @@
       "source": "source"
     }
   },
-  "npmCheck": {
-    "ignore": "{husky,mocha-junit-reporter}"
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -e",
+      "pre-push": "npm run -s lint",
+      "pre-commit": "npm run -s lint:fix"
+    }
   },
   "scripts": {
     "changelog": "conventional-changelog -s -i CHANGELOG.md -p angular -r 0",
     "changelog:preview": "conventional-changelog --output-unreleased -p angular",
-    "commitmsg": "conventional-changelog-lint -e",
     "lint": "eslint --fix $npm_package_config_paths_source/**/*.js",
     "postversion": "git push && git push --tags",
     "preversion": "npm test",
@@ -77,13 +80,13 @@
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
-    "conventional-changelog-cli": "^2.0.1",
-    "conventional-changelog-lint": "^2.1.1",
-    "conventional-recommended-bump": "^4.0.0",
     "eslint": "^5.0.1",
-    "husky": "^0.14.3",
     "mocha": "^5.2.0",
     "mocha-junit-reporter": "^1.17.0",
     "npm-check": "^5.7.1"
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-angular": "^8.3.4",
+    "conventional-changelog-cli": "^2.0.31",
+    "husky": "^4.2.3",
   }
 }
