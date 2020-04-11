@@ -68,14 +68,14 @@
   },
   "dependencies": {
     "chai": "^4.2.0",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "cheerio": "^0.22.0",
     "cli-table": "^0.3.1",
-    "commander": "^4.1.1",
-    "csv-string": "^3.1.7",
+    "commander": "^5.0.0",
+    "csv-string": "^3.2.0",
     "debug": "^4.1.1",
-    "fuse.js": "^3.4.6",
-    "i18n-iso-countries": "^4.3.1",
+    "fuse.js": "^5.1.0",
+    "i18n-iso-countries": "^5.1.0",
     "request": "^2.88.2",
     "xml2js": "^0.4.23"
   },
@@ -84,8 +84,8 @@
     "@commitlint/config-angular": "^8.3.4",
     "conventional-changelog-cli": "^2.0.31",
     "eslint": "^6.8.0",
-    "husky": "^4.2.3",
-    "mocha": "^7.0.1",
+    "husky": "^4.2.5",
+    "mocha": "^7.1.1",
     "mocha-junit-reporter": "^1.23.3"
   }
 }
