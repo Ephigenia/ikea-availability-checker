@@ -74,6 +74,10 @@ The default reports prints the results as a human readable table.
     │ at          │ Austria │ S69022537 │ 155              │ Klagenfurt │    10 │        HIGH │
     └─────────────┴─────────┴───────────┴──────────────────┴────────────┴───────┴─────────────┘
 
+The "store" option also accepts strings which match on the location’s name:
+
+    npm run start -- stock --store=Berlin 40413131
+
 
 ## Multiple products & stores
 

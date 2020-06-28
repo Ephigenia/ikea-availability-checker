@@ -38,7 +38,7 @@ module.exports = {
   getStoresMatchingQuery: function(query, countryCode) {
     const regexp = new RegExp(query.toLowerCase(), 'i');
     return data
-      .filter(d => regexp.test(d.name))
+      .filter(d => regexp.test(d.name) || d.buCode == query)
       .filter(d => countryCode ? d.countryCode === countryCode : true);
   },
 
