@@ -183,7 +183,7 @@ Debugging
 Testing
 ================================================================================
 
-The project has a preconfigured test runner [mocha](https://mochajs.org/). Test coverage is not good. Will be increas in the future.
+The project has a preconfigured test runner [mocha](https://mochajs.org/). Test coverage is not good.
 
 ## Run Tests
 
