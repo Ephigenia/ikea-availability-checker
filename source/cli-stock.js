@@ -64,6 +64,9 @@ program
       stores = storesData.getStoresById(program.store);
     } else if (program.store) {
       stores = storesData.getStoresMatchingQuery(program.store, program.countryCode);
+    } else {
+      console.error('please provide country code and/or store id');
+      process.exit(1);
     }
 
     if (stores.length === 0) {
