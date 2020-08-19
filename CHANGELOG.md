@@ -1,3 +1,17 @@
+## [0.4.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.4.2...v0.4.3) (2020-08-19)
+
+
+### Bug Fixes
+
+* iows2 debug scope with package name ([781a5f5](https://github.com/Ephigenia/ikea-availability-checker/commit/781a5f520f94919ba02a458aada453bfae3ea579))
+* moves chai dep to devdeps ([202faaf](https://github.com/Ephigenia/ikea-availability-checker/commit/202faaf5ccb55a84b9c5f0033ff389d317eaa0e3))
+* removes cheerio dep ([8f89376](https://github.com/Ephigenia/ikea-availability-checker/commit/8f89376f0d86c901d34212a38bde13d148997c0b))
+* removes fuse.js ([a449859](https://github.com/Ephigenia/ikea-availability-checker/commit/a44985959b42489af9ddbbe9ed631934d7b74873))
+* removes search sub-commands ([fd96a2a](https://github.com/Ephigenia/ikea-availability-checker/commit/fd96a2a15c6ed04bb53a52f44131b46d05cae8ef))
+* removes xml2js ([5997cab](https://github.com/Ephigenia/ikea-availability-checker/commit/5997cab4f76e1b85314df759a3344f60f046708d))
+
+
+
 ## [0.4.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.4.1...v0.4.2) (2020-08-19)
 
 
