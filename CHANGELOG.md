@@ -1,3 +1,12 @@
+## [0.4.4](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.4.3...v0.4.4) (2020-08-19)
+
+
+### Bug Fixes
+
+* stock previously not working country param ([b24ffff](https://github.com/Ephigenia/ikea-availability-checker/commit/b24ffff2688a045cdbefe2b51c9d20936e42b2f5))
+
+
+
 ## [0.4.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.4.2...v0.4.3) (2020-08-19)
 
 
