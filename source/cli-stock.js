@@ -54,16 +54,17 @@ program
     productIds = productIds.filter(function(cur, i, arr) {
       return arr.indexOf(cur, i + 1) === -1;
     });
+
     // TODO when empty countryCodes, use countries derived from store id and
     // store
     // @var {String}
     let stores = [];
-    if (!program.store && program.countryCode) {
-      stores = storesData.findByCountryCode(program.countryCode);
+    if (!program.store && program.country) {
+      stores = storesData.findByCountryCode(program.country);
     } else if (Array.isArray(program.store)) {
       stores = storesData.getStoresById(program.store);
     } else if (program.store) {
-      stores = storesData.getStoresMatchingQuery(program.store, program.countryCode);
+      stores = storesData.getStoresMatchingQuery(program.store, program.country);
     } else {
       console.error('please provide country code and/or store id');
       process.exit(1);
