@@ -99,7 +99,7 @@ program
       return iows.getStoreProductAvailability(store.buCode, productId)
         .catch(err => {
           // when product could not be found return an empty availability
-          if (err.response.statusCode === 404) {
+          if (err.response.status === 404) {
             return { stock: 0, probability: '' };
           }
           throw err;

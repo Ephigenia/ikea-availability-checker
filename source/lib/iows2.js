@@ -1,9 +1,9 @@
 'use strict';
 
+const fetch = require('node-fetch');
+
 const pkg = require('./../../package.json')
 const debug = require('debug')(pkg.name);
-const request = require('request');
-const util = require('util');
 const storesData = require('./stores');
 
 const BASE_URL_DEFAULT = 'https://iows.ikea.com/retail/iows';
@@ -45,16 +45,15 @@ class IOWS2 {
       'Consumer': 'MAMMUT',
     });
     debug('GET', url, params);
-    const p = util.promisify(request);
-    return p(url, params)
-      .then((response) => {
-        debug('RECEIVED', response.statusCode, response.body.length);
-        if (response.statusCode !== 200) {
-          const err = new Error(`Unexpected http status code ${response.statusCode}`);
+    return fetch(url, params)
+      .then(response => {
+        debug('RECEIVED', response.status, response.length);
+        if (!response.ok) {
+          const err = new Error(`Unexpected http status code ${response.status}`);
           err.response = response;
           throw err;
         }
-        return JSON.parse(response.body);
+        return response.json();
       });
   }
 
@@ -90,12 +89,12 @@ class IOWS2 {
     ].join('/');
     return this.fetch(url)
       .catch(err => {
-        switch (err.response.statusCode) {
+        switch (err.response.status) {
           case 410:
           case 404:
             err.message =
               `Unable to receive product ${productId} availability for store `+
-              `${buCode} status code: ${err.response.statusCode}.`
+              `${buCode} status code: ${err.response.status}.`
             break;
           default:
             break;

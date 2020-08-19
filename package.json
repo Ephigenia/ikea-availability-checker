@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": "^10.16.3",
+    "node": "^10.17",
     "npm": "^6.9.0"
   },
   "maintainer": {
@@ -72,8 +72,7 @@
     "commander": "^6.0.0",
     "csv-string": "^4.0.1",
     "debug": "^4.1.1",
-    "i18n-iso-countries": "^6.0.0",
-    "request": "^2.88.2"
+    "i18n-iso-countries": "^6.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
@@ -83,6 +82,7 @@
     "eslint": "^7.7.0",
     "husky": "^4.2.5",
     "mocha": "^8.1.1",
-    "mocha-junit-reporter": "^2.0.0"
+    "mocha-junit-reporter": "^2.0.0",
+    "node-fetch": "2.6.0"
   }
 }
