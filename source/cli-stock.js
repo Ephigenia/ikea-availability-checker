@@ -65,7 +65,7 @@ program
     const countryCode = program.country;
     let stores = [];
     if (!program.store) {
-      stores = storesData.findByCountryCode(countryCode)
+      stores = storesData.findByCountryCode(countryCode);
     } else if (typeof program.store === 'string') {
       stores = storesData.getStoresMatchingQuery(program.store, countryCode);
     } else {

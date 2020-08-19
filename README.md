@@ -1,4 +1,4 @@
-Sometimes there is a high demand on products which then are unavailable in the IKEA online store and even in the locations. So here’s a script which makes it easy to check the availability of a list of products and locations.
+Sometimes there is a high demand for products that are unavailable in the IKEA online store and even in the locations. So here’s a script which makes it easy to check the availability of a list of products and locations.
 
 [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![NPM Package](https://badge.fury.io/js/ikea-availability-checker.svg)](https://www.npmjs.com/package/ikea-availability-checker)
@@ -6,19 +6,57 @@ Sometimes there is a high demand on products which then are unavailable in the I
 [![CircleCI](https://circleci.com/gh/Ephigenia/ikea-availability-checker.svg?style=svg&circle-token=1907356b3e852337a9e5f96d9b99ef1942c4ffa2)](https://circleci.com/gh/Ephigenia/ikea-availability-checker)
 [![Known Vulnerabilities](https://snyk.io/test/github/ephigenia/ikea-availability-checker/badge.svg)](https://snyk.io/test/github/ephigenia/ikea-availability-checker)
 
-
+- [Installation](#installation)
+    - [Global](#global)
+    - [Local](#local)
+    - [NPX](#npx)
+- [Usage](#usage)
+    - [Stores](#stores)
+    - [Product Stock Information](#product-stock-information)
+        - [Product Stock Information for a whole country](#product-stock-information-for-a-whole-country)
+        - [Product Stock Information for a specific store](#product-stock-information-for-a-specific-store)
+    - [Multiple products & stores](#multiple-products--stores)
+- [Other Projects & Articles](#other-projects--articles)
+- [Development](#development)
+    - [Requirements](#requirements)
+- [Debugging](#debugging)
+- [Testing](#testing)
+    - [Run Tests](#run-tests)
+    - [TDD](#tdd)
+    - [Run Specific tests](#run-specific-tests)
 
 Installation
 ================================================================================
 
-    npm install ikea-availability-checker
+## Global
+
+A globally installed ikea-availability-checker can be used anywhere but there can only be one version of it.
+
+    npm install -g ikea-availability-checker
+
+After that the ikea-availability-checker should be callable from everywhere as there’s a link in your usr/bin directory:
+
+    ikea-availability-checker
+
+## Local
+
+A locally installed ikea-availability-checker will be placed in `./node_modules/ikea-availability-checker` and can be called using the binary link:
+
+    npm install ikea-availability-checker;
+    node_modules/.bin/ikea-availability-checker --help;
+
+## NPX
+
+Or call it directly using [npx](https://www.npmjs.com/package/npx):
+
+    npx ikea-availability-checker --help
 
 
-Usage Examples
+
+Usage
 ================================================================================
-The default reports prints the results as a human readable table.
 
-## List stores in specific countries
+## Stores
 
     npm run start -- stores at
 
@@ -41,7 +79,9 @@ The default reports prints the results as a human readable table.
     └─────────────┴─────────┴────────┴────────────────┘
 
 
-## Product Avaialability in a country
+## Product Stock Information
+
+### Product Stock Information for a whole country
 
     npm run start -- stock --country at S69022537
 
@@ -64,7 +104,7 @@ The default reports prints the results as a human readable table.
     └──────────────────────────┴─────────────┴─────────┴───────────┴──────────────────┴────────────────┴───────┴─────────────┘
 
 
-## Specific product, store & country
+### Product Stock Information for a specific store
 
     npm run start -- stock --store=155 --country=at S69022537
 
@@ -136,7 +176,7 @@ Debugging
 Testing
 ================================================================================
 
-The project has a preconfigured test runner [moch](https://mochajs.org/).
+The project has a preconfigured test runner [mocha](https://mochajs.org/). Test coverage is not good. Will be increas in the future.
 
 ## Run Tests
 
