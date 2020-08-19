@@ -67,7 +67,6 @@
     "version": "npm run changelog && git add CHANGELOG.md"
   },
   "dependencies": {
-    "chai": "^4.2.0",
     "chalk": "^4.1.0",
     "cli-table": "^0.3.1",
     "commander": "^6.0.0",
@@ -80,6 +79,7 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-angular": "^9.1.2",
+    "chai": "^4.2.0",
     "conventional-changelog-cli": "^2.1.0",
     "eslint": "^7.7.0",
     "husky": "^4.2.5",
