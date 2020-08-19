@@ -95,7 +95,7 @@ program
        * @param {import('./lib/stores').Store} row.store
        */
       ({ store, productId }) => {
-      const iows = new IOWS2(countryCode);
+      const iows = new IOWS2(store.countryCode);
       return iows.getStoreProductAvailability(store.buCode, productId)
         .catch(err => {
           // when product could not be found return an empty availability
