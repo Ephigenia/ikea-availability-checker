@@ -66,6 +66,9 @@ program
       stores = storesData.getStoresMatchingQuery(program.store, program.countryCode);
     }
 
+    if (stores.length === 0) {
+      console.log('no stores found');
+      process.exit(1);
     }
 
     let reporter = null;
