@@ -1,6 +1,7 @@
 'use strict';
 
-const debug = require('debug')('iows');
+const pkg = require('./../../package.json')
+const debug = require('debug')(pkg.name);
 const request = require('request');
 const util = require('util');
 const storesData = require('./stores');
