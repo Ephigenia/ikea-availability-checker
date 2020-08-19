@@ -15,7 +15,9 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
     - [Product Stock Information](#product-stock-information)
         - [Product Stock Information for a whole country](#product-stock-information-for-a-whole-country)
         - [Product Stock Information for a specific store](#product-stock-information-for-a-specific-store)
-    - [Multiple products & stores](#multiple-products--stores)
+            - [with BU-Code (Store-Id)](#with-bu-code-store-id)
+            - [Store-Name / Location / City-Name](#store-name--location--city-name)
+        - [Multiple BU-Code(s)](#multiple-bu-codes)
 - [Other Projects & Articles](#other-projects--articles)
 - [Development](#development)
     - [Requirements](#requirements)
@@ -106,7 +108,8 @@ Usage
 
 ### Product Stock Information for a specific store
 
-    npm run start -- stock --store=155 --country=at S69022537
+#### with BU-Code (Store-Id)
+    npm run start -- stock --store=155 S69022537
 
     ┌─────────────┬─────────┬───────────┬──────────────────┬────────────┬───────┬─────────────┐
     │ countryCode │ country │ product   │ storeId (buCode) │ store      │ stock │ probability │
@@ -114,14 +117,16 @@ Usage
     │ at          │ Austria │ S69022537 │ 155              │ Klagenfurt │    10 │        HIGH │
     └─────────────┴─────────┴───────────┴──────────────────┴────────────┴───────┴─────────────┘
 
+#### Store-Name / Location / City-Name
+
 The "store" option also accepts strings which match on the location’s name:
 
     npm run start -- stock --store=Berlin 40413131
 
 
-## Multiple products & stores
+### Multiple BU-Code(s)
 
-    npm run start -- stock --country=de --store=224,069,063 S69022537 40313075 40299687
+    npm run start -- stock --store=224,069,063 S69022537 40313075 40299687
 
     ┌─────────────┬─────────┬──────────┬──────────────────┬────────────────┬───────┬─────────────┐
     │ countryCode │ country │ product  │ storeId (buCode) │ store          │ stock │ probability │
@@ -150,6 +155,8 @@ The "store" option also accepts strings which match on the location’s name:
     ├─────────────┼─────────┼───────────┼──────────────────┼────────────────┼───────┼─────────────┤
     │ de          │ Germany │ S69022537 │ 224              │ Sindelfingen   │     9 │        HIGH │
     └─────────────┴─────────┴───────────┴──────────────────┴────────────────┴───────┴─────────────┘
+
+The list of bu-codes can also contain bu-codes from different countries.
 
 Other Projects & Articles
 ================================================================================
