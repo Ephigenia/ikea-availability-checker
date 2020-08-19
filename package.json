@@ -74,7 +74,6 @@
     "commander": "^6.0.0",
     "csv-string": "^4.0.1",
     "debug": "^4.1.1",
-    "fuse.js": "^6.4.1",
     "i18n-iso-countries": "^6.0.0",
     "request": "^2.88.2",
     "xml2js": "^0.4.23"
