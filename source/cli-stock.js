@@ -9,11 +9,10 @@ let IOWS2 = require('./lib/iows2.js');
 
 function optionalSplitOptionCSV(val) {
   const seperator = ',';
-  const splitRegexp = new RegExp('/\s*[' + seperator + ']+\s*/');
   if (val.indexOf(seperator) === -1) {
     return val;
   }
-  return val.split(splitRegexp)
+  return val.split(seperator)
     // trim all values
     .map(val => val.trim())
     // make unique
@@ -30,10 +29,7 @@ program
   )
   .option(
     '-c, --country [countryCode]',
-    'optional single country id or multiple country ids separated by comma, ' +
-    'default value is "de" which would list the availability for all stores ' +
-    'in germany',
-    'de'
+    'optional single country code or multiple country codes separated by comma'
   )
   .option(
     '-r, --reporter [reporter]',
@@ -58,18 +54,18 @@ program
     productIds = productIds.filter(function(cur, i, arr) {
       return arr.indexOf(cur, i + 1) === -1;
     });
-
     // TODO when empty countryCodes, use countries derived from store id and
     // store
     // @var {String}
-    const countryCode = program.country;
     let stores = [];
-    if (!program.store) {
-      stores = storesData.findByCountryCode(countryCode);
-    } else if (typeof program.store === 'string') {
-      stores = storesData.getStoresMatchingQuery(program.store, countryCode);
-    } else {
+    if (!program.store && program.countryCode) {
+      stores = storesData.findByCountryCode(program.countryCode);
+    } else if (Array.isArray(program.store)) {
       stores = storesData.getStoresById(program.store);
+    } else if (program.store) {
+      stores = storesData.getStoresMatchingQuery(program.store, program.countryCode);
+    }
+
     }
 
     let reporter = null;
