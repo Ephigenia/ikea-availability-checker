@@ -73,8 +73,7 @@
     "csv-string": "^4.0.1",
     "debug": "^4.1.1",
     "i18n-iso-countries": "^6.0.0",
-    "request": "^2.88.2",
-    "xml2js": "^0.4.23"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
