@@ -15,8 +15,8 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": "^10.17",
-    "npm": "^6.9.0"
+    "node": ">=10",
+    "npm": ">6"
   },
   "maintainer": {
     "name": "Marcel Eichner",
