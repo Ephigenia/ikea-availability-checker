@@ -36,7 +36,7 @@
   "bugs": {
     "url": "https://github.com/Ephigenia/ikea-availability-checker/issues"
   },
-  "main": "source/cli.js",
+  "main": "source/index.js",
   "bin": {
     "ikea-availability": "source/cli.js"
   },
@@ -59,7 +59,7 @@
     "lint:fix": "npm run -s lint -- --fix",
     "postversion": "git push && git push --tags",
     "preversion": "npm test",
-    "start": "node $npm_package_main",
+    "start": "node source/cli.js",
     "tdd": "mocha --watch \"$npm_package_config_paths_source/**/*.test.js\"",
     "test": "mocha \"$npm_package_config_paths_source/**/*.test.js\"",
     "test:ci": "npm run -s test",

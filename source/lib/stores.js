@@ -2,17 +2,21 @@
 
 /**
  * @typedef {Object} Store
- * @property {string} buCode - the so called "bu"-code of the store which is
- *   internationally unique
+ * @property {string} buCode - unique ikea store identification number
  * @property {string} name - The name of the store, like "Augsburg",
  *   "Bratislava" or similar, also unique worldwide
- * @property {number} countryCode - ISO 3166-1 alpha-2 country code where the
- *   store is located
+ * @property {number} countryCode lowercase two-letter country code following (ISO-3166)
  */
 
-let data = require('./../data/stores.json');
+/**
+ * @type {Array<Store>}
+ */
+const data = require('./../data/stores.json');
 
 module.exports = {
+
+  data,
+
   /**
    *
    * @param {string} buCode - ikea store code to find store for
@@ -48,8 +52,16 @@ module.exports = {
    * @returns {Array<Store>} one or no store matchting the given ids
    */
   getStoresById: function(buCodes = []) {
-    if (!Array.isArray(buCodes)) return [];
+    if (!Array.isArray(buCodes)) buCodes = [buCodes];
     return data.filter(store => buCodes.indexOf(store.buCode) > -1);
+  },
+
+  /**
+   * @param {string} buCode unique ikea store identification number
+   * @returns {Store|undefined} when a store with the exact given buCode exists
+   */
+  getStoreById: function(buCode) {
+    return data.find((store) => store.buCode == buCode);
   },
 
   /**
@@ -63,6 +75,13 @@ module.exports = {
     return data.filter(store => store.countryCode === cc);
   },
 
+  /**
+   * Transform a ISO 3166-2 country code like "gb" to the ISO 639-2
+   * language code ("en") that is supported by the IOWS endpoint.
+   *
+   * @param {string} countryCode lowercase ISO 3166-2 alpha 2 country code
+   * @returns {string} the resulting lowercased ISO 639-2 language code
+   */
   getLanguageCode: function(countryCode) {
     let languageCode = countryCode;
     switch(countryCode) {
