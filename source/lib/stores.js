@@ -72,6 +72,9 @@ module.exports = {
       case 'dk':
         languageCode = 'da';
         break;
+      case 'ie':
+        languageCode = 'en';
+        break;
       case 'lio':
         languageCode = 'en';
         break;

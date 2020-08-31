@@ -78,13 +78,19 @@ class IOWS2 {
    */
   async getStoreProductAvailability(buCode, productId) {
     // build url for single store and product Id
+    // ireland requires a different URL
+    let code = 'ART';
+    // TODO move this to somewhere else
+    if (buCode === '038') {
+      code = 'SPR';
+    }
     const url = [
       this.baseUrl,
       encodeURIComponent(this.countryCode),
       encodeURIComponent(this.languageCode),
       'stores',
       buCode,
-      'availability/ART',
+      'availability/' + code,
       encodeURIComponent(productId)
     ].join('/');
     return this.fetch(url)
