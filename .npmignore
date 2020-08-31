@@ -1,7 +1,10 @@
 .DS_Store
 
-.circleci
 .gitattributes
 .codeclimate
 .github/
 source/**/*test.js
+commitlint.config.js
+.eslintrc
+.editorconfig
+.prettierignore
