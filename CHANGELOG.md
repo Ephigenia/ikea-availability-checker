@@ -1,3 +1,12 @@
+## [0.4.6](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.4.5...v0.4.6) (2020-08-31)
+
+
+### Bug Fixes
+
+* adds great britain store codes ([230baee](https://github.com/Ephigenia/ikea-availability-checker/commit/230baee383673b5bf35bb482abc3dba896bd7c62))
+
+
+
 ## [0.4.5](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.4.4...v0.4.5) (2020-08-31)
 
 
