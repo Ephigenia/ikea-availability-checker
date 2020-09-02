@@ -90,7 +90,6 @@ module.exports = {
       case 'se':
         languageCode = 'sv';
         break;
-      case 'aa':
       case 'au':
       case 'hk':
       case 'my':
