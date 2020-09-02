@@ -109,26 +109,5 @@ module.exports = {
         break;
     }
     return languageCode;
-  },
-
-  isSupportedCountryCode: function(code) {
-    const unsupportedCountryCodes = [
-      'bg',
-      'cy',
-      'do',
-      'eg',
-      'es_islas',
-      'gb',
-      'gr',
-      'id',
-      'ie',
-      'in',
-      'is',
-      'lio',
-      'ma',
-      'rs',
-      'tr',
-    ];
-    return unsupportedCountryCodes.indexOf(code) === -1;
   }
 };
