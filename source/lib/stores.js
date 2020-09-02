@@ -57,57 +57,35 @@ module.exports = {
   },
 
   getLanguageCode: function(countryCode) {
-    let languageCode = String(countryCode).trim().toLowerCase();
-    switch(languageCode) {
-      case 'cz':
-        languageCode = 'cs';
-        break;
-      case 'dk':
-        languageCode = 'da';
-        break;
-      case 'gb':
-        languageCode = 'en';
-        break;
-      case 'ie':
-        languageCode = 'en';
-        break;
-      case 'lio':
-        languageCode = 'en';
-        break;
-      case 'jp':
-        languageCode = 'ja';
-        break;
-      case 'kr':
-        languageCode = 'ko';
-        break;
-      case 'se':
-        languageCode = 'sv';
-        break;
-      case 'au':
-      case 'hk':
-      case 'my':
-      case 'sg':
-      case 'th':
-        languageCode = 'en';
-        break;
-      case 'cn':
-      case 'tw':
-        languageCode = 'zh';
-        break;
-      case 'ae':
-      case 'ca':
-      case 'jo':
-      case 'kw':
-      case 'qa':
-      case 'sa':
-      case 'us':
-        languageCode = 'en';
-        break;
-      case 'at':
-      case 'ch':
-        languageCode = 'de';
-        break;
-    }
-    return languageCode;
+    const cc = String(countryCode).trim().toLowerCase();
+    // the best matching language code to use when sending requests to a
+    // specific country
+    const map = {
+      cz: 'cs',
+      ae: 'en',
+      at: 'de',
+      au: 'en',
+      ca: 'en',
+      ch: 'de',
+      cn: 'zh',
+      dk: 'da',
+      gb: 'en',
+      hk: 'en',
+      ie: 'en',
+      jo: 'en',
+      jp: 'ja',
+      kr: 'ko',
+      kw: 'en',
+      my: 'en',
+      qa: 'en',
+      sa: 'en',
+      se: 'sv',
+      sg: 'en',
+      th: 'en',
+      tw: 'zh',
+      us: 'en',
+    };
+
+    return map[String(cc)] || cc;
   }
 };

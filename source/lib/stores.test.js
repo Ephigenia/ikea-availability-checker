@@ -50,9 +50,6 @@ describe('stores', function() {
     it('returns "de" for "at"', () => {
       expect(stores.getLanguageCode('at')).to.equal('de');
     });
-    it('returns "en" for "lio"', () => {
-      expect(stores.getLanguageCode('lio')).to.equal('en');
-    });
     it('returns "ko" for "kr"', () => {
       expect(stores.getLanguageCode('kr')).to.equal('ko');
     });
