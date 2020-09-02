@@ -20,6 +20,16 @@ describe('stores', function() {
     it('returns nothing if no stores are found', () => {
       expect(stores.findByQuery('xxxx')).to.have.length(0);
     });
+    it('returns stores where buCode matches', () => {
+      expect(stores.findByQuery('039')).to.have.length(1);
+    });
+    it('returns stores where buCode and country matches', () => {
+      expect(stores.findByQuery('039', 'ca')).to.have.length(1);
+      expect(stores.findByQuery('039', 'de')).to.have.length(0);
+    });
+    it('accepts RegExps', () => {
+      expect(stores.findByQuery(/berlin|graz|bristol/i)).to.have.length(6);
+    });
     it('ignores the country code if not given', () => {
       expect(stores.findByQuery('berlin')).to.have.length(4);
       expect(stores.findByQuery('graz')).to.have.length(1);
@@ -28,6 +38,7 @@ describe('stores', function() {
       expect(stores.findByQuery('berlin', 'de')).to.have.length(4);
       expect(stores.findByQuery('graz', 'de')).to.have.length(0);
       expect(stores.findByQuery('graz', 'at')).to.have.length(1);
+      expect(stores.findByQuery('graz', 'AT')).to.have.length(1);
     });
   }); // findByQuery
 

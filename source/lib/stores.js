@@ -13,6 +13,10 @@
  */
 const data = require('./../data/stores.json');
 
+function normalizeCountryCode(countryCode) {
+  return String(countryCode).trim().toLowerCase();
+}
+
 module.exports = {
 
   data,
@@ -21,13 +25,14 @@ module.exports = {
    * Find stores by matching the given query against the buCode, countryCode or
    * name of a store and return an array of all matching stores.
    *
-   * @param {String} query case insensitive search query
+   * @param {String|RegExp} query case insensitive search query
    * @param {String} [countryCode] optional additional countryCode that must
    *  match
    * @returns {Array<Store>} one or multiple stores as array
    */
-  findByQuery: function(query, countryCode) {
-    const regexp = new RegExp(query.toLowerCase(), 'i');
+  findByQuery: function(query, countryCode = false) {
+    const regexp = query instanceof RegExp ? query : new RegExp(String(query), 'i');
+    countryCode = countryCode ? normalizeCountryCode(countryCode) : countryCode;
     return data
       .filter(d => regexp.test(d.name) || d.buCode == query)
       .filter(d => countryCode ? d.countryCode === countryCode : true);
@@ -58,7 +63,7 @@ module.exports = {
    * @returns {String} ISO 3166-1 alpha 2 language code
    */
   findByCountryCode: function(countryCode) {
-    const cc = String(countryCode).trim().toLowerCase();
+    const cc = normalizeCountryCode(countryCode);
     return data.filter(store => store.countryCode === cc);
   },
 
@@ -79,7 +84,7 @@ module.exports = {
    * @returns {string} the resulting lowercased ISO 639-2 language code
    */
   getLanguageCode: function(countryCode) {
-    const cc = String(countryCode).trim().toLowerCase();
+    const cc = normalizeCountryCode(countryCode);
     // the best matching language code to use when sending requests to a
     // specific country
     const map = {
