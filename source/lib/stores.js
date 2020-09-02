@@ -14,22 +14,6 @@ let data = require('./../data/stores.json');
 
 module.exports = {
   /**
-   *
-   * @param {string} buCode - ikea store code to find store for
-   * @return {Store|null}
-   */
-  findNameByBuCode: function(buCode) {
-    buCode = String(buCode);
-    let store = data.find(function(store) {
-      return store.buCode === buCode;
-    });
-    if (store) {
-      return store.name || null;
-    }
-    return null;
-  },
-
-  /**
    * @param {String} query - search query (case-insensitive)
    * @param {String} [countryCode] - optional additional countryCode that must
    *  match
@@ -61,6 +45,15 @@ module.exports = {
   findByCountryCode: function(countryCode) {
     const cc = countryCode.trim().toLowerCase();
     return data.filter(store => store.countryCode === cc);
+  },
+
+  /**
+   * Returns an array with all ISO 3166-1 alpha 2 country codes that have at
+   * least one store.
+   * @returns {String[]} two-letter ISO 3166-2 alpha 2 country codes
+   */
+  getCountryCodes: function() {
+    return Array.from(new Set(data.map(store => store.countryCode)));
   },
 
   getLanguageCode: function(countryCode) {

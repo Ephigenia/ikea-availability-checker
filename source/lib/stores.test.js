@@ -4,15 +4,6 @@ const expect = require('chai').expect;
 const stores = require('./stores');
 
 describe('stores', function() {
-  describe('findNameByBuCode', function() {
-    it('returns null when buCode was not found', function() {
-      expect(stores.findNameByBuCode(9283)).to.be.null;
-    });
-    it('returns the name of the store', function() {
-      expect(stores.findNameByBuCode(387)).to.equal('Graz');
-    });
-  }); // findNameByBuCode
-
   describe('findByCountryCode', () => {
     it('returns a list of stores for a single country code', () => {
       expect(stores.findByCountryCode('de').length).to.be.gte(1);
@@ -50,7 +41,7 @@ describe('stores', function() {
     it('returns an empty list when no stores found', () => {
       expect(stores.getStoresById(['421', 18282])).to.have.length(1);
     });
-  });
+  }); // getStoresById
 
   describe('getLanguageCode', function() {
     it('returns the countryCode when it’s not in the mapping', () => {
@@ -66,4 +57,11 @@ describe('stores', function() {
       expect(stores.getLanguageCode('kr')).to.equal('ko');
     });
   }); // getLanguageCode
+
+  describe('getCountryCodes', function() {
+    it('returns an array of supported country codes', () => {
+      const codes = stores.getCountryCodes();
+      expect(codes.length).to.be.gte(1);
+    });
+  }); // getCountryCodes
 }); // suite
