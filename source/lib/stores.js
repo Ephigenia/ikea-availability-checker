@@ -43,7 +43,7 @@ module.exports = {
    * @returns {String} ISO 3166-1 alpha 2 language code
    */
   findByCountryCode: function(countryCode) {
-    const cc = countryCode.trim().toLowerCase();
+    const cc = String(countryCode).trim().toLowerCase();
     return data.filter(store => store.countryCode === cc);
   },
 
@@ -57,8 +57,8 @@ module.exports = {
   },
 
   getLanguageCode: function(countryCode) {
-    let languageCode = countryCode;
-    switch(countryCode) {
+    let languageCode = String(countryCode).trim().toLowerCase();
+    switch(languageCode) {
       case 'cz':
         languageCode = 'cs';
         break;

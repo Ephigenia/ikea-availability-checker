@@ -4,9 +4,7 @@ const fetch = require('node-fetch');
 
 const pkg = require('./../../package.json')
 const debug = require('debug')(pkg.name);
-const storesData = require('./stores');
-
-const BASE_URL_DEFAULT = 'https://iows.ikea.com/retail/iows';
+const stores = require('./stores');
 
 /**
  * @typedef {Object} ProductAvailability
@@ -25,9 +23,9 @@ class IOWS2 {
    * @param {String} [languageCode] - optional ISO 3166-1 alpha-2 country code
    */
   constructor(countryCode, languageCode = '') {
-    this.countryCode = String(countryCode).toLocaleLowerCase();
-    this.languageCode = (languageCode || storesData.getLanguageCode(countryCode)).toLowerCase();
-    this.baseUrl = BASE_URL_DEFAULT;
+    this.countryCode = String(countryCode).trim().toLocaleLowerCase();
+    this.languageCode = (languageCode || stores.getLanguageCode(countryCode)).trim().toLowerCase();
+    this.baseUrl = 'https://iows.ikea.com/retail/iows';
   }
 
   /**
@@ -96,6 +94,8 @@ class IOWS2 {
    * @returns {Promise<ProductAvailability>}
    */
   async getStoreProductAvailability(buCode, productId) {
+    buCode = String(buCode).trim();
+    productId = String(productId).trim();
     const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId);
     return this.fetch(url)
       .catch(err => {
