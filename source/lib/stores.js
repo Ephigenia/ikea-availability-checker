@@ -18,12 +18,15 @@ module.exports = {
   data,
 
   /**
-   * @param {String} query - search query (case-insensitive)
-   * @param {String} [countryCode] - optional additional countryCode that must
+   * Find stores by matching the given query against the buCode, countryCode or
+   * name of a store and return an array of all matching stores.
+   *
+   * @param {String} query case insensitive search query
+   * @param {String} [countryCode] optional additional countryCode that must
    *  match
    * @returns {Array<Store>} one or multiple stores as array
    */
-  getStoresMatchingQuery: function(query, countryCode) {
+  findByQuery: function(query, countryCode) {
     const regexp = new RegExp(query.toLowerCase(), 'i');
     return data
       .filter(d => regexp.test(d.name) || d.buCode == query)
@@ -35,7 +38,7 @@ module.exports = {
    *   get returned
    * @returns {Array<Store>} one or no store matchting the given ids
    */
-  getStoresById: function(buCodes = []) {
+  findById: function(buCodes = []) {
     if (!Array.isArray(buCodes)) buCodes = [buCodes];
     return data.filter(store => buCodes.indexOf(store.buCode) > -1);
   },
@@ -44,8 +47,8 @@ module.exports = {
    * @param {string} buCode unique ikea store identification number
    * @returns {Store|undefined} when a store with the exact given buCode exists
    */
-  getStoreById: function(buCode) {
-    return data.find((store) => store.buCode == buCode);
+  findOneById: function(buCode) {
+    return data.find(store => store.buCode == buCode);
   },
 
   /**

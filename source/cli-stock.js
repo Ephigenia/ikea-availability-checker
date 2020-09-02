@@ -64,7 +64,7 @@ program
     } else if (Array.isArray(program.store)) {
       stores = storesData.getStoresById(program.store);
     } else if (program.store) {
-      stores = storesData.getStoresMatchingQuery(program.store, program.country);
+      stores = storesData.findByQuery(program.store, program.country);
     } else {
       console.error('please provide country code and/or store id');
       process.exit(1);
