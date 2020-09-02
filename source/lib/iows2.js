@@ -47,7 +47,7 @@ class IOWS2 {
     debug('GET', url, params);
     return fetch(url, params)
       .then(response => {
-        debug('RECEIVED', response.status, response.length);
+        debug('RECEIVED', response.status);
         if (!response.ok) {
           const err = new Error(`Unexpected http status code ${response.status}`);
           err.response = response;
@@ -71,12 +71,7 @@ class IOWS2 {
     };
   }
 
-  /**
-   * @param {String} buCode
-   * @param {String} productId
-   * @returns {Promise<ProductAvailability>}
-   */
-  async getStoreProductAvailability(buCode, productId) {
+  buildUrl(baseUrl, countryCode, languageCode, buCode, productId) {
     // build url for single store and product Id
     // ireland requires a different URL
     let code = 'ART';
@@ -84,7 +79,7 @@ class IOWS2 {
     if (buCode === '038') {
       code = 'SPR';
     }
-    const url = [
+    return [
       this.baseUrl,
       encodeURIComponent(this.countryCode),
       encodeURIComponent(this.languageCode),
@@ -93,16 +88,26 @@ class IOWS2 {
       'availability/' + code,
       encodeURIComponent(productId)
     ].join('/');
+  }
+
+  /**
+   * @param {String} buCode
+   * @param {String} productId
+   * @returns {Promise<ProductAvailability>}
+   */
+  async getStoreProductAvailability(buCode, productId) {
+    const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId);
     return this.fetch(url)
       .catch(err => {
         switch (err.response.status) {
-          case 410:
-          case 404:
+          case 410: // gone
+          case 404: // not found
             err.message =
               `Unable to receive product ${productId} availability for store `+
-              `${buCode} status code: ${err.response.status}.`
+              `${buCode} status code: ${err.response.status} ${err.response.statusText}.`
             break;
           default:
+            // ignore other error codes
             break;
         }
         throw err;
