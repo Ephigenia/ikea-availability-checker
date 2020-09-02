@@ -1,3 +1,12 @@
+## [0.4.7](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.4.6...v0.4.7) (2020-09-02)
+
+
+### Bug Fixes
+
+* sub--command store, stock found when installed globally [#18](https://github.com/Ephigenia/ikea-availability-checker/issues/18) ([da8bc52](https://github.com/Ephigenia/ikea-availability-checker/commit/da8bc52f78de85828c33a724b25fc5b508ce2d75))
+
+
+
 ## [0.4.6](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.4.5...v0.4.6) (2020-08-31)
 
 
