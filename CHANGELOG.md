@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.5.0...v0.5.1) (2020-09-02)
+
+
+### Bug Fixes
+
+* adds wetzlar store buCode (493) ([#21](https://github.com/Ephigenia/ikea-availability-checker/issues/21)) ([2c6ef7c](https://github.com/Ephigenia/ikea-availability-checker/commit/2c6ef7c7137ed4f89c12040fd6c2908348bda6d5))
+
+
+
 # [0.5.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.4.7...v0.5.0) (2020-09-02)
 
 
