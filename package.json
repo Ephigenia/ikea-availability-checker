@@ -2,7 +2,7 @@
   "author": "Ephigenia M. Eichner",
   "name": "ikea-availability-checker",
   "description": "ikea product in-store availability checker and product search",
-  "version": "0.4.4",
+  "version": "0.4.7",
   "preferGlobal": true,
   "keywords": [
     "availability",
@@ -15,8 +15,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": "^10.17",
-    "npm": "^6.9.0"
+    "node": ">=10"
   },
   "maintainer": {
     "name": "Marcel Eichner",
@@ -58,7 +57,7 @@
     "lint": "eslint $npm_package_config_paths_source/**/*.js",
     "lint:fix": "npm run -s lint -- --fix",
     "postversion": "git push && git push --tags",
-    "preversion": "npm test",
+    "preversion": "npm run lint && npm test",
     "start": "node source/cli.js",
     "tdd": "mocha --watch \"$npm_package_config_paths_source/**/*.test.js\"",
     "test": "mocha \"$npm_package_config_paths_source/**/*.test.js\"",

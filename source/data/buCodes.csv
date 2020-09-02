@@ -1,5 +1,6 @@
 005,Aalborg,dk
 018,Avignon,fr
+038,Dublin,ie
 051,Hénin-Beaumont,fr
 060,Brest,fr
 063,München-Eching,de
@@ -20,11 +21,13 @@
 094,Taastrup,dk
 101,Grancia TI (it),ch
 102,Köln-Butzweilerhof,de
+113,Belfast,gb
 117,Braunschweig,de
 118,Chemnitz,de
 119,Bielefeld,de
 121,Gentofte,dk
 124,Würzburg,de
+125,Southampton,gb
 129,Berlin-Waltersdorf,de
 130,Marseille - Vitrolles,fr
 131,Paris Nord Roissy,fr
@@ -32,6 +35,11 @@
 133,Lille,fr
 134,Bordeaux,fr
 139,Halle/Leipzig,de
+140,Warrington,gb
+141,Wembley,gb
+142,Birmingham,gb
+143,Gateshead,gb
+144,Croydon,gb
 146,Hamburg-Schnelsen,de
 147,Köln-Godorf,de
 148,Essen,de
@@ -45,6 +53,8 @@
 178,Praha-Zličín,ch
 179,Wilrijk,be
 184,Osnabrück,de
+185,Milton Keynes,gb
+186,Manchester,gb
 187,Hannover EXPO-Park,de
 188,Warszawa / Janki,pl
 198,Reims,fr
@@ -66,7 +76,15 @@
 240,Paris Est Villiers sur Marne,fr
 242,Toulouse,fr
 245,Hamburg-Altona,de
+255,Tottenham,gb
 260,Metz,fr
+261,Leeds,gb
+262,Lakeside,gb
+263,Nottingham,gb
+264,Bristol,gb
+265,Edingburgh,gb
+266,Glasgow,gb
+267,Cardiff,gb
 270,Utrecht,nl
 272,Duiven,nl
 273,Innsbruck,at
@@ -125,10 +143,14 @@
 433,Marseille - La Valentine,fr
 434,Tours,fr
 435,Grenoble,fr
+461,Reading,gb
 482,Anderlecht,be
 488,Renton,us
 483,Arlon,be
 494,Kaarst,de
+519,Sheffield,gb
 522,Goyang,kr
+548,Exeter,gb
+567,Greenwich,gb
 917,St. Gallen SG (de),ch
 918,Vernier GE (fr),ch

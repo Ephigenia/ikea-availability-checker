@@ -1,12 +1,11 @@
 'use strict';
 
 const fetch = require('node-fetch');
+const assert = require('assert');
 
 const pkg = require('./../../package.json')
 const debug = require('debug')(pkg.name);
-const storesData = require('./stores');
-
-const BASE_URL_DEFAULT = 'https://iows.ikea.com/retail/iows';
+const stores = require('./stores');
 
 /**
  * @typedef {('LOW'|'MEDIUM'|'HIGH')} ProductAvailabilityProbability
@@ -35,9 +34,17 @@ class IOWS2 {
    * @param {String} [languageCode] - optional ISO 3166-1 alpha-2 country code
    */
   constructor(countryCode, languageCode = '') {
-    this.countryCode = String(countryCode).toLocaleLowerCase();
-    this.languageCode = (languageCode || storesData.getLanguageCode(countryCode)).toLowerCase();
-    this.baseUrl = BASE_URL_DEFAULT;
+    assert.strictEqual(typeof countryCode, 'string',
+      `Expected first argument countryCode to be a string, instead ${typeof countryCode} given.`
+    );
+    if (languageCode) {
+      assert.strictEqual(typeof languageCode, 'string',
+        `Expected second argument languageCode to be a string, instead ${typeof languageCode} given.`
+      );
+    }
+    this.countryCode = String(countryCode).trim().toLocaleLowerCase();
+    this.languageCode = (languageCode || stores.getLanguageCode(countryCode)).trim().toLowerCase();
+    this.baseUrl = 'https://iows.ikea.com/retail/iows';
   }
 
   /**
@@ -59,7 +66,7 @@ class IOWS2 {
     debug('GET', url, params);
     return fetch(url, params)
       .then(response => {
-        debug('RECEIVED', response.status, response.length);
+        debug('RECEIVED', response.status);
         if (!response.ok) {
           const err = new Error(`Unexpected http status code ${response.status}`);
           err.response = response;
@@ -83,6 +90,25 @@ class IOWS2 {
     };
   }
 
+  buildUrl(baseUrl, countryCode, languageCode, buCode, productId) {
+    // build url for single store and product Id
+    // ireland requires a different URL
+    let code = 'ART';
+    // TODO move this to somewhere else
+    if (buCode === '038') {
+      code = 'SPR';
+    }
+    return [
+      this.baseUrl,
+      encodeURIComponent(this.countryCode),
+      encodeURIComponent(this.languageCode),
+      'stores',
+      buCode,
+      'availability/' + code,
+      encodeURIComponent(productId)
+    ].join('/');
+  }
+
   /**
    * Asynchronsouly request the stock information of a specific product in
    * the given store.
@@ -93,29 +119,22 @@ class IOWS2 {
    *   information
    */
   async getStoreProductAvailability(buCode, productId) {
-    buCode = String(buCode);
-    productId = String(productId);
-    // build url for single store and product Id
-    const url = [
-      this.baseUrl,
-      encodeURIComponent(this.countryCode),
-      encodeURIComponent(this.languageCode),
-      'stores',
-      buCode,
-      'availability/ART',
-      encodeURIComponent(productId)
-    ].join('/');
+    assert.strictEqual(typeof buCode, 'string',
+      `Expected first argument buCode to be a string, instead ${typeof buCode} given.`
+    );
+    assert.strictEqual(typeof productId, 'string',
+      `Expected first argument productId to be a string, instead ${typeof productId} given.`
+    );
+    buCode = String(buCode).trim();
+    productId = String(productId).trim();
+
+    const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId);
     return this.fetch(url)
       .catch(err => {
-        switch (err.response.status) {
-          case 410:
-          case 404:
-            err.message =
-              `Unable to receive product ${productId} availability for store `+
-              `${buCode} status code: ${err.response.status}.`
-            break;
-          default:
-            break;
+        if (err.response) {
+          err.message =
+            `Unable to receive product ${productId} availability for store `+
+            `${buCode} status code: ${err.response.status} ${err.response.statusText}.`;
         }
         throw err;
       })

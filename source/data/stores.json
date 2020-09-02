@@ -1507,12 +1507,12 @@
   {
     "buCode": "192",
     "name": "Adelaide",
-    "countryCode": "aa"
+    "countryCode": "au"
   },
   {
     "buCode": "191",
     "name": "Perth",
-    "countryCode": "aa"
+    "countryCode": "au"
   },
   {
     "buCode": "055",
@@ -1803,5 +1803,115 @@
     "buCode": "438",
     "name": "Damansara",
     "countryCode": "my"
+  },
+  {
+    "buCode": "038",
+    "name": "Dublin",
+    "countryCode": "ie"
+  },
+  {
+    "buCode": "113",
+    "name": "Belfast",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "142",
+    "name": "Birmingham",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "264",
+    "name": "Bristol",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "267",
+    "name": "Cardiff",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "144",
+    "name": "Croydon",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "265",
+    "name": "Edingburgh",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "548",
+    "name": "Exeter",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "143",
+    "name": "Gateshead",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "266",
+    "name": "Glasgow",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "567",
+    "name": "Greenwich",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "262",
+    "name": "Lakeside",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "261",
+    "name": "Leeds",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "186",
+    "name": "Manchester",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "185",
+    "name": "Milton Keynes",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "263",
+    "name": "Nottingham",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "461",
+    "name": "Reading",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "519",
+    "name": "Sheffield",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "125",
+    "name": "Southampton",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "255",
+    "name": "Tottenham",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "140",
+    "name": "Warrington",
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "141",
+    "name": "Wembley",
+    "countryCode": "gb"
   }
 ]

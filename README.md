@@ -3,7 +3,6 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
 [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![NPM Package](https://badge.fury.io/js/ikea-availability-checker.svg)](https://www.npmjs.com/package/ikea-availability-checker)
 [![NPM Downloads](https://img.shields.io/npm/dt/ikea-availability-checker.svg)](https://www.npmjs.com/package/ikea-availability-checker)
-[![CircleCI](https://circleci.com/gh/Ephigenia/ikea-availability-checker.svg?style=svg&circle-token=1907356b3e852337a9e5f96d9b99ef1942c4ffa2)](https://circleci.com/gh/Ephigenia/ikea-availability-checker)
 [![Known Vulnerabilities](https://snyk.io/test/github/ephigenia/ikea-availability-checker/badge.svg)](https://snyk.io/test/github/ephigenia/ikea-availability-checker)
 
 - [Installation](#installation)
@@ -26,6 +25,7 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
     - [Run Tests](#run-tests)
     - [TDD](#tdd)
     - [Run Specific tests](#run-specific-tests)
+- [Releasing](#releasing)
 
 Installation
 ================================================================================
@@ -198,3 +198,10 @@ Running all tests will also create coverage reports shown after the test results
 ## Run Specific tests
 
     run test -- --grep="stock reporter"
+
+
+Releasing
+================================================================================
+
+    npm version minor
+    npm publish

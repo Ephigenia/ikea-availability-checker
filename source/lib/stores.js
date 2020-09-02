@@ -18,22 +18,6 @@ module.exports = {
   data,
 
   /**
-   *
-   * @param {string} buCode - ikea store code to find store for
-   * @return {Store|null}
-   */
-  findNameByBuCode: function(buCode) {
-    buCode = String(buCode);
-    let store = data.find(function(store) {
-      return store.buCode === buCode;
-    });
-    if (store) {
-      return store.name || null;
-    }
-    return null;
-  },
-
-  /**
    * @param {String} query - search query (case-insensitive)
    * @param {String} [countryCode] - optional additional countryCode that must
    *  match
@@ -71,85 +55,55 @@ module.exports = {
    * @returns {String} ISO 3166-1 alpha 2 language code
    */
   findByCountryCode: function(countryCode) {
-    const cc = countryCode.trim().toLowerCase();
+    const cc = String(countryCode).trim().toLowerCase();
     return data.filter(store => store.countryCode === cc);
   },
 
   /**
-   * Transform a ISO 3166-2 country code like "gb" to the ISO 639-2
+   * Returns an array with all ISO 3166-1 alpha 2 country codes that have at
+   * least one store.
+   * @returns {String[]} two-letter ISO 3166-2 alpha 2 country codes
+   */
+  getCountryCodes: function() {
+    return Array.from(new Set(data.map(store => store.countryCode)));
+  },
+
+  /**
+   * Transforms a ISO 3166-2 country code like "gb" to the ISO 639-2
    * language code ("en") that is supported by the IOWS endpoint.
    *
    * @param {string} countryCode lowercase ISO 3166-2 alpha 2 country code
    * @returns {string} the resulting lowercased ISO 639-2 language code
    */
   getLanguageCode: function(countryCode) {
-    let languageCode = countryCode;
-    switch(countryCode) {
-      case 'cz':
-        languageCode = 'cs';
-        break;
-      case 'dk':
-        languageCode = 'da';
-        break;
-      case 'lio':
-        languageCode = 'en';
-        break;
-      case 'jp':
-        languageCode = 'ja';
-        break;
-      case 'kr':
-        languageCode = 'ko';
-        break;
-      case 'se':
-        languageCode = 'sv';
-        break;
-      case 'aa':
-      case 'au':
-      case 'hk':
-      case 'my':
-      case 'sg':
-      case 'th':
-        languageCode = 'en';
-        break;
-      case 'cn':
-      case 'tw':
-        languageCode = 'zh';
-        break;
-      case 'ae':
-      case 'ca':
-      case 'jo':
-      case 'kw':
-      case 'qa':
-      case 'sa':
-      case 'us':
-        languageCode = 'en';
-        break;
-      case 'at':
-      case 'ch':
-        languageCode = 'de';
-        break;
-    }
-    return languageCode;
-  },
-
-  isSupportedCountryCode: function(code) {
-    const unsupportedCountryCodes = [
-      'bg',
-      'cy',
-      'do',
-      'eg',
-      'es_islas',
-      'gb',
-      'gr',
-      'id',
-      'ie',
-      'in',
-      'is',
-      'lio',
-      'ma',
-      'rs',
-      'tr',
-    ];
-    return unsupportedCountryCodes.indexOf(code) === -1;
+    const cc = String(countryCode).trim().toLowerCase();
+    // the best matching language code to use when sending requests to a
+    // specific country
+    const map = {
+      ae: 'en',
+      at: 'de',
+      au: 'en',
+      ca: 'en',
+      ch: 'de',
+      cn: 'zh',
+      cz: 'cs',
+      dk: 'da',
+      gb: 'en',
+      hk: 'en',
+      ie: 'en',
+      jo: 'en',
+      jp: 'ja',
+      kr: 'ko',
+      kw: 'en',
+      my: 'en',
+      qa: 'en',
+      sa: 'en',
+      se: 'sv',
+      sg: 'en',
+      th: 'en',
+      tw: 'zh',
+      us: 'en',
+    };
+    return map[String(cc)] || cc;
   }
 };
