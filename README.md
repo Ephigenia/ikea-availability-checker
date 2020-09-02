@@ -5,32 +5,44 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
 [![NPM Downloads](https://img.shields.io/npm/dt/ikea-availability-checker.svg)](https://www.npmjs.com/package/ikea-availability-checker)
 [![Known Vulnerabilities](https://snyk.io/test/github/ephigenia/ikea-availability-checker/badge.svg)](https://snyk.io/test/github/ephigenia/ikea-availability-checker)
 
-- [Installation](#installation)
-    - [Global](#global)
-    - [Local](#local)
-    - [NPX](#npx)
-- [Usage](#usage)
-    - [Stores](#stores)
-    - [Product Stock Information](#product-stock-information)
-        - [Product Stock Information for a whole country](#product-stock-information-for-a-whole-country)
-        - [Product Stock Information for a specific store](#product-stock-information-for-a-specific-store)
-            - [with BU-Code (Store-Id)](#with-bu-code-store-id)
-            - [Store-Name / Location / City-Name](#store-name--location--city-name)
-        - [Multiple BU-Code(s)](#multiple-bu-codes)
-- [Other Projects & Articles](#other-projects--articles)
+- [Features](#features)
+- [Command Line](#command-line)
+    - [Install](#install)
+        - [Global](#global)
+        - [Local](#local)
+        - [NPX](#npx)
+    - [Use](#use)
+        - [Stores](#stores)
+        - [Stock](#stock)
+            - [Product Stock Information for a whole country](#product-stock-information-for-a-whole-country)
+            - [Product Stock Information for a specific store](#product-stock-information-for-a-specific-store)
+                - [with BU-Code (Store-Id)](#with-bu-code-store-id)
+                - [Store-Name / Location / City-Name](#store-name--location--city-name)
+            - [Multiple BU-Code(s)](#multiple-bu-codes)
+- [API](#api)
 - [Development](#development)
     - [Requirements](#requirements)
-- [Debugging](#debugging)
-- [Testing](#testing)
-    - [Run Tests](#run-tests)
-    - [TDD](#tdd)
-    - [Run Specific tests](#run-specific-tests)
-- [Releasing](#releasing)
+    - [Debug](#debug)
+    - [Testing](#testing)
+        - [TDD](#tdd)
+        - [Run Specific tests](#run-specific-tests)
+    - [Release](#release)
+- [Other Projects & Articles](#other-projects--articles)
 
-Installation
+Features
 ================================================================================
 
-## Global
+- list of 156 IKEA stores worldwide
+- get product stock amount for a product from a whole country or single store in JSON, CSV and CLI-Table format
+- support for many countries: ae, at, au, ca, ch, cn, cz, de, dk, es, fi, fr, gb
+hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
+- integrate the library into your node project
+
+Command Line
+================================================================================
+
+## Install
+### Global
 
 A globally installed ikea-availability-checker can be used anywhere but there can only be one version of it.
 
@@ -40,25 +52,21 @@ After that the ikea-availability-checker should be callable from everywhere as t
 
     ikea-availability-checker
 
-## Local
+### Local
 
 A locally installed ikea-availability-checker will be placed in `./node_modules/ikea-availability-checker` and can be called using the binary link:
 
     npm install ikea-availability-checker;
     node_modules/.bin/ikea-availability-checker --help;
 
-## NPX
+### NPX
 
 Or call it directly using [npx](https://www.npmjs.com/package/npx):
 
     npx ikea-availability-checker --help
 
-
-
-Usage
-================================================================================
-
-## Stores
+## Use
+### Stores
 
     npm run start -- stores at
 
@@ -81,9 +89,9 @@ Usage
     └─────────────┴─────────┴────────┴────────────────┘
 
 
-## Product Stock Information
+### Stock
 
-### Product Stock Information for a whole country
+#### Product Stock Information for a whole country
 
     npm run start -- stock --country at S69022537
 
@@ -106,9 +114,9 @@ Usage
     └──────────────────────────┴─────────────┴─────────┴───────────┴──────────────────┴────────────────┴───────┴─────────────┘
 
 
-### Product Stock Information for a specific store
+#### Product Stock Information for a specific store
 
-#### with BU-Code (Store-Id)
+##### with BU-Code (Store-Id)
     npm run start -- stock --store=155 S69022537
 
     ┌─────────────┬─────────┬───────────┬──────────────────┬────────────┬───────┬─────────────┐
@@ -117,14 +125,14 @@ Usage
     │ at          │ Austria │ S69022537 │ 155              │ Klagenfurt │    10 │        HIGH │
     └─────────────┴─────────┴───────────┴──────────────────┴────────────┴───────┴─────────────┘
 
-#### Store-Name / Location / City-Name
+##### Store-Name / Location / City-Name
 
 The "store" option also accepts strings which match on the location’s name:
 
     npm run start -- stock --store=Berlin 40413131
 
 
-### Multiple BU-Code(s)
+#### Multiple BU-Code(s)
 
     npm run start -- stock --store=224,069,063 S69022537 40313075 40299687
 
@@ -158,12 +166,20 @@ The "store" option also accepts strings which match on the location’s name:
 
 The list of bu-codes can also contain bu-codes from different countries.
 
-Other Projects & Articles
+
+API 
 ================================================================================
 
-* npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
-* [API of the Day: Checking IKEA Availability and Warehouse Locations]( https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
+The API interface which helps you including the check into your library is kind of new. If you have suggestions for improvements feel free to [open an issue](https://github.com/Ephigenia/ikea-availability-checker/issues).
 
+```javascript
+const checker = require('ikea-availability-checker');
+
+(async function() {
+const result = await checker.availability('394', 'S69022537');
+console.log('RESULT', result);
+})();
+```
 
 Development
 ================================================================================
@@ -174,34 +190,37 @@ Development
 *it is strongly recommended to use either nvm and the exact same node version or the docker container as development environment*
 
 
-Debugging
-================================================================================
+## Debug
 
     DEBUG=ikea* npm run start
 
 
-Testing
-================================================================================
+## Testing
 
 The project has a preconfigured test runner [mocha](https://mochajs.org/). Test coverage is not good.
-
-## Run Tests
 
 Running all tests will also create coverage reports shown after the test results.
 
     npm run test
 
-## TDD
+### TDD
 
     npm run tdd
 
-## Run Specific tests
+### Run Specific tests
 
     run test -- --grep="stock reporter"
 
 
-Releasing
-================================================================================
+## Release
 
     npm version minor
     npm publish
+
+
+Other Projects & Articles
+================================================================================
+
+* npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
+* [API of the Day: Checking IKEA Availability and Warehouse Locations]( https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
+
