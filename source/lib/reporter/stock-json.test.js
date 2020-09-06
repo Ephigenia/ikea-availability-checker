@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const reporter = require('./json');
+const reporter = require('./stock-json');
 
 let resultFixture = [
   {
@@ -22,7 +22,7 @@ describe('stock reporter json', function() {
       productId: 'S49903093',
       results: resultFixture,
     };
-    let report = reporter.show(data);
+    let report = reporter.createReport(data);
     expect(report).to.equal(
       '{"countryCode":"de","productId":"S49903093","results":[' +
       '{"buCode":123,"stock":{"availableStock":{"availability":999,' +

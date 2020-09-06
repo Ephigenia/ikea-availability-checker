@@ -75,12 +75,7 @@ program
       process.exit(1);
     }
 
-    let reporter = null;
-    if (program.reporter === 'json') {
-      reporter = require('./lib/reporter/' + program.reporter);
-    } else {
-      reporter = require('./lib/reporter/stock-' + program.reporter);
-    }
+    let reporter = require('./lib/reporter/stock-' + program.reporter);
 
     // merge productids and stores list together to one array to be able
     // to make one request per array item
@@ -101,7 +96,7 @@ program
         // softly continue the promise chain when there’s just a 404 (not found)
         .catch(err => {
           // when product could not be found return an empty availability
-          if (err.response && err.response.status === 404) {
+          if (err.response && err.response.status === 404 && promises.length > 1) {
             return { stock: 0, probability: 'NOT_FOUND', createdAt: new Date() };
           }
           throw err;
