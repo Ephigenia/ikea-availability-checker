@@ -75,12 +75,7 @@ program
       process.exit(1);
     }
 
-    let reporter = null;
-    if (program.reporter === 'json') {
-      reporter = require('./lib/reporter/' + program.reporter);
-    } else {
-      reporter = require('./lib/reporter/stock-' + program.reporter);
-    }
+    let reporter = require('./lib/reporter/stock-' + program.reporter);
 
     // merge productids and stores list together to one array to be able
     // to make one request per array item
