@@ -81,11 +81,28 @@ class IOWS2 {
    * @returns {ProductAvailability} transformed stock information
    */
   static parseAvailabilityFromResponseData(data) {
-    const stock = data.StockAvailability.RetailItemAvailability.AvailableStock.$;
-    const probability = data.StockAvailability.RetailItemAvailability.InStockProbabilityCode.$;
+    const availability = data.StockAvailability;
+
+    // extract forecast data from json
+    const forecastData = availability.AvailableStockForecastList.AvailableStockForecast || [];
+    const forecast = forecastData.map(item => ({
+      stock: parseInt(item.AvailableStock.$, 10),
+      createdAt: new Date(item.ValidDateTime.$),
+      probability: item.InStockProbabilityCode.$,
+    }));
+
+    let restockDate = null;
+    if (availability.RetailItemAvailability.RestockDateTime) {
+      restockDate = new Date(availability.RetailItemAvailability.RestockDateTime.$);
+    }
+
+    const stock = availability.RetailItemAvailability.AvailableStock.$;
+    const probability = availability.RetailItemAvailability.InStockProbabilityCode.$;
     return {
       createdAt: new Date(),
+      forecast,
       probability,
+      restockDate,
       stock,
     };
   }
@@ -93,10 +110,10 @@ class IOWS2 {
   buildUrl(baseUrl, countryCode, languageCode, buCode, productId) {
     // build url for single store and product Id
     // ireland requires a different URL
-    let code = 'ART';
+    let itemType = 'ART';
     // TODO move this to somewhere else
     if (buCode === '038') {
-      code = 'SPR';
+      itemType = 'SPR';
     }
     return [
       this.baseUrl,
@@ -104,7 +121,8 @@ class IOWS2 {
       encodeURIComponent(this.languageCode),
       'stores',
       buCode,
-      'availability/' + code,
+      'availability',
+      itemType,
       encodeURIComponent(productId)
     ].join('/');
   }
