@@ -101,7 +101,7 @@ program
         // softly continue the promise chain when there’s just a 404 (not found)
         .catch(err => {
           // when product could not be found return an empty availability
-          if (err.response && err.response.status === 404) {
+          if (err.response && err.response.status === 404 && promises.length > 1) {
             return { stock: 0, probability: 'NOT_FOUND', createdAt: new Date() };
           }
           throw err;
