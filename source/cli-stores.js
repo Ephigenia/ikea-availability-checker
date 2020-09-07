@@ -41,7 +41,11 @@ Examples:
     let reporter = null;
     switch (program.reporter) {
       case 'json':
-        reporter = require('./lib/reporter/' + program.reporter);
+        reporter = {
+          show: (data) => {
+            return JSON.stringify(data, null, "\t");
+          }
+        };
         break;
       case 'table':
         reporter = require('./lib/reporter/stores-' + program.reporter);
