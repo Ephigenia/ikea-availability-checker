@@ -12,6 +12,16 @@ const stores = require('./stores');
  */
 
 /**
+ * @typedef {object} ProductAvailabilityForecastItem
+ * @property {createdAt} date
+ *   instance of a date for which the estimation is made
+ * @property {number} stock
+ *   estimated number of items in stock on the forecasted date
+ * @property {ProductAvailabilityProbability} probability
+ *   probability of the product beeing in store ("LOW", "MEDIUM" or "HIGH")
+ */
+
+/**
  * @typedef {Object} ProductAvailability
  * @property {Date} createdAt instance of a javascript date of the moment when
  *   the data was created.
@@ -23,6 +33,11 @@ const stores = require('./stores');
  *   ikea store identification number
  * @property {Number} stock
  *   number of items currently in stock
+ * @property {ProductAvailabilityForecastItem[]} [forecast]
+ *   when available a list of items indicating the estimated stock amount in the
+ *   next days
+ * @property {Date} [restockDate]
+ *   Estimated date when the item gets restocked. Can be empty
  */
 
 /**
@@ -77,15 +92,35 @@ class IOWS2 {
   }
 
   /**
-   * @param {object<string, any>} data
+   * @param {object<string, any>} data plain iows endpoint response data object
    * @returns {ProductAvailability} transformed stock information
    */
   static parseAvailabilityFromResponseData(data) {
-    const stock = data.StockAvailability.RetailItemAvailability.AvailableStock.$;
-    const probability = data.StockAvailability.RetailItemAvailability.InStockProbabilityCode.$;
+    const availability = data.StockAvailability;
+
+    // AvailableStockForecastList can contain estimated stock amounts in the
+    // next 4 days.
+    const forecastData = availability.AvailableStockForecastList.AvailableStockForecast || [];
+    const forecast = forecastData.map(item => ({
+      stock: parseInt(item.AvailableStock.$, 10),
+      date: new Date(item.ValidDateTime.$),
+      probability: item.InStockProbabilityCode.$,
+    }));
+
+    // RestockDateTime may contain an estimated date when the product gets
+    // restocked. It also can be missing in the response
+    let restockDate = null;
+    if (availability.RetailItemAvailability.RestockDateTime) {
+      restockDate = new Date(availability.RetailItemAvailability.RestockDateTime.$);
+    }
+
+    const stock = availability.RetailItemAvailability.AvailableStock.$;
+    const probability = availability.RetailItemAvailability.InStockProbabilityCode.$;
     return {
       createdAt: new Date(),
+      forecast,
       probability,
+      restockDate,
       stock,
     };
   }
@@ -93,10 +128,10 @@ class IOWS2 {
   buildUrl(baseUrl, countryCode, languageCode, buCode, productId) {
     // build url for single store and product Id
     // ireland requires a different URL
-    let code = 'ART';
+    let itemType = 'ART';
     // TODO move this to somewhere else
     if (buCode === '038') {
-      code = 'SPR';
+      itemType = 'SPR';
     }
     return [
       this.baseUrl,
@@ -104,7 +139,8 @@ class IOWS2 {
       encodeURIComponent(this.languageCode),
       'stores',
       buCode,
-      'availability/' + code,
+      'availability',
+      itemType,
       encodeURIComponent(productId)
     ].join('/');
   }

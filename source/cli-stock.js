@@ -48,6 +48,29 @@ program
     optionalSplitOptionCSV,
     ''
   )
+  .on('--help', function() {
+    console.log(`
+Examples:
+
+  query single product in single store
+    ikea-availability-checker stock --store 148 40299687
+
+  query multiple products in a single store
+    ikea-availability-checker stock --store 148 40299687 S69022537
+
+  query single product in multiple stores
+    ikea-availability-checker stock --store 148,328 40299687
+
+  query single product in all stores in a country
+    ikea-availability-checker stock --country=at 40299687
+
+  query single product by matching query
+    ikea-availability-checker stock --store Berlin 40299687
+
+  output as json
+    ikea-availability-checker stock --store 148 --reporter json 40299687
+`);
+  })
   .action((productIds = []) => {
     // filter all dublicate productIds
     // @var {Array<String>}
@@ -62,7 +85,7 @@ program
     if (!program.store && program.country) {
       stores = storesData.findByCountryCode(program.country);
     } else if (Array.isArray(program.store)) {
-      stores = storesData.getStoresById(program.store);
+      stores = storesData.findById(program.store);
     } else if (program.store) {
       stores = storesData.findByQuery(program.store, program.country);
     } else {
@@ -75,12 +98,7 @@ program
       process.exit(1);
     }
 
-    let reporter = null;
-    if (program.reporter === 'json') {
-      reporter = require('./lib/reporter/' + program.reporter);
-    } else {
-      reporter = require('./lib/reporter/stock-' + program.reporter);
-    }
+    let reporter = require('./lib/reporter/stock-' + program.reporter);
 
     // merge productids and stores list together to one array to be able
     // to make one request per array item
@@ -101,7 +119,7 @@ program
         // softly continue the promise chain when there’s just a 404 (not found)
         .catch(err => {
           // when product could not be found return an empty availability
-          if (err.response && err.response.status === 404) {
+          if (err.response && err.response.status === 404 && promises.length > 1) {
             return { stock: 0, probability: 'NOT_FOUND', createdAt: new Date() };
           }
           throw err;

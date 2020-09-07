@@ -27,6 +27,10 @@ function probabilityColor(val) {
   }
 }
 
+function diffDays(date1, date2) {
+  return (date1.getTime() - date2.getTime()) / 60 / 60 / 24 / 1000;
+}
+
 module.exports = {
   createReport: function(data) {
     let table = new Table({
@@ -39,6 +43,8 @@ module.exports = {
         'store',
         'stock',
         'probability',
+        'restockDate',
+        'forecast',
       ],
       colAligns: [
         null,
@@ -49,20 +55,41 @@ module.exports = {
         null,
         'right',
         'right',
+        null,
       ],
     });
 
     data
-      .map(({ productId, store, availability }) => [
-        availability.createdAt.toISOString(),
-        store.countryCode,
-        countries.getName(store.countryCode, 'en'),
-        productId,
-        store.buCode,
-        store.name,
-        availabilityColor(availability.stock)(availability.stock),
-        probabilityColor(availability.probability)(availability.probability),
-      ])
+      .map(({ productId, store, availability }) => {
+        const { restockDate, createdAt, stock, probability } = availability;
+
+        let restockColumn = '';
+        if (availability.restockDate) {
+          const daysUntilRestock = Math.floor(diffDays(availability.restockDate, new Date()));
+          if (daysUntilRestock > 0) {
+            restockColumn = `in ${daysUntilRestock}d (${restockDate.toISOString().substr(0, 10)})`;
+          }
+        }
+
+        const forecast = availability.forecast.map(item => {
+          const shortDate = item.date.toISOString().substr(5, 5);
+          const coloredStock = availabilityColor(item.stock)(item.stock);
+          return `${shortDate}: ${coloredStock}`;
+        }).join(', ');
+
+        return [
+          createdAt.toISOString(),
+          store.countryCode,
+          countries.getName(store.countryCode, 'en'),
+          productId,
+          store.buCode,
+          store.name,
+          availabilityColor(stock)(stock),
+          probabilityColor(probability)(probability),
+          restockColumn,
+          forecast,
+        ]
+      })
       .forEach(row => table.push(row));
 
     return table.toString();

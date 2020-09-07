@@ -18,7 +18,7 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
             - [Product Stock Information for a specific store](#product-stock-information-for-a-specific-store)
                 - [with BU-Code (Store-Id)](#with-bu-code-store-id)
                 - [Store-Name / Location / City-Name](#store-name--location--city-name)
-            - [Multiple BU-Code(s)](#multiple-bu-codes)
+            - [Multiple Stores and Product Ids](#multiple-stores-and-product-ids)
 - [API](#api)
 - [Development](#development)
     - [Requirements](#requirements)
@@ -33,7 +33,7 @@ Features
 ================================================================================
 
 - list of 156 IKEA stores worldwide
-- get product stock amount for a product from a whole country or single store in JSON, CSV and CLI-Table format
+- get product stock amount for a product from a whole country or single store in JSON, CSV and CLI-Table format including forecast
 - support for many countries: ae, at, au, ca, ch, cn, cz, de, dk, es, fi, fr, gb
 hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
 - integrate the library into your node project
@@ -132,7 +132,9 @@ The "store" option also accepts strings which match on the location’s name:
     npm run start -- stock --store=Berlin 40413131
 
 
-#### Multiple BU-Code(s)
+#### Multiple Stores and Product Ids
+
+The list of bu-codes can also contain bu-codes from different countries.
 
     npm run start -- stock --store=224,069,063 S69022537 40313075 40299687
 
@@ -163,8 +165,6 @@ The "store" option also accepts strings which match on the location’s name:
     ├─────────────┼─────────┼───────────┼──────────────────┼────────────────┼───────┼─────────────┤
     │ de          │ Germany │ S69022537 │ 224              │ Sindelfingen   │     9 │        HIGH │
     └─────────────┴─────────┴───────────┴──────────────────┴────────────────┴───────┴─────────────┘
-
-The list of bu-codes can also contain bu-codes from different countries.
 
 
 API 
@@ -222,5 +222,5 @@ Other Projects & Articles
 ================================================================================
 
 * npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
-* [API of the Day: Checking IKEA Availability and Warehouse Locations]( https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
+* [API of the Day: Checking IKEA Availability and Warehouse Locations](https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
 * https://github.com/lovegandhi/ikea-stock-checker
