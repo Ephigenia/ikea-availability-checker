@@ -85,7 +85,7 @@ Examples:
     if (!program.store && program.country) {
       stores = storesData.findByCountryCode(program.country);
     } else if (Array.isArray(program.store)) {
-      stores = storesData.getStoresById(program.store);
+      stores = storesData.findById(program.store);
     } else if (program.store) {
       stores = storesData.findByQuery(program.store, program.country);
     } else {
