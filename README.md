@@ -33,7 +33,7 @@ Features
 ================================================================================
 
 - list of 156 IKEA stores worldwide
-- get product stock amount for a product from a whole country or single store in JSON, CSV and CLI-Table format
+- get product stock amount for a product from a whole country or single store in JSON, CSV and CLI-Table format including forecast
 - support for many countries: ae, at, au, ca, ch, cn, cz, de, dk, es, fi, fr, gb
 hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
 - integrate the library into your node project
@@ -223,4 +223,4 @@ Other Projects & Articles
 
 * npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
 * [API of the Day: Checking IKEA Availability and Warehouse Locations](https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
-
+* https://github.com/lovegandhi/ikea-stock-checker
