@@ -1,3 +1,20 @@
+# [0.6.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.5.1...v0.6.0) (2020-09-07)
+
+
+### Bug Fixes
+
+* csv & json format fixed ([9fe52d9](https://github.com/Ephigenia/ikea-availability-checker/commit/9fe52d993e92dd33d10e23d43c55f5e834a2b5a3))
+* stock multiple bu codes ([0332de8](https://github.com/Ephigenia/ikea-availability-checker/commit/0332de8215fcc18a57d3a732e3ff4eba9b5ec046))
+* stock throws error when product wasn’t found ([d885da0](https://github.com/Ephigenia/ikea-availability-checker/commit/d885da051dbcf18d789610c5ad97b57cadebc4d6))
+* stores as json/table ([698880e](https://github.com/Ephigenia/ikea-availability-checker/commit/698880e54e4e73d0c1143675da267bbee765ac5f))
+
+
+### Features
+
+* show forecast data in stock report ([#22](https://github.com/Ephigenia/ikea-availability-checker/issues/22)) ([4ba9412](https://github.com/Ephigenia/ikea-availability-checker/commit/4ba9412a38c1c17f1ed42b904c25f19b4cb22c3c))
+
+
+
 ## [0.5.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.5.0...v0.5.1) (2020-09-02)
 
 
@@ -103,24 +120,24 @@
 
 ### Bug Fixes
 
-* **bu-codes:** fix bu code for de kaarst ([8962549](https://github.com/Ephigenia/ikea-availability-checker/commit/8962549c72f2d678d545679ce50abc3150a2e7f7))
-* **search:** empty search results list catched properly ([e6a30bd](https://github.com/Ephigenia/ikea-availability-checker/commit/e6a30bd84628ec502c2486a1c2a91d8765db5a3d))
-* **stock:** compatibility with iows 2 ([176eeea](https://github.com/Ephigenia/ikea-availability-checker/commit/176eeea25b54ff2568e8b474bf898e3e6fa1f978))
-* **stock:** iows2 compatibility ([6b32e55](https://github.com/Ephigenia/ikea-availability-checker/commit/6b32e559df21121091ca772e4ce30a4275808969))
-* **stock:** not found products shown as 0 availability ([96d69c8](https://github.com/Ephigenia/ikea-availability-checker/commit/96d69c8ff10c958f70dc7e5a34501b376a909d2c))
 * removes deprecated iows1 ([006fc1c](https://github.com/Ephigenia/ikea-availability-checker/commit/006fc1c0c932ebfcc2e393ce8228cf1038d07e32))
 * removes search as it doesn’t work ([2488ef2](https://github.com/Ephigenia/ikea-availability-checker/commit/2488ef2b1e651152822b932b129d436eb83f4ca5))
 * stores returned by country from fixed data instead of scraping ([de7da1c](https://github.com/Ephigenia/ikea-availability-checker/commit/de7da1c6b1facfb26bc5e7a0a9957e2931619cf7))
 * updates buCode for Kaarst/Germany ([#6](https://github.com/Ephigenia/ikea-availability-checker/issues/6)) ([1f71c6c](https://github.com/Ephigenia/ikea-availability-checker/commit/1f71c6c0667458dbb9276058264785690d2030ee))
 * updates bucode for kaarst/germany also in cvs file ([a5e46b0](https://github.com/Ephigenia/ikea-availability-checker/commit/a5e46b0514a43968c1def2ebfe54d7f20f78da5d))
+* **bu-codes:** fix bu code for de kaarst ([8962549](https://github.com/Ephigenia/ikea-availability-checker/commit/8962549c72f2d678d545679ce50abc3150a2e7f7))
+* **search:** empty search results list catched properly ([e6a30bd](https://github.com/Ephigenia/ikea-availability-checker/commit/e6a30bd84628ec502c2486a1c2a91d8765db5a3d))
+* **stock:** compatibility with iows 2 ([176eeea](https://github.com/Ephigenia/ikea-availability-checker/commit/176eeea25b54ff2568e8b474bf898e3e6fa1f978))
+* **stock:** iows2 compatibility ([6b32e55](https://github.com/Ephigenia/ikea-availability-checker/commit/6b32e559df21121091ca772e4ce30a4275808969))
+* **stock:** not found products shown as 0 availability ([96d69c8](https://github.com/Ephigenia/ikea-availability-checker/commit/96d69c8ff10c958f70dc7e5a34501b376a909d2c))
 
 
 ### Features
 
-* **stock:** search product availability with store name regexp ([60d992c](https://github.com/Ephigenia/ikea-availability-checker/commit/60d992c51ee0168f9336d101dc4aed8d042fb2dc))
-* **stock:** use regexp for matching stores ([fdc4c7a](https://github.com/Ephigenia/ikea-availability-checker/commit/fdc4c7a33b0836f6eef6e5ec2d34bf0367d64d40))
 * adds createdAt column in stock report ([c9d455c](https://github.com/Ephigenia/ikea-availability-checker/commit/c9d455c19e21119de810321ed0c922415964dd6d))
 * adds csv-store reporter ([dfde11d](https://github.com/Ephigenia/ikea-availability-checker/commit/dfde11d90f7e7d7380db4d609d964d99ec2e1327))
+* **stock:** search product availability with store name regexp ([60d992c](https://github.com/Ephigenia/ikea-availability-checker/commit/60d992c51ee0168f9336d101dc4aed8d042fb2dc))
+* **stock:** use regexp for matching stores ([fdc4c7a](https://github.com/Ephigenia/ikea-availability-checker/commit/fdc4c7a33b0836f6eef6e5ec2d34bf0367d64d40))
 
 
 
@@ -177,8 +194,8 @@
 
 ### Features
 
-* add list of stores as json file ([3bec12b](https://github.com/Ephigenia/ikea-availability-checker/commit/3bec12b3d5302ae5609921be916e0a35c7db336f))
 * **stock:** show store names in list ([c1d1b23](https://github.com/Ephigenia/ikea-availability-checker/commit/c1d1b232f4196f336419297f3650096f80944ab4))
+* add list of stores as json file ([3bec12b](https://github.com/Ephigenia/ikea-availability-checker/commit/3bec12b3d5302ae5609921be916e0a35c7db336f))
 * **stores:** list stores per country ([840fb46](https://github.com/Ephigenia/ikea-availability-checker/commit/840fb46f241d968925365d984d0b264b0301493c))
 * **table-reporter:** add country name column ([e930bef](https://github.com/Ephigenia/ikea-availability-checker/commit/e930bef6395913c9eba2825dfa73e21e21e18a78))
 
