@@ -48,6 +48,29 @@ program
     optionalSplitOptionCSV,
     ''
   )
+  .on('--help', function() {
+    console.log(`
+Examples:
+
+  query single product in single store
+    ikea-availability-checker stock --store 148 40299687
+
+  query multiple products in a single store
+    ikea-availability-checker stock --store 148 40299687 S69022537
+
+  query single product in multiple stores
+    ikea-availability-checker stock --store 148,328 40299687
+
+  query single product in all stores in a country
+    ikea-availability-checker stock --country=at 40299687
+
+  query single product by matching query
+    ikea-availability-checker stock --store Berlin 40299687
+
+  output as json
+    ikea-availability-checker stock --store 148 --reporter json 40299687
+`);
+  })
   .action((productIds = []) => {
     // filter all dublicate productIds
     // @var {Array<String>}

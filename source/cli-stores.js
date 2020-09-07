@@ -26,6 +26,17 @@ program
     /^json|table$/,
     'table'
   )
+  .on('--help', function() {
+    console.log(`
+Examples:
+
+  get all stores in a country
+    ikea-availability-checker stores de
+
+  get all stores in >1 countries
+    ikea-availability-checker stores de at us
+`);
+  })
   .action(function(countryCodes) {
     let reporter = null;
     switch (program.reporter) {
