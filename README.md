@@ -33,7 +33,7 @@ Features
 ================================================================================
 
 - list of 156 IKEA stores worldwide
-- get product stock amount for a product from a whole country or single store in JSON, CSV and CLI-Table format
+- get product stock amount for a product from a whole country or single store in JSON, CSV and CLI-Table format including forecast
 - support for many countries: ae, at, au, ca, ch, cn, cz, de, dk, es, fi, fr, gb
 hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
 - integrate the library into your node project

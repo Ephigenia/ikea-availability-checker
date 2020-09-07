@@ -65,10 +65,9 @@ module.exports = {
 
         let restockColumn = '';
         if (availability.restockDate) {
-          const daysUntilRestock = diffDays(availability.restockDate, new Date());
-          restockColumn = restockDate.toISOString().substr(0, 10);
+          const daysUntilRestock = Math.floor(diffDays(availability.restockDate, new Date()));
           if (daysUntilRestock > 0) {
-            restockColumn += ' ' + Math.floor(daysUntilRestock) + 'd';
+            restockColumn = `in ${daysUntilRestock}d (${restockDate.toISOString().substr(0, 10)})`;
           }
         }
 

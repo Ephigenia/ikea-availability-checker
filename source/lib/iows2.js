@@ -92,13 +92,14 @@ class IOWS2 {
   }
 
   /**
-   * @param {object<string, any>} data
+   * @param {object<string, any>} data plain iows endpoint response data object
    * @returns {ProductAvailability} transformed stock information
    */
   static parseAvailabilityFromResponseData(data) {
     const availability = data.StockAvailability;
 
-    // extract forecast data from json
+    // AvailableStockForecastList can contain estimated stock amounts in the
+    // next 4 days.
     const forecastData = availability.AvailableStockForecastList.AvailableStockForecast || [];
     const forecast = forecastData.map(item => ({
       stock: parseInt(item.AvailableStock.$, 10),
@@ -106,6 +107,8 @@ class IOWS2 {
       probability: item.InStockProbabilityCode.$,
     }));
 
+    // RestockDateTime may contain an estimated date when the product gets
+    // restocked. It also can be missing in the response
     let restockDate = null;
     if (availability.RetailItemAvailability.RestockDateTime) {
       restockDate = new Date(availability.RetailItemAvailability.RestockDateTime.$);
