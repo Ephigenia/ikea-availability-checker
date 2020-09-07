@@ -33,7 +33,7 @@ const stores = require('./stores');
  *   ikea store identification number
  * @property {Number} stock
  *   number of items currently in stock
- * @property {ProductAvailabilityForecastItem[]} [forecast]
+ * @property {ProductAvailabilityForecastItem[]} [forecast=[]]
  *   when available a list of items indicating the estimated stock amount in the
  *   next days
  * @property {Date} [restockDate]
@@ -100,7 +100,7 @@ class IOWS2 {
 
     // AvailableStockForecastList can contain estimated stock amounts in the
     // next 4 days.
-    const forecastData = availability.AvailableStockForecastList.AvailableStockForecast || [];
+    const forecastData = (availability.AvailableStockForecastList || {}).AvailableStockForecast || [];
     const forecast = forecastData.map(item => ({
       stock: parseInt(item.AvailableStock.$, 10),
       date: new Date(item.ValidDateTime.$),

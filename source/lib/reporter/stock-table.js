@@ -71,7 +71,7 @@ module.exports = {
           }
         }
 
-        const forecast = availability.forecast.map(item => {
+        const forecast = (availability.forecast || []).map(item => {
           const shortDate = item.date.toISOString().substr(5, 5);
           const coloredStock = availabilityColor(item.stock)(item.stock);
           return `${shortDate}: ${coloredStock}`;

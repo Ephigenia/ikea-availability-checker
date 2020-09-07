@@ -23,10 +23,20 @@ describe('stock reporter json', function() {
       results: resultFixture,
     };
     let report = reporter.createReport(data);
-    expect(report).to.equal(
-      '{"countryCode":"de","productId":"S49903093","results":[' +
-      '{"buCode":123,"stock":{"availableStock":{"availability":999,' +
-      '"inStockProbabilityCode":"HIGH"}}}]}'
-    );
+    expect(report).to.equal(`{
+  "countryCode": "de",
+  "productId": "S49903093",
+  "results": [
+    {
+      "buCode": 123,
+      "stock": {
+        "availableStock": {
+          "availability": 999,
+          "inStockProbabilityCode": "HIGH"
+        }
+      }
+    }
+  ]
+}`);
   });
 });

@@ -2,6 +2,6 @@
 
 module.exports = {
   createReport: function(data) {
-    return JSON.stringify(data, null, "\t");
+    return JSON.stringify(data, null, "  ");
   },
 };
