@@ -12,6 +12,16 @@ const stores = require('./stores');
  */
 
 /**
+ * @typedef {object} ProductAvailabilityForecastItem
+ * @property {createdAt} date
+ *   instance of a date for which the estimation is made
+ * @property {number} stock
+ *   estimated number of items in stock on the forecasted date
+ * @property {ProductAvailabilityProbability} probability
+ *   probability of the product beeing in store ("LOW", "MEDIUM" or "HIGH")
+ */
+
+/**
  * @typedef {Object} ProductAvailability
  * @property {Date} createdAt instance of a javascript date of the moment when
  *   the data was created.
@@ -23,6 +33,11 @@ const stores = require('./stores');
  *   ikea store identification number
  * @property {Number} stock
  *   number of items currently in stock
+ * @property {ProductAvailabilityForecastItem[]} [forecast]
+ *   when available a list of items indicating the estimated stock amount in the
+ *   next days
+ * @property {Date} [restockDate]
+ *   Estimated date when the item gets restocked. Can be empty
  */
 
 /**
@@ -87,7 +102,7 @@ class IOWS2 {
     const forecastData = availability.AvailableStockForecastList.AvailableStockForecast || [];
     const forecast = forecastData.map(item => ({
       stock: parseInt(item.AvailableStock.$, 10),
-      createdAt: new Date(item.ValidDateTime.$),
+      date: new Date(item.ValidDateTime.$),
       probability: item.InStockProbabilityCode.$,
     }));
 
