@@ -1,3 +1,13 @@
+## [0.6.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.0...v0.6.1) (2020-09-18)
+
+
+### Bug Fixes
+
+* fail early in lib when store not found ([49a6f9d](https://github.com/Ephigenia/ikea-availability-checker/commit/49a6f9d13d0147d81cf15ad8fa1e1cf82d6d1aa3))
+* findOneById instead of getStoreById in index ([f0c717e](https://github.com/Ephigenia/ikea-availability-checker/commit/f0c717e5da20cb1b4935271bd98b78f298b7945f)), closes [#24](https://github.com/Ephigenia/ikea-availability-checker/issues/24)
+
+
+
 # [0.6.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.5.1...v0.6.0) (2020-09-07)
 
 
