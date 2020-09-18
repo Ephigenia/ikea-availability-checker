@@ -57,6 +57,7 @@ class IOWS2 {
         `Expected second argument languageCode to be a string, instead ${typeof languageCode} given.`
       );
     }
+    // TODO should country codes be validated against the list of stores?
     this.countryCode = String(countryCode).trim().toLocaleLowerCase();
     this.languageCode = (languageCode || stores.getLanguageCode(countryCode)).trim().toLowerCase();
     this.baseUrl = 'https://iows.ikea.com/retail/iows';
