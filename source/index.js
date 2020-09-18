@@ -18,7 +18,7 @@ module.exports = {
    *   resulting product availability
    */
   availability: async (buCode, productId) => {
-    const store = stores.getStoreById(buCode);
+    const store = stores.findOneById(buCode);
     // @TODO handle error when store could not be found
     const iows = new IOWS2(store.countryCode);
     return iows.getStoreProductAvailability(buCode, productId)
