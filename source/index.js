@@ -1,5 +1,7 @@
 'use strict';
 
+const assert = require('assert');
+
 const IOWS2 = require('./lib/iows2');
 const stores = require('./lib/stores');
 
@@ -14,12 +16,13 @@ module.exports = {
    *
    * @param {string} buCode ikea store identification number
    * @param {string} productId ikea product identification number
+   * @throws AssertionError when the store wasn’t found
    * @returns {Promise<import('./lib/iows2').ProductAvailability>}
    *   resulting product availability
    */
   availability: async (buCode, productId) => {
     const store = stores.findOneById(buCode);
-    // @TODO handle error when store could not be found
+    assert.ok(store, `Unable to find a store with the given buCode: ${buCode}.`);
     const iows = new IOWS2(store.countryCode);
     return iows.getStoreProductAvailability(buCode, productId)
   },
