@@ -515,6 +515,11 @@
     "countryCode": "fr"
   },
   {
+    "buCode": "580",
+    "name": "Paris La Madeleine",
+    "countryCode": "fr"
+  },
+  {
     "buCode": "389",
     "name": "Paris N-O, Franconville",
     "countryCode": "fr"
@@ -541,7 +546,7 @@
   },
   {
     "buCode": "432",
-    "name": "Paris Sud,  Thiais",
+    "name": "Paris Sud, Thiais",
     "countryCode": "fr"
   },
   {
