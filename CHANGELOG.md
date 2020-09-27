@@ -1,3 +1,16 @@
+## [0.6.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.1...v0.6.2) (2020-09-27)
+
+
+### Bug Fixes
+
+* adds french store grand parilly ([9847804](https://github.com/Ephigenia/ikea-availability-checker/commit/9847804933c1545ae2b2579ad8862f49e1309ebf))
+* adds Paris la madeleine ([e09328f](https://github.com/Ephigenia/ikea-availability-checker/commit/e09328f5106c5efbc2ae13c168dea99e3f327360))
+* adds specific error classes like parse error for handling them ([8895226](https://github.com/Ephigenia/ikea-availability-checker/commit/8895226cdbf486fe5817caf2d253b5dd0e5baca6)), closes [#27](https://github.com/Ephigenia/ikea-availability-checker/issues/27)
+* adds url to each http error output ([97a7ad7](https://github.com/Ephigenia/ikea-availability-checker/commit/97a7ad786590e10fd363130ceef38efbf657729a))
+* removes st. priest bucode 132 france fr ([8849081](https://github.com/Ephigenia/ikea-availability-checker/commit/8849081d9b772ee4e63642dfc9485fe32a99b7b7))
+
+
+
 ## [0.6.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.0...v0.6.1) (2020-09-18)
 
 
