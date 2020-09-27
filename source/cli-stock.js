@@ -6,6 +6,7 @@ const storesData = require('./lib/stores');
 
 let pkg = require('./../package.json');
 let IOWS2 = require('./lib/iows2.js');
+const errors = require('./lib/iows2Errors');
 
 function optionalSplitOptionCSV(val) {
   const seperator = ',';
@@ -118,6 +119,9 @@ Examples:
       return iows.getStoreProductAvailability(store.buCode, productId)
         // softly continue the promise chain when there’s just a 404 (not found)
         .catch(err => {
+          if (err instanceof errors.IOWS2ParseError) {
+            return { stock: 0, probability: 'PARSE_ERROR', createdAt: new Date() };
+          }
           // when product could not be found return an empty availability
           if (err.response && err.response.status === 404 && promises.length > 1) {
             return { stock: 0, probability: 'NOT_FOUND', createdAt: new Date() };

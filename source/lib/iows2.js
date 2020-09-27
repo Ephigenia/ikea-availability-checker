@@ -40,6 +40,8 @@ const stores = require('./stores');
  *   Estimated date when the item gets restocked. Can be empty
  */
 
+const errors = require('./iows2Errors');
+
 /**
  * @class IOWS2
  */
@@ -84,7 +86,7 @@ class IOWS2 {
       .then(response => {
         debug('RECEIVED', response.status);
         if (!response.ok) {
-          const err = new Error(`Unexpected http status code ${response.status}`);
+          const err = new errors.IOWS2ResponseError(`Unexpected http status code ${response.status}`);
           // add context variables to error object for provide more information
           err.request = { url, params: params };
           err.response = response;
@@ -113,7 +115,7 @@ class IOWS2 {
     // RestockDateTime may contain an estimated date when the product gets
     // restocked. It also can be missing in the response
     let restockDate = null;
-    if (availability.RetailItemAvailability.RestockDateTime) {
+    if (availability.RetailItemAvailability && availability.RetailItemAvailability.RestockDateTime) {
       restockDate = new Date(availability.RetailItemAvailability.RestockDateTime.$);
     }
 
@@ -179,10 +181,18 @@ class IOWS2 {
         throw err;
       })
       .then(data => {
-        data = IOWS2.parseAvailabilityFromResponseData(data);
-        data.buCode = buCode;
-        data.productId = productId;
-        return data;
+        let parsed = {
+          buCode,
+          productId,
+        };
+        try {
+          parsed = Object.assign(parsed, IOWS2.parseAvailabilityFromResponseData(data));
+        } catch (err) {
+          let error = new errors.IOWS2ParseError('Unable to parse valid looking response: ' + err.message);
+          error.data = data;
+          throw error;
+        }
+        return parsed;
       });
   }
 }

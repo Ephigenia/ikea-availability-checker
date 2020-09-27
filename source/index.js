@@ -4,6 +4,7 @@ const assert = require('assert');
 
 const IOWS2 = require('./lib/iows2');
 const stores = require('./lib/stores');
+const errors = require('./lib/iows2Errors');
 
 module.exports = {
   /**
@@ -27,4 +28,5 @@ module.exports = {
     return iows.getStoreProductAvailability(buCode, productId)
   },
   stores,
+  errors,
 };
