@@ -85,6 +85,8 @@ class IOWS2 {
         debug('RECEIVED', response.status);
         if (!response.ok) {
           const err = new Error(`Unexpected http status code ${response.status}`);
+          // add context variables to error object for provide more information
+          err.request = { url, params: params };
           err.response = response;
           throw err;
         }
@@ -171,7 +173,8 @@ class IOWS2 {
         if (err.response) {
           err.message =
             `Unable to receive product ${productId} availability for store `+
-            `${buCode} status code: ${err.response.status} ${err.response.statusText}.`;
+            `${buCode} status code: ${err.response.status} ${err.response.statusText} ` +
+            `using url: ${err.request.url}`;
         }
         throw err;
       })
