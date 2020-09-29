@@ -36,22 +36,23 @@ Features
 ================================================================================
 
 - list of 156 IKEA stores worldwide
-- get product stock amount for a product from a whole country or single store in JSON, CSV and CLI-Table format including forecast
+- get product stock amount for a whole country or single store in JSON, CSV and CLI-Table format including forecast (when available)
 - support for many countries: ae, at, au, ca, ch, cn, cz, de, dk, es, fi, fr, gb
 hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
-- integrate the library into your node project
+- integrate/use the library into your node project
 
 Command Line
 ================================================================================
 
 ## Install
+
 ### Global
 
 A globally installed ikea-availability-checker can be used anywhere but there can only be one version of it.
 
     npm install -g ikea-availability-checker
 
-After that the ikea-availability-checker should be callable from everywhere as there’s a link in your usr/bin directory:
+After you can run the ikea-availability-checker directly:
 
     ikea-availability-checker
 
