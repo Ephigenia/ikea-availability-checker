@@ -1,3 +1,14 @@
+## [0.6.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.2...v0.6.3) (2020-09-29)
+
+
+### Bug Fixes
+
+* removes IKEA in front of some store names ([cd87ca3](https://github.com/Ephigenia/ikea-availability-checker/commit/cd87ca3d6ab783ed9241f26989ef7268c43ac38f))
+* stores adds Oak Creek, WI, US store ([#28](https://github.com/Ephigenia/ikea-availability-checker/issues/28)) ([e1e4397](https://github.com/Ephigenia/ikea-availability-checker/commit/e1e43971e95a87b6fb7c387e29ee7d22c7a1cb45))
+* updates store list ([da4fdbe](https://github.com/Ephigenia/ikea-availability-checker/commit/da4fdbe3fc98365d9ec55f7ebf71321f3a5a9468))
+
+
+
 ## [0.6.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.1...v0.6.2) (2020-09-27)
 
 
