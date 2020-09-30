@@ -7,6 +7,11 @@ const pkg = require('./../../package.json')
 const debug = require('debug')(pkg.name);
 const stores = require('./stores');
 
+const PRODUCT_TYPE = {
+  ART: 'ART',
+  SPR: 'SPR',
+};
+
 /**
  * @typedef {('LOW'|'MEDIUM'|'HIGH')} ProductAvailabilityProbability
  */
@@ -130,14 +135,7 @@ class IOWS2 {
     };
   }
 
-  buildUrl(baseUrl, countryCode, languageCode, buCode, productId) {
-    // build url for single store and product Id
-    // ireland requires a different URL
-    let itemType = 'ART';
-    // TODO move this to somewhere else
-    if (buCode === '038') {
-      itemType = 'SPR';
-    }
+  buildUrl(baseUrl, countryCode, languageCode, buCode, productId, productType = PRODUCT_TYPE.ART) {
     return [
       this.baseUrl,
       encodeURIComponent(this.countryCode),
@@ -145,7 +143,7 @@ class IOWS2 {
       'stores',
       buCode,
       'availability',
-      itemType,
+      productType,
       encodeURIComponent(productId)
     ].join('/');
   }
@@ -156,10 +154,12 @@ class IOWS2 {
    *
    * @param {String} buCode ikea store identification number
    * @param {String} productId ikea product identification number
+   * @param {PRODUCT_TYPE} [productType=PRODUCT_TYPE.ART] optional different
+   *   product type. The product type is guessed from the product ID.
    * @returns {Promise<ProductAvailability>} resulting product stock
    *   information
    */
-  async getStoreProductAvailability(buCode, productId) {
+  async getStoreProductAvailability(buCode, productId, productType = null) {
     assert.strictEqual(typeof buCode, 'string',
       `Expected first argument buCode to be a string, instead ${typeof buCode} given.`
     );
@@ -169,7 +169,17 @@ class IOWS2 {
     buCode = String(buCode).trim();
     productId = String(productId).trim();
 
-    const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId);
+    if (!productType) {
+      productType = PRODUCT_TYPE.ART;
+      // it looks like SPR product types always have an "s" in front of
+      // the productcode
+      if (productId.substr(0, 1).toLowerCase() === 's') {
+        productType = PRODUCT_TYPE.SPR;
+        productId = productId.substr(1);
+      }
+    }
+
+    const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId, productType);
     return this.fetch(url)
       .catch(err => {
         if (err.response) {
