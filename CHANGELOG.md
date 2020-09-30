@@ -1,3 +1,13 @@
+## [0.6.4](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.3...v0.6.4) (2020-09-30)
+
+
+### Bug Fixes
+
+* guess product type SPR from product code ([5ea176b](https://github.com/Ephigenia/ikea-availability-checker/commit/5ea176b6d53b6f000fc8a3043a8cfd0c41eecf5a))
+* removes dublicate oak creek store ([fcf609b](https://github.com/Ephigenia/ikea-availability-checker/commit/fcf609bc2c90733c609497dc72388a5a8c4140f5))
+
+
+
 ## [0.6.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.2...v0.6.3) (2020-09-29)
 
 
