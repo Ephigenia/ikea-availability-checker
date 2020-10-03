@@ -28,9 +28,9 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
         - [Run Specific tests](#run-specific-tests)
     - [Release](#release)
 - [Other Projects & Articles](#other-projects--articles)
-        - [Articles & Resources](#articles--resources)
-        - [Packages](#packages)
-        - [Services](#services)
+    - [Articles & Resources](#articles--resources)
+    - [Packages](#packages)
+    - [Services](#services)
 
 Features
 ================================================================================
@@ -213,7 +213,7 @@ Running all tests will also create coverage reports shown after the test results
 Other Projects & Articles
 ================================================================================
 
-### Articles & Resources
+## Articles & Resources
 
 * npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
 * [API of the Day: Checking IKEA Availability and Warehouse Locations](https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) 
@@ -221,14 +221,14 @@ Other Projects & Articles
 * [IKEA Reddit](https://www.reddit.com/r/IKEA/)
 * [IKEA Mobile api description](https://del.dog/ikeamobileapi.md)
 
-### Packages
+## Packages
 
 * [ikea stock checker](https://github.com/lovegandhi/ikea-stock-checker)
 * [ikea stock finder](https://github.com/sasasoni/ikea_stock_finder) japanese ruby
 * [ikea scraper](https://github.com/LordBonzi/ikea-scraper) python stock scraper
 * [ikea bot](https://github.com/xorik/ikea-bot) telegram notification bot
 
-### Services
+## Services
 
 * [Stock Hound](https://github.com/spgill/stock-hound) [website](http://stockhound.spgill.me/)
 * [IKEA Click & Collect Availability](https://ikea-status.dong.st/) website for us-stores
