@@ -7,8 +7,8 @@
 066,Augsburg,de
 069,Oldenburg,de
 075,Walldorf,de
-078,Aubonne VD (fr),ch
-079,Spreitenbach AG (de),ch
+078,Aubonne VD,ch
+079,Spreitenbach AG,ch
 082,Paris Sud Evry,fr
 083,Paris Ouest Plaisir,fr
 085,Wien Vösendorf,at
@@ -19,7 +19,7 @@
 090,Wien Nord,at
 092,Rostock,de
 094,Taastrup,dk
-101,Grancia TI (it),ch
+101,Grancia TI,ch
 102,Köln-Butzweilerhof,de
 113,Belfast,gb
 117,Braunschweig,de
@@ -50,7 +50,7 @@
 172,Odense,dk
 174,Kassel,de
 177,Rennes,fr
-178,Praha-Zličín,ch
+178,Praha-Zličín,cz
 179,Wilrijk,be
 184,Osnabrück,de
 185,Milton Keynes,gb
@@ -89,18 +89,18 @@
 272,Duiven,nl
 273,Innsbruck,at
 274,Barendrecht (Rotterdam),nl
-275,Rothenburg LU (de),ch
-278,Brno,ch
+275,Rothenburg LU,ch
+278,Brno,cz
 285,Paris Ouest Vélizy,fr
 289,Lübeck,de
-290,Lyssach BE (de),ch
-291,Dietlikon ZH (de),ch
-292,Pratteln BL (de),ch
+290,Lyssach BE,ch
+291,Dietlikon ZH,ch
+292,Pratteln BL,ch
 294,Wrocław,pl
 298,Aarhus,dk
 306,Katowice,pl
 307,Warszawa / Targówek,pl
-309,Ostrava,ch
+309,Ostrava,cz
 312,Hengelo,nl
 315,Toulon,fr
 316,Nantes,fr
@@ -133,7 +133,7 @@
 402,Montpellier,fr
 403,Breda,nl
 404,Groningen,nl
-408,Praha Černý Most,ch
+408,Praha Černý Most,cz
 412,Braunschweig,de
 415,Amersfoort,nl
 421,Berlin-Tempelhof,de
@@ -153,5 +153,5 @@
 522,Goyang,kr
 548,Exeter,gb
 567,Greenwich,gb
-917,St. Gallen SG (de),ch
-918,Vernier GE (fr),ch
+917,St. Gallen SG,ch
+918,Vernier GE,ch
