@@ -2,7 +2,7 @@
   "author": "Ephigenia M. Eichner",
   "name": "ikea-availability-checker",
   "description": "ikea product in-store availability checker and product search",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "preferGlobal": true,
   "keywords": [
     "availability",
@@ -31,7 +31,9 @@
     "type": "git",
     "url": "git@github.com:Ephigenia/ikea-availability-checker.git"
   },
-  "funding": "http://github.com/sponsors/Ephigenia",
+  "funding": {
+    "url": "http://github.com/sponsors/Ephigenia"
+  },
   "bugs": {
     "url": "https://github.com/Ephigenia/ikea-availability-checker/issues"
   },
