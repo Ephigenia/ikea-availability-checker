@@ -756,6 +756,15 @@
     "countryCode": "fr"
   },
   {
+    "buCode": "345",
+    "name": "Clermont-Ferrand",
+    "coordinates": [
+      3.138834,
+      45.803800
+    ],
+    "countryCode": "fr"
+  },
+  {
     "buCode": "086",
     "name": "Dijon",
     "coordinates": [
@@ -783,6 +792,15 @@
     "countryCode": "fr"
   },
   {
+    "buCode": "051",
+    "name": "Hénin-Beaumont",
+    "coordinates": [
+      2.9775913,
+      50.3920724
+    ],
+    "countryCode": "fr"
+  },
+  {
     "buCode": "133",
     "name": "Lille",
     "coordinates": [
@@ -797,6 +815,33 @@
     "coordinates": [
       5.481167,
       43.293862
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "130",
+    "name": "Marseille - Vitrolles",
+    "coordinates": [
+      5.2679222,
+      43.4292027
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "260",
+    "name": "Metz",
+    "coordinates": [
+      6.1881137,
+      49.1499377
+    ],
+    "countryCode": "fr"
+  },,
+  {
+    "buCode": "402",
+    "name": "Montpellier",
+    "coordinates": [
+      3.9244151,
+      43.6042288
     ],
     "countryCode": "fr"
   },
@@ -819,6 +864,15 @@
     "countryCode": "fr"
   },
   {
+    "buCode": "487",
+    "name": "Orléans Ardon",
+    "coordinates": [
+      1.9191433,
+      47.8280725
+    ],
+    "countryCode": "fr"
+  },
+  {
     "buCode": "240",
     "name": "Paris Est, Villiers sur Marne",
     "coordinates": [
@@ -828,11 +882,47 @@
     "countryCode": "fr"
   },
   {
-    "buCode": "432",
-    "name": "Paris Sud,  Thiais",
+    "buCode": "580",
+    "name": "Paris La Madeleine",
     "coordinates": [
-      2.387858,
-      48.757041
+      2.3253967,
+      48.8691255
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "389",
+    "name": "Paris N-O, Franconville",
+    "coordinates": [
+      2.2138618,
+      48.9864475
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "131",
+    "name": "Paris Nord, Roissy",
+    "coordinates": [
+      2.4945436,
+      48.9749884
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "083",
+    "name": "Paris Ouest, Plaisir",
+    "coordinates": [
+      1.9678375,
+      48.8293535
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "285",
+    "name": "Paris Ouest, Vélizy",
+    "coordinates": [
+      2.2242332,
+      48.7834461
     ],
     "countryCode": "fr"
   },
@@ -842,6 +932,24 @@
     "coordinates": [
       2.439544,
       48.596124
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "432",
+    "name": "Paris Sud, Thiais",
+    "coordinates": [
+      2.387858,
+      48.757041
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "198",
+    "name": "Reims",
+    "coordinates": [
+      3.9645752,
+      49.2583854
     ],
     "countryCode": "fr"
   },
@@ -878,6 +986,15 @@
     "coordinates": [
       7.730818,
       48.600569
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "315",
+    "name": "Toulon",
+    "coordinates": [
+      6.0111228,
+      43.141745
     ],
     "countryCode": "fr"
   },
