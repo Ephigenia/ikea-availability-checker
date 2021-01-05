@@ -2,7 +2,7 @@
 
 const expect = require('chai').expect;
 const sinon = require("sinon");
-const { AssertionError, ok } = require('assert');
+const { AssertionError } = require('assert');
 
 const IOWS2 = require('./lib/iows2');
 
