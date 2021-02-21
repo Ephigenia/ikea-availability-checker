@@ -1,3 +1,12 @@
+## [0.6.8](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.7...v0.6.8) (2021-02-21)
+
+
+### Bug Fixes
+
+* stock returned as number value in JSON ([b7ca77c](https://github.com/Ephigenia/ikea-availability-checker/commit/b7ca77cda302dc38b7763a51f05061ee0c97ed5f))
+
+
+
 ## [0.6.7](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.6...v0.6.7) (2021-01-04)
 
 
