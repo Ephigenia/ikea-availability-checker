@@ -131,7 +131,7 @@ class IOWS2 {
       forecast,
       probability,
       restockDate,
-      stock,
+      stock: parseInt(stock, 10),
     };
   }
 
