@@ -1,6 +1,6 @@
 'use strict';
 
-let Table = require('cli-table');
+let Table = require('cli-table3');
 let chalk = require('chalk');
 let countries = require('i18n-iso-countries');
 
