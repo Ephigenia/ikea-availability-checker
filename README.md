@@ -55,7 +55,7 @@ A globally installed ikea-availability-checker can be used anywhere but there ca
 
 After you can run the ikea-availability-checker directly:
 
-    ikea-availability-checker
+    ikea-availability
 
 ### Local
 
