@@ -38,8 +38,9 @@ Examples:
 `);
   })
   .action(function(countryCodes) {
+    const opts = program.opts();
     let reporter = null;
-    switch (program.reporter) {
+    switch (opts.reporter) {
       case 'json':
         reporter = {
           show: (data) => {
@@ -48,7 +49,7 @@ Examples:
         };
         break;
       case 'table':
-        reporter = require('./lib/reporter/stores-' + program.reporter);
+        reporter = require('./lib/reporter/stores-' + opts.reporter);
         break;
     }
     const foundStores = [];

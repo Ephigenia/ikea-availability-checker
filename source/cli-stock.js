@@ -81,14 +81,14 @@ Examples:
 
     // TODO when empty countryCodes, use countries derived from store id and
     // store
-    // @var {String}
+    const opts = program.opts();
     let stores = [];
-    if (!program.store && program.country) {
-      stores = storesData.findByCountryCode(program.country);
-    } else if (Array.isArray(program.store)) {
-      stores = storesData.findById(program.store);
-    } else if (program.store) {
-      stores = storesData.findByQuery(program.store, program.country);
+    if (!opts.store && opts.country) {
+      stores = storesData.findByCountryCode(opts.country);
+    } else if (Array.isArray(opts.store)) {
+      stores = storesData.findById(opts.store);
+    } else if (opts.store) {
+      stores = storesData.findByQuery(opts.store, opts.country);
     } else {
       console.error('please provide country code and/or store id');
       process.exit(1);
@@ -99,7 +99,7 @@ Examples:
       process.exit(1);
     }
 
-    let reporter = require('./lib/reporter/stock-' + program.reporter);
+    let reporter = require('./lib/reporter/stock-' + opts.reporter);
 
     // merge productids and stores list together to one array to be able
     // to make one request per array item
