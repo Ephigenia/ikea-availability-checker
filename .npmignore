@@ -9,4 +9,7 @@ commitlint.config.js
 .editorconfig
 .prettierignore
 coverage/
+.nyc_output/
+.husky/
+source/test/fixtures/
 .nvmrc

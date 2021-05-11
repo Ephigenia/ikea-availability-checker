@@ -53,7 +53,7 @@
     "lint:fix": "npm run -s lint -- --fix",
     "postversion": "git push && git push --tags",
     "preversion": "npm run lint && npm test",
-    "postinstall": "husky install",
+    "_postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
     "start": "node source/cli.js",
