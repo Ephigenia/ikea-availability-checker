@@ -9,17 +9,25 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x, 15.x]
+        node: [10.x, 12.x, 14.x, 15.x, 16.x]
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js ${{ matrix.node }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{ matrix.node }}
     - name: npm install, build, and test
       run: |
         npm install
         npm test
       env:
         CI: true
+    # append coverage report with details to all merge-request as comment
+    - name: Jest Lcov Reporter
+      uses: vebr/jest-lcov-reporter@v0.2.1
+      if: matrix.node == '10.x'
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        lcov-file: ./coverage/lcov.info
+        update-comment: true
