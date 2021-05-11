@@ -2754,6 +2754,15 @@
     "countryCode": "ca"
   },
   {
+    "buCode": "372",
+    "name": "Vaughn",
+    "coordinates": [
+      79.8334908,
+      43.3281787
+    ],
+    "countryCode": "ca"
+  },
+  {
     "buCode": "249",
     "name": "Winnipeg",
     "coordinates": [
