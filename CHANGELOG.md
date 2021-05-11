@@ -1,3 +1,12 @@
+## [0.6.12](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.11...v0.6.12) (2021-05-11)
+
+
+### Bug Fixes
+
+* exclude some more files from npm publish ([7b089d9](https://github.com/Ephigenia/ikea-availability-checker/commit/7b089d9310887ba1b3492ad16ca50b328c9a8ad3))
+
+
+
 ## [0.6.11](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.10...v0.6.11) (2021-05-11)
 
 
