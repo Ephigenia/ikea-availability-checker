@@ -27,7 +27,7 @@ const PRODUCT_TYPE = {
  */
 
 /**
- * @typedef {Object} ProductAvailability
+ * @typedef {object} ProductAvailability
  * @property {Date} createdAt instance of a javascript date of the moment when
  *   the data was created.
  * @property {ProductAvailabilityProbability} probability
@@ -36,7 +36,7 @@ const PRODUCT_TYPE = {
  *   ikea product identification number
  * @property {string} buCode
  *   ikea store identification number
- * @property {Number} stock
+ * @property {number} stock
  *   number of items currently in stock
  * @property {ProductAvailabilityForecastItem[]} [forecast=[]]
  *   when available a list of items indicating the estimated stock amount in the
@@ -52,8 +52,8 @@ const errors = require('./iows2Errors');
  */
 class IOWS2 {
   /**
-   * @param {String} countryCode - required ISO 3166-1 alpha-2 country code
-   * @param {String} [languageCode] - optional ISO 3166-1 alpha-2 country code
+   * @param {string} countryCode - required ISO 3166-1 alpha-2 country code
+   * @param {string} [languageCode] - optional ISO 3166-1 alpha-2 country code
    */
   constructor(countryCode, languageCode = '') {
     assert.strictEqual(typeof countryCode, 'string',
@@ -72,7 +72,7 @@ class IOWS2 {
 
   /**
    *
-   * @param {String} url
+   * @param {string} url
    * @param {Options<String, any>} params
    * @param {Options<String, any>} params.headers
    * @return {Promise<Object, any>}
@@ -152,8 +152,8 @@ class IOWS2 {
    * Asynchronsouly request the stock information of a specific product in
    * the given store.
    *
-   * @param {String} buCode ikea store identification number
-   * @param {String} productId ikea product identification number
+   * @param {string} buCode ikea store identification number
+   * @param {string} productId ikea product identification number
    * @param {PRODUCT_TYPE} [productType=PRODUCT_TYPE.ART] optional different
    *   product type. The product type is guessed from the product ID.
    * @returns {Promise<ProductAvailability>} resulting product stock

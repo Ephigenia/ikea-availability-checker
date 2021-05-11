@@ -43,11 +43,18 @@ describe('stores', function() {
   }); // findByQuery
 
   describe('findById', () => {
+    it('accepts single string ids and returns the matching store', () => {
+      expect(stores.findById('129')).to.have.length(1);
+    });
+    it('accepts single numeric ids and returns the matching store', () => {
+      expect(stores.findById('129')).to.have.length(1);
+    });
     it('returns an empty list when no stores found', () => {
       expect(stores.findById([1,2,3,4])).to.have.length(0);
     });
     it('returns an empty list when no stores found', () => {
       expect(stores.findById(['421', '394'])).to.have.length(2);
+      expect(stores.findById([421, 394])).to.have.length(2);
     });
     it('returns an empty list when no stores found', () => {
       expect(stores.findById(['421', 18282])).to.have.length(1);
@@ -67,6 +74,7 @@ describe('stores', function() {
       const store = stores.findOneById(139);
       expect(store).to.have.property('name');
       expect(store.name).to.equal('Halle/Leipzig')
+      expect(stores.findOneById('139')).to.deep.equal(store);
     });
   });
 
