@@ -4,6 +4,12 @@ let Table = require('cli-table3');
 let chalk = require('chalk');
 let countries = require('i18n-iso-countries');
 
+/**
+ * Returns a function which when applied on a string colors the string in cli
+ *
+ * @param {number} val
+ * @returns {function}
+ */
 function availabilityColor(val) {
   if (val >= 5) {
     return chalk.green;
@@ -14,6 +20,12 @@ function availabilityColor(val) {
   }
 }
 
+/**
+ * Returns a function which when applied on a string colors the string in cli
+ *
+ * @param {import('../iows2').ProductAvailabilityProbability} val probability code
+ * @returns {function}
+ */
 function probabilityColor(val) {
   switch (val) {
     case 'HIGH':
@@ -32,6 +44,8 @@ function diffDays(date1, date2) {
 }
 
 module.exports = {
+  availabilityColor,
+  probabilityColor,
   createReport: function(data) {
     let table = new Table({
       head: [

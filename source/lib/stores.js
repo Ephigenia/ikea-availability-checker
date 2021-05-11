@@ -25,8 +25,8 @@ module.exports = {
    * Find stores by matching the given query against the buCode, countryCode or
    * name of a store and return an array of all matching stores.
    *
-   * @param {String|RegExp} query case insensitive search query
-   * @param {String} [countryCode] optional additional countryCode that must
+   * @param {string|RegExp} query case insensitive search query
+   * @param {string} [countryCode] optional additional countryCode that must
    *  match
    * @returns {Array<Store>} one or multiple stores as array
    */
@@ -39,17 +39,18 @@ module.exports = {
   },
 
   /**
-   * @param {Array<String>} buCodes - array of store ids where the store should
+   * @param {Array<string|number>} buCodes - array of store ids where the store should
    *   get returned
    * @returns {Array<Store>} one or no store matchting the given ids
    */
   findById: function(buCodes = []) {
     if (!Array.isArray(buCodes)) buCodes = [buCodes];
-    return data.filter(store => buCodes.indexOf(store.buCode) > -1);
+    const strCodes = buCodes.map(c => String(c));
+    return data.filter(store => strCodes.indexOf(store.buCode) > -1);
   },
 
   /**
-   * @param {string} buCode unique ikea store identification number
+   * @param {string|number} buCode unique ikea store identification number
    * @returns {Store|undefined} when a store with the exact given buCode exists
    */
   findOneById: function(buCode) {
@@ -57,10 +58,10 @@ module.exports = {
   },
 
   /**
-   * @param {String} countryCode - ISO 3166-1 alpha 2 country code whos stores
+   * @param {string} countryCode - ISO 3166-1 alpha 2 country code whos stores
    *   should get returned. If the countrycode is not valid or known an empty
    *   array is returned
-   * @returns {String} ISO 3166-1 alpha 2 language code
+   * @returns {string} ISO 3166-1 alpha 2 language code
    */
   findByCountryCode: function(countryCode) {
     const cc = normalizeCountryCode(countryCode);
@@ -70,7 +71,7 @@ module.exports = {
   /**
    * Returns an array with all ISO 3166-1 alpha 2 country codes that have at
    * least one store.
-   * @returns {String[]} two-letter ISO 3166-2 alpha 2 country codes
+   * @returns {string[]} two-letter ISO 3166-2 alpha 2 country codes
    */
   getCountryCodes: function() {
     return Array.from(new Set(data.map(store => store.countryCode)));

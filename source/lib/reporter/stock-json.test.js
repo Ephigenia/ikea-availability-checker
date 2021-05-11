@@ -16,7 +16,7 @@ let resultFixture = [
 ];
 
 describe('stock reporter json', function() {
-  it('shows the output as plain json object', function() {
+  it('shows the output as plain json object with 2-spaces indention', function() {
     let data = {
       countryCode: 'de',
       productId: 'S49903093',
