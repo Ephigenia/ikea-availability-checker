@@ -8,5 +8,5 @@ commitlint.config.js
 .eslintrc
 .editorconfig
 .prettierignore
-reports/
+coverage/
 .nvmrc

@@ -57,10 +57,9 @@
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
     "start": "node source/cli.js",
-    "tdd": "mocha --watch \"$npm_package_config_paths_source/**/*.test.js\"",
-    "test": "mocha \"$npm_package_config_paths_source/**/*.test.js\"",
+    "tdd": "npm run -s test -- --watch",
+    "test": "NODE_ENV=test nyc --reporter=text-summary --reporter=lcov mocha \"$npm_package_config_paths_source/**/*.test.js\"",
     "test:ci": "npm run -s test",
-    "test:report-junit": "mocha --reporter=mocha-junit-reporter --reporter-options mochaFile=reports/junit.xml \"$npm_package_config_paths_source/**/*.test.js\"",
     "version": "npm run changelog && git add CHANGELOG.md"
   },
   "dependencies": {
@@ -80,7 +79,7 @@
     "eslint": "^7.23.0",
     "husky": "^6.0.0",
     "mocha": "^8.3.2",
-    "mocha-junit-reporter": "^2.0.0",
+    "nyc": "15.1.0",
     "pinst": "2.1.6",
     "sinon": "^10.0.0"
   }
