@@ -1,6 +1,6 @@
 'use strict';
 
-class IOWS2Error {}
+class IOWS2Error extends Error {}
 class IOWS2ParseError extends IOWS2Error{}
 class IOWS2ResponseError extends IOWS2Error{}
 

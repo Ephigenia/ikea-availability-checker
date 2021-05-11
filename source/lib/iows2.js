@@ -137,7 +137,7 @@ class IOWS2 {
 
   buildUrl(baseUrl, countryCode, languageCode, buCode, productId, productType = PRODUCT_TYPE.ART) {
     return [
-      this.baseUrl,
+      baseUrl,
       encodeURIComponent(this.countryCode),
       encodeURIComponent(this.languageCode),
       'stores',
