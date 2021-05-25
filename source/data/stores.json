@@ -666,6 +666,15 @@
     "countryCode": "es"
   },
   {
+    "buCode": "280",
+    "name": "Badalona",
+    "coordinates": [
+      2.22541332,
+      41.4592926
+    ],
+    "countryCode": "es"
+  },
+  {
     "buCode": "277",
     "name": "Jerez",
     "coordinates": [
