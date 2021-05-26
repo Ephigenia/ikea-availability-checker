@@ -1,3 +1,12 @@
+## [0.6.14](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.13...v0.6.14) (2021-05-26)
+
+
+### Bug Fixes
+
+* belgian stores requests with fr ([#51](https://github.com/Ephigenia/ikea-availability-checker/issues/51)) ([df4ad80](https://github.com/Ephigenia/ikea-availability-checker/commit/df4ad80aa95dd84a9350a55a07176c7ceaf101ce))
+
+
+
 ## [0.6.13](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.12...v0.6.13) (2021-05-26)
 
 
