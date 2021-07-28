@@ -1306,8 +1306,18 @@
     "countryCode": "jp"
   },
   {
+    "buCode": "647",
+    "name": "渋谷",
+    "countryCode": "jp"
+  },
+  {
     "buCode": "887",
     "name": "新三郷",
+    "countryCode": "jp"
+  },
+  {
+    "buCode": "651",
+    "name": "新宿",
     "countryCode": "jp"
   },
   {
@@ -1318,6 +1328,11 @@
   {
     "buCode": "392",
     "name": "仙台",
+    "countryCode": "jp"
+  },
+  {
+    "buCode": "509",
+    "name": "長久手",
     "countryCode": "jp"
   },
   {
