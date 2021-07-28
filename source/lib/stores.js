@@ -92,6 +92,7 @@ module.exports = {
       ae: 'en',
       at: 'de',
       au: 'en',
+      be: 'fr',
       ca: 'en',
       ch: 'de',
       cn: 'zh',

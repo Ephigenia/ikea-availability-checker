@@ -36,10 +36,9 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
 Features
 ================================================================================
 
-- list of 156 IKEA stores worldwide
-- get product stock amount for a whole country or single store in JSON, TSV and pretty CLI-Table format including forecast (when available)
-- support for many countries: ae, at, au, ca, ch, cn, cz, de, dk, es, fi, fr, gb
-hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
+- list of 380 IKEA stores worldwide
+- get product stock amount for a whole country or single store in JSON, CSV and CLI-Table format including forecast (when available)
+- support for many countries: ae, at, au, be, ca, ch, cn, cz, de, dk, es, fi, fr, gb hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
 - integrate/use the library into your node project
 
 Command Line

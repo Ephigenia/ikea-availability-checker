@@ -666,6 +666,15 @@
     "countryCode": "es"
   },
   {
+    "buCode": "280",
+    "name": "Badalona",
+    "coordinates": [
+      2.22541332,
+      41.4592926
+    ],
+    "countryCode": "es"
+  },
+  {
     "buCode": "277",
     "name": "Jerez",
     "coordinates": [
@@ -3201,5 +3210,77 @@
       51.553735
     ],
     "countryCode": "gb"
+  },
+  {
+    "buCode": "482",
+    "name": "Anderlecht",
+    "coordinates": [
+      4.289643,
+      50.810943
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "483",
+    "name": "Arlon",
+    "coordinates": [
+      5.89056,
+      49.637565
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "169",
+    "name": "Gent",
+    "coordinates": [
+      3.687866,
+      51.022812
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "452",
+    "name": "Hasselt",
+    "coordinates": [
+      5.320069,
+      50.918641
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "375",
+    "name": "Liège",
+    "coordinates": [
+      5.46205,
+      50.681123
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "423",
+    "name": "Mons",
+    "coordinates": [
+      3.930841,
+      50.456170
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "179",
+    "name": "Wilrijk",
+    "coordinates": [
+      4.383523,
+      51.157977
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "376",
+    "name": "Zaventem",
+    "coordinates": [
+      4.494374,
+      50.870829
+    ],
+    "countryCode": "be"
   }
 ]
