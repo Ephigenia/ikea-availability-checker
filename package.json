@@ -63,25 +63,25 @@
     "version": "npm run changelog && git add CHANGELOG.md"
   },
   "dependencies": {
-    "chalk": "^4.1.0",
-    "cli-table3": "^0.6.0",
-    "commander": "^7.2.0",
-    "csv-string": "^4.0.1",
-    "debug": "^4.3.1",
-    "i18n-iso-countries": "^6.6.0",
-    "node-fetch": "^2.6.0"
+    "chalk": "4.1.1",
+    "cli-table3": "0.6.0",
+    "commander": "8.1.0",
+    "csv-string": "4.0.1",
+    "debug": "4.3.2",
+    "i18n-iso-countries": "6.8.0",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^12.0.1",
-    "@commitlint/config-angular": "^12.0.1",
-    "chai": "^4.3.4",
-    "conventional-changelog-cli": "^2.1.1",
-    "eslint": "^7.23.0",
-    "husky": "^6.0.0",
-    "mocha": "^8.3.2",
-    "nock": "13.0.11",
+    "@commitlint/cli": "13.1.0",
+    "@commitlint/config-angular": "13.1.0",
+    "chai": "4.3.4",
+    "conventional-changelog-cli": "2.1.1",
+    "eslint": "7.31.0",
+    "husky": "7.0.1",
+    "mocha": "9.0.3",
+    "nock": "13.1.1",
     "nyc": "15.1.0",
     "pinst": "2.1.6",
-    "sinon": "^10.0.0"
+    "sinon": "11.1.2"
   }
 }
