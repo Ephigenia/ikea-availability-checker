@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [10.x, 12.x, 14.x, 15.x, 16.x]
+        node: [14, 15, 16]
 
     steps:
     - uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
     - run: npm ci --no-production
     - run: npm test
     - uses: vebr/jest-lcov-reporter@v0.2.1
-      if: matrix.node == '10.x'
+      if: matrix.node == 16
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         lcov-file: ./coverage/lcov.info
