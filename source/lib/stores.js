@@ -61,7 +61,7 @@ module.exports = {
    * @param {string} countryCode - ISO 3166-1 alpha 2 country code whos stores
    *   should get returned. If the countrycode is not valid or known an empty
    *   array is returned
-   * @returns {string} ISO 3166-1 alpha 2 language code
+   * @returns {Store[]} list of stores from the country
    */
   findByCountryCode: function(countryCode) {
     const cc = normalizeCountryCode(countryCode);
