@@ -1,10 +1,7 @@
 'use strict';
 
-const fetch = require('node-fetch');
+const axios = require('axios');
 const assert = require('assert');
-
-const pkg = require('./../../package.json')
-const debug = require('debug')(pkg.name);
 const stores = require('./stores');
 
 const PRODUCT_TYPE = {
@@ -54,14 +51,16 @@ class IOWS2 {
   /**
    * @param {string} countryCode - required ISO 3166-1 alpha-2 country code
    * @param {string} [languageCode=''] - optional ISO 3166-1 alpha-2 country code
+   * @param {import('axios').AxiosRequestConfig} options optional default axios
+   *   options
    */
-  constructor(countryCode, languageCode = '') {
+  constructor(countryCode, languageCode = '', options = {}) {
     assert.strictEqual(typeof countryCode, 'string',
-      `Expected first argument countryCode to be a string, instead ${typeof countryCode} given.`
+      `Expected first argument countryCode to be a string, instead ${typeof countryCode} given. (5dce2bae)`
     );
     if (languageCode) {
       assert.strictEqual(typeof languageCode, 'string',
-        `Expected second argument languageCode to be a string, instead ${typeof languageCode} given.`
+        `Expected second argument languageCode to be a string, instead ${typeof languageCode} given. (2284d602)`
       );
     }
     // TODO should country codes be validated against the list of stores?
@@ -71,36 +70,36 @@ class IOWS2 {
     this.languageCode = (languageCode || stores.getLanguageCode(countryCode)).trim().toLowerCase();
     /** @type {string} base URL to the iows api endpoint */
     this.baseUrl = 'https://iows.ikea.com/retail/iows';
+    this.api = axios.create({
+      timeout: 5000,
+      headers: {
+        'Accept': 'application/vnd.ikea.iows+json;version=1.0',
+        'Contract': '37249',
+        'Consumer': 'MAMMUT',
+      },
+      ...options,
+    })
   }
 
   /**
-   *
-   * @param {string} url
-   * @param {Options<String, any>} params
-   * @param {Options<String, any>} params.headers
-   * @return {Promise<Object>}
-   * @throws {Error}
+   * @param {string} url required request url
+   * @param {import('axios').AxiosRequestConfig} [options={}] additional
+   *   options
+   * @return {Promise<Object>} response body data
+   * @throws {import('./errors').IOWS2ResponseError}
    */
-  async fetch(url, params = {}) {
+  async fetch(url, options = {}) {
     // required headers, without them IOWS endpoint will return
     // 409 (gone), 401 or even 404
-    params.headers = Object.assign({}, params.headers, {
-      'Accept': 'application/vnd.ikea.iows+json;version=1.0',
-      'Contract': '37249',
-      'Consumer': 'MAMMUT',
-    });
-    debug('GET', url, params);
-    return fetch(url, params)
+    return this.api.get(url, options)
       .then(response => {
-        debug('RECEIVED', response.status);
-        if (!response.ok) {
-          const err = new errors.IOWS2ResponseError(`Unexpected http status code ${response.status}`);
-          // add context variables to error object for provide more information
-          err.request = { url, params: params };
-          err.response = response;
-          throw err;
+        if (typeof response.data !== 'object') {
+          throw new errors.IOWS2ParseError('Unable to parse response');
         }
-        return response.json();
+        return response.data;
+      })
+      .catch(err => {
+        throw new errors.IOWS2ResponseError(err);
       });
   }
 
@@ -164,10 +163,10 @@ class IOWS2 {
    */
   async getStoreProductAvailability(buCode, productId, productType = null) {
     assert.strictEqual(typeof buCode, 'string',
-      `Expected first argument buCode to be a string, instead ${typeof buCode} given.`
+      `Expected first argument buCode to be a string, instead ${typeof buCode} given. (ea6471f8)`
     );
     assert.strictEqual(typeof productId, 'string',
-      `Expected first argument productId to be a string, instead ${typeof productId} given.`
+      `Expected first argument productId to be a string, instead ${typeof productId} given. (5492aeea)`
     );
     buCode = String(buCode).trim();
     productId = String(productId).trim();
@@ -176,7 +175,7 @@ class IOWS2 {
       productType = PRODUCT_TYPE.ART;
       // it looks like SPR product types always have an "s" in front of
       // the productcode
-      if (productId.substr(0, 1).toLowerCase() === 's') {
+      if (productId[0].toLowerCase() === 's') {
         productType = PRODUCT_TYPE.SPR;
         productId = productId.substr(1);
       }
@@ -187,25 +186,22 @@ class IOWS2 {
       .catch(err => {
         if (err.response) {
           err.message =
-            `Unable to receive product ${productId} availability for store `+
+            `Unable to receive product ${productId} availability for store ` +
             `${buCode} status code: ${err.response.status} ${err.response.statusText} ` +
             `using url: ${err.request.url}`;
         }
         throw err;
       })
       .then(data => {
-        let parsed = {
-          buCode,
-          productId,
-        };
         try {
-          parsed = Object.assign(parsed, IOWS2.parseAvailabilityFromResponseData(data));
+          return {
+            buCode,
+            productId,
+            ...IOWS2.parseAvailabilityFromResponseData(data)
+          };
         } catch (err) {
-          let error = new errors.IOWS2ParseError('Unable to parse valid looking response: ' + err.message);
-          error.data = data;
-          throw error;
+          throw new errors.IOWS2ParseError('Unable to parse valid looking response: ' + err.message, data);
         }
-        return parsed;
       });
   }
 }

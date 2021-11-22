@@ -6,12 +6,14 @@
   "preferGlobal": true,
   "keywords": [
     "availability",
+    "furniture",
     "ikea",
     "iows",
-    "stock",
-    "warehouse",
     "product",
-    "search"
+    "restock",
+    "search",
+    "stock",
+    "warehouse"
   ],
   "license": "MIT",
   "engines": {
@@ -63,24 +65,23 @@
     "version": "npm run changelog && git add CHANGELOG.md"
   },
   "dependencies": {
+    "axios": "^0.24.0",
     "chalk": "4.1.2",
     "cli-table3": "0.6.0",
     "commander": "8.3.0",
-    "debug": "4.3.2",
-    "i18n-iso-countries": "6.8.0",
-    "node-fetch": "2.6.1"
+    "i18n-iso-countries": "7.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "14.1.0",
-    "@commitlint/config-angular": "14.1.0",
+    "@commitlint/cli": "15.0.0",
+    "@commitlint/config-angular": "15.0.0",
     "chai": "4.3.4",
     "conventional-changelog-cli": "2.1.1",
-    "eslint": "8.1.0",
+    "eslint": "8.3.0",
     "husky": "7.0.4",
     "mocha": "^9.1.3",
-    "nock": "13.1.4",
+    "nock": "13.2.1",
     "nyc": "15.1.0",
     "pinst": "2.1.6",
-    "sinon": "11.1.2"
+    "sinon": "12.0.1"
   }
 }
