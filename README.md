@@ -168,10 +168,12 @@ The API interface which helps you including the check into your library is kind 
 const checker = require('ikea-availability-checker');
 
 (async function() {
-    const result = await checker.availability('394', 'S69022537');
+    const result = await checker.availability('394', '00501436');
     console.log('RESULT', result);
 })();
 ```
+
+Checkout more examples in the [examples](./examples) directory.
 
 Development
 ================================================================================

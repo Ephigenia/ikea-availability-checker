@@ -18,7 +18,7 @@ const PRODUCT_TYPE = {
 
 /**
  * @typedef {object} ProductAvailabilityForecastItem
- * @property {createdAt} date
+ * @property {Date} date
  *   instance of a date for which the estimation is made
  * @property {number} stock
  *   estimated number of items in stock on the forecasted date
@@ -53,7 +53,7 @@ const errors = require('./iows2Errors');
 class IOWS2 {
   /**
    * @param {string} countryCode - required ISO 3166-1 alpha-2 country code
-   * @param {string} [languageCode] - optional ISO 3166-1 alpha-2 country code
+   * @param {string} [languageCode=''] - optional ISO 3166-1 alpha-2 country code
    */
   constructor(countryCode, languageCode = '') {
     assert.strictEqual(typeof countryCode, 'string',
@@ -65,8 +65,11 @@ class IOWS2 {
       );
     }
     // TODO should country codes be validated against the list of stores?
+    /** @type {string} normalized two-letter country code */
     this.countryCode = String(countryCode).trim().toLocaleLowerCase();
+    /** @type {string} normalized two-letter language code */
     this.languageCode = (languageCode || stores.getLanguageCode(countryCode)).trim().toLowerCase();
+    /** @type {string} base URL to the iows api endpoint */
     this.baseUrl = 'https://iows.ikea.com/retail/iows';
   }
 
@@ -75,7 +78,7 @@ class IOWS2 {
    * @param {string} url
    * @param {Options<String, any>} params
    * @param {Options<String, any>} params.headers
-   * @return {Promise<Object, any>}
+   * @return {Promise<Object>}
    * @throws {Error}
    */
   async fetch(url, params = {}) {
@@ -102,7 +105,7 @@ class IOWS2 {
   }
 
   /**
-   * @param {object<string, any>} data plain iows endpoint response data object
+   * @param {object} data plain iows endpoint response data object
    * @returns {ProductAvailability} transformed stock information
    */
   static parseAvailabilityFromResponseData(data) {
