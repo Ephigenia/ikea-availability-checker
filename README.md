@@ -165,7 +165,7 @@ API
 The API interface which helps you including the check into your library is kind of new. If you have suggestions for improvements feel free to [open an issue](https://github.com/Ephigenia/ikea-availability-checker/issues).
 
 ```javascript
-const checker = require('ikea-availability-checker');
+const checker = import('ikea-availability-checker');
 
 (async function() {
     const result = await checker.availability('394', '00501436');

@@ -1,7 +1,5 @@
-'use strict';
-
-const expect = require('chai').expect;
-const reporter = require('./stock-table');
+import { expect } from 'chai';
+import reporter from './stock-table.js';
 
 describe('stock reporter table', function() {
 

@@ -1,7 +1,5 @@
-'use strict';
-
-const expect = require('chai').expect;
-const reporter = require('./stock-json');
+import { expect } from 'chai';
+import reporter from './stock-json.js';
 
 let resultFixture = [
   {

@@ -1,7 +1,5 @@
-'use strict';
-
-const expect = require('chai').expect;
-const stores = require('./stores');
+import { expect } from 'chai';
+import stores from './stores.js';
 
 describe('stores', function() {
   describe('findByCountryCode', () => {

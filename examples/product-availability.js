@@ -11,5 +11,6 @@ const args = process.argv.slice(2);
 (async function() {
   const [storeId, productId] = args;
   const result = await ikea.availability(storeId, productId);
+
   console.log(result);
 })();

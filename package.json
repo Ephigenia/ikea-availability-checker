@@ -3,6 +3,7 @@
   "name": "ikea-availability-checker",
   "description": "ikea product in-store availability checker and product search",
   "version": "0.6.16",
+  "type": "module",
   "preferGlobal": true,
   "keywords": [
     "availability",
@@ -17,7 +18,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": ">=14"
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
   "maintainer": {
     "name": "Marcel Eichner",

@@ -1,12 +1,10 @@
-'use strict';
+import assert from 'node:assert';
 
-const assert = require('assert');
+import IOWS2 from './lib/iows2.js';
+import stores from './lib/stores.js';
+import * as errors from './lib/iows2Errors.js';
 
-const IOWS2 = require('./lib/iows2');
-const stores = require('./lib/stores');
-const errors = require('./lib/iows2Errors');
-
-module.exports = {
+export default {
   /**
    * Asynchronously requests the availability of a specific product in one
    * specific store and returns an object with the information.

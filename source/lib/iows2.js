@@ -1,8 +1,8 @@
-'use strict';
+import assert from 'node:assert';
+import axios from 'axios';
 
-const axios = require('axios');
-const assert = require('assert');
-const stores = require('./stores');
+import stores from './stores.js';
+import { IOWS2ParseError, IOWS2ResponseError } from './iows2Errors.js';
 
 const PRODUCT_TYPE = {
   ART: 'ART',
@@ -42,12 +42,10 @@ const PRODUCT_TYPE = {
  *   Estimated date when the item gets restocked. Can be empty
  */
 
-const errors = require('./iows2Errors');
-
 /**
  * @class IOWS2
  */
-class IOWS2 {
+export default class IOWS2 {
   /**
    * @param {string} countryCode - required ISO 3166-1 alpha-2 country code
    * @param {string} [languageCode=''] - optional ISO 3166-1 alpha-2 country code
@@ -94,12 +92,12 @@ class IOWS2 {
     return this.api.get(url, options)
       .then(response => {
         if (typeof response.data !== 'object') {
-          throw new errors.IOWS2ParseError('Unable to parse response');
+          throw new IOWS2ParseError('Unable to parse response');
         }
         return response.data;
       })
       .catch(err => {
-        throw new errors.IOWS2ResponseError(err);
+        throw new IOWS2ResponseError(err);
       });
   }
 
@@ -200,10 +198,8 @@ class IOWS2 {
             ...IOWS2.parseAvailabilityFromResponseData(data)
           };
         } catch (err) {
-          throw new errors.IOWS2ParseError('Unable to parse valid looking response: ' + err.message, data);
+          throw new IOWS2ParseError('Unable to parse valid looking response: ' + err.message, data);
         }
       });
   }
 }
-
-module.exports = IOWS2;

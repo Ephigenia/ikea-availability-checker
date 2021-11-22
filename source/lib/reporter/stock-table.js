@@ -1,8 +1,6 @@
-'use strict';
-
-let Table = require('cli-table3');
-let chalk = require('chalk');
-let countries = require('i18n-iso-countries');
+import Table from 'cli-table3';
+import chalk from 'chalk';
+import countries from 'i18n-iso-countries';
 
 /**
  * Returns a function which when applied on a string colors the string in cli
@@ -43,7 +41,7 @@ function diffDays(date1, date2) {
   return (date1.getTime() - date2.getTime()) / 60 / 60 / 24 / 1000;
 }
 
-module.exports = {
+export default {
   availabilityColor,
   probabilityColor,
   createReport: function(data) {

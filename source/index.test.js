@@ -1,14 +1,11 @@
-'use strict';
+import { AssertionError } from 'assert';
+import { expect } from 'chai';
+import sinon from 'sinon';
 
-const expect = require('chai').expect;
-const sinon = require("sinon");
-const { AssertionError } = require('assert');
-
-const IOWS2 = require('./lib/iows2');
+import IOWS2 from './lib/iows2.js';
+import checker from './index.js';
 
 describe('index', () => {
-  const checker = require('./index');
-
   describe('availability', () => {
     it('throws an error when no store was found', async () => {
       return checker.availability('12871', '123456')
