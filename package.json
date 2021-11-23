@@ -60,7 +60,6 @@
     "tdd": "npm run -s test -- --watch",
     "test": "NODE_ENV=test nyc --reporter=text-summary --reporter=lcov mocha \"$npm_package_config_paths_source/**/*.test.js\"",
     "test:ci": "npm run -s test",
-    "version": "npm run changelog && git add CHANGELOG.md",
     "semantic-release": "semantic-release"
   },
   "dependencies": {
