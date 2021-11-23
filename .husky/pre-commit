@@ -16,4 +16,4 @@ fi
 . "$(dirname "$0")/_/husky.sh"
 
 printf "%b>>>%b lint:fix...\n" "$GREEN" "$NO_COLOR"
-npx --no-install commitlint --edit "${1}"
+npm run -s lint:fix;
