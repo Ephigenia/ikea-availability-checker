@@ -56,7 +56,6 @@ jobs:
         lcov-file: ./coverage/lcov.info
         update-comment: true
 
-
   release:
     # automatic github and npm package release creation using semantic-release
     # .releaserc.json defines which branches and/or tags are released
@@ -72,6 +71,7 @@ jobs:
           node-version: 16
           cache: 'npm'
       - run: npm ci
-      - run: npm run semantic-release
+      - run: npm run semantic-release -- --dry-run
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
