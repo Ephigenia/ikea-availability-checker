@@ -15,17 +15,11 @@ program
     }
   )
   .description(
-    'Will list the IKEA stores found in the given country.'
+    'List the IKEA stores found in the given country.'
   )
-  .option(
-    '-r, --reporter [reporter]',
-    'define the reporter which should be used to print out the results, ' +
-    'by default the results are shown as human readable tables grouped by ' +
-    'country and product. Alternatively the results can be shown as plain ' +
-    'JSON objects for further processing.',
-    /^json|table$/,
-    'table'
-  )
+  .option('--plain', 'output as tsv')
+  .option('--json', 'json output')
+  .option('--pretty', 'pretty table output')
   .on('--help', function() {
     console.log(`
 Examples:
@@ -33,29 +27,41 @@ Examples:
   get all stores in a country
     ikea-availability-checker stores de
 
-  get all stores in >1 countries
+  get all stores from multiple countries
     ikea-availability-checker stores de at us
 `);
   })
   .action(function(countryCodes) {
     const opts = program.opts();
-    let reporter = null;
-    switch (opts.reporter) {
-      case 'json':
-        reporter = {
-          show: (data) => {
-            return JSON.stringify(data, null, "\t");
-          }
-        };
-        break;
-      case 'table':
-        reporter = require('./lib/reporter/stores-' + opts.reporter);
-        break;
-    }
+    let format = 'table';
+    if (opts.json) format = 'json';
+    if (opts.plain) format = 'tsv';
+    if (opts.pretty) format = 'table';
+
     const foundStores = [];
     countryCodes.forEach(countryCode => {
       stores.findByCountryCode(countryCode).forEach(store => foundStores.push(store));
     });
-    console.log(reporter.show(foundStores));
+
+    let report;
+    switch (format) {
+      case 'json':
+        report = JSON.stringify(foundStores, null, '  ');
+        break;
+      case 'tsv':
+        report = foundStores.map((store) => [
+            store.countryCode,
+            store.country,
+            store.buCode,
+            store.name,
+          ]
+          .join('\t'))
+          .join('\n');
+        break;
+      case 'table':
+        report = require('./lib/reporter/stores-table').show(foundStores);
+        break;
+    }
+    console.log(report);
   })
   .parse(process.argv);

@@ -153,7 +153,7 @@ describe('IOWS2', () => {
         .catch(err => {
           scope.isDone();
           expect(err).to.be.an.instanceOf(errors.IOWS2ResponseError);
-          expect(err.message).to.match(/Unexpected http status code/);
+          expect(err.message).to.match(/Request failed/);
           expect(err).to.have.property('request');
           expect(err).to.have.property('response');
         });
@@ -164,19 +164,19 @@ describe('IOWS2', () => {
         .then(() => {throw Error('Unexpected resolved promise')})
         .catch(err => {
           expect(err).to.be.instanceOf(Error);
-          expect(err.message).to.match(/json/i);
+          expect(err.message).to.match(/Unable to parse/i);
           scope.isDone();
         });
     });
 
     it('sends the correct header and request data', () => {
       const scope = nock(URL, {
-          reqheaders: {
-            Accept: 'application/vnd.ikea.iows+json;version=1.0',
-            Contract: '37249',
-            Consumer: 'MAMMUT',
-          }
-        }).get(/.+/).reply(200, '{}');
+        reqheaders: {
+          Accept: 'application/vnd.ikea.iows+json;version=1.0',
+          Contract: '37249',
+          Consumer: 'MAMMUT',
+        }
+      }).get(/.+/).reply(200, '{}');
       return iows.fetch(URL, {}).then(() => scope.isDone());
     });
 

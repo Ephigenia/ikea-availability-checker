@@ -32,16 +32,9 @@ program
     '-c, --country [countryCode]',
     'optional single country code or multiple country codes separated by comma'
   )
-  .option(
-    '-r, --reporter [reporter]',
-    'define the reporter which should be used to print out the results, ' +
-    'by default the results are shown as human readable tables grouped by ' +
-    'country and product. Alternatively the results can be shown as plain ' +
-    'JSON objects for further processing.',
-    /^json|table|csv$/,
-    'table'
-  )
-  // TODO add option where name of store is matched against --store /Berlin/
+  .option('--plain', 'output as tsv')
+  .option('--json', 'json output')
+  .option('--pretty', 'pretty table')
   .option(
     '-s, --store [storeIds ...|regexp]',
     'optional single or multiple comma seperated ikea store ids (bu-codes) ' +
@@ -65,11 +58,14 @@ Examples:
   query single product in all stores in a country
     ikea-availability-checker stock --country=at 40299687
 
-  query single product by matching query
+  query single product by matching city name
     ikea-availability-checker stock --store Berlin 40299687
 
   output as json
-    ikea-availability-checker stock --store 148 --reporter json 40299687
+    ikea-availability-checker stock --store 148 --json 40299687
+
+  output with aligned columns
+  ikea-availability-checker stock --store Frankfurt --plain 40299687 | column -t
 `);
   })
   .action((productIds = []) => {
@@ -99,7 +95,11 @@ Examples:
       process.exit(1);
     }
 
-    let reporter = require('./lib/reporter/stock-' + opts.reporter);
+    let format = 'table';
+    if (opts.json) format = 'json';
+    if (opts.plain) format = 'tsv';
+    if (opts.pretty) format = 'table';
+    let reporter = require(`./lib/reporter/stock-${format}`);
 
     // merge productids and stores list together to one array to be able
     // to make one request per array item

@@ -1,15 +1,16 @@
 .DS_Store
 
-.gitattributes
 .codeclimate.yml
-.github/
-source/**/*test.js
-commitlint.config.js
-.eslintrc
 .editorconfig
-.prettierignore
-coverage/
-.nyc_output/
+.eslintrc
+.gitattributes
+.github/
 .husky/
-source/test/fixtures/
 .nvmrc
+.nyc_output/
+.prettierignore
+commitlint.config.js
+coverage/
+examples/
+source/**/*test.js
+source/test/fixtures/

@@ -186,7 +186,9 @@ Development
 
 ## Debug
 
-    DEBUG=ikea* npm run start
+Node provides a simple way to debug all HTTP-related requests and responses using `NODE_DEBUG`:
+
+    NODE_DEBUG=http npm run start
 
 
 ## Testing
