@@ -6,7 +6,7 @@
     [
       "@semantic-release/npm",
       {
-        "npmPublish": false
+        "publish": false
       }
     ],
     "@semantic-release/git",
