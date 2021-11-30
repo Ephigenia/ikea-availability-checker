@@ -21,20 +21,21 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: docker
-      if: (github.event_name == 'push' && github.ref == 'refs/heads/docker') || github.event_name == 'schedule'
+    # decide on branch name which docker release tag should be used
+    - if: (github.event_name == 'push' && github.ref == 'refs/heads/docker') || github.event_name == 'schedule'
       run: echo "DOCKER_CHANNEL_TAG=docker-test" >> $GITHUB_ENV
-
-    - name: master
-      if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || github.event_name == 'schedule'
+    - if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || github.event_name == 'schedule'
       run: echo "DOCKER_CHANNEL_TAG=latest" >> $GITHUB_ENV
-    - name: next
-      if: (github.event_name == 'push' && github.ref == 'refs/heads/next') || github.event_name == 'schedule'
+    - if: (github.event_name == 'push' && github.ref == 'refs/heads/next') || github.event_name == 'schedule'
       run: echo "DOCKER_CHANNEL_TAG=next" >> $GITHUB_ENV
-    - name: next-major
-      if: (github.event_name == 'push' && github.ref == 'refs/heads/next') || github.event_name == 'schedule'
+    - if: (github.event_name == 'push' && github.ref == 'refs/heads/next') || github.event_name == 'schedule'
       run: echo "DOCKER_CHANNEL_TAG=next-major" >> $GITHUB_ENV
+
+    # add tag that contains the current version from the package.json
     - name: set package version as tags
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16
       run: echo "DOCKER_VERSION_TAG=$(npm pkg get version)" >> $GITHUB_ENV
 
     # stop here when the CHANNEL TAG wasn’t set and a docker image should
