@@ -3,13 +3,9 @@ name: Build Docker Image
 on:
   push:
     branches:
-      - master
-      - develop
-      - next-major
-  release:
-    types: [published]
-  schedule:
-    - cron: "0 7 * * *"
+      - "master"
+      - "develop"
+      - "next-major"
 
 env:
   DOCKER_IMAGE_NAME: ephigenia/ikea-availability-checker
@@ -18,15 +14,16 @@ jobs:
   images:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
 
     # decide on branch name which docker release tag should be used
-    - if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || github.event_name == 'schedule'
+    - if: github.ref == 'refs/heads/master'
       run: echo "DOCKER_CHANNEL_TAG=latest" >> $GITHUB_ENV
-    - if: (github.event_name == 'push' && github.ref == 'refs/heads/next') || github.event_name == 'schedule'
+    - if: github.ref == 'refs/heads/next'
       run: echo "DOCKER_CHANNEL_TAG=next" >> $GITHUB_ENV
-    - if: (github.event_name == 'push' && github.ref == 'refs/heads/next-major') || github.event_name == 'schedule'
+    - if: github.ref == 'refs/heads/next-major'
       run: echo "DOCKER_CHANNEL_TAG=next-major" >> $GITHUB_ENV
+
+    - uses: actions/checkout@v2
 
     # add tag that contains the current version from the package.json
     - name: set package version as tags
