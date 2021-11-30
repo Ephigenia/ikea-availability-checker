@@ -6,7 +6,6 @@ on:
       - master
       - develop
       - next-major
-      - docker
   release:
     types: [published]
   schedule:
@@ -22,13 +21,11 @@ jobs:
     - uses: actions/checkout@v2
 
     # decide on branch name which docker release tag should be used
-    - if: (github.event_name == 'push' && github.ref == 'refs/heads/docker') || github.event_name == 'schedule'
-      run: echo "DOCKER_CHANNEL_TAG=docker-test" >> $GITHUB_ENV
     - if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || github.event_name == 'schedule'
       run: echo "DOCKER_CHANNEL_TAG=latest" >> $GITHUB_ENV
     - if: (github.event_name == 'push' && github.ref == 'refs/heads/next') || github.event_name == 'schedule'
       run: echo "DOCKER_CHANNEL_TAG=next" >> $GITHUB_ENV
-    - if: (github.event_name == 'push' && github.ref == 'refs/heads/next') || github.event_name == 'schedule'
+    - if: (github.event_name == 'push' && github.ref == 'refs/heads/next-major') || github.event_name == 'schedule'
       run: echo "DOCKER_CHANNEL_TAG=next-major" >> $GITHUB_ENV
 
     # add tag that contains the current version from the package.json
