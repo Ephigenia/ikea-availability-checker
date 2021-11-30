@@ -40,9 +40,9 @@ jobs:
 
     # stop here when the CHANNEL TAG wasn’t set and a docker image should
     # not get created
-    - if: env.DOCKER_TAG == ''
+    - if: env.DOCKER_CHANNEL_TAG == ''
       run: |
-        echo DOCKER_TAG is not set!
+        echo DOCKER_CHANNEL_TAG is not set!
         exit 1
 
     - name: docker login
