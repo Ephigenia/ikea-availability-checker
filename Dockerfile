@@ -6,6 +6,7 @@ ENV NODE_ENV production
 WORKDIR /usr/src/app
 COPY --chown=node:node package.json package-lock.json ./
 RUN npm ci --only=production && npm cache clean --force
-COPY --chown=node:node source ./
+COPY --chown=node:node ./source ./source
 USER node
-CMD "npm" "start"
+ENTRYPOINT [ "source/cli.js" ]
+CMD []
