@@ -59,8 +59,8 @@ jobs:
         file: Dockerfile
         push: true
         tags: |
-          $DOCKER_IMAGE_NAME:$DOCKER_CHANNEL_TAG
-          $DOCKER_IMAGE_NAME:$DOCKER_VERSION_TAG
+          ${{env.DOCKER_IMAGE_NAME}}:${{env.DOCKER_CHANNEL_TAG}}
+          ${{env.DOCKER_IMAGE_NAME}}:${{env.DOCKER_VERSION_TAG}}
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
     - name: Image size
