@@ -35,8 +35,8 @@ jobs:
     - name: set package version as tags
       uses: actions/setup-node@v2
       with:
-        node-version: 16
-      run: echo "DOCKER_VERSION_TAG=$(npm pkg get version)" >> $GITHUB_ENV
+        node-version-file: '.nvmrc'
+    - run: echo "DOCKER_VERSION_TAG=$(npm pkg get version)" >> $GITHUB_ENV
 
     # stop here when the CHANNEL TAG wasn’t set and a docker image should
     # not get created
