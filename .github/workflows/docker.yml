@@ -1,0 +1,66 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+      - next-major
+      - docker
+  release:
+    types: [published]
+  schedule:
+    - cron: "0 7 * * *"
+
+env:
+  DOCKER_IMAGE_NAME: ephigenia/ikea-availability-checker
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: docker
+      if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || github.event_name == 'schedule'
+      run: echo "DOCKER_CHANNEL_TAG=docker-test" >> $GITHUB_ENV
+
+    - name: master
+      if: (github.event_name == 'push' && github.ref == 'refs/heads/master') || github.event_name == 'schedule'
+      run: echo "DOCKER_CHANNEL_TAG=latest" >> $GITHUB_ENV
+    - name: next
+      if: (github.event_name == 'push' && github.ref == 'refs/heads/next') || github.event_name == 'schedule'
+      run: echo "DOCKER_CHANNEL_TAG=next" >> $GITHUB_ENV
+    - name: next-major
+      if: (github.event_name == 'push' && github.ref == 'refs/heads/next') || github.event_name == 'schedule'
+      run: echo "DOCKER_CHANNEL_TAG=next-major" >> $GITHUB_ENV
+    - name: set package version as tags
+      run: echo "DOCKER_VERSION_TAG=$(npm pkg get version)" >> $GITHUB_ENV
+
+    # stop here when the CHANNEL TAG wasn’t set and a docker image should
+    # not get created
+    - if: env.DOCKER_TAG == ''
+      run: |
+        echo DOCKER_TAG is not set!
+        exit 1
+
+    - name: docker login
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        context: ./
+        file: Dockerfile
+        push: true
+        tags: |
+          $DOCKER_IMAGE_NAME:$DOCKER_CHANNEL_TAG
+          $DOCKER_IMAGE_NAME:$DOCKER_VERSION_TAG
+    - name: Image digest
+      run: echo ${{ steps.docker_build.outputs.digest }}
+    - name: Image size
+      run: docker image inspect ${{ steps.docker_build.outputs.digest }} --format='{{.Size}}'
