@@ -4,16 +4,15 @@ on:
   # run only when default workflow was successful
   workflow_run:
     workflows: ["default"]
-    types:
-      - completed
-  push:
     # run when there are new commits for specific branches
     branches:
-      - master
-      - next
-      - next-major
-      - alpha
-      - beta
+    - master
+    - next
+    - next-major
+    - alpha
+    - beta
+    types:
+    - completed
 
 env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
