@@ -1,8 +1,13 @@
 name: semantic-release
 
-# run when there are new commits for specific branches
 on:
+  # run only when default workflow was successful
+  workflow_run:
+    workflows: ["default"]
+    types:
+      - completed
   push:
+    # run when there are new commits for specific branches
     branches:
       - master
       - next
