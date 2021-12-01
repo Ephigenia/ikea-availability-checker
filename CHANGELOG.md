@@ -1,3 +1,10 @@
+## [1.0.2-alpha.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.2-alpha.2...v1.0.2-alpha.3) (2021-12-01)
+
+
+### Bug Fixes
+
+* trying to fix semantic release update of package.json ([4753e83](https://github.com/Ephigenia/ikea-availability-checker/commit/4753e837535c69e93b9b9703a447541c4cc8847f))
+
 ## [0.6.16](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.15...v0.6.16) (2021-11-03)
 
 
@@ -351,6 +358,3 @@
 ### Features
 
 * request stock numbers for products/country/stores ([ed41c92](https://github.com/Ephigenia/ikea-availability-checker/commit/ed41c920871db98583f714bef1663dd9ed4bf62c))
-
-
-
