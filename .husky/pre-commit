@@ -1,4 +1,19 @@
-#!/bin/sh
+#!/usr/bin/env sh
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NO_COLOR='\033[0m'
+
+if [ ! -f "$(dirname "$0")/_/husky.sh" ]; then
+  printf "%bERROR%b: Pre-commit hooks not configured...\n" "$RED" "$NO_COLOR"
+  printf '* To install pre-commit hooks run:  %bnpm install%b\n' "$BLUE" "$NO_COLOR"
+  printf '* To commit without pre-commit run: %bgit commit --no-verify%b\n' "$BLUE" "$NO_COLOR"
+  printf '\n'
+fi
+
+# shellcheck disable=SC1091
 . "$(dirname "$0")/_/husky.sh"
 
-npm run -s lint:fix
+printf "%b>>>%b lint:fix...\n" "$GREEN" "$NO_COLOR"
+npm run -s lint:fix;

@@ -1,0 +1,61 @@
+name: Build Docker Image
+
+on:
+  # Only run on version tag(s) created
+  push:
+    branches-ignore:
+      - '**'
+    tags:
+      - 'v**'
+
+env:
+  DOCKER_IMAGE_NAME: ephigenia/ikea-availability-checker
+
+jobs:
+  images:
+    runs-on: ubuntu-latest
+    steps:
+
+    # decide on branch name which docker release tag should be used
+    # matching the channels from the `releaserc.json`
+    - if: github.ref == 'refs/heads/master'
+      run: echo "DOCKER_CHANNEL_TAG=latest" >> $GITHUB_ENV
+    - if: github.ref == 'refs/heads/next'
+      run: echo "DOCKER_CHANNEL_TAG=next" >> $GITHUB_ENV
+    - if: github.ref == 'refs/heads/next-major'
+      run: echo "DOCKER_CHANNEL_TAG=next-major" >> $GITHUB_ENV
+    - if: github.ref == 'refs/heads/alpha'
+      run: echo "DOCKER_CHANNEL_TAG=alpha" >> $GITHUB_ENV
+    - if: github.ref == 'refs/heads/beta'
+      run: echo "DOCKER_CHANNEL_TAG=beta" >> $GITHUB_ENV
+
+    # use tag currently build as version number tag
+    - run: echo "DOCKER_VERSION_TAG=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+    # stop here when the CHANNEL TAG wasn’t set and a docker image should
+    # not get created
+    - if: env.DOCKER_CHANNEL_TAG == ''
+      run: |
+        echo DOCKER_CHANNEL_TAG is not set!
+        exit 1
+
+    - name: docker login
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+    - uses: actions/checkout@v2
+    - id: docker_build
+      uses: docker/build-push-action@v2
+      with:
+        context: ./
+        file: Dockerfile
+        push: true
+        tags: |
+          ${{env.DOCKER_IMAGE_NAME}}:${{env.DOCKER_CHANNEL_TAG}}
+          ${{env.DOCKER_IMAGE_NAME}}:${{env.DOCKER_VERSION_TAG}}
+    - name: Image digest
+      run: echo ${{ steps.docker_build.outputs.digest }}
+    - name: Image size
+      run: docker image inspect ${{ steps.docker_build.outputs.digest }} --format='{{.Size}}'

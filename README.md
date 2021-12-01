@@ -8,30 +8,31 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
 
 - [Features](#features)
 - [Command Line](#command-line)
-  - [Install](#install)
-    - [Global](#global)
-    - [Local](#local)
-    - [NPX](#npx)
-  - [Use](#use)
-    - [Stores](#stores)
-    - [Stock](#stock)
-      - [Product Stock Information for a whole country](#product-stock-information-for-a-whole-country)
-      - [Product Stock Information for a specific store](#product-stock-information-for-a-specific-store)
-        - [with BU-Code (Store-Id)](#with-bu-code-store-id)
-        - [Store-Name / Location / City-Name](#store-name--location--city-name)
-      - [Multiple Stores and Product Ids](#multiple-stores-and-product-ids)
+    - [Install](#install)
+        - [Global](#global)
+        - [Local](#local)
+        - [NPX](#npx)
+        - [Docker](#docker)
+    - [Use](#use)
+        - [Stores](#stores)
+        - [Stock](#stock)
+            - [Product Stock Information for a whole country](#product-stock-information-for-a-whole-country)
+            - [Product Stock Information for a specific store](#product-stock-information-for-a-specific-store)
+                - [with BU-Code (Store-Id)](#with-bu-code-store-id)
+                - [Store-Name / Location / City-Name](#store-name--location--city-name)
+            - [Multiple Stores and Product Ids](#multiple-stores-and-product-ids)
 - [API](#api)
 - [Development](#development)
-  - [Requirements](#requirements)
-  - [Debug](#debug)
-  - [Testing](#testing)
-    - [TDD](#tdd)
-    - [Run Specific tests](#run-specific-tests)
-  - [Release](#release)
+    - [Requirements](#requirements)
+    - [Debug](#debug)
+    - [Testing](#testing)
+        - [TDD](#tdd)
+        - [Run Specific tests](#run-specific-tests)
+    - [Release](#release)
 - [Other Projects & Articles](#other-projects--articles)
-  - [Articles & Resources](#articles--resources)
-  - [Packages](#packages)
-  - [Services](#services)
+    - [Articles & Resources](#articles--resources)
+    - [Packages](#packages)
+    - [Services](#services)
 
 Features
 ================================================================================
@@ -68,6 +69,16 @@ A locally installed ikea-availability-checker will be placed in `./node_modules/
 Or call it directly using [npx](https://www.npmjs.com/package/npx):
 
     npx ikea-availability-checker --help
+
+### Docker
+
+You can use prebuild docker versions of the script:
+
+    docker run -it ephigenia/ikea-availability-checker [arguments...]
+
+Checking the availability of a specific product can look like this:
+
+    docker run -it ephigenia/ikea-availability-checker stock --country at 80213074
 
 ## Use
 ### Stores
@@ -220,8 +231,7 @@ Other Projects & Articles
 ## Articles & Resources
 
 * npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
-* [API of the Day: Checking IKEA Availability and Warehouse Locations](https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) 
- by Joshua Jung
+* [API of the Day: Checking IKEA Availability and Warehouse Locations](https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
 * [IKEA Reddit](https://www.reddit.com/r/IKEA/)
 * [IKEA Mobile api description](https://del.dog/ikeamobileapi.md)
 
