@@ -1,4 +1,4 @@
-name: semantic-release
+name: release
 
 on:
   # run only when default workflow was successful
