@@ -3290,6 +3290,15 @@
     "countryCode": "be"
   },
   {
+    "buCode": "645",
+    "name": "Rivoli",
+    "coordinates": [
+      2.3425746,
+      48.8604859
+    ],
+    "countryCode": "fr"
+  },
+  {
     "buCode": "376",
     "name": "Zaventem",
     "coordinates": [
