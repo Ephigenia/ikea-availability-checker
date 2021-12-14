@@ -2409,6 +2409,15 @@
     "countryCode": "us"
   },
   {
+    "buCode": "622",
+    "name": "NY, Queens",
+    "coordinates": [
+      -73.861990,
+      40.730310
+    ],
+    "countryCode": "us"
+  },
+  {
     "buCode": "511",
     "name": "OH, Columbus",
     "coordinates": [
