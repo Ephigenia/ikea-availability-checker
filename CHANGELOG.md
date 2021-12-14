@@ -351,6 +351,3 @@
 ### Features
 
 * request stock numbers for products/country/stores ([ed41c92](https://github.com/Ephigenia/ikea-availability-checker/commit/ed41c920871db98583f714bef1663dd9ed4bf62c))
-
-
-
