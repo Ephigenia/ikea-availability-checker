@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.0...v1.0.1) (2021-12-14)
+
+
+### Bug Fixes
+
+* Paris Rivoli store added ([#74](https://github.com/Ephigenia/ikea-availability-checker/issues/74)) ([8195efa](https://github.com/Ephigenia/ikea-availability-checker/commit/8195efa8f12493e7eb08e850c72bb97dd279ad0f))
+* **stores:** adds Queens, NY store ([#75](https://github.com/Ephigenia/ikea-availability-checker/issues/75)) ([431a788](https://github.com/Ephigenia/ikea-availability-checker/commit/431a78865daa58f2fb008d42429acfd4f7aeebc9))
+
 ## [0.6.16](https://github.com/Ephigenia/ikea-availability-checker/compare/v0.6.15...v0.6.16) (2021-11-03)
 
 
