@@ -8,6 +8,7 @@
 .husky/
 .nvmrc
 .nyc_output/
+.releaserc.json
 .prettierignore
 commitlint.config.js
 coverage/
