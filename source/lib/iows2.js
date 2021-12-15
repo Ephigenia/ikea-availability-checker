@@ -169,7 +169,7 @@ class IOWS2 {
       `Expected first argument productId to be a string, instead ${typeof productId} given. (5492aeea)`
     );
     buCode = String(buCode).trim();
-    productId = String(productId).trim();
+    productId = String(productId).trim().replace('.', '');
 
     if (!productType) {
       productType = PRODUCT_TYPE.ART;
