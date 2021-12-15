@@ -2409,6 +2409,15 @@
     "countryCode": "us"
   },
   {
+    "buCode": "622",
+    "name": "NY, Queens",
+    "coordinates": [
+      -73.861990,
+      40.730310
+    ],
+    "countryCode": "us"
+  },
+  {
     "buCode": "511",
     "name": "OH, Columbus",
     "coordinates": [
@@ -3288,6 +3297,15 @@
       51.157977
     ],
     "countryCode": "be"
+  },
+  {
+    "buCode": "645",
+    "name": "Rivoli",
+    "coordinates": [
+      2.3425746,
+      48.8604859
+    ],
+    "countryCode": "fr"
   },
   {
     "buCode": "376",
