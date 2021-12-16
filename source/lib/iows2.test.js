@@ -106,6 +106,17 @@ describe('IOWS2', () => {
       });
     });
 
+    it('accept product code in dot notation', () => {
+      const scope = nock(iows.baseUrl)
+      .get((uri) => {
+        expect(uri).to.match(/\/999$/);
+        return true;
+      })
+      .reply(200, bodyData);
+      return iows.getStoreProductAvailability('123', '9.9.9')
+        .then(() => scope.isDone());
+    });
+
     it('detects the productType form the productCode when it starts with an "s"', () => {
       const scope = nock(iows.baseUrl)
         .get((uri) => {
