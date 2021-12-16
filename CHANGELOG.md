@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.1...v1.0.2) (2021-12-16)
+
+
+### Bug Fixes
+
+* **iows:** accept product code in dot notation ([#77](https://github.com/Ephigenia/ikea-availability-checker/issues/77)) ([b469286](https://github.com/Ephigenia/ikea-availability-checker/commit/b469286764f95a08767679b641f72297a3be0bf9))
+
 ## [1.0.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.0...v1.0.1) (2021-12-14)
 
 
