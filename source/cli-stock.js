@@ -122,9 +122,11 @@ Examples:
           if (err instanceof errors.IOWS2ParseError) {
             return { stock: 0, probability: 'PARSE_ERROR', createdAt: new Date() };
           }
-          // when product could not be found return an empty availability
-          if (err.response && err.response.status === 404 && promises.length > 1) {
+          if (err instanceof errors.IOWS2NotFoundError) {
             return { stock: 0, probability: 'NOT_FOUND', createdAt: new Date() };
+          }
+          if (err instanceof errors.IOWS2DeprecatedError) {
+            return { stock: 0, probability: 'DEPRECATED', createdAt: new Date() };
           }
           throw err;
         })
