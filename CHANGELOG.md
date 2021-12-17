@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.3...v1.0.4) (2021-12-17)
+
+
+### Bug Fixes
+
+* adds all australian ikea stores ([#81](https://github.com/Ephigenia/ikea-availability-checker/issues/81)) ([a04df08](https://github.com/Ephigenia/ikea-availability-checker/commit/a04df08a6185f7281de25fc80a726e54e59ab4da))
+* **iows:** throw a IOWS2DeprecationError on deprecation header ([#80](https://github.com/Ephigenia/ikea-availability-checker/issues/80)) ([270c3a5](https://github.com/Ephigenia/ikea-availability-checker/commit/270c3a5091fdd2f8aafb2220a7e73a8145762b95))
+
 ## [1.0.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.2...v1.0.3) (2021-12-16)
 
 
