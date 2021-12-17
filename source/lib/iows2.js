@@ -86,21 +86,40 @@ class IOWS2 {
    * @param {import('axios').AxiosRequestConfig} [options={}] additional
    *   options
    * @return {Promise<Object>} response body data
-   * @throws {import('./errors').IOWS2ResponseError}
+   * @throws {import('./errors').IOWS2ParseError} in case the response
+   *   body is not an object
+   * @throws {import('./errors').IOWS2NotFoundError} in case the response
+   *   status code is 404
+   * @throws {import('./errors').IOWS2DeprecatedError} in case the response
+   *   contains a "deprecation" header
+   * @throws {import('./errors').IOWS2ResponseError} in any other case
    */
   async fetch(url, options = {}) {
-    // required headers, without them IOWS endpoint will return
-    // 409 (gone), 401 or even 404
-    return this.api.get(url, options)
-      .then(response => {
-        if (typeof response.data !== 'object') {
-          throw new errors.IOWS2ParseError('Unable to parse response');
+    let response;
+    try {
+      response = await this.api.get(url, options);
+    } catch (error) {
+      if (error.request) {
+        // 20211217 some of the country endpoints started to reply with a
+        // deprecation and warning header stating that the IOWS2 API is
+        // going to be deprecated.
+        const responseHeaders = error.request.res.headers;
+        if (responseHeaders.deprecation) {
+          throw new errors.IOWS2DeprecatedError(error);
         }
-        return response.data;
-      })
-      .catch(err => {
-        throw new errors.IOWS2ResponseError(err);
-      });
+        if (error.request.res.statusCode === 404) {
+          throw new errors.IOWS2NotFoundError(error);
+        }
+      }
+      throw new errors.IOWS2ResponseError(error);
+    }
+
+    // double check if the response was successfully parsed and is an object
+    if (typeof response.data !== 'object') {
+      throw new errors.IOWS2ParseError('Unable to parse response', response.data);
+    }
+
+    return response.data;
   }
 
   /**
@@ -184,11 +203,11 @@ class IOWS2 {
     const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId, productType);
     return this.fetch(url)
       .catch(err => {
-        if (err.response) {
+        if (err.request.res) {
           err.message =
             `Unable to receive product ${productId} availability for store ` +
-            `${buCode} status code: ${err.response.status} ${err.response.statusText} ` +
-            `using url: ${err.request.url}`;
+            `${buCode} status code: ${err.request.res.statusCode} ${err.request.res.statusText} ` +
+            `using url: ${err.request.path}`;
         }
         throw err;
       })
