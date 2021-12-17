@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.2...v1.0.3) (2021-12-16)
+
+
+### Bug Fixes
+
+* adds check-pr-title workflow ([d8d5d19](https://github.com/Ephigenia/ikea-availability-checker/commit/d8d5d195a20363e92a93b1776df3637c8ddba361))
+
 ## [1.0.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.1...v1.0.2) (2021-12-16)
 
 
