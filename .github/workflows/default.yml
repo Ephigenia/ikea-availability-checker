@@ -43,7 +43,6 @@ jobs:
         path: coverage
         retention-days: 30
     - uses: vebr/jest-lcov-reporter@v0.2.1
-      if: matrix.node == 16
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         lcov-file: ./coverage/lcov.info

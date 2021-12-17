@@ -172,10 +172,25 @@ describe('IOWS2', () => {
     it('throws an error when the response doesn’t contain valid json', () => {
       const scope = nock(URL).get(/.+/).reply(200, '<html>');
       return iows.fetch(URL, {})
+        .catch(err => {
+          expect(err).to.be.instanceOf(errors.IOWS2ParseError);
+          expect(err).to.have.property('message').to.match(/Unable to parse/i);
+          scope.isDone();
+        });
+    });
+
+    it('throws a IOWS2Deprecated error when the api returns a deprecation warning', () => {
+      const scope = nock(URL).get(/.+/)
+        .reply(404, 'Gone', {
+          'deprecation': 'version="1", date="Sat, 31 Dec 2022 23:59:59 GMT"',
+          'warning': 'IOWSStockAvailabilityService.GetStockAvailability.v1 API is now deprecated.',
+          'link': 'alternate="Customer Item Availability. Enquire via slack #rrm-cia"',
+          'x-global-transaction-id': 'a345495061bc8d13018340e5',
+        });
+      return iows.fetch(URL, {})
         .then(() => {throw Error('Unexpected resolved promise')})
         .catch(err => {
-          expect(err).to.be.instanceOf(Error);
-          expect(err.message).to.match(/Unable to parse/i);
+          expect(err).to.be.instanceof(errors.IOWS2DeprecatedError);
           scope.isDone();
         });
     });

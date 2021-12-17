@@ -1,4 +1,5 @@
 005,Aalborg,dk
+006,Springvale,au
 018,Avignon,fr
 038,Dublin,ie
 051,Hénin-Beaumont,fr
@@ -121,7 +122,10 @@
 373,Gwangmyeong,kr
 375,Hognoul,be
 376,Zaventem,be
+377,Marsden Park,au
 378,Haarlem,nl
+384,Richmond,au
+385,Rhodes,au
 386,Salzburg,at
 387,Graz,at
 388,Haid,at
@@ -143,6 +147,9 @@
 433,Marseille - La Valentine,fr
 434,Tours,fr
 435,Grenoble,fr
+446,Tempe,au
+451,Canberra,au
+460,North Lakes,au
 461,Reading,gb
 482,Anderlecht,be
 483,Arlon,be
@@ -152,8 +159,11 @@
 519,Sheffield,gb
 522,Goyang,kr
 548,Exeter,gb
+556,Perth,au
+557,Adelaid,au
 567,Greenwich,gb
 645,Rivoli,fr
 917,St. Gallen SG,ch
 918,Vernier GE,ch
+919,Logan,au
 921,NY Brooklyn,us
