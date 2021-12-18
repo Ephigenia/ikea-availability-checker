@@ -36,7 +36,6 @@ describe('IOWS2', () => {
     });
   }); // constructor
 
-
   describe('buildUrl', () => {
     const iows = new IOWS2('de');
     it('returns a valid iows availability url including all components', () => {
@@ -51,6 +50,44 @@ describe('IOWS2', () => {
     });
   }); // buildUrl
 
+  describe('normalizeProductId', () => {
+    const tests = [
+      ['70078465', '70078465'],
+      ['700.784.63', '70078463'],
+      ['700.784.63 .', '70078463'],
+      ['.700.784.63 . ', '70078463'],
+      [' 7291.8127.12', '7291812712'],
+      ['S7291812712', 'S7291812712'],
+      [false, ''],
+      [null, ''],
+      [undefined, ''],
+    ];
+    tests.forEach(function(test) {
+      it(`normalizes ${JSON.stringify(test[0])} to ${JSON.stringify(test[1])}`, function() {
+        const iows = new IOWS2('de');
+        expect(iows.normalizeProductId(test[0])).to.equal(test[1]);
+      });
+    });
+  }); // normalizeProductId
+
+  describe('normalizeBuCode', () => {
+    const tests = [
+      ['123', '123'],
+      [' 123 ', '123'],
+      ['001', '001'],
+      ['A912X.', '912'],
+      [false, ''],
+      [null, ''],
+      [undefined, ''],
+    ];
+    tests.forEach(function(test) {
+      it(`normalizes ${JSON.stringify(test[0])} to ${JSON.stringify(test[1])}`, function() {
+        const iows = new IOWS2('de');
+        expect(iows.normalizeBuCode(test[0])).to.equal(test[1]);
+      });
+    });
+  });
+
   describe('getStoreProductAvailability', () => {
     const iows = new IOWS2('de');
     afterEach(() => nock.cleanAll());
@@ -63,18 +100,40 @@ describe('IOWS2', () => {
             .then(() => { throw new Error('should not run') })
             .catch(err => {
               expect(err).to.be.instanceOf(AssertionError);
-              expect(err.message).to.contain('buCode');
+              expect(err.message).to.contain('ea6471f8');
             })
         });
       });
 
-      [null, undefined, 123, {}].forEach(productId => {
+      [null, undefined, {}].forEach(productId => {
         it(`throws an error when productId is ${JSON.stringify(productId)}`, async () => {
           return iows.getStoreProductAvailability('123', productId)
             .then(() => { throw new Error('should not run') })
             .catch(err => {
               expect(err).to.be.instanceOf(AssertionError);
-              expect(err.message).to.contain('productId');
+              expect(err.message).to.contain('5492aeea');
+            })
+        });
+      });
+
+      ['false', 'undefined', '{}'].forEach(productId => {
+        it(`throws an error when productId is ${JSON.stringify(productId)}`, async () => {
+          return iows.getStoreProductAvailability('123', productId)
+            .then(() => { throw new Error('should not run') })
+            .catch(err => {
+              expect(err).to.be.instanceOf(AssertionError);
+              expect(err.message).to.contain('06a5d687');
+            })
+        });
+      });
+
+      ['false', 'undefined', '{}'].forEach(buCode => {
+        it(`throws an error when buCode is ${JSON.stringify(buCode)}`, async () => {
+          return iows.getStoreProductAvailability(buCode, '123')
+            .then(() => { throw new Error('should not run') })
+            .catch(err => {
+              expect(err).to.be.instanceOf(AssertionError);
+              expect(err.message).to.contain('b92bb3e4');
             })
         });
       });

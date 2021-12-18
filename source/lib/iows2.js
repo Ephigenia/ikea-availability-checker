@@ -170,35 +170,61 @@ class IOWS2 {
   }
 
   /**
+   * @param {string} productId
+   * @returns {string}
+   */
+  normalizeProductId(productId) {
+    return String(productId || '').replace(/\./g, '').trim();
+  }
+
+  /**
+   * Normalize the buCode
+   *
+   * Note that the buCode "003" must keep the zeros
+   *
+   * @param {string} buCode
+   * @returns {string}
+   */
+  normalizeBuCode(buCode) {
+    return String(buCode || '').replace(/[^0-9]/g, '');
+  }
+
+  /**
    * Asynchronsouly request the stock information of a specific product in
    * the given store.
    *
-   * @param {string} buCode ikea store identification number
-   * @param {string} productId ikea product identification number
+   * @param {string} buCode 3-digit ikea store identification number
+   * @param {string|number} productId ikea product identification number
    * @param {PRODUCT_TYPE} [productType=PRODUCT_TYPE.ART] optional different
    *   product type. The product type is guessed from the product ID.
    * @returns {Promise<ProductAvailability>} resulting product stock
    *   information
    */
-  async getStoreProductAvailability(buCode, productId, productType = null) {
+  async getStoreProductAvailability(buCode, productId, productType = PRODUCT_TYPE.ART) {
     assert.strictEqual(typeof buCode, 'string',
       `Expected first argument buCode to be a string, instead ${typeof buCode} given. (ea6471f8)`
     );
-    assert.strictEqual(typeof productId, 'string',
-      `Expected first argument productId to be a string, instead ${typeof productId} given. (5492aeea)`
+    assert.ok(['string', 'number'].includes(typeof productId),
+      `Expected second argument productId to be a string or number, instead ${typeof productId} given. (5492aeea)`
     );
-    buCode = String(buCode).trim();
-    productId = String(productId).trim().replace(/\./g, '');
+    buCode = this.normalizeBuCode(buCode);
+    productId = this.normalizeProductId(productId);
 
-    if (!productType) {
-      productType = PRODUCT_TYPE.ART;
-      // it looks like SPR product types always have an "s" in front of
-      // the productcode
-      if (productId[0].toLowerCase() === 's') {
-        productType = PRODUCT_TYPE.SPR;
-        productId = productId.substr(1);
-      }
+    // detect non ART product codes by checking if the product code starts with
+    // an "S"
+    if (productId[0].toLowerCase() === 's') {
+      productType = PRODUCT_TYPE.SPR;
+      productId = productId.substring(1);
     }
+
+    assert(
+      /^\d+$/.test(buCode),
+      `The given buCode ${JSON.stringify(buCode)} doesn’t look like a valid buCode id (b92bb3e4)`,
+    );
+    assert(
+      /^\d+$/.test(productId),
+      `The given productId ${JSON.stringify(productId)} doesn’t look like a valid product id (06a5d687)`,
+    );
 
     const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId, productType);
     return this.fetch(url)

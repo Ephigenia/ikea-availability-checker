@@ -39,7 +39,7 @@ Features
 
 - list of 380 IKEA stores worldwide
 - get product stock amount for a whole country or single store in JSON, CSV and CLI-Table format including forecast (when available)
-- support for many countries: at, au, be, ca, ch, cn, cz, de, dk, es, fi, fr, gb, hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
+- support for many countries: at, ~~au~~, be, ~~ca~~, ch, cn, cz, de, dk, es, fi, fr, ~~gb~~, ~~hk~~, hr, hu, ie, it, jo, jp, kr, kw, lt, ~~my~~, nl, no, pl, pt, qa, ro, ~~ru~~, sa, se, ~~sg~~, sk, ~~th~~, tw, ~~us~~ (note: [DEPRECATED message, no availability for some countries](https://github.com/Ephigenia/ikea-availability-checker/discussions/83))
 - integrate/use the library into your node project
 
 Command Line
