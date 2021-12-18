@@ -193,14 +193,14 @@ class IOWS2 {
    * Asynchronsouly request the stock information of a specific product in
    * the given store.
    *
-   * @param {string} buCode ikea store identification number
+   * @param {string} buCode 3-digit ikea store identification number
    * @param {string} productId ikea product identification number
    * @param {PRODUCT_TYPE} [productType=PRODUCT_TYPE.ART] optional different
    *   product type. The product type is guessed from the product ID.
    * @returns {Promise<ProductAvailability>} resulting product stock
    *   information
    */
-  async getStoreProductAvailability(buCode, productId, productType = null) {
+  async getStoreProductAvailability(buCode, productId, productType = PRODUCT_TYPE.ART) {
     assert.strictEqual(typeof buCode, 'string',
       `Expected first argument buCode to be a string, instead ${typeof buCode} given. (ea6471f8)`
     );
@@ -210,14 +210,11 @@ class IOWS2 {
     buCode = this.normalizeBuCode(buCode);
     productId = this.normalizeProductId(productId);
 
-    if (!productType) {
-      productType = PRODUCT_TYPE.ART;
-      // it looks like SPR product types always have an "s" in front of
-      // the productcode
-      if (productId[0].toLowerCase() === 's') {
-        productType = PRODUCT_TYPE.SPR;
-        productId = productId.substring(1);
-      }
+    // detect non ART product codes by checking if the product code starts with
+    // an "S"
+    if (productId[0].toLowerCase() === 's') {
+      productType = PRODUCT_TYPE.SPR;
+      productId = productId.substring(1);
     }
 
     const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId, productType);
