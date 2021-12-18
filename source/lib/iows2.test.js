@@ -36,7 +36,6 @@ describe('IOWS2', () => {
     });
   }); // constructor
 
-
   describe('buildUrl', () => {
     const iows = new IOWS2('de');
     it('returns a valid iows availability url including all components', () => {
@@ -50,6 +49,23 @@ describe('IOWS2', () => {
       ).to.equal('base/de/de/stores/827/availability/ART/S19283');
     });
   }); // buildUrl
+
+  describe('normalizeProductId', () => {
+    const tests = [
+      ['70078465', '70078465'],
+      ['700.784.63', '70078463'],
+      ['700.784.63 .', '70078463'],
+      ['.700.784.63 . ', '70078463'],
+      [' 7291.8127.12', '7291812712'],
+      ['S7291812712', 'S7291812712'],
+    ];
+    tests.forEach(function(test) {
+      it(`normalizes ${JSON.stringify(test[0])} to ${JSON.stringify(test[1])}`, function() {
+        const iows = new IOWS2('de');
+        expect(iows.normalizeProductId(test[0])).to.equal(test[1]);
+      });
+    });
+  }); // normalizeProductId
 
   describe('getStoreProductAvailability', () => {
     const iows = new IOWS2('de');

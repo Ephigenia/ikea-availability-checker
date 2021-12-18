@@ -169,6 +169,14 @@ class IOWS2 {
     ].join('/');
   }
 
+  normalizeProductId(productId) {
+    return String(productId).replace(/\./g, '').trim();
+  }
+
+  normalizeBuCode(buCode) {
+    return String(buCode).trim();
+  }
+
   /**
    * Asynchronsouly request the stock information of a specific product in
    * the given store.
@@ -187,8 +195,8 @@ class IOWS2 {
     assert.strictEqual(typeof productId, 'string',
       `Expected first argument productId to be a string, instead ${typeof productId} given. (5492aeea)`
     );
-    buCode = String(buCode).trim();
-    productId = String(productId).trim().replace(/\./g, '');
+    buCode = this.normalizeBuCode(buCode);
+    productId = this.normalizeProductId(productId);
 
     if (!productType) {
       productType = PRODUCT_TYPE.ART;
@@ -196,7 +204,7 @@ class IOWS2 {
       // the productcode
       if (productId[0].toLowerCase() === 's') {
         productType = PRODUCT_TYPE.SPR;
-        productId = productId.substr(1);
+        productId = productId.substring(1);
       }
     }
 
