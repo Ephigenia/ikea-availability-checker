@@ -169,12 +169,24 @@ class IOWS2 {
     ].join('/');
   }
 
+  /**
+   * @param {string} productId
+   * @returns {string}
+   */
   normalizeProductId(productId) {
-    return String(productId).replace(/\./g, '').trim();
+    return String(productId || '').replace(/\./g, '').trim();
   }
 
+  /**
+   * Normalize the buCode
+   *
+   * Note that the buCode "003" must keep the zeros
+   *
+   * @param {string} buCode
+   * @returns {string}
+   */
   normalizeBuCode(buCode) {
-    return String(buCode).trim();
+    return String(buCode || '').replace(/[^0-9]/g, '');
   }
 
   /**

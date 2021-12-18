@@ -58,6 +58,9 @@ describe('IOWS2', () => {
       ['.700.784.63 . ', '70078463'],
       [' 7291.8127.12', '7291812712'],
       ['S7291812712', 'S7291812712'],
+      [false, ''],
+      [null, ''],
+      [undefined, ''],
     ];
     tests.forEach(function(test) {
       it(`normalizes ${JSON.stringify(test[0])} to ${JSON.stringify(test[1])}`, function() {
@@ -66,6 +69,24 @@ describe('IOWS2', () => {
       });
     });
   }); // normalizeProductId
+
+  describe('normalizeBuCode', () => {
+    const tests = [
+      ['123', '123'],
+      [' 123 ', '123'],
+      ['001', '001'],
+      ['A912X.', '912'],
+      [false, ''],
+      [null, ''],
+      [undefined, ''],
+    ];
+    tests.forEach(function(test) {
+      it(`normalizes ${JSON.stringify(test[0])} to ${JSON.stringify(test[1])}`, function() {
+        const iows = new IOWS2('de');
+        expect(iows.normalizeBuCode(test[0])).to.equal(test[1]);
+      });
+    });
+  });
 
   describe('getStoreProductAvailability', () => {
     const iows = new IOWS2('de');
