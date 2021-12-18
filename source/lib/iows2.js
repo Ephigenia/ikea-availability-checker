@@ -217,6 +217,15 @@ class IOWS2 {
       productId = productId.substring(1);
     }
 
+    assert(
+      /^\d+$/.test(productId),
+      `The given productId ${JSON.stringify(productId)} doesn’t look like a valid product id (06a5d687)`,
+    );
+    assert(
+      /^\d+$/.test(buCode),
+      `The given buCode ${JSON.stringify(buCode)} doesn’t look like a valid buCode id (b92bb3e4)`,
+    );
+
     const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId, productType);
     return this.fetch(url)
       .catch(err => {

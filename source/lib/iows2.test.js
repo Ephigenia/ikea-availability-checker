@@ -115,6 +115,28 @@ describe('IOWS2', () => {
             })
         });
       });
+
+      ['FG01283', 'false', 'undefined', '{}'].forEach(productId => {
+        it(`throws an error when productId is ${JSON.stringify(productId)}`, async () => {
+          return iows.getStoreProductAvailability('123', productId)
+            .then(() => { throw new Error('should not run') })
+            .catch(err => {
+              expect(err).to.be.instanceOf(AssertionError);
+              expect(err.message).to.contain('06a5d687');
+            })
+        });
+      });
+
+      ['FG', 'false', 'undefined', '{}'].forEach(buCode => {
+        it(`throws an error when buCode is ${JSON.stringify(buCode)}`, async () => {
+          return iows.getStoreProductAvailability(buCode, '123')
+            .then(() => { throw new Error('should not run') })
+            .catch(err => {
+              expect(err).to.be.instanceOf(AssertionError);
+              expect(err.message).to.contain('b92bb3e4');
+            })
+        });
+      });
     }); // argument validation
 
     describe('successfull', () => {
