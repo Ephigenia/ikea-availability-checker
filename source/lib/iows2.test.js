@@ -100,23 +100,23 @@ describe('IOWS2', () => {
             .then(() => { throw new Error('should not run') })
             .catch(err => {
               expect(err).to.be.instanceOf(AssertionError);
-              expect(err.message).to.contain('buCode');
+              expect(err.message).to.contain('ea6471f8');
             })
         });
       });
 
-      [null, undefined, 123, {}].forEach(productId => {
+      [null, undefined, {}].forEach(productId => {
         it(`throws an error when productId is ${JSON.stringify(productId)}`, async () => {
           return iows.getStoreProductAvailability('123', productId)
             .then(() => { throw new Error('should not run') })
             .catch(err => {
               expect(err).to.be.instanceOf(AssertionError);
-              expect(err.message).to.contain('productId');
+              expect(err.message).to.contain('5492aeea');
             })
         });
       });
 
-      ['FG01283', 'false', 'undefined', '{}'].forEach(productId => {
+      ['false', 'undefined', '{}'].forEach(productId => {
         it(`throws an error when productId is ${JSON.stringify(productId)}`, async () => {
           return iows.getStoreProductAvailability('123', productId)
             .then(() => { throw new Error('should not run') })
@@ -127,7 +127,7 @@ describe('IOWS2', () => {
         });
       });
 
-      ['FG', 'false', 'undefined', '{}'].forEach(buCode => {
+      ['false', 'undefined', '{}'].forEach(buCode => {
         it(`throws an error when buCode is ${JSON.stringify(buCode)}`, async () => {
           return iows.getStoreProductAvailability(buCode, '123')
             .then(() => { throw new Error('should not run') })

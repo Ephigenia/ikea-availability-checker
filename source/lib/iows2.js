@@ -194,7 +194,7 @@ class IOWS2 {
    * the given store.
    *
    * @param {string} buCode 3-digit ikea store identification number
-   * @param {string} productId ikea product identification number
+   * @param {string|number} productId ikea product identification number
    * @param {PRODUCT_TYPE} [productType=PRODUCT_TYPE.ART] optional different
    *   product type. The product type is guessed from the product ID.
    * @returns {Promise<ProductAvailability>} resulting product stock
@@ -204,8 +204,8 @@ class IOWS2 {
     assert.strictEqual(typeof buCode, 'string',
       `Expected first argument buCode to be a string, instead ${typeof buCode} given. (ea6471f8)`
     );
-    assert.strictEqual(typeof productId, 'string',
-      `Expected first argument productId to be a string, instead ${typeof productId} given. (5492aeea)`
+    assert.ok(['string', 'number'].includes(typeof productId),
+      `Expected second argument productId to be a string or number, instead ${typeof productId} given. (5492aeea)`
     );
     buCode = this.normalizeBuCode(buCode);
     productId = this.normalizeProductId(productId);
@@ -218,12 +218,12 @@ class IOWS2 {
     }
 
     assert(
-      /^\d+$/.test(productId),
-      `The given productId ${JSON.stringify(productId)} doesn’t look like a valid product id (06a5d687)`,
-    );
-    assert(
       /^\d+$/.test(buCode),
       `The given buCode ${JSON.stringify(buCode)} doesn’t look like a valid buCode id (b92bb3e4)`,
+    );
+    assert(
+      /^\d+$/.test(productId),
+      `The given productId ${JSON.stringify(productId)} doesn’t look like a valid product id (06a5d687)`,
     );
 
     const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId, productType);
