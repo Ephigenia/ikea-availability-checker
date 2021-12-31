@@ -216,7 +216,7 @@ Releases are automated and created by CI managed by [semantic-release](https://g
 ## Trouble Shooting
 
 - `DEPRECATED`
-    You’re trying to check the availability for a product which may not be available in the country/store.
+    You’re trying to check the availability for a product which may not be available in the country/store. Read more about in the [Discussions](https://github.com/Ephigenia/ikea-availability-checker/discussions/83)
 
 
 Other Projects & Articles
