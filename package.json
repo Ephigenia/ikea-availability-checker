@@ -22,6 +22,11 @@
   "engines": {
     "node": ">=14"
   },
+  "files": [
+    "source",
+    "!source/**/*.test.js",
+    "!source/test"
+  ],
   "maintainer": {
     "name": "Marcel Eichner",
     "email": "marcel.eichner@ephigenia.de"
