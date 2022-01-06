@@ -60,7 +60,6 @@
     "start": "node source/cli.js",
     "tdd": "npm run -s test -- --watch",
     "test": "NODE_ENV=test nyc --reporter=text-summary --reporter=lcov mocha \"source/**/*.test.js\"",
-    "test:ci": "npm run -s test",
     "semantic-release": "semantic-release"
   },
   "dependencies": {

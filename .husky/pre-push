@@ -17,3 +17,6 @@ fi
 
 printf "%b>>>%b linting javascript files...\n" "$GREEN" "$NO_COLOR"
 npm run -s lint;
+
+printf "%b>>>%b run tests...\n" "$GREEN" "$NO_COLOR"
+npm run -s test;
