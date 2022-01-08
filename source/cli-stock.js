@@ -4,7 +4,7 @@ import program from 'commander';
 import storesData from './lib/stores.js';
 
 import IOWS2 from './lib/iows2.js';
-import { IOWS2ParseError } from './lib/iows2Errors.js';
+import { IOWS2DeprecatedError, IOWS2NotFoundError, IOWS2ParseError } from './lib/iows2Errors.js';
 
 import ReporterJSON from './lib/reporter/stock-json.js';
 import ReporterTSV from './lib/reporter/stock-tsv.js';
@@ -119,10 +119,10 @@ Examples:
           if (err instanceof IOWS2ParseError) {
             return { stock: 0, probability: 'PARSE_ERROR', createdAt: new Date() };
           }
-          if (err instanceof errors.IOWS2NotFoundError) {
+          if (err instanceof IOWS2NotFoundError) {
             return { stock: 0, probability: 'NOT_FOUND', createdAt: new Date() };
           }
-          if (err instanceof errors.IOWS2DeprecatedError) {
+          if (err instanceof IOWS2DeprecatedError) {
             return { stock: 0, probability: 'DEPRECATED', createdAt: new Date() };
           }
           throw err;
