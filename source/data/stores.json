@@ -2652,6 +2652,15 @@
     "countryCode": "qa"
   },
   {
+    "buCode": "557",
+    "name": "Adelaide",
+    "coordinates": [
+      138.538300,
+      -34.932869
+    ],
+    "countryCode": "au"
+  },
+  {
     "buCode": "451",
     "name": "Canberra",
     "coordinates": [
@@ -2670,11 +2679,65 @@
     "countryCode": "au"
   },
   {
+    "buCode": "377",
+    "name": "Marsden Park",
+    "coordinates": [
+      150.918930,
+      -33.648659
+    ],
+    "countryCode": "au"
+  },
+  {
     "buCode": "460",
     "name": "North Lakes",
     "coordinates": [
       153.015589,
       -27.243452
+    ],
+    "countryCode": "au"
+  },
+  {
+    "buCode": "556",
+    "name": "Perth",
+    "coordinates": [
+      115.803040,
+      -31.895690
+    ],
+    "countryCode": "au"
+  },
+  {
+    "buCode": "556",
+    "name": "Rhodes",
+    "coordinates": [
+      151.083710,
+      -33.835650
+    ],
+    "countryCode": "au"
+  },
+  {
+    "buCode": "384",
+    "name": "Richmond",
+    "coordinates": [
+      145.0145128,
+      -37.8120608
+    ],
+    "countryCode": "au"
+  },
+  {
+    "buCode": "006",
+    "name": "Springvale",
+    "coordinates": [
+      145.143914,
+      -37.9279425
+    ],
+    "countryCode": "au"
+  },
+  {
+    "buCode": "446",
+    "name": "Tempe",
+    "coordinates": [
+      151.1663153,
+      -33.92255
     ],
     "countryCode": "au"
   },

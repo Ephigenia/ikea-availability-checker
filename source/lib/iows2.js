@@ -2,7 +2,7 @@ import assert from 'node:assert';
 import axios from 'axios';
 
 import stores from './stores.js';
-import { IOWS2ParseError, IOWS2ResponseError } from './iows2Errors.js';
+import { IOWS2ParseError, IOWS2ResponseError, IOWS2DeprecatedError, IOWS2NotFoundError } from './iows2Errors.js';
 
 const PRODUCT_TYPE = {
   ART: 'ART',
@@ -84,21 +84,40 @@ export default class IOWS2 {
    * @param {import('axios').AxiosRequestConfig} [options={}] additional
    *   options
    * @return {Promise<Object>} response body data
-   * @throws {import('./errors').IOWS2ResponseError}
+   * @throws {import('./errors').IOWS2ParseError} in case the response
+   *   body is not an object
+   * @throws {import('./errors').IOWS2NotFoundError} in case the response
+   *   status code is 404
+   * @throws {import('./errors').IOWS2DeprecatedError} in case the response
+   *   contains a "deprecation" header
+   * @throws {import('./errors').IOWS2ResponseError} in any other case
    */
   async fetch(url, options = {}) {
-    // required headers, without them IOWS endpoint will return
-    // 409 (gone), 401 or even 404
-    return this.api.get(url, options)
-      .then(response => {
-        if (typeof response.data !== 'object') {
-          throw new IOWS2ParseError('Unable to parse response');
+    let response;
+    try {
+      response = await this.api.get(url, options);
+    } catch (error) {
+      if (error.request) {
+        // 20211217 some of the country endpoints started to reply with a
+        // deprecation and warning header stating that the IOWS2 API is
+        // going to be deprecated.
+        const responseHeaders = error.request.res.headers;
+        if (responseHeaders.deprecation) {
+          throw new IOWS2DeprecatedError(error);
         }
-        return response.data;
-      })
-      .catch(err => {
-        throw new IOWS2ResponseError(err);
-      });
+        if (error.request.res.statusCode === 404) {
+          throw new IOWS2NotFoundError(error);
+        }
+      }
+      throw new IOWS2ResponseError(error);
+    }
+
+    // double check if the response was successfully parsed and is an object
+    if (typeof response.data !== 'object') {
+      throw new IOWS2ParseError('Unable to parse response', response.data);
+    }
+
+    return response.data;
   }
 
   /**
@@ -149,44 +168,70 @@ export default class IOWS2 {
   }
 
   /**
+   * @param {string} productId
+   * @returns {string}
+   */
+  normalizeProductId(productId) {
+    return String(productId || '').replace(/\./g, '').trim();
+  }
+
+  /**
+   * Normalize the buCode
+   *
+   * Note that the buCode "003" must keep the zeros
+   *
+   * @param {string} buCode
+   * @returns {string}
+   */
+  normalizeBuCode(buCode) {
+    return String(buCode || '').replace(/[^0-9]/g, '');
+  }
+
+  /**
    * Asynchronsouly request the stock information of a specific product in
    * the given store.
    *
-   * @param {string} buCode ikea store identification number
-   * @param {string} productId ikea product identification number
+   * @param {string} buCode 3-digit ikea store identification number
+   * @param {string|number} productId ikea product identification number
    * @param {PRODUCT_TYPE} [productType=PRODUCT_TYPE.ART] optional different
    *   product type. The product type is guessed from the product ID.
    * @returns {Promise<ProductAvailability>} resulting product stock
    *   information
    */
-  async getStoreProductAvailability(buCode, productId, productType = null) {
+  async getStoreProductAvailability(buCode, productId, productType = PRODUCT_TYPE.ART) {
     assert.strictEqual(typeof buCode, 'string',
       `Expected first argument buCode to be a string, instead ${typeof buCode} given. (ea6471f8)`
     );
-    assert.strictEqual(typeof productId, 'string',
-      `Expected first argument productId to be a string, instead ${typeof productId} given. (5492aeea)`
+    assert.ok(['string', 'number'].includes(typeof productId),
+      `Expected second argument productId to be a string or number, instead ${typeof productId} given. (5492aeea)`
     );
-    buCode = String(buCode).trim();
-    productId = String(productId).trim();
+    buCode = this.normalizeBuCode(buCode);
+    productId = this.normalizeProductId(productId);
 
-    if (!productType) {
-      productType = PRODUCT_TYPE.ART;
-      // it looks like SPR product types always have an "s" in front of
-      // the productcode
-      if (productId[0].toLowerCase() === 's') {
-        productType = PRODUCT_TYPE.SPR;
-        productId = productId.substr(1);
-      }
+    // detect non ART product codes by checking if the product code starts with
+    // an "S"
+    if (productId[0].toLowerCase() === 's') {
+      productType = PRODUCT_TYPE.SPR;
+      productId = productId.substring(1);
     }
+
+    assert(
+      /^\d+$/.test(buCode),
+      `The given buCode ${JSON.stringify(buCode)} doesn’t look like a valid buCode id (b92bb3e4)`,
+    );
+    assert(
+      /^\d+$/.test(productId),
+      `The given productId ${JSON.stringify(productId)} doesn’t look like a valid product id (06a5d687)`,
+    );
 
     const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId, productType);
     return this.fetch(url)
       .catch(err => {
-        if (err.response) {
+        if (err.request.res) {
           err.message =
             `Unable to receive product ${productId} availability for store ` +
-            `${buCode} status code: ${err.response.status} ${err.response.statusText} ` +
-            `using url: ${err.request.url}`;
+            `${buCode} status code: ${err.request.res.statusCode} ${err.request.res.statusText} ` +
+            `using url: ${err.request.path}`;
         }
         throw err;
       })

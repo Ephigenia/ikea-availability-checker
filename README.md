@@ -29,6 +29,7 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
         - [TDD](#tdd)
         - [Run Specific tests](#run-specific-tests)
     - [Release](#release)
+    - [Trouble Shooting](#trouble-shooting)
 - [Other Projects & Articles](#other-projects--articles)
     - [Articles & Resources](#articles--resources)
     - [Packages](#packages)
@@ -39,7 +40,7 @@ Features
 
 - list of 380 IKEA stores worldwide
 - get product stock amount for a whole country or single store in JSON, CSV and CLI-Table format including forecast (when available)
-- support for many countries: ae, at, au, be, ca, ch, cn, cz, de, dk, es, fi, fr, gb hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
+- support for many countries: at, au, be, ca, ch, cn, cz, de, dk, es, fi, fr, gb, hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
 - integrate/use the library into your node project
 
 Command Line
@@ -221,8 +222,12 @@ Running all tests will also create coverage reports shown after the test results
 
 ## Release
 
-    npm version minor
-    npm publish
+Releases are automated and created by CI managed by [semantic-release](https://github.com/semantic-release/semantic-release).
+
+## Trouble Shooting
+
+- `DEPRECATED`
+    You’re trying to check the availability for a product which may not be available in the country/store. Read more about in the [Discussions](https://github.com/Ephigenia/ikea-availability-checker/discussions/83)
 
 
 Other Projects & Articles

@@ -6,7 +6,7 @@ import { AssertionError } from 'assert';
 import { fileURLToPath } from 'node:url';
 
 import IOWS2 from './iows2.js';
-import { IOWS2ParseError, IOWS2ResponseError } from './iows2Errors.js'
+import { IOWS2DeprecatedError, IOWS2ParseError, IOWS2ResponseError } from './iows2Errors.js'
 
 const fixturesDir = fileURLToPath(new URL('../test/fixtures', import.meta.url));
 console.log(fixturesDir);
@@ -36,7 +36,6 @@ describe('IOWS2', () => {
     });
   }); // constructor
 
-
   describe('buildUrl', () => {
     const iows = new IOWS2('de');
     it('returns a valid iows availability url including all components', () => {
@@ -51,6 +50,44 @@ describe('IOWS2', () => {
     });
   }); // buildUrl
 
+  describe('normalizeProductId', () => {
+    const tests = [
+      ['70078465', '70078465'],
+      ['700.784.63', '70078463'],
+      ['700.784.63 .', '70078463'],
+      ['.700.784.63 . ', '70078463'],
+      [' 7291.8127.12', '7291812712'],
+      ['S7291812712', 'S7291812712'],
+      [false, ''],
+      [null, ''],
+      [undefined, ''],
+    ];
+    tests.forEach(function(test) {
+      it(`normalizes ${JSON.stringify(test[0])} to ${JSON.stringify(test[1])}`, function() {
+        const iows = new IOWS2('de');
+        expect(iows.normalizeProductId(test[0])).to.equal(test[1]);
+      });
+    });
+  }); // normalizeProductId
+
+  describe('normalizeBuCode', () => {
+    const tests = [
+      ['123', '123'],
+      [' 123 ', '123'],
+      ['001', '001'],
+      ['A912X.', '912'],
+      [false, ''],
+      [null, ''],
+      [undefined, ''],
+    ];
+    tests.forEach(function(test) {
+      it(`normalizes ${JSON.stringify(test[0])} to ${JSON.stringify(test[1])}`, function() {
+        const iows = new IOWS2('de');
+        expect(iows.normalizeBuCode(test[0])).to.equal(test[1]);
+      });
+    });
+  });
+
   describe('getStoreProductAvailability', () => {
     const iows = new IOWS2('de');
     afterEach(() => nock.cleanAll());
@@ -63,18 +100,40 @@ describe('IOWS2', () => {
             .then(() => { throw new Error('should not run') })
             .catch(err => {
               expect(err).to.be.instanceOf(AssertionError);
-              expect(err.message).to.contain('buCode');
+              expect(err.message).to.contain('ea6471f8');
             })
         });
       });
 
-      [null, undefined, 123, {}].forEach(productId => {
+      [null, undefined, {}].forEach(productId => {
         it(`throws an error when productId is ${JSON.stringify(productId)}`, async () => {
           return iows.getStoreProductAvailability('123', productId)
             .then(() => { throw new Error('should not run') })
             .catch(err => {
               expect(err).to.be.instanceOf(AssertionError);
-              expect(err.message).to.contain('productId');
+              expect(err.message).to.contain('5492aeea');
+            })
+        });
+      });
+
+      ['false', 'undefined', '{}'].forEach(productId => {
+        it(`throws an error when productId is ${JSON.stringify(productId)}`, async () => {
+          return iows.getStoreProductAvailability('123', productId)
+            .then(() => { throw new Error('should not run') })
+            .catch(err => {
+              expect(err).to.be.instanceOf(AssertionError);
+              expect(err.message).to.contain('06a5d687');
+            })
+        });
+      });
+
+      ['false', 'undefined', '{}'].forEach(buCode => {
+        it(`throws an error when buCode is ${JSON.stringify(buCode)}`, async () => {
+          return iows.getStoreProductAvailability(buCode, '123')
+            .then(() => { throw new Error('should not run') })
+            .catch(err => {
+              expect(err).to.be.instanceOf(AssertionError);
+              expect(err.message).to.contain('b92bb3e4');
             })
         });
       });
@@ -104,6 +163,17 @@ describe('IOWS2', () => {
             scope.isDone();
           });
       });
+    });
+
+    it('accept product code in dot notation', () => {
+      const scope = nock(iows.baseUrl)
+      .get((uri) => {
+        expect(uri).to.match(/\/999$/);
+        return true;
+      })
+      .reply(200, bodyData);
+      return iows.getStoreProductAvailability('123', '9.9.9')
+        .then(() => scope.isDone());
     });
 
     it('detects the productType form the productCode when it starts with an "s"', () => {
@@ -161,10 +231,25 @@ describe('IOWS2', () => {
     it('throws an error when the response doesn’t contain valid json', () => {
       const scope = nock(URL).get(/.+/).reply(200, '<html>');
       return iows.fetch(URL, {})
+        .catch(err => {
+          expect(err).to.be.instanceOf(IOWS2ParseError);
+          expect(err).to.have.property('message').to.match(/Unable to parse/i);
+          scope.isDone();
+        });
+    });
+
+    it('throws a IOWS2Deprecated error when the api returns a deprecation warning', () => {
+      const scope = nock(URL).get(/.+/)
+        .reply(404, 'Gone', {
+          'deprecation': 'version="1", date="Sat, 31 Dec 2022 23:59:59 GMT"',
+          'warning': 'IOWSStockAvailabilityService.GetStockAvailability.v1 API is now deprecated.',
+          'link': 'alternate="Customer Item Availability. Enquire via slack #rrm-cia"',
+          'x-global-transaction-id': 'a345495061bc8d13018340e5',
+        });
+      return iows.fetch(URL, {})
         .then(() => {throw Error('Unexpected resolved promise')})
         .catch(err => {
-          expect(err).to.be.instanceOf(Error);
-          expect(err.message).to.match(/Unable to parse/i);
+          expect(err).to.be.instanceof(IOWS2DeprecatedError);
           scope.isDone();
         });
     });
