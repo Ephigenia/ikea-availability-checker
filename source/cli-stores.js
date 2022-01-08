@@ -22,8 +22,7 @@ program
   .option('--plain', 'output as tsv')
   .option('--json', 'json output')
   .option('--pretty', 'pretty table output (default)')
-  .on('--help', function() {
-    console.log(`
+  .addHelpText('after', `
 Examples:
 
   get all stores in a country
@@ -37,8 +36,7 @@ Examples:
 
   get only the ids, the second column
     ikea-availability-checker stores --plain de | awk '{print $2}'
-`);
-  })
+`)
   .action(function(countryCodes) {
     const opts = program.opts();
     let format = 'table';

@@ -33,6 +33,11 @@ program
     '-c, --country [countryCode]',
     'optional single country code or multiple country codes separated by comma'
   )
+  .option(
+    '--min-stock [amount=0]',
+    'filter out all stores which don’t meet the minimum amount',
+    0,
+  )
   .option('--plain', 'output as tsv')
   .option('--json', 'json output')
   .option('--pretty', 'pretty table (default)')
@@ -43,8 +48,7 @@ program
     optionalSplitOptionCSV,
     ''
   )
-  .on('--help', function() {
-    console.log(`
+  .addHelpText('after', `
 Examples:
 
   query single product in single store
@@ -62,13 +66,15 @@ Examples:
   query single product by matching city name
     ikea-availability-checker stock --store Berlin 40299687
 
+  show only stores with min 2 items in stock
+    ikea-availability-checker stock --min-store 2 --store Berlin 40299687
+
   output as json
     ikea-availability-checker stock --store 148 --json 40299687
 
   output with aligned columns
     ikea-availability-checker stock --store Frankfurt --plain 40299687 | column -t
-`);
-  })
+`)
   .action((productIds = []) => {
     // filter all dublicate productIds
     // @var {Array<String>}
@@ -146,6 +152,8 @@ Examples:
     });
 
     Promise.all(promises)
-      .then(results => console.log(reporter.createReport(results)))
+      .then(results => results.filter(item => item.availability.stock >= opts.minStock))
+      .then(results => reporter.createReport(results))
+      .then(report => console.log(report))
   })
   .parse(process.argv);
