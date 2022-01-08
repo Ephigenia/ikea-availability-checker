@@ -6,6 +6,8 @@ const pkg = require('./../package.json');
 
 const stores = require('./lib/stores');
 
+// TODO search for store by city name?
+// TODO search store with lat/lang
 program
   .version(pkg.version)
   .arguments(
@@ -19,7 +21,7 @@ program
   )
   .option('--plain', 'output as tsv')
   .option('--json', 'json output')
-  .option('--pretty', 'pretty table output')
+  .option('--pretty', 'pretty table output (default)')
   .on('--help', function() {
     console.log(`
 Examples:
@@ -29,6 +31,12 @@ Examples:
 
   get all stores from multiple countries
     ikea-availability-checker stores de at us
+
+  print results as JSON
+    ikea-availability-checker stores --json de
+
+  get only the ids, the second column
+    ikea-availability-checker stores --plain de | awk '{print $2}'
 `);
   })
   .action(function(countryCodes) {
