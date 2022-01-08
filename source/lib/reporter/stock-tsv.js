@@ -1,8 +1,6 @@
-'use strict';
+import countries from 'i18n-iso-countries';
 
-let countries = require('i18n-iso-countries');
-
-module.exports = {
+export default {
   createReport: function(data) {
     return data
       .map(({ productId, store, availability }) => [

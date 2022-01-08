@@ -12,6 +12,7 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
         - [Global](#global)
         - [Local](#local)
         - [NPX](#npx)
+        - [Docker](#docker)
     - [Use](#use)
         - [Stores](#stores)
         - [Stock](#stock)
@@ -69,6 +70,16 @@ A locally installed ikea-availability-checker will be placed in `./node_modules/
 Or call it directly using [npx](https://www.npmjs.com/package/npx):
 
     npx ikea-availability-checker --help
+
+### Docker
+
+You can use prebuild docker versions of the script:
+
+    docker run -it ephigenia/ikea-availability-checker [arguments...]
+
+Checking the availability of a specific product can look like this:
+
+    docker run -it ephigenia/ikea-availability-checker stock --country at 80213074
 
 ## Use
 ### Stores
@@ -166,7 +177,7 @@ API
 The API interface which helps you including the check into your library is kind of new. If you have suggestions for improvements feel free to [open an issue](https://github.com/Ephigenia/ikea-availability-checker/issues).
 
 ```javascript
-const checker = require('ikea-availability-checker');
+const checker = import('ikea-availability-checker');
 
 (async function() {
     const result = await checker.availability('394', '00501436');

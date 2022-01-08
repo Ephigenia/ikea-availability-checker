@@ -1,15 +1,13 @@
 #!/usr/bin/env node
-'use strict';
 
-let program = require('commander');
-const pkg = require('./../package.json');
+import program from'commander';
 
-const stores = require('./lib/stores');
+import stores from './lib/stores.js';
+import StoreReportTable from './lib/reporter/stores-table.js';
 
 // TODO search for store by city name?
 // TODO search store with lat/lang
 program
-  .version(pkg.version)
   .arguments(
     '[countryCodes...]',
     {
@@ -22,8 +20,7 @@ program
   .option('--plain', 'output as tsv')
   .option('--json', 'json output')
   .option('--pretty', 'pretty table output (default)')
-  .on('--help', function() {
-    console.log(`
+  .addHelpText('after', `
 Examples:
 
   get all stores in a country
@@ -37,8 +34,7 @@ Examples:
 
   get only the ids, the second column
     ikea-availability-checker stores --plain de | awk '{print $2}'
-`);
-  })
+`)
   .action(function(countryCodes) {
     const opts = program.opts();
     let format = 'table';
@@ -67,7 +63,7 @@ Examples:
           .join('\n');
         break;
       case 'table':
-        report = require('./lib/reporter/stores-table').show(foundStores);
+        report = StoreReportTable.show(foundStores);
         break;
     }
     console.log(report);

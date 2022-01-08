@@ -1,17 +1,17 @@
-'use strict';
+import fs from 'fs';
+import path from 'path';
+import { expect } from 'chai';
+import nock from 'nock';
+import { AssertionError } from 'assert';
+import { fileURLToPath } from 'node:url';
 
-const fs = require('fs');
-const path = require('path');
-const expect = require('chai').expect;
-const nock = require('nock');
-const fixturesDir = path.join(__dirname, '..', 'test', 'fixtures');
+import IOWS2 from './iows2.js';
+import { IOWS2DeprecatedError, IOWS2ParseError, IOWS2ResponseError } from './iows2Errors.js'
 
-const { AssertionError } = require('assert');
+const fixturesDir = fileURLToPath(new URL('../test/fixtures', import.meta.url));
+console.log(fixturesDir);
 
 describe('IOWS2', () => {
-  const IOWS2 = require('./iows2');
-  const errors = require('./iows2Errors');
-
   describe('constructor', () => {
     it('throws an error when countryCode is invalid', () => {
       expect(() => { new IOWS2(); }).to.throw(Error);
@@ -192,7 +192,7 @@ describe('IOWS2', () => {
         .then(() => { throw Error('Unexpected promise resolved' )})
         .catch(err => {
           scope.isDone();
-          expect(err).to.be.instanceof(errors.IOWS2ResponseError);
+          expect(err).to.be.instanceof(IOWS2ResponseError);
           expect(err.message).to.match(/Unable to receive product 999/i);
           expect(err).to.have.property('response');
           expect(err).to.have.property('request');
@@ -204,7 +204,7 @@ describe('IOWS2', () => {
         .then(() => { throw Error('Unexpected promise resolved' )})
         .catch(err => {
           scope.isDone();
-          expect(err).to.be.instanceof(errors.IOWS2ParseError);
+          expect(err).to.be.instanceof(IOWS2ParseError);
           expect(err.message).to.match(/unable to parse valid looking response/i);
           expect(err).to.have.property('data');
         });
@@ -222,7 +222,7 @@ describe('IOWS2', () => {
         .then(() => {throw Error('Unexpected resolved promise')})
         .catch(err => {
           scope.isDone();
-          expect(err).to.be.an.instanceOf(errors.IOWS2ResponseError);
+          expect(err).to.be.an.instanceOf(IOWS2ResponseError);
           expect(err.message).to.match(/Request failed/);
           expect(err).to.have.property('request');
           expect(err).to.have.property('response');
@@ -232,7 +232,7 @@ describe('IOWS2', () => {
       const scope = nock(URL).get(/.+/).reply(200, '<html>');
       return iows.fetch(URL, {})
         .catch(err => {
-          expect(err).to.be.instanceOf(errors.IOWS2ParseError);
+          expect(err).to.be.instanceOf(IOWS2ParseError);
           expect(err).to.have.property('message').to.match(/Unable to parse/i);
           scope.isDone();
         });
@@ -249,7 +249,7 @@ describe('IOWS2', () => {
       return iows.fetch(URL, {})
         .then(() => {throw Error('Unexpected resolved promise')})
         .catch(err => {
-          expect(err).to.be.instanceof(errors.IOWS2DeprecatedError);
+          expect(err).to.be.instanceof(IOWS2DeprecatedError);
           scope.isDone();
         });
     });

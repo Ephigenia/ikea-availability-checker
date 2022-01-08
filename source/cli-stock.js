@@ -1,12 +1,14 @@
 #!/usr/bin/env node
-'use strict';
 
-let program = require('commander');
-const storesData = require('./lib/stores');
+import program from 'commander';
+import storesData from './lib/stores.js';
 
-let pkg = require('./../package.json');
-let IOWS2 = require('./lib/iows2.js');
-const errors = require('./lib/iows2Errors');
+import IOWS2 from './lib/iows2.js';
+import { IOWS2DeprecatedError, IOWS2NotFoundError, IOWS2ParseError } from './lib/iows2Errors.js';
+
+import ReporterJSON from './lib/reporter/stock-json.js';
+import ReporterTSV from './lib/reporter/stock-tsv.js';
+import ReporterTable from './lib/reporter/stock-table.js';
 
 // TODO output only those that have stock
 function optionalSplitOptionCSV(val) {
@@ -22,7 +24,6 @@ function optionalSplitOptionCSV(val) {
 }
 
 program
-  .version(pkg.version)
   .arguments('[productIds...]')
   .description(
     'Can be used to request the availability of one or multiple products ' +
@@ -48,8 +49,7 @@ program
     optionalSplitOptionCSV,
     ''
   )
-  .on('--help', function() {
-    console.log(`
+  .addHelpText('after', `
 Examples:
 
   query single product in single store
@@ -75,8 +75,7 @@ Examples:
 
   output with aligned columns
     ikea-availability-checker stock --store Frankfurt --plain 40299687 | column -t
-`);
-  })
+`)
   .action((productIds = []) => {
     // filter all dublicate productIds
     // @var {Array<String>}
@@ -104,11 +103,9 @@ Examples:
       process.exit(1);
     }
 
-    let format = 'table';
-    if (opts.json) format = 'json';
-    if (opts.plain) format = 'tsv';
-    if (opts.pretty) format = 'table';
-    let reporter = require(`./lib/reporter/stock-${format}`);
+    let reporter = ReporterTable;
+    if (opts.json) reporter = ReporterJSON;
+    if (opts.plain) reporter = ReporterTSV;
 
     // merge productids and stores list together to one array to be able
     // to make one request per array item
@@ -128,13 +125,13 @@ Examples:
       return iows.getStoreProductAvailability(store.buCode, productId)
         // softly continue the promise chain when there’s just a 404 (not found)
         .catch(err => {
-          if (err instanceof errors.IOWS2ParseError) {
+          if (err instanceof IOWS2ParseError) {
             return { stock: 0, probability: 'PARSE_ERROR', createdAt: new Date() };
           }
-          if (err instanceof errors.IOWS2NotFoundError) {
+          if (err instanceof IOWS2NotFoundError) {
             return { stock: 0, probability: 'NOT_FOUND', createdAt: new Date() };
           }
-          if (err instanceof errors.IOWS2DeprecatedError) {
+          if (err instanceof IOWS2DeprecatedError) {
             return { stock: 0, probability: 'DEPRECATED', createdAt: new Date() };
           }
           throw err;

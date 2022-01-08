@@ -34,7 +34,7 @@ jobs:
       with:
         node-version-file: '.nvmrc'
         cache: 'npm'
-    - run: npm ci --no-production
+    - run: npm ci --no-optional
     - run: npm test
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2

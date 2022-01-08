@@ -1,8 +1,8 @@
-'use strict';
+import assert from 'node:assert';
+import axios from 'axios';
 
-const axios = require('axios');
-const assert = require('assert');
-const stores = require('./stores');
+import stores from './stores.js';
+import { IOWS2ParseError, IOWS2ResponseError, IOWS2DeprecatedError, IOWS2NotFoundError } from './iows2Errors.js';
 
 const PRODUCT_TYPE = {
   ART: 'ART',
@@ -42,12 +42,10 @@ const PRODUCT_TYPE = {
  *   Estimated date when the item gets restocked. Can be empty
  */
 
-const errors = require('./iows2Errors');
-
 /**
  * @class IOWS2
  */
-class IOWS2 {
+export default class IOWS2 {
   /**
    * @param {string} countryCode - required ISO 3166-1 alpha-2 country code
    * @param {string} [languageCode=''] - optional ISO 3166-1 alpha-2 country code
@@ -105,18 +103,18 @@ class IOWS2 {
         // going to be deprecated.
         const responseHeaders = error.request.res.headers;
         if (responseHeaders.deprecation) {
-          throw new errors.IOWS2DeprecatedError(error);
+          throw new IOWS2DeprecatedError(error);
         }
         if (error.request.res.statusCode === 404) {
-          throw new errors.IOWS2NotFoundError(error);
+          throw new IOWS2NotFoundError(error);
         }
       }
-      throw new errors.IOWS2ResponseError(error);
+      throw new IOWS2ResponseError(error);
     }
 
     // double check if the response was successfully parsed and is an object
     if (typeof response.data !== 'object') {
-      throw new errors.IOWS2ParseError('Unable to parse response', response.data);
+      throw new IOWS2ParseError('Unable to parse response', response.data);
     }
 
     return response.data;
@@ -245,10 +243,8 @@ class IOWS2 {
             ...IOWS2.parseAvailabilityFromResponseData(data)
           };
         } catch (err) {
-          throw new errors.IOWS2ParseError('Unable to parse valid looking response: ' + err.message, data);
+          throw new IOWS2ParseError('Unable to parse valid looking response: ' + err.message, data);
         }
       });
   }
 }
-
-module.exports = IOWS2;
