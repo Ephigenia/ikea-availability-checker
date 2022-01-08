@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+export default {
   createReport: function(data) {
     return JSON.stringify(data, null, '  ');
   },

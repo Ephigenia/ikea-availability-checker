@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-'use strict';
 
-let program = require('commander');
+import fs from 'node:fs';
+import program from 'commander';
 
-let pkg = require('./../package.json');
+let pkg = JSON.parse(fs.readFileSync('package.json'));
 
 program
   .version(pkg.version)

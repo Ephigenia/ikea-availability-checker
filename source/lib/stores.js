@@ -1,4 +1,4 @@
-'use strict';
+import fs from 'node:fs';
 
 /**
  * @typedef {Object} Store
@@ -11,13 +11,13 @@
 /**
  * @type {Array<Store>}
  */
-const data = require('./../data/stores.json');
+const data = JSON.parse(fs.readFileSync('source/data/stores.json'));
 
 function normalizeCountryCode(countryCode) {
   return String(countryCode).trim().toLowerCase();
 }
 
-module.exports = {
+export default {
 
   data,
 
