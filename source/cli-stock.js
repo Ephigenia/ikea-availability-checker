@@ -10,6 +10,7 @@ import ReporterJSON from './lib/reporter/stock-json.js';
 import ReporterTSV from './lib/reporter/stock-tsv.js';
 import ReporterTable from './lib/reporter/stock-table.js';
 
+// TODO output only those that have stock
 function optionalSplitOptionCSV(val) {
   const seperator = ',';
   if (val.indexOf(seperator) === -1) {
@@ -35,7 +36,7 @@ program
   )
   .option('--plain', 'output as tsv')
   .option('--json', 'json output')
-  .option('--pretty', 'pretty table')
+  .option('--pretty', 'pretty table (default)')
   .option(
     '-s, --store [storeIds ...|regexp]',
     'optional single or multiple comma seperated ikea store ids (bu-codes) ' +
@@ -65,8 +66,8 @@ Examples:
     ikea-availability-checker stock --store 148 --json 40299687
 
   output with aligned columns
-  ikea-availability-checker stock --store Frankfurt --plain 40299687 | column -t
-`)
+    ikea-availability-checker stock --store Frankfurt --plain 40299687 | column -t
+`);
   .action((productIds = []) => {
     // filter all dublicate productIds
     // @var {Array<String>}
