@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.5...v1.0.6) (2022-01-10)
+
+
+### Bug Fixes
+
+* **deps:** update cli-table3 to fix colors mangled output ([e981e9d](https://github.com/Ephigenia/ikea-availability-checker/commit/e981e9de4f651d92cf234aa29626208ab48b8c58))
+
 ## [1.0.5](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.4...v1.0.5) (2021-12-18)
 
 
