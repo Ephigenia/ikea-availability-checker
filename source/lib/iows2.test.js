@@ -254,6 +254,18 @@ describe('IOWS2', () => {
         });
     });
 
+    it('propagates a timeout error when the api is not responding', () => {
+      const scope = nock(URL).get(/.+/)
+        .delayConnection(50)
+        .reply(200);
+      return iows.fetch(URL, {timeout: 10}) // reduce timeout to keep test duration low
+        .catch(err => {
+          expect(err).to.be.instanceof(errors.IOWS2ResponseError);
+          expect(err.code).to.equal('ECONNABORTED');
+          scope.isDone();
+        });
+    });
+
     it('sends the correct header and request data', () => {
       const scope = nock(URL, {
         reqheaders: {
