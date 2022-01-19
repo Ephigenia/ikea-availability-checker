@@ -4,6 +4,13 @@ name: default
 
 on:
   pull_request_target:
+  push:
+    branches:
+      - master
+      - next
+      - next-major
+      - alpha
+      - beta
 
 jobs:
   lint:
