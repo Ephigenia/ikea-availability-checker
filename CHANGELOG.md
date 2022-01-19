@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.7...v1.0.8) (2022-01-19)
+
+
+### Bug Fixes
+
+* **iows:** propagate timeout errors ([#90](https://github.com/Ephigenia/ikea-availability-checker/issues/90)) ([9023f54](https://github.com/Ephigenia/ikea-availability-checker/commit/9023f5452e5b11c30ce5b26e8bdaa5b0cde22cdf))
+
 ## [1.0.7](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.6...v1.0.7) (2022-01-11)
 
 
