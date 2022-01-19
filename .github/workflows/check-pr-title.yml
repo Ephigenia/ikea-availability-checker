@@ -1,12 +1,13 @@
 name: Check PR title
 
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
-      - reopened
       - edited
       - synchronize
+      - labeled
+      - unlabeled
 
 jobs:
   lint:

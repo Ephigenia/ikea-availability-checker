@@ -2,7 +2,8 @@
 
 name: default
 
-on: pull_request
+on:
+  pull_request_target:
 
 jobs:
   lint:
@@ -16,7 +17,7 @@ jobs:
     - uses: github/super-linter/slim@v4
       env:
         DEFAULT_BRANCH: master
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         VALIDATE_ALL_CODEBASE: true
         VALIDATE_JAVASCRIPT_ES: true
         VALIDATE_EDITORCONFIG: true
