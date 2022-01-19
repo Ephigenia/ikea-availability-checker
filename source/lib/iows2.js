@@ -99,7 +99,7 @@ class IOWS2 {
     try {
       response = await this.api.get(url, options);
     } catch (error) {
-      if (error.request) {
+      if (error.request.res) {
         // 20211217 some of the country endpoints started to reply with a
         // deprecation and warning header stating that the IOWS2 API is
         // going to be deprecated.
@@ -229,7 +229,7 @@ class IOWS2 {
     const url = this.buildUrl(this.baseUrl, this.countryCode, this.languageCode, buCode, productId, productType);
     return this.fetch(url)
       .catch(err => {
-        if (err.request.res) {
+        if (err.request?.res) {
           err.message =
             `Unable to receive product ${productId} availability for store ` +
             `${buCode} status code: ${err.request.res.statusCode} ${err.request.res.statusText} ` +

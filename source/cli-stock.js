@@ -129,6 +129,9 @@ Examples:
           if (err instanceof errors.IOWS2DeprecatedError) {
             return { stock: 0, probability: 'DEPRECATED', createdAt: new Date() };
           }
+          if (err.code === 'ECONNABORTED') {
+            return { stock: 0, probability: 'TIMEOUT', createdAt: new Date() };
+          }
           throw err;
         })
         .then((availability) => ({
