@@ -46,9 +46,12 @@
     "source",
     "!source/**/*.test.js",
     "!source/test",
-    "!.DS_Store"
+    "!.DS_Store",
+    "types",
+    "!types/**/*.test-d.ts"
   ],
   "main": "source/index.js",
+  "types": "types/index.d.ts",
   "bin": {
     "ikea-availability": "source/cli.js"
   },
@@ -62,7 +65,8 @@
     "tdd": "npm run -s test -- --watch",
     "test": "NODE_ENV=test nyc --reporter=text-summary --reporter=lcov mocha \"source/**/*.test.js\"",
     "test:ci": "npm run -s test",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "typings": "tsc && tsd"
   },
   "dependencies": {
     "axios": "0.24.0",
@@ -79,6 +83,7 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^8.0.3",
     "@semantic-release/release-notes-generator": "^10.0.2",
+    "@types/node": "^17.0.14",
     "chai": "4.3.4",
     "eslint": "8.3.0",
     "husky": "7.0.4",
@@ -87,6 +92,8 @@
     "nyc": "15.1.0",
     "pinst": "2.1.6",
     "semantic-release": "^18.0.0",
-    "sinon": "11.1.2"
+    "sinon": "11.1.2",
+    "tsd": "^0.19.1",
+    "typescript": "^4.5.5"
   }
 }
