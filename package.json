@@ -58,6 +58,7 @@
   "scripts": {
     "lint": "eslint source/**/*.js",
     "lint:fix": "npm run -s lint -- --fix",
+    "lint:types": "tsd",
     "_postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
@@ -66,7 +67,7 @@
     "test": "NODE_ENV=test nyc --reporter=text-summary --reporter=lcov mocha \"source/**/*.test.js\"",
     "test:ci": "npm run -s test",
     "semantic-release": "semantic-release",
-    "typings": "tsc && tsd"
+    "typings": "tsc"
   },
   "dependencies": {
     "axios": "0.24.0",
