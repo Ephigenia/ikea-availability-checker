@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.8...v1.1.0) (2022-02-11)
+
+
+### Features
+
+* adds typescript declarations ([#91](https://github.com/Ephigenia/ikea-availability-checker/issues/91)) ([f7a19e7](https://github.com/Ephigenia/ikea-availability-checker/commit/f7a19e7a0e56e862e071f146eded2421a4e8e262))
+
 ## [1.0.8](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.7...v1.0.8) (2022-01-19)
 
 
