@@ -15,6 +15,7 @@ class IOWS2ResponseError extends IOWS2Error {
   constructor(error) {
     super(error.message);
     Object.assign(this, error);
+    this.res = error.request.res;
   }
 }
 

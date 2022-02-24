@@ -132,6 +132,9 @@ Examples:
           if (err.code === 'ECONNABORTED') {
             return { stock: 0, probability: 'TIMEOUT', createdAt: new Date() };
           }
+          if (err instanceof errors.IOWS2ResponseError) {
+            return { stock: 0, probability: 'ERR_HTTP_' + err.res.statusCode, createdAt: new Date() };
+          }
           throw err;
         })
         .then((availability) => ({
