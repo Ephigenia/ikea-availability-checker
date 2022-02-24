@@ -6,7 +6,7 @@ on:
     workflows: ["default"]
     # run when there are new commits for specific branches
     branches:
-    - master
+    - $default
     - next
     - next-major
     - alpha
