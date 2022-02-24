@@ -13,5 +13,6 @@ export class IOWS2ResponseError extends IOWS2Error {
      * @param {import('axios').AxiosError} error Axios Error object
      */
     constructor(error: import('axios').AxiosError);
+    res: any;
 }
 //# sourceMappingURL=iows2Errors.d.ts.map
