@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.0...v1.1.1) (2022-02-27)
+
+
+### Bug Fixes
+
+* **stock:** table outputs 403 errors ([c048278](https://github.com/Ephigenia/ikea-availability-checker/commit/c04827820947b20044cb3ab71e07f489f9b57102)), closes [#93](https://github.com/Ephigenia/ikea-availability-checker/issues/93)
+
 # [1.1.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.0.8...v1.1.0) (2022-02-11)
 
 
