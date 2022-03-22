@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.1...v1.1.2) (2022-03-22)
+
+
+### Bug Fixes
+
+* adds pl Szczecin store ([#99](https://github.com/Ephigenia/ikea-availability-checker/issues/99)) ([f856aee](https://github.com/Ephigenia/ikea-availability-checker/commit/f856aee239bdea479d50bf0fb254c77b8a78d04f))
+
 ## [1.1.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.0...v1.1.1) (2022-02-27)
 
 
