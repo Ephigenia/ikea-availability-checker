@@ -3378,5 +3378,14 @@
       50.870829
     ],
     "countryCode": "be"
+  },
+  {
+    "buCode": "583",
+    "name": "Szczecin",
+    "coordinates": [
+      53.407562,
+      14.513889
+    ],
+    "countryCode": "pl"
   }
 ]
