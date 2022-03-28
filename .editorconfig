@@ -12,6 +12,9 @@ insert_final_newline = true
 indent_style = space
 indent_size = 2
 
+[types/**/*]
+insert_final_newline = false
+
 [*.{md,txt}]
 indent_style = space
 indent_size = 4
