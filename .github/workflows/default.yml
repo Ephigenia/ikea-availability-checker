@@ -36,11 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version-file: '.nvmrc'
-        cache: 'npm'
-    - run: npm ci
+    - uses: ./.github/actions/setup
     - run: npm run lint:types
 
   test:
@@ -49,11 +45,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version-file: '.nvmrc'
-        cache: 'npm'
-    - run: npm ci
+    - uses: ./.github/actions/setup
     - run: npm test
     - uses: actions/upload-artifact@v2
       with:

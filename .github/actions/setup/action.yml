@@ -1,0 +1,24 @@
+name: setup
+description: 'basic setup project with npm ci'
+
+runs:
+  using: "composite"
+  steps:
+    - name: setup nodejs
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: '.nvmrc'
+        check-latest: true
+        cache: npm
+    - name: cache dependencies
+      id: cache
+      uses: actions/cache@v2
+      with:
+        path: ./node_modules
+        key: node-modules-${{ runner.name }}-${{ runner.arch}}-${{ hashFiles('package-lock.json') }}
+    - name: install dependencies
+      run: npm ci --no-audit
+      # only run npm ci when restoring the cache didn’t work to save some time
+      # as npm ci would remove the node_modules again
+      if: steps.cache.outputs.cache-hit != 'true'
+      shell: bash
