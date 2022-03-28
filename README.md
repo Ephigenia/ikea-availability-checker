@@ -5,6 +5,7 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
 [![NPM Downloads](https://img.shields.io/npm/dt/ikea-availability-checker.svg)](https://www.npmjs.com/package/ikea-availability-checker)
 [![Known Vulnerabilities](https://snyk.io/test/github/ephigenia/ikea-availability-checker/badge.svg)](https://snyk.io/test/github/ephigenia/ikea-availability-checker)
 [![Rate on Openbase](https://badges.openbase.com/js/rating/ikea-availability-checker.svg)](https://openbase.com/js/ikea-availability-checker?utm_source=embedded&utm_medium=badge&utm_campaign=rate-badge)
+[![default](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/default.yml/badge.svg?branch=master)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/default.yml)
 
 - [Features](#features)
 - [Command Line](#command-line)
