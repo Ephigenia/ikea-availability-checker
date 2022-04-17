@@ -7,6 +7,7 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
 [![Rate on Openbase](https://badges.openbase.com/js/rating/ikea-availability-checker.svg)](https://openbase.com/js/ikea-availability-checker?utm_source=embedded&utm_medium=badge&utm_campaign=rate-badge)
 [![default](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/default.yml/badge.svg?branch=master)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/default.yml)
 
+- [IMPORTANT NOTE](#important-note)
 - [Features](#features)
 - [Command Line](#command-line)
     - [Install](#install)
@@ -34,6 +35,21 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
     - [Articles & Resources](#articles--resources)
     - [Packages](#packages)
     - [Services](#services)
+
+IMPORTANT NOTE
+================================================================================
+BREAKING IOWS2 API for several Countries
+
+This package uses the undocumented iows2 api by IKEA which doesn’t work for several countries anymore: be, cn, fi, fr, gb, hk, ie, jp, kr, my, pl, ru, sg, th, tw, us
+
+If you want to get availabilities for those countries please consider testing the alpha channel of this package by installing the "1.0.2-alpha.3" version:
+
+```
+npm install -g ikea-availability-check@1.0.2-alpha.3
+```
+
+Please report any bugs related to this alpha in the issues: https://github.com/Ephigenia/ikea-availability-checker/issues
+
 
 Features
 ================================================================================
