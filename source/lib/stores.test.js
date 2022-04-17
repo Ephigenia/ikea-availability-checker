@@ -91,7 +91,7 @@ describe('stores', function() {
   }); // getLanguageCode
 
   describe('getCountryCodes', function() {
-    it('returns an array of supported country codes', () => {
+    it('returns an array of supported country codes sorted', () => {
       const codes = stores.getCountryCodes();
       expect(codes.length).to.be.gte(1);
     });

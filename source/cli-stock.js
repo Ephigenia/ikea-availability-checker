@@ -5,8 +5,8 @@ let program = require('commander');
 const storesData = require('./lib/stores');
 
 let pkg = require('./../package.json');
-let IOWS2 = require('./lib/iows2.js');
-const errors = require('./lib/iows2Errors');
+const ikea = require('./index');
+const errors = require('./lib/ingkaErrors');
 
 // TODO output only those that have stock
 function optionalSplitOptionCSV(val) {
@@ -122,34 +122,31 @@ Examples:
        * @param {import('./lib/stores').Store} row.store
        */
       ({ store, productId }) => {
-      const iows = new IOWS2(store.countryCode);
-      return iows.getStoreProductAvailability(store.buCode, productId)
-        // softly continue the promise chain when there’s just a 404 (not found)
-        .catch(err => {
-          if (err instanceof errors.IOWS2ParseError) {
-            return { stock: 0, probability: 'PARSE_ERROR', createdAt: new Date() };
-          }
-          if (err instanceof errors.IOWS2NotFoundError) {
-            return { stock: 0, probability: 'NOT_FOUND', createdAt: new Date() };
-          }
-          if (err instanceof errors.IOWS2DeprecatedError) {
-            return { stock: 0, probability: 'DEPRECATED', createdAt: new Date() };
-          }
-          if (err.code === 'ECONNABORTED') {
-            return { stock: 0, probability: 'TIMEOUT', createdAt: new Date() };
-          }
-          if (err instanceof errors.IOWS2ResponseError) {
-            return { stock: 0, probability: 'ERR_HTTP_' + err.res.statusCode, createdAt: new Date() };
-          }
-          throw err;
-        })
-        .then((availability) => ({
-          productId,
-          store,
-          availability
-        })
-      )
-    });
+        return ikea.availability(store.buCode, productId)
+          // softly continue the promise chain when there’s just a 404 (not found)
+          .catch(err => {
+            if (err instanceof errors.IngkaParseError) {
+              return { stock: 0, probability: 'PARSE_ERROR', createdAt: new Date() };
+            }
+            if (err instanceof errors.IngkaNotFoundError) {
+              return { stock: 0, probability: 'NOT_FOUND', createdAt: new Date() };
+            }
+            if (err.code === 'ECONNABORTED') {
+              return { stock: 0, probability: 'TIMEOUT', createdAt: new Date() };
+            }
+            if (err instanceof errors.IngkaResponseError) {
+              return { stock: 0, probability: 'ERR_HTTP_' + err.res.statusCode, createdAt: new Date() };
+            }
+            throw err;
+          })
+          .then((availability) => {
+            return ({
+              productId,
+              store,
+              availability
+            })
+          })
+      });
 
     Promise.all(promises)
       .then(results => results.filter(item => item.availability.stock >= opts.minStock))
