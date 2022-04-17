@@ -74,7 +74,8 @@ module.exports = {
    * @returns {string[]} two-letter ISO 3166-2 alpha 2 country codes
    */
   getCountryCodes: function() {
-    return Array.from(new Set(data.map(store => store.countryCode)));
+    return Array.from(new Set(data.map(store => store.countryCode)))
+      .sort((a, b) => a - b);
   },
 
   /**
