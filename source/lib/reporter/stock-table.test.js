@@ -89,10 +89,4 @@ describe('stock reporter table', function() {
     expect(lines[lines.length - 2]).to.match(/094/);
     expect(lines[lines.length - 2]).to.match(/Taastrup/);
   });
-  it('contains restockDate & forecast data', function() {
-    const data = exampleData();
-    let lines = reporter.createReport(data).split(/\n/);
-    expect(lines[lines.length - 2]).to.match(/01-04/);
-    expect(lines[lines.length - 2]).to.match(/100/);
-  });
 });
