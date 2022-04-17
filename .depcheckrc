@@ -1,0 +1,16 @@
+# depcheck configuration
+# SEE https://www.npmjs.com/package/depcheck#api
+
+# if you add ignores also annotate why the package is ignored
+# keep list ordered at all times
+ignores:
+  # related to linting commits
+  - "@commitlint/cli"
+  - "@commitlint/config-angular"
+  # related to release tool semantic release
+  - "@semantic-release/changelog"
+  - "@semantic-release/commit-analyzer"
+  - "@semantic-release/git"
+  - "@semantic-release/npm"
+  - "@semantic-release/release-notes-generator"
+  - "@types/node"

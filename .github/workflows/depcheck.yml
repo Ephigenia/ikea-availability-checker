@@ -1,0 +1,30 @@
+# SEE https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+
+# Runs `npx depcheck`
+#
+# Depcheck is a tool for analyzing the dependencies in a project to see: how
+# each dependency is used, which dependencies are useless, and which
+# dependencies are missing from package.json.
+#
+# https://www.npmjs.com/package/depcheck
+
+name: depcheck
+
+on:
+  # allow manual trigger workflow
+  pull_request:
+    branches:
+      - main
+    paths:
+      # run only when one of the files matching the glob patterns changed
+      - 'package.json'
+      - 'package-lock.json'
+
+jobs:
+
+  depcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - run: npx depcheck
