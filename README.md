@@ -42,10 +42,10 @@ BREAKING IOWS2 API for several Countries
 
 This package uses the undocumented iows2 api by IKEA which doesn’t work for several countries anymore: be, cn, fi, fr, gb, hk, ie, jp, kr, my, pl, ru, sg, th, tw, us
 
-If you want to get availabilities for those countries please consider testing the alpha channel of this package by installing the "1.0.2-alpha.3" version:
+If you want to get availabilities for those countries please consider testing the alpha channel of this package by installing the "2.0.0-alpha.1" version:
 
 ```
-npm install -g ikea-availability-check@1.0.2-alpha.3
+npm install -g ikea-availability-check@2.0.0-alpha.1
 ```
 
 Please report any bugs related to this alpha in the issues: https://github.com/Ephigenia/ikea-availability-checker/issues
