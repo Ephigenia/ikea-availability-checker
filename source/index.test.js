@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const sinon = require("sinon");
 const { AssertionError } = require('assert');
 
-const IOWS2 = require('./lib/iows2');
+const IngkaApi = require('./lib/ingka');
 
 describe('index', () => {
   const checker = require('./index');
@@ -19,7 +19,7 @@ describe('index', () => {
         })
     });
     it('resolves to resolved values from getSt availability object', () => {
-      const stub = sinon.stub(IOWS2.prototype, 'getStoreProductAvailability').callsFake(() => ({ok: true}));
+      const stub = sinon.stub(IngkaApi.prototype, 'getStoreProductAvailability').callsFake(() => ({ok: true}));
       return checker.availability('224', 'S69022537')
         .then(() => {
           sinon.assert.calledOnce(stub)

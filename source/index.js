@@ -2,9 +2,9 @@
 
 const assert = require('assert');
 
-const IOWS2 = require('./lib/iows2');
+const IngkaApi = require('./lib/ingka');
 const stores = require('./lib/stores');
-const errors = require('./lib/iows2Errors');
+const errors = require('./lib/ingkaErrors');
 
 module.exports = {
   /**
@@ -19,14 +19,14 @@ module.exports = {
    * @param {string} productId ikea product identification number
    * @param {import('axios').AxiosRequestConfig} [options] axios requrest options
    * @throws AssertionError when the store wasn’t found
-   * @returns {Promise<import('./lib/iows2').ProductAvailability>}
+   * @returns {Promise<import('./lib/ingka').IngkaProductAvailability>}
    *   resulting product availability
    */
   availability: async (buCode, productId, options) => {
     const store = stores.findOneById(buCode);
     assert.ok(store, `Unable to find a store with the given buCode: ${buCode}.`);
-    const iows = new IOWS2(store.countryCode, undefined, options);
-    return iows.getStoreProductAvailability(buCode, productId)
+    const client = new IngkaApi(undefined, options);
+    return client.getStoreProductAvailability(buCode, productId);
   },
   stores,
   errors,

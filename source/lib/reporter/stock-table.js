@@ -28,12 +28,12 @@ function availabilityColor(val) {
  */
 function probabilityColor(val) {
   switch (val) {
-    case 'HIGH':
+    case 'HIGH_IN_STOCK':
       return chalk.green;
-    case 'MEDIUM':
+    case 'LOW_IN_STOCK':
       return chalk.yellow;
-    case 'LOW':
-      return chalk.red;
+    case 'OUT_IN_STOCK':
+        return chalk.yellow;
     default:
       return (v) => v;
   }
@@ -57,8 +57,6 @@ module.exports = {
         'store',
         'stock',
         'probability',
-        'restockDate',
-        'forecast',
       ],
       colAligns: [
         null,
@@ -68,28 +66,12 @@ module.exports = {
         null,
         null,
         'right',
-        'right',
-        null,
       ],
     });
 
     data
       .map(({ productId, store, availability }) => {
-        const { restockDate, createdAt, stock, probability } = availability;
-
-        let restockColumn = '';
-        if (availability.restockDate) {
-          const daysUntilRestock = Math.floor(diffDays(availability.restockDate, new Date()));
-          if (daysUntilRestock > 0) {
-            restockColumn = `in ${daysUntilRestock}d (${restockDate.toISOString().substr(0, 10)})`;
-          }
-        }
-
-        const forecast = (availability.forecast || []).map(item => {
-          const shortDate = item.date.toISOString().substr(5, 5);
-          const coloredStock = availabilityColor(item.stock)(item.stock);
-          return `${shortDate}: ${coloredStock}`;
-        }).join(', ');
+        const { createdAt, stock, probability } = availability;
 
         return [
           createdAt.toISOString(),
@@ -100,8 +82,6 @@ module.exports = {
           store.name,
           availabilityColor(stock)(stock),
           probabilityColor(probability)(probability),
-          restockColumn,
-          forecast,
         ]
       })
       .forEach(row => table.push(row));
