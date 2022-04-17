@@ -24,7 +24,7 @@ jobs:
       env:
         DEFAULT_BRANCH: master
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        VALIDATE_ALL_CODEBASE: true
+        VALIDATE_ALL_CODEBASE: false
         VALIDATE_JAVASCRIPT_ES: true
         VALIDATE_EDITORCONFIG: true
         VALIDATE_YAML: true
@@ -57,3 +57,16 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         lcov-file: ./coverage/lcov.info
         update-comment: true
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: npm run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
