@@ -70,11 +70,12 @@ module.exports = {
 
   /**
    * Returns an array with all ISO 3166-1 alpha 2 country codes that have at
-   * least one store.
+   * least one store in alphabetical order.
    * @returns {string[]} two-letter ISO 3166-2 alpha 2 country codes
    */
   getCountryCodes: function() {
-    return Array.from(new Set(data.map(store => store.countryCode)));
+    return Array.from(new Set(data.map(store => store.countryCode)))
+      .sort((a, b) => a.localeCompare(b));
   },
 
   /**
