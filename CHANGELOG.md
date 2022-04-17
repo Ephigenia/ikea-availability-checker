@@ -1,3 +1,10 @@
+## [1.1.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.2...v1.1.3) (2022-04-17)
+
+
+### Bug Fixes
+
+* **stores:** getCountryCodes returns codes sorted ([#101](https://github.com/Ephigenia/ikea-availability-checker/issues/101)) ([d39cd0d](https://github.com/Ephigenia/ikea-availability-checker/commit/d39cd0db50c2d709c9aaf78c8225ef3fd2b802a2))
+
 ## [1.1.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.1...v1.1.2) (2022-03-22)
 
 
