@@ -91,9 +91,11 @@ describe('stores', function() {
   }); // getLanguageCode
 
   describe('getCountryCodes', function() {
-    it('returns an array of supported country codes sorted', () => {
+    it('returns an array of ordered supported country codes', () => {
       const codes = stores.getCountryCodes();
       expect(codes.length).to.be.gte(1);
+      expect(codes[0]).to.equal('at');
+      expect(codes[1]).to.equal('au');
     });
   }); // getCountryCodes
 }); // suite

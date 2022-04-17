@@ -1,0 +1,488 @@
+{
+	"info": {
+		"_postman_id": "91f158c6-7bb4-4e11-a25c-a34e0a9f9284",
+		"name": "IKEA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api.ingka.ikea.com",
+			"item": [
+				{
+					"name": "us",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"    <table bgcolor=\"#FFFFFF\">",
+									"        <tr>",
+									"            <th>Store</th>",
+									"            <th>Stock</th>",
+									"            <th>Probability</th>",
+									"            <th>isInCashAndCarryRange</th>",
+									"            <th>isInHomeDeliveryRange</th>",
+									"        </tr>",
+									"",
+									"        {{#each response.data}}",
+									"            <tr>",
+									"                <td>{{classUnitKey.classUnitCode}}</td>",
+									"                <td>{{availableStocks.0.quantity}}</td>",
+									"                <td>{{availableStocks.0.probabilities.0.communication.messageType}}</td>",
+									"                <td>{{isInCashAndCarryRange}}</td>",
+									"                <td>{{isInHomeDeliveryRange}}</td>",
+									"            </tr>",
+									"        {{/each}}",
+									"    </table>",
+									"`;",
+									"",
+									"pm.visualizer.set(template, {",
+									"    // Pass the response body parsed as JSON as `data`",
+									"    response: pm.response.json()",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-client-id",
+								"value": "da465052-7912-43b2-82fa-9dc39cdccef8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.ingka.ikea.com/cia/availabilities/ru/:countryCode?itemNos=00494394&expand=StoresList,Restocks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ingka",
+								"ikea",
+								"com"
+							],
+							"path": [
+								"cia",
+								"availabilities",
+								"ru",
+								":countryCode"
+							],
+							"query": [
+								{
+									"key": "itemNos",
+									"value": "00494394"
+								},
+								{
+									"key": "expand",
+									"value": "StoresList,Restocks"
+								}
+							],
+							"variable": [
+								{
+									"key": "countryCode",
+									"value": "us"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "be",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"    <table bgcolor=\"#FFFFFF\">",
+									"        <tr>",
+									"            <th>Store</th>",
+									"            <th>Stock</th>",
+									"            <th>Probability</th>",
+									"            <th>isInCashAndCarryRange</th>",
+									"            <th>isInHomeDeliveryRange</th>",
+									"        </tr>",
+									"",
+									"        {{#each response.data}}",
+									"            <tr>",
+									"                <td>{{classUnitKey.classUnitCode}}</td>",
+									"                <td>{{availableStocks.0.quantity}}</td>",
+									"                <td>{{availableStocks.0.probabilities.0.communication.messageType}}</td>",
+									"                <td>{{isInCashAndCarryRange}}</td>",
+									"                <td>{{isInHomeDeliveryRange}}</td>",
+									"            </tr>",
+									"        {{/each}}",
+									"    </table>",
+									"`;",
+									"",
+									"pm.visualizer.set(template, {",
+									"    // Pass the response body parsed as JSON as `data`",
+									"    response: pm.response.json()",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-client-id",
+								"value": "da465052-7912-43b2-82fa-9dc39cdccef8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.ingka.ikea.com/cia/availabilities/ru/:countryCode?itemNos=00494394&expand=StoresList,Restocks,SalesLocations",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ingka",
+								"ikea",
+								"com"
+							],
+							"path": [
+								"cia",
+								"availabilities",
+								"ru",
+								":countryCode"
+							],
+							"query": [
+								{
+									"key": "itemNos",
+									"value": "00494394"
+								},
+								{
+									"key": "expand",
+									"value": "StoresList,Restocks,SalesLocations"
+								}
+							],
+							"variable": [
+								{
+									"key": "countryCode",
+									"value": "be"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "de",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"    <table bgcolor=\"#FFFFFF\">",
+									"        <tr>",
+									"            <th>Store</th>",
+									"            <th>Stock</th>",
+									"            <th>Probability</th>",
+									"            <th>isInCashAndCarryRange</th>",
+									"            <th>isInHomeDeliveryRange</th>",
+									"        </tr>",
+									"",
+									"        {{#each response.data}}",
+									"            <tr>",
+									"                <td>{{classUnitKey.classUnitCode}}</td>",
+									"                <td>{{availableStocks.0.quantity}}</td>",
+									"                <td>{{availableStocks.0.probabilities.0.communication.messageType}}</td>",
+									"                <td>{{isInCashAndCarryRange}}</td>",
+									"                <td>{{isInHomeDeliveryRange}}</td>",
+									"            </tr>",
+									"        {{/each}}",
+									"    </table>",
+									"`;",
+									"",
+									"pm.visualizer.set(template, {",
+									"    // Pass the response body parsed as JSON as `data`",
+									"    response: pm.response.json()",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-client-id",
+								"value": "da465052-7912-43b2-82fa-9dc39cdccef8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.ingka.ikea.com/cia/availabilities/ru/:countryCode?itemNos=00494394&expand=StoresList,Restocks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ingka",
+								"ikea",
+								"com"
+							],
+							"path": [
+								"cia",
+								"availabilities",
+								"ru",
+								":countryCode"
+							],
+							"query": [
+								{
+									"key": "itemNos",
+									"value": "00494394"
+								},
+								{
+									"key": "expand",
+									"value": "StoresList,Restocks"
+								}
+							],
+							"variable": [
+								{
+									"key": "countryCode",
+									"value": "de"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "at",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `",
+									"    <table bgcolor=\"#FFFFFF\">",
+									"        <tr>",
+									"            <th>Store</th>",
+									"            <th>Stock</th>",
+									"            <th>Probability</th>",
+									"            <th>isInCashAndCarryRange</th>",
+									"            <th>isInHomeDeliveryRange</th>",
+									"        </tr>",
+									"",
+									"        {{#each response.data}}",
+									"            <tr>",
+									"                <td>{{classUnitKey.classUnitCode}}</td>",
+									"                <td>{{availableStocks.0.quantity}}</td>",
+									"                <td>{{availableStocks.0.probabilities.0.communication.messageType}}</td>",
+									"                <td>{{isInCashAndCarryRange}}</td>",
+									"                <td>{{isInHomeDeliveryRange}}</td>",
+									"            </tr>",
+									"        {{/each}}",
+									"    </table>",
+									"`;",
+									"",
+									"pm.visualizer.set(template, {",
+									"    // Pass the response body parsed as JSON as `data`",
+									"    response: pm.response.json()",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-client-id",
+								"value": "da465052-7912-43b2-82fa-9dc39cdccef8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.ingka.ikea.com/cia/availabilities/ru/:countryCode?itemNos=00494394&expand=StoresList,Restocks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ingka",
+								"ikea",
+								"com"
+							],
+							"path": [
+								"cia",
+								"availabilities",
+								"ru",
+								":countryCode"
+							],
+							"query": [
+								{
+									"key": "itemNos",
+									"value": "00494394"
+								},
+								{
+									"key": "expand",
+									"value": "StoresList,Restocks"
+								}
+							],
+							"variable": [
+								{
+									"key": "countryCode",
+									"value": "at"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "iows",
+			"item": [
+				{
+					"name": "de",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/vnd.ikea.iows+json;version=1.0"
+							},
+							{
+								"key": "Consumer",
+								"type": "text",
+								"value": "MAMMUT"
+							},
+							{
+								"key": "Contract",
+								"type": "text",
+								"value": "37249"
+							}
+						],
+						"url": {
+							"raw": "https://iows.ikea.com/retail/iows/:countryCode/:languageCode/stores/:storeId/availability/:productType/:productCode",
+							"protocol": "https",
+							"host": [
+								"iows",
+								"ikea",
+								"com"
+							],
+							"path": [
+								"retail",
+								"iows",
+								":countryCode",
+								":languageCode",
+								"stores",
+								":storeId",
+								"availability",
+								":productType",
+								":productCode"
+							],
+							"variable": [
+								{
+									"key": "countryCode",
+									"value": "de"
+								},
+								{
+									"key": "languageCode",
+									"value": "de"
+								},
+								{
+									"key": "storeId",
+									"value": "421"
+								},
+								{
+									"key": "productType",
+									"value": "SPR"
+								},
+								{
+									"key": "productCode",
+									"value": "69022537"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "at single store",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/vnd.ikea.iows+json;version=1.0"
+							},
+							{
+								"key": "Consumer",
+								"type": "text",
+								"value": "MAMMUT"
+							},
+							{
+								"key": "Contract",
+								"type": "text",
+								"value": "37249"
+							}
+						],
+						"url": {
+							"raw": "https://iows.ikea.com/retail/iows/:countryCode/:languageCode/stores/:buCode/availability/:productType/:productCode",
+							"protocol": "https",
+							"host": [
+								"iows",
+								"ikea",
+								"com"
+							],
+							"path": [
+								"retail",
+								"iows",
+								":countryCode",
+								":languageCode",
+								"stores",
+								":buCode",
+								"availability",
+								":productType",
+								":productCode"
+							],
+							"variable": [
+								{
+									"key": "countryCode",
+									"value": "at"
+								},
+								{
+									"key": "languageCode",
+									"value": "de"
+								},
+								{
+									"key": "buCode",
+									"value": "387"
+								},
+								{
+									"key": "productType",
+									"value": "ART"
+								},
+								{
+									"key": "productCode",
+									"value": "30408187"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
