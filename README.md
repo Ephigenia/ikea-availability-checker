@@ -45,7 +45,7 @@ This package uses the undocumented iows2 api by IKEA which doesn’t work for se
 If you want to get availabilities for those countries please consider testing the alpha channel of this package by installing the "2.0.0-alpha.1" version:
 
 ```
-npm install -g ikea-availability-check@2.0.0-alpha.1
+npm install -g ikea-availability-checker@2.0.0-alpha.1
 ```
 
 Please report any bugs related to this alpha in the issues: https://github.com/Ephigenia/ikea-availability-checker/issues
