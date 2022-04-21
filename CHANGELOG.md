@@ -1,3 +1,10 @@
+# [2.0.0-alpha.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v2.0.0-alpha.1...v2.0.0-alpha.2) (2022-04-21)
+
+
+### Bug Fixes
+
+* **stock:** removes wrongly created warszawa store 623 ([4834213](https://github.com/Ephigenia/ikea-availability-checker/commit/4834213c4e0cda5adb833c944a95d5caf7b852ea))
+
 # [2.0.0-alpha.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.2...v2.0.0-alpha.1) (2022-04-17)
 
 
