@@ -2,9 +2,8 @@
 name: Feature request
 about: Suggest an idea for this project
 title: ''
-labels: ''
-assignees: ''
-
+labels: 'enhancement'
+assignees: 'Ephigenia'
 ---
 
 **Is your feature request related to a problem? Please describe.**
