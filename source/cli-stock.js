@@ -149,7 +149,7 @@ Examples:
       });
 
     Promise.all(promises)
-      .then(results => results.filter(item => item.availability.stock >= opts.minStock))
+      .then(results => results.filter(item => item.availability && item.availability.stock >= opts.minStock))
       .then(results => reporter.createReport(results))
       .then(report => console.log(report))
   })
