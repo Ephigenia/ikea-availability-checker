@@ -1107,6 +1107,15 @@
     "countryCode": "it"
   },
   {
+    "buCode": "518",
+    "name": "Nice St. Isidore",
+    "coordinates": [
+      7.1950505,15,
+      43.7065167
+    ],
+    "countryCode": "fr"
+  },
+  {
     "buCode": "356",
     "name": "Bari",
     "coordinates": [
