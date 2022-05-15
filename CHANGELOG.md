@@ -1,3 +1,10 @@
+## [1.1.4](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.3...v1.1.4) (2022-05-15)
+
+
+### Bug Fixes
+
+* **stores:** adds Nice St. Isidore store in France ([22d3651](https://github.com/Ephigenia/ikea-availability-checker/commit/22d3651adc0387a2726502b85bbd86f2cafec16d))
+
 ## [1.1.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.2...v1.1.3) (2022-04-17)
 
 
