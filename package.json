@@ -92,7 +92,7 @@
     "nock": "13.2.4",
     "nyc": "15.1.0",
     "pinst": "3.0.0",
-    "semantic-release": "19.0.2",
+    "semantic-release": "19.0.3",
     "sinon": "13.0.1",
     "tsd": "^0.19.1",
     "typescript": "4.6.3"
