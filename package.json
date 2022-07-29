@@ -72,7 +72,7 @@
   "dependencies": {
     "axios": "0.26.1",
     "chalk": "4.1.2",
-    "cli-table3": "0.6.1",
+    "cli-table3": "0.6.2",
     "commander": "9.1.0",
     "i18n-iso-countries": "7.4.0"
   },
