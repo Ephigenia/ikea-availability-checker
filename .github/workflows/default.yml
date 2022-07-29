@@ -17,7 +17,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         # Full git history is needed to get a proper list of changed files within `super-linter`
         fetch-depth: 0
@@ -36,7 +36,7 @@ jobs:
   lint-types:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: ./.github/actions/setup
     - run: npm run lint:types
 
@@ -45,7 +45,7 @@ jobs:
     needs: [lint, lint-types]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: ./.github/actions/setup
     - run: npm test
     - uses: actions/upload-artifact@v2
@@ -63,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup
