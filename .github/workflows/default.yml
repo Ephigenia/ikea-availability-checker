@@ -48,7 +48,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/setup
     - run: npm test
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v3
       with:
         name: code-coverage-report
         path: coverage
