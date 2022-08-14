@@ -1,3 +1,10 @@
+## [1.1.5](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.4...v1.1.5) (2022-08-14)
+
+
+### Bug Fixes
+
+* **stores:** adds Jurong store in Singapore ([#123](https://github.com/Ephigenia/ikea-availability-checker/issues/123)) ([eaf735e](https://github.com/Ephigenia/ikea-availability-checker/commit/eaf735e08c037f8a04155d7ab8744a5af6394bcb))
+
 ## [1.1.4](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.3...v1.1.4) (2022-05-15)
 
 
