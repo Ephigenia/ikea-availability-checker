@@ -24,11 +24,20 @@
 
 * adds ingka api to replace broken iows2 api ([#104](https://github.com/Ephigenia/ikea-availability-checker/issues/104)) ([aee0e04](https://github.com/Ephigenia/ikea-availability-checker/commit/aee0e0457d73e56d84222682d6e5b3beaaf526ac))
 * **stock:** adds min-stock option ([#85](https://github.com/Ephigenia/ikea-availability-checker/issues/85)) ([abac81c](https://github.com/Ephigenia/ikea-availability-checker/commit/abac81cb20d626cedb46dddd5061702e7d631037))
+* 
+## [1.1.4](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.3...v1.1.4) (2022-05-15)
 
 
-### BREAKING CHANGES
+### Bug Fixes
 
-* IOWS*Error classes are replaced with Ingka*Error classes, probability strings changed from "LOW", "MEDIUM" and "HEIGHT" to other values, removes iows api
+* **stores:** adds Nice St. Isidore store in France ([22d3651](https://github.com/Ephigenia/ikea-availability-checker/commit/22d3651adc0387a2726502b85bbd86f2cafec16d))
+
+## [1.1.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.2...v1.1.3) (2022-04-17)
+
+
+### Bug Fixes
+
+* **stores:** getCountryCodes returns codes sorted ([#101](https://github.com/Ephigenia/ikea-availability-checker/issues/101)) ([d39cd0d](https://github.com/Ephigenia/ikea-availability-checker/commit/d39cd0db50c2d709c9aaf78c8225ef3fd2b802a2))
 
 ## [1.1.2](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.1...v1.1.2) (2022-03-22)
 

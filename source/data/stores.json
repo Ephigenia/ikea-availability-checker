@@ -2105,11 +2105,20 @@
   {
     "buCode": "022",
     "name": "Tampines",
-    "countryCode": "sg",
     "coordinates": [
       103.936040000,
       1.371100000
-    ]
+    ],
+    "countryCode": "sg"
+  },
+  {
+    "buCode": "650",
+    "name": "Jurong",
+    "coordinates": [
+      103.9325,
+      1.3741
+    ],
+    "countryCode": "sg"
   },
   {
     "buCode": "209",

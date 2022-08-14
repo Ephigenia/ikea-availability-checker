@@ -7,33 +7,26 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
 [![Rate on Openbase](https://badges.openbase.com/js/rating/ikea-availability-checker.svg)](https://openbase.com/js/ikea-availability-checker?utm_source=embedded&utm_medium=badge&utm_campaign=rate-badge)
 [![default](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/default.yml/badge.svg?branch=master)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/default.yml)
 
-- [Features](#features)
-- [Command Line](#command-line)
-    - [Install](#install)
-        - [Global](#global)
-        - [Local](#local)
-        - [NPX](#npx)
-    - [Use](#use)
-        - [Stores](#stores)
-        - [Stock](#stock)
-            - [Product Stock Information for a whole country](#product-stock-information-for-a-whole-country)
-            - [Product Stock Information for a specific store](#product-stock-information-for-a-specific-store)
-                - [with BU-Code (Store-Id)](#with-bu-code-store-id)
-                - [Store-Name / Location / City-Name](#store-name--location--city-name)
-            - [Multiple Stores and Product Ids](#multiple-stores-and-product-ids)
-- [API](#api)
-- [Development](#development)
-    - [Requirements](#requirements)
-    - [Debug](#debug)
-    - [Testing](#testing)
-        - [TDD](#tdd)
-        - [Run Specific tests](#run-specific-tests)
-    - [Release](#release)
-    - [Trouble Shooting](#trouble-shooting)
-- [Other Projects & Articles](#other-projects--articles)
-    - [Articles & Resources](#articles--resources)
-    - [Packages](#packages)
-    - [Services](#services)
+IMPORTANT NOTE
+================================================================================
+BREAKING IOWS2 API for several Countries
+
+This package uses the undocumented iows2 api by IKEA which doesn’t work for several countries anymore: be, cn, fi, fr, gb, hk, ie, jp, kr, my, pl, ru, sg, th, tw, us
+
+If you want to get availabilities for those countries please consider testing the alpha channel of this package by installing the "2.0.0-alpha.1" version:
+
+```
+npm install -g ikea-availability-checker@2.0.0-alpha.3
+```
+
+or run it directly
+
+```
+npx ikea-availability-checker@2.0.0-alpha.3 stock --country pl 80382321
+```
+
+Please report any bugs related to this alpha in the issues: https://github.com/Ephigenia/ikea-availability-checker/issues
+
 
 Features
 ================================================================================
