@@ -6,10 +6,13 @@
 038,Dublin,ie
 045,Alexandra,sg
 051,Hénin-Beaumont,fr
+052,Shatin,hk
 060,Brest,fr
+062,Causeway Bay,hk
 063,München-Eching,de
 066,Augsburg,de
 069,Oldenburg,de
+071,Kowloon Bay,hk
 075,Walldorf,de
 078,Aubonne VD,ch
 079,Spreitenbach AG,ch
@@ -149,8 +152,8 @@
 412,Braunschweig,de
 415,Amersfoort,nl
 421,Berlin-Tempelhof,de
-428,Asturias,es
 425,Duisburg,de
+428,Asturias,es
 431,St Etienne,fr
 432,Paris Sud Thiais,fr
 433,Marseille - La Valentine,fr
@@ -169,6 +172,7 @@
 498,Ensanche de Vallecas,es
 519,Sheffield,gb
 522,Goyang,kr
+532,Tsuen Wan,hk
 548,Exeter,gb
 556,Perth,au
 557,Adelaid,au
