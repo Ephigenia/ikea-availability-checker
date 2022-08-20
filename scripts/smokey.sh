@@ -18,16 +18,18 @@ function smokeCountry() {
     productCode="${2}"
 
     result=$(npm run start -s -- stock --plain --country "${countryCode}" "${productCode}");
-    lines=$(echo "${result}" | wc -l)
+    lines=$(echo -n "${result}" | wc -l)
 
     # TODO double check negative and positve
-    if [[ $? -eq 0 ]]; then
+    if [[ $? != 0 ]]; then
         # TODO there are cases where the command runs sucessful but there
         #      are no results
-        printf "  success: %b%s%b\n" "${GREEN}" "${countryCode} ${productCode}  ${lines}" "${NC}";
-    else
         printf "    error: %b%s%b\n" "${RED}" "${countryCode}   ${productCode}" "${NC}";
         echo "${result}"
+    elif [[ "${lines}" -eq "0" ]]; then
+        printf "    error: %b%s%b\n" "${RED}" "${countryCode}   ${productCode}    0 (no results)" "${NC}";
+    else
+        printf "  success: %b%s%b\n" "${GREEN}" "${countryCode}   ${productCode}    ${lines}" "${NC}";
     fi
 }
 
@@ -38,7 +40,7 @@ CODE="80213074"
 
 # TODO check with the countries
 smokeCountry "at" "${CODE}";
-# smokeCountry "au" "${CODE}"; # no support in ingka api
+smokeCountry "au" "${CODE}"; # no support in ingka api
 smokeCountry "be" "${CODE}";
 smokeCountry "ca" "${CODE}";
 smokeCountry "ch" "${CODE}";
