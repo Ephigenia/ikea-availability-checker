@@ -630,6 +630,69 @@
     "countryCode": "ch"
   },
   {
+    "buCode": "030",
+    "name": "Valladolid",
+    "coordinates": [
+      -4.7881247,
+      41.6273498
+    ],
+    "countryCode": "es"
+  },
+  {
+    "buCode": "428",
+    "name": "Asturias",
+    "coordinates": [
+      -5.8062112,
+      43.3881977
+    ],
+    "countryCode": "es"
+  },
+  {
+    "buCode": "498",
+    "name": "Ensanche de Vallecas",
+    "coordinates": [
+      -3.5958105,
+      40.369647
+    ],
+    "countryCode": "es"
+  },
+  {
+    "buCode": "406",
+    "name": "Hospitalet (Gran Vía)",
+    "coordinates": [
+      2.1238635,
+      41.3547298
+    ],
+    "countryCode": "es"
+  },
+  {
+    "buCode": "449",
+    "name": "Murcia",
+    "coordinates": [
+      -1.145655,
+      38.0275051
+    ],
+    "countryCode": "es"
+  },
+  {
+    "buCode": "282",
+    "name": "San Sebastián de los Reyes",
+    "coordinates": [
+      -3.6119738,
+      40.5457717
+    ],
+    "countryCode": "es"
+  },
+  {
+    "buCode": "339",
+    "name": "Valencia (Alfafar)",
+    "coordinates": [
+      -0.3873451,
+      39.4150805
+    ],
+    "countryCode": "es"
+  },
+  {
     "buCode": "502",
     "name": "A Coruña",
     "coordinates": [

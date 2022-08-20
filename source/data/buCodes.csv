@@ -2,6 +2,7 @@
 006,Springvale,au
 018,Avignon,fr
 022,Tampines,sg
+030,Valladolid,es
 038,Dublin,ie
 045,Alexandra,sg
 051,Hénin-Beaumont,fr
@@ -94,6 +95,7 @@
 274,Barendrecht (Rotterdam),nl
 275,Rothenburg LU,ch
 278,Brno,cz
+282,San Sebastián de los Reyes,es
 285,Paris Ouest Vélizy,fr
 289,Lübeck,de
 290,Lyssach BE,ch
@@ -118,6 +120,7 @@
 329,Łódź,pl
 332,Koblenz,de
 333,Kiel,de
+339,Valencia (Alfafar),es
 343,München-Brunnthal,de
 345,Clermont-Ferrand,fr
 369,Siegen,de
@@ -139,10 +142,12 @@
 402,Montpellier,fr
 403,Breda,nl
 404,Groningen,nl
+406,Hospitalet (Gran Vía),es
 408,Praha Černý Most,cz
 412,Braunschweig,de
 415,Amersfoort,nl
 421,Berlin-Tempelhof,de
+428,Asturias,es
 425,Duisburg,de
 431,St Etienne,fr
 432,Paris Sud Thiais,fr
@@ -150,6 +155,7 @@
 434,Tours,fr
 435,Grenoble,fr
 446,Tempe,au
+449,Murcia,es
 451,Canberra,au
 460,North Lakes,au
 461,Reading,gb
@@ -158,6 +164,7 @@
 488,Renton,us
 493,Wetzlar,de
 494,Kaarst,de
+498,Ensanche de Vallecas,es
 519,Sheffield,gb
 522,Goyang,kr
 548,Exeter,gb
