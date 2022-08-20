@@ -1,3 +1,16 @@
+# [2.0.0-alpha.4](https://github.com/Ephigenia/ikea-availability-checker/compare/v2.0.0-alpha.3...v2.0.0-alpha.4) (2022-08-20)
+
+
+### Bug Fixes
+
+* **stock:** output only if there's something to output ([48887d0](https://github.com/Ephigenia/ikea-availability-checker/commit/48887d0478e3c90d5b9adc53a928b769220f943c))
+* **stores:** adds hk stores to bucodes csv ([f3cf795](https://github.com/Ephigenia/ikea-availability-checker/commit/f3cf795dc55c010698037e10cc7794eca0ccc58a))
+* **stores:** adds Jurong store in Singapore ([#123](https://github.com/Ephigenia/ikea-availability-checker/issues/123)) ([eaf735e](https://github.com/Ephigenia/ikea-availability-checker/commit/eaf735e08c037f8a04155d7ab8744a5af6394bcb))
+* **stores:** adds Nice St. Isidore store in France ([22d3651](https://github.com/Ephigenia/ikea-availability-checker/commit/22d3651adc0387a2726502b85bbd86f2cafec16d))
+* **stores:** adds some stores in Finland ([b42bf7f](https://github.com/Ephigenia/ikea-availability-checker/commit/b42bf7f27c68a68e246e376c95d6bd3b935c55b9))
+* **stores:** adds some stores in Spain ([0fabff8](https://github.com/Ephigenia/ikea-availability-checker/commit/0fabff8c276a18222e175f642b3f750edcab74c2))
+* wip ([4971b5e](https://github.com/Ephigenia/ikea-availability-checker/commit/4971b5e96b523f6c03e5549ffe744f979bf3fa48))
+
 # [2.0.0-alpha.3](https://github.com/Ephigenia/ikea-availability-checker/compare/v2.0.0-alpha.2...v2.0.0-alpha.3) (2022-05-15)
 
 
