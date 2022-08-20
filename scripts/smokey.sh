@@ -88,3 +88,8 @@ smokeCountry "sk" "${CODE}";
 smokeCountry "us" "${CODE}";
 
 printReport
+
+# exit with non-zeor in case of an error
+if [ $ERRORS -ne 0 ]; then
+    exit 1
+fi
