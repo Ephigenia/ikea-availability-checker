@@ -36,6 +36,15 @@ Examples:
 
   get only the ids, the second column
     ikea-availability-checker stores --plain de | awk '{print $2}'
+
+  get all stores
+    ikea-availability-checker stores
+
+  count all stores
+    ikea-availability-checker stores --plain | wc -l
+
+  get all store country codes, sorted asc
+    ikea-availability-checker stores --plain | awk '{print $1} | uniq | sort
 `)
   .action(function(countryCodes) {
     const opts = program.opts();
@@ -44,10 +53,14 @@ Examples:
     if (opts.plain) format = 'tsv';
     if (opts.pretty) format = 'table';
 
-    const foundStores = [];
-    countryCodes.forEach(countryCode => {
-      stores.findByCountryCode(countryCode).forEach(store => foundStores.push(store));
-    });
+    let foundStores = [];
+    if (!countryCodes || !countryCodes.length) {
+      foundStores = stores.data;
+    } else {
+      countryCodes.forEach(countryCode => {
+        stores.findByCountryCode(countryCode).forEach(store => foundStores.push(store));
+      });
+    }
 
     let report;
     switch (format) {
