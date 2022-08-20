@@ -3407,6 +3407,33 @@
     "countryCode": "be"
   },
   {
+    "buCode": "202",
+    "name": "Espoo",
+    "coordinates": [
+      24.6626878,
+      60.2168983
+    ],
+    "countryCode": "fi"
+  },
+  {
+    "buCode": "301",
+    "name": "Raisio",
+    "coordinates": [
+      22.2287403,
+      60.4949172
+    ],
+    "countryCode": "fi"
+  },
+  {
+    "buCode": "422",
+    "name": "Vantaa",
+    "coordinates": [
+      25.084695,
+      60.2767137
+    ],
+    "countryCode": "fi"
+  },
+  {
     "buCode": "375",
     "name": "Liège",
     "coordinates": [
