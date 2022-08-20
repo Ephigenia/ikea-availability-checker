@@ -90,10 +90,14 @@ class IngkaApi {
     const store = stores.findOneById(buCode);
 
     const key = store.countryCode + itemCode;
-    if (!cache[key]) {
-      cache[key] = await this.getAvailabilities(store.countryCode, itemCode);
+    try {
+      if (!cache[key]) {
+        cache[key] = await this.getAvailabilities(store.countryCode, itemCode);
+      }
+    } catch(err) {
+      console.log('HUHU');
+      console.log(err);
     }
-
     return cache[key].find(item => item.store.buCode === buCode);
   }
 
