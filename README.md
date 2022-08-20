@@ -1,4 +1,4 @@
-Sometimes there is a high demand for products that are unavailable in the IKEA online store and even in the locations. So here’s a script which makes it easy to check the availability of a list of products and locations.
+Sometimes there is a high demand for products that are unavailable in the IKEA online store and even in the locations. So here’s a script that makes it easy to check the availability of a list of products and locations.
 
 [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![NPM Package](https://badge.fury.io/js/ikea-availability-checker.svg)](https://www.npmjs.com/package/ikea-availability-checker)
@@ -157,7 +157,7 @@ The list of bu-codes can also contain bu-codes from different countries.
 API 
 ================================================================================
 
-The API interface which helps you including the check into your library is kind of new. If you have suggestions for improvements feel free to [open an issue](https://github.com/Ephigenia/ikea-availability-checker/issues).
+The API interface which helps you include the check into your library is kind of new. If you have suggestions for improvements feel free to [open an issue](https://github.com/Ephigenia/ikea-availability-checker/issues).
 
 ```javascript
 const checker = require('ikea-availability-checker');
@@ -210,7 +210,7 @@ Releases are automated and created by CI managed by [semantic-release](https://g
 ## Trouble Shooting
 
 - `DEPRECATED`
-    You’re trying to check the availability for a product which may not be available in the country/store. Read more about in the [Discussions](https://github.com/Ephigenia/ikea-availability-checker/discussions/83)
+    You’re trying to check the availability of a product that may not be available in the country/store. Read more about it in the [Discussions](https://github.com/Ephigenia/ikea-availability-checker/discussions/83)](https://github.com/Ephigenia/ikea-availability-checker/discussions/83)
 
 
 Other Projects & Articles
@@ -226,7 +226,7 @@ Other Projects & Articles
 ## Packages
 
 * [ikea stock checker](https://github.com/lovegandhi/ikea-stock-checker)
-* [ikea stock finder](https://github.com/sasasoni/ikea_stock_finder) japanese ruby
+* [ikea stock finder](https://github.com/sasasoni/ikea_stock_finder) Japanese ruby
 * [ikea scraper](https://github.com/LordBonzi/ikea-scraper) python stock scraper
 * [ikea bot](https://github.com/xorik/ikea-bot) telegram notification bot
 
