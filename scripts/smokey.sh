@@ -1,46 +1,55 @@
 #!/bin/bash
 
-# TODO make sure the script knows it’s WORKDIR
-# WORKDIR="../";
-# cd "${WORKDIR}";
-
-# TODO add DEBUG option
+cd "$(dirname "$0")" || exit
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-# ERRORS=0
-# SUCCESS=0
+ERRORS=0
+SUCCESS=0
 
 function smokeCountry() {
     countryCode="${1}"
     productCode="${2}"
 
+    # run ikea stock command and check the number of lines and exit code
+    # to see if there has been an error
     result=$(npm run start -s -- stock --plain --country "${countryCode}" "${productCode}");
-    lines=$(echo -n "${result}" | wc -l)
+    lines=$(echo -e "${result}" | wc -l)
 
-    # TODO double check negative and positve
+    # shellcheck disable=SC2181
     if [[ $? != 0 ]]; then
-        # TODO there are cases where the command runs sucessful but there
-        #      are no results
+        # in case of non zero exit code, show the error message
+        ERRORS=$((ERRORS+1))
         printf "    error: %b%s%b\n" "${RED}" "${countryCode}   ${productCode}" "${NC}";
         echo "${result}"
     elif [[ "${lines}" -eq "0" ]]; then
+        ERRORS=$((ERRORS+1))
+        # in case of an empty list of results, also show an error message
         printf "    error: %b%s%b\n" "${RED}" "${countryCode}   ${productCode}    0 (no results)" "${NC}";
     else
+        SUCCESS=$((SUCCESS+1))
         printf "  success: %b%s%b\n" "${GREEN}" "${countryCode}   ${productCode}    ${lines}" "${NC}";
     fi
 }
 
-# IDEA create some kind of report which country is still working
-# IDEA publish the report on github
+function printReport() {
+    if [ $SUCCESS -ne 0 ]; then
+        printf "%bSuccessful: %d%b\n" "${GREEN}" "${SUCCESS}" "${NC}";
+    fi
+    if [ $ERRORS -ne 0 ]; then
+        printf "%bErrors: %d%b\n" "${RED}" "${ERRORS}" "${NC}";
+        exit 1;
+    fi
+}
 
 CODE="80213074"
 
-# TODO check with the countries
+smokeCountry "ie" "${CODE}";
+
 smokeCountry "at" "${CODE}";
-smokeCountry "au" "${CODE}"; # no support in ingka api
+# smokeCountry "au" "${CODE}"; # no support in ingka api
 smokeCountry "be" "${CODE}";
 smokeCountry "ca" "${CODE}";
 smokeCountry "ch" "${CODE}";
@@ -77,3 +86,5 @@ smokeCountry "sk" "${CODE}";
 # smokeCountry "th" "${CODE}"; # no support in ingka api
 # smokeCountry "tw" "${CODE}"; # no support in ingka api
 smokeCountry "us" "${CODE}";
+
+printReport
