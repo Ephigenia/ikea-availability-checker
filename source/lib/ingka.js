@@ -95,7 +95,6 @@ class IngkaApi {
         cache[key] = await this.getAvailabilities(store.countryCode, itemCode);
       }
     } catch(err) {
-      console.log('HUHU');
       console.log(err);
     }
     return cache[key].find(item => item.store.buCode === buCode);
