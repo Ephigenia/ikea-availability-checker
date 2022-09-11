@@ -46,8 +46,6 @@ function printReport() {
 
 CODE="80213074"
 
-smokeCountry "ie" "${CODE}";
-
 smokeCountry "at" "${CODE}";
 # smokeCountry "au" "${CODE}"; # no support in ingka api
 smokeCountry "be" "${CODE}";
