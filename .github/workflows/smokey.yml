@@ -14,4 +14,4 @@ jobs:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/setup
     - run: scripts/smokey.sh
-    - run: scripts/smokey-format.sh
+    - run: scripts/smokey-formats.sh
