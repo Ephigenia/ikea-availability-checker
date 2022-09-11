@@ -83,7 +83,7 @@
 					"response": [],
 					"variable": [
 						{
-							"id": "42830682-3127-4b5b-9d31-77ec84d3f249",
+							"id": "c55d0e44-4bac-4a2e-ba09-df3ee32abce7",
 							"key": "countryCode",
 							"value": "{{countryCode}}"
 						}
@@ -223,23 +223,23 @@
 	],
 	"variable": [
 		{
-			"id": "4c888877-4fb1-4a15-bb01-0b8832a5f893",
+			"id": "59b6273e-c348-42d1-ae8b-8e4216345031",
 			"key": "productId",
 			"value": "50411990"
 		},
 		{
-			"id": "4227c65e-5e51-4db0-8d75-9662ba039fc6",
+			"id": "260957eb-306f-4d27-aa30-fd77f03bd81c",
 			"key": "countryCode",
 			"value": "de"
 		},
 		{
-			"id": "fa2ef3fc-7bd8-4cdc-8312-fb198051a98a",
+			"id": "45dab54a-53f3-438b-b58b-31fc394cfa18",
 			"key": "apiKey",
 			"value": "da465052-7912-43b2-82fa-9dc39cdccef8",
 			"type": "string"
 		},
 		{
-			"id": "3f3ec5c4-729e-4b4f-8322-cb1c89c52f35",
+			"id": "5ab7d798-f356-49cb-81ad-2f2380d68558",
 			"key": "use_datafile",
 			"value": "false",
 			"type": "string"
