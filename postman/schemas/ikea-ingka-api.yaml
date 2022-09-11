@@ -1,0 +1,81 @@
+openapi: '3.0.0'
+info:
+  version: '1.0.0'
+  title: 'IKEA'
+  description: inofficial api description of ingka IKEA API
+servers:
+  - url: https://api.ingka.ikea.com
+    description: production
+paths:
+  /cia/availabilities/ru/{{countryCode}}:
+    parameters:
+      - name: countryCode
+        description: alpha-2 country code
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[A-Z]{2}$
+      - name: expand
+        description: fields to expand
+        in: query
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: 'string'
+            enum:
+              - StoresList
+              - Restocks
+      - name: itemNos
+        description: product id(s)
+        in: query
+        required: true
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: number
+    get:
+      summary: Get Product Availabilites
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvailabilityResponse'
+components:
+  schemas:
+    AvailabilityResponse:
+      type: object
+      required:
+        - id
+        - name
+        - type
+      properties:
+        id:
+          $ref: '#/components/schemas/SpacecraftId'
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+            - capsule
+            - probe
+            - satellite
+            - spaceplane
+            - station
+        description:
+          type: string
+
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: x-client-id
+security:
+  - ApiKey: []

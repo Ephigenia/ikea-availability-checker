@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "5b662504-7680-43f8-a942-4dca6dac6347",
+		"name": "IKEA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api.ingka.ikea.com",
+			"item": [
+				{
+					"name": "Get Product Availabilites",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "93f2b600-1783-4a9f-bddf-6e1c0c447e67",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "e7680337-9161-4d44-9bb5-555b75e480ab",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "c46cad40-4e37-4ee7-a187-e2b6e728f7b0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-client-id",
+								"value": "da465052-7912-43b2-82fa-9dc39cdccef8"
+							}
+						],
+						"url": {
+							"raw": "https://api.ingka.ikea.com/cia/availabilities/ru/:countryCode?itemNos={{productId}}&expand=StoresList,Restocks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"ingka",
+								"ikea",
+								"com"
+							],
+							"path": [
+								"cia",
+								"availabilities",
+								"ru",
+								":countryCode"
+							],
+							"query": [
+								{
+									"key": "itemNos",
+									"value": "{{productId}}"
+								},
+								{
+									"key": "expand",
+									"value": "StoresList,Restocks"
+								}
+							],
+							"variable": [
+								{
+									"key": "countryCode",
+									"value": "{{countryCode}}"
+								}
+							]
+						}
+					},
+					"response": [],
+					"variable": [
+						{
+							"id": "60bd02c3-e22b-47ae-9a48-2a3d0447fd32",
+							"key": "countryCode",
+							"value": "{{countryCode}}"
+						}
+					]
+				}
+			],
+			"id": "625b6600-f136-400a-95c7-c974a929bf16",
+			"description": "The IKEA website is using the ingka API to receive product availabilities for a specific country. The API can return the number of items in stock for all stores in a country.\n\n[https://github.com/Ephigenia/ikea-availability-checker](https://github.com/Ephigenia/ikea-availability-checker)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "16e4647b-7d8d-447a-b954-63e8ff18894c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "66dad1ba-1d75-412a-88b9-4254abfe8c19",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});",
+							"",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"pm.test(\"Content-Type is JSON\", function () {",
+							"    pm.response.to.be.header(\"Content-Type\", \"application/json;version=1\");",
+							"});",
+							"pm.test(\"returns more than one data item\", function () {",
+							"    pm.expect(pm.response.json().data.length).to.be.gt(1);",
+							"});",
+							"// reduced shema of the expected response structure",
+							"var availableStocksSchema = {",
+							"    type: 'object',",
+							"    properties: {",
+							"        type: { type: 'string' },",
+							"        quantitiy: { type: 'number' },",
+							"        updateDateTime: { type: 'string' },",
+							"        probabilities: { type: 'array', item: { type: 'object' }}",
+							"    }",
+							"}",
+							"var dataSchema = {",
+							"    type: 'object',",
+							"    properties: {",
+							"        isInCashAndCarryRange: { type: 'boolean' },",
+							"        isInHomeDeliveryRange: { type: 'boolean' },",
+							"        availableStocks: availableStocksSchema,",
+							"        classUnitKey: { type: 'object', properties: {",
+							"            classUnitCode: { type: 'string', pattern: '/^[A-Z]{3}$/' },",
+							"            classUnitType: { type: 'string', enum: ['STO'] },",
+							"        } },",
+							"    }",
+							"}",
+							"var responseSchema = {",
+							"    type: 'object',",
+							"    properties: {",
+							"        availabilities: { type: \"null\" },",
+							"        data: { type: 'array', item: dataSchema },",
+							"        timestamp: { type: 'string' },",
+							"        traceId: { type: 'string' }",
+							"    }",
+							"};",
+							"",
+							"pm.test('Schema is valid', function () {",
+							"    pm.response.to.have.jsonSchema(responseSchema);",
+							"});",
+							"",
+							"",
+							"",
+							"var template = `",
+							"    <table bgcolor=\"#FFFFFF\">",
+							"        <tr>",
+							"            <th>Store</th>",
+							"            <th>Stock</th>",
+							"            <th>Probability</th>",
+							"            <th>isInCashAndCarryRange</th>",
+							"            <th>isInHomeDeliveryRange</th>",
+							"        </tr>",
+							"",
+							"        {{#each response.data}}",
+							"            <tr>",
+							"                <td>{{classUnitKey.classUnitCode}}</td>",
+							"                <td>{{availableStocks.0.quantity}}</td>",
+							"                <td>{{availableStocks.0.probabilities.0.communication.messageType}}</td>",
+							"                <td>{{isInCashAndCarryRange}}</td>",
+							"                <td>{{isInHomeDeliveryRange}}</td>",
+							"            </tr>",
+							"        {{/each}}",
+							"    </table>",
+							"`;",
+							"",
+							"pm.visualizer.set(template, {",
+							"    // Pass the response body parsed as JSON as `data`",
+							"    response: pm.response.json()",
+							"});"
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "eeeb73e5-18ea-42bf-a844-9bf7f95dc097",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "aa60379c-16ab-4d23-bc18-a92b52f129e7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5656a4be-1d2a-437a-bd55-77fe1dcead62",
+			"key": "productId",
+			"value": "50411990"
+		},
+		{
+			"id": "e7d31fb8-e4bb-4097-b2f2-9449cc19b9cf",
+			"key": "countryCode",
+			"value": "de"
+		}
+	]
+}
