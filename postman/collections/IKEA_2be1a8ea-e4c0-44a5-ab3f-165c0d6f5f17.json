@@ -16,7 +16,10 @@
 							"script": {
 								"id": "93f2b600-1783-4a9f-bddf-6e1c0c447e67",
 								"exec": [
-									""
+									"if (pm.iterationData.has(\"productId\")) {",
+									"    pm.collectionVariables.set('productId', pm.iterationData.get(\"productId\"));",
+									"    pm.collectionVariables.set('countryCode', pm.iterationData.get(\"countryCode\"));",
+									"}"
 								],
 								"type": "text/javascript"
 							}
@@ -80,7 +83,7 @@
 					"response": [],
 					"variable": [
 						{
-							"id": "784aaa73-44a4-4410-b503-c2bd876d41fd",
+							"id": "42830682-3127-4b5b-9d31-77ec84d3f249",
 							"key": "countryCode",
 							"value": "{{countryCode}}"
 						}
@@ -200,7 +203,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "95f5cc70-182e-4a8b-831d-e51d87b6aa12",
+				"id": "8d284c8c-9294-4208-8211-be7776074952",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -210,7 +213,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "989980db-c20b-494f-b1f4-196e19bcc537",
+				"id": "c63a9c3a-205e-4af6-8161-458b8165870c",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -220,19 +223,25 @@
 	],
 	"variable": [
 		{
-			"id": "413d5622-8ef3-448f-997a-4af18842199f",
+			"id": "4c888877-4fb1-4a15-bb01-0b8832a5f893",
 			"key": "productId",
 			"value": "50411990"
 		},
 		{
-			"id": "c19127b6-29e3-4d56-9b4f-b6bddbbedf9e",
+			"id": "4227c65e-5e51-4db0-8d75-9662ba039fc6",
 			"key": "countryCode",
 			"value": "de"
 		},
 		{
-			"id": "eebce013-30a3-42c0-a8fa-db622e977e8c",
+			"id": "fa2ef3fc-7bd8-4cdc-8312-fb198051a98a",
 			"key": "apiKey",
 			"value": "da465052-7912-43b2-82fa-9dc39cdccef8",
+			"type": "string"
+		},
+		{
+			"id": "3f3ec5c4-729e-4b4f-8322-cb1c89c52f35",
+			"key": "use_datafile",
+			"value": "false",
 			"type": "string"
 		}
 	]
