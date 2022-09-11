@@ -76,6 +76,8 @@ smokeCountry "pl" "${CODE}";
 smokeCountry "pt" "${CODE}";
 smokeCountry "qa" "${CODE}";
 smokeCountry "ro" "${CODE}";
+# russia lists stores but their APIs seems to be closed, every store returns
+# "Service not available"
 # smokeCountry "ru" "${CODE}"; # problems with one city
 smokeCountry "sa" "${CODE}";
 smokeCountry "se" "${CODE}";

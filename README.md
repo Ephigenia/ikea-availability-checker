@@ -13,7 +13,7 @@ Please report any bugs related to this alpha in the issues: https://github.com/E
 Features
 ================================================================================
 
-- list of 403 IKEA stores worldwide
+- list 403 IKEA stores worldwide
 - get product stock amount for a whole country or single store in JSON, Text and CLI-Table format
 - support for many countries (see below)
   at,
@@ -46,6 +46,18 @@ Features
   [![smokey](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml/badge.svg?branch=alpha)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml)
 - javascript API for easy integration in your library or project
 
+Some countries don’t support the new ingka API and cannot be used with the 2.x release:
+au,
+cn,
+hk,
+hr,
+jp,
+kr,
+my,
+sg,
+th
+
+Please use the 1.x release for accessing data for those countries.
 
 Command Line
 ================================================================================
@@ -78,7 +90,7 @@ Or call it directly using [npx](https://www.npmjs.com/package/npx):
 ## Use
 ### Stores
 
-    npm run start -- stores at
+    npx ikea-availability-checker stores at
 
     ┌─────────────┬─────────┬────────┬────────────────┐
     │ countryCode │ country │ buCode │ name           │
@@ -103,7 +115,7 @@ Or call it directly using [npx](https://www.npmjs.com/package/npx):
 
 #### Product Stock Information for a whole country
 
-    npm run start -- stock --country at 80213074
+    npx ikea-availability-checker stock --country at 80213074
 
     ┌──────────────────────────┬─────────────┬─────────┬──────────┬──────────────────┬────────────────┬───────┬───────────────┐
     │ date                     │ countryCode │ country │ product  │ storeId (buCode) │ store          │ stock │ probability   │
@@ -128,7 +140,8 @@ Or call it directly using [npx](https://www.npmjs.com/package/npx):
 #### Product Stock Information for a specific store
 
 ##### with BU-Code (Store-Id)
-    npm run start -- stock --store=155 S69022537
+
+    npx ikea-availability-checker stock --store=155 S69022537
 
     ┌──────────────────────────┬─────────────┬─────────┬───────────┬──────────────────┬────────────┬───────┬───────────────┐
     │ date                     │ countryCode │ country │ product   │ storeId (buCode) │ store      │ stock │ probability   │
@@ -141,14 +154,14 @@ Or call it directly using [npx](https://www.npmjs.com/package/npx):
 
 The "store" option also accepts strings which match on the location’s name:
 
-    npm run start -- stock --store=Berlin 40413131
+    npx ikea-availability-checker stock --store=Berlin 40413131
 
 
 #### Multiple Stores and Product Ids
 
 The list of bu-codes can also contain bu-codes from different countries.
 
-    npm run start -- stock --store=224,069,063 S69022537 40299687
+    npx ikea-availability-checker stock --store=224,069,063 S69022537 40299687
 
     ┌──────────────────────────┬─────────────┬─────────┬───────────┬──────────────────┬────────────────┬───────┬───────────────┐
     │ date                     │ countryCode │ country │ product   │ storeId (buCode) │ store          │ stock │ probability   │
@@ -216,6 +229,13 @@ Running all tests will also create coverage reports shown after the test results
 
     run test -- --grep="stock reporter"
 
+### Smoke Testing
+
+There are two shell scripts that can be used for testing the different output formats and all or some countries in the "/scripts" directory.
+
+### Request Testing
+
+There’s a public postman collection: [IKEA Workspace](https://www.postman.com/crimson-rocket-271330/workspace/ikea/overview) for you to access which is also linked with this repository: /postman/collection
 
 ## Release
 
@@ -225,6 +245,8 @@ Releases are automated and created by CI managed by [semantic-release](https://g
 
 - `DEPRECATED`
     You’re trying to check the availability of a product that may not be available in the country/store. Read more about it in the [Discussions](https://github.com/Ephigenia/ikea-availability-checker/discussions/83)](https://github.com/Ephigenia/ikea-availability-checker/discussions/83)
+- I want to deactivate colored output
+     Colored output can be disabled by setting the `FORCE_COLOR=1` before running a command: `FORCE_COLOR=0 npx ikea-availability-checker stores de`
 
 
 Other Projects & Articles
