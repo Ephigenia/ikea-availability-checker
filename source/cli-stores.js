@@ -81,6 +81,6 @@ Examples:
         report = require('./lib/reporter/stores-table').show(foundStores);
         break;
     }
-    console.log(report);
+    process.stdout.write(report);
   })
   .parse(process.argv);

@@ -9,4 +9,4 @@ const args = process.argv.slice(2);
 
 const [countryCode] = args;
 const result = ikea.stores.findByCountryCode(countryCode);
-console.log(result);
+process.stdout.write(JSON.stringify(result));

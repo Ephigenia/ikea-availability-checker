@@ -98,7 +98,7 @@ Examples:
     }
 
     if (stores.length === 0) {
-      console.log('no stores found');
+      process.stdout.write('no stores found');
       process.exit(1);
     }
 
@@ -152,7 +152,7 @@ Examples:
       .then(results => results.filter(item => item.availability && item.availability.stock >= opts.minStock))
       .then(results => reporter.createReport(results))
       .then(report => {
-        if (report) console.log(report);
+        if (report) process.stdout.write(report);
       });
   })
   .parse(process.argv);
