@@ -23,7 +23,7 @@ function availabilityColor(val) {
 /**
  * Returns a function which when applied on a string colors the string in cli
  *
- * @param {import('../iows2').ProductAvailabilityProbability} val probability code
+ * @param {string} val probability code
  * @returns {function}
  */
 function probabilityColor(val) {

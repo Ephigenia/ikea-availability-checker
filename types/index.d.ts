@@ -1,6 +1,6 @@
-import IOWS2 = require("./lib/iows2");
+import IngkaApi = require("./lib/ingka");
 import stores = require("./lib/stores");
-import errors = require("./lib/iows2Errors");
-export declare function availability(buCode: string, productId: string, options?: import("axios").AxiosRequestConfig<any>): Promise<IOWS2.ProductAvailability>;
+import errors = require("./lib/ingkaErrors");
+export declare function availability(buCode: string, productId: string, options?: import("axios").AxiosRequestConfig<any>): Promise<IngkaApi.IngkaProductAvailability>;
 export { stores, errors };
 //# sourceMappingURL=index.d.ts.map

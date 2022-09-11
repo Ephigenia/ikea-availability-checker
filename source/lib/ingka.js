@@ -10,7 +10,7 @@ const errors = require('./ingkaErrors');
  * @property {string} buCode
  * @property {Date} createdAt instance of a javascript date of the moment when
  *   the data was created.
- * @property {ProductAvailabilityProbability} probability
+ * @property {string} probability
  *   probability of the product beeing in store ("LOW_IN_STOCK", "HIGH_IN_STOCK" or "OUT_OF_STOCK")
  * @property {string} productId
  *   ikea product identification number

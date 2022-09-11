@@ -3,7 +3,8 @@
     "source/**/*"
   ],
   "exclude": [
-    "source/**/*.test.js"
+    "**/*.test.js",
+    "**/*.spec.js"
   ],
   "compilerOptions": {
     "module": "CommonJS",
