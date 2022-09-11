@@ -1,11 +1,8 @@
 # SEE https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
 
-name: smokey
+name: newman
 
-on:
-  push:
-  schedule:
-    - cron: "0 0/12 * * *"
+on: push
 
 jobs:
   smokey:
@@ -13,4 +10,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: ./.github/actions/setup
-    - run: scripts/smokey.sh
+    - run: cd postman && make test
+      continue-on-error: true
