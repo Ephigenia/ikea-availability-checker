@@ -41,7 +41,7 @@
 						"header": [
 							{
 								"key": "x-client-id",
-								"value": "da465052-7912-43b2-82fa-9dc39cdccef8"
+								"value": "{{apiKey}}"
 							}
 						],
 						"url": {
@@ -80,7 +80,7 @@
 					"response": [],
 					"variable": [
 						{
-							"id": "60bd02c3-e22b-47ae-9a48-2a3d0447fd32",
+							"id": "784aaa73-44a4-4410-b503-c2bd876d41fd",
 							"key": "countryCode",
 							"value": "{{countryCode}}"
 						}
@@ -93,7 +93,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "16e4647b-7d8d-447a-b954-63e8ff18894c",
+						"id": "3467505b-1f8b-4222-a150-ce9e89a30a3a",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -103,7 +103,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "66dad1ba-1d75-412a-88b9-4254abfe8c19",
+						"id": "95f7cd67-ad05-496d-97c6-346806823dc9",
 						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
@@ -138,11 +138,14 @@
 							"        isInCashAndCarryRange: { type: 'boolean' },",
 							"        isInHomeDeliveryRange: { type: 'boolean' },",
 							"        availableStocks: availableStocksSchema,",
-							"        classUnitKey: { type: 'object', properties: {",
-							"            classUnitCode: { type: 'string', pattern: '/^[A-Z]{3}$/' },",
-							"            classUnitType: { type: 'string', enum: ['STO'] },",
-							"        } },",
-							"    }",
+							"        classUnitKey: {",
+							"            type: 'object',",
+							"            properties: {",
+							"                classUnitCode: { type: 'string', pattern: '/^[A-Z]{3}$/' },",
+							"                classUnitType: { type: 'string', enum: ['STO'] },",
+							"            }",
+							"        },",
+							"    },",
 							"}",
 							"var responseSchema = {",
 							"    type: 'object',",
@@ -151,7 +154,8 @@
 							"        data: { type: 'array', item: dataSchema },",
 							"        timestamp: { type: 'string' },",
 							"        traceId: { type: 'string' }",
-							"    }",
+							"    },",
+							"    additionalProperties: false",
 							"};",
 							"",
 							"pm.test('Schema is valid', function () {",
@@ -196,7 +200,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "eeeb73e5-18ea-42bf-a844-9bf7f95dc097",
+				"id": "95f5cc70-182e-4a8b-831d-e51d87b6aa12",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -206,7 +210,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "aa60379c-16ab-4d23-bc18-a92b52f129e7",
+				"id": "989980db-c20b-494f-b1f4-196e19bcc537",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -216,14 +220,20 @@
 	],
 	"variable": [
 		{
-			"id": "5656a4be-1d2a-437a-bd55-77fe1dcead62",
+			"id": "413d5622-8ef3-448f-997a-4af18842199f",
 			"key": "productId",
 			"value": "50411990"
 		},
 		{
-			"id": "e7d31fb8-e4bb-4097-b2f2-9449cc19b9cf",
+			"id": "c19127b6-29e3-4d56-9b4f-b6bddbbedf9e",
 			"key": "countryCode",
 			"value": "de"
+		},
+		{
+			"id": "eebce013-30a3-42c0-a8fa-db622e977e8c",
+			"key": "apiKey",
+			"value": "da465052-7912-43b2-82fa-9dc39cdccef8",
+			"type": "string"
 		}
 	]
 }
