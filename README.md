@@ -13,10 +13,12 @@ Please report any bugs related to this alpha in the issues: https://github.com/E
 Features
 ================================================================================
 
-- list of 395 IKEA stores worldwide
-- get product stock amount for a whole country or single store in JSON, CSV and CLI-Table format including forecast (when available)
-- support for many countries: at, au, be, ca, ch, cn, cz, de, dk, es, fi, fr, gb, hk, hr, hu, ie, it, jo, jp, kr, kw, lt, my, nl, no, pl, pt, qa, ro, ru, sa, se, sg, sk, th, tw, us
-- integrate/use the library into your node project
+- list of 403 IKEA stores worldwide
+- get product stock amount for a whole country or single store in JSON, Text and CLI-Table format
+- support for many countries: at, be, ca, ch, cz, de, dk, es, fi, fr, gb,  hu, ie, it, jo, kw, lt, nl, no, pl, pt, qa, ro, sa, se, sk, us
+- javascript API for easy integration in your library or project
+- 
+- au, cn, hk, hr, jp, kr, my, ru, sg, th, tw
 
 Command Line
 ================================================================================

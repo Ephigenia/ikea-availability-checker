@@ -39,10 +39,6 @@ function probabilityColor(val) {
   }
 }
 
-function diffDays(date1, date2) {
-  return (date1.getTime() - date2.getTime()) / 60 / 60 / 24 / 1000;
-}
-
 module.exports = {
   availabilityColor,
   probabilityColor,
