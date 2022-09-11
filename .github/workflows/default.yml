@@ -31,7 +31,7 @@ jobs:
         VALIDATE_YAML: true
         VALIDATE_BASH: true
         VALIDATE_BASH_EXEC: true
-        FILTER_REGEX_EXCLUDE: CHANGELOG.md
+        FILTER_REGEX_EXCLUDE: CHANGELOG.md,postman/**/*.yaml
 
   lint-types:
     runs-on: ubuntu-latest
