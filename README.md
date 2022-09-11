@@ -27,7 +27,7 @@ Features
   fi,
   fr,
   gb,
-   hu,
+  hu,
   ie,
   it,
   jo,
