@@ -1,4 +1,11 @@
-# [2.0.0-alpha.5](https://github.com/Ephigenia/ikea-availability-checker/compare/v2.0.0-alpha.4...v2.0.0-alpha.5) (2022-08-20)
+# [1.2.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.5...v1.2.0) (2022-08-21)
+
+
+### Features
+
+* **stores:** adds the ability to list all stores ([83a1a41](https://github.com/Ephigenia/ikea-availability-checker/commit/83a1a41d08af42c387cfa65e67ccdb8668345b57))
+
+## [1.1.5](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.4...v1.1.5) (2022-08-14)
 
 
 ### Features
