@@ -17,6 +17,8 @@ const errors = require('./ingkaErrors');
  * @property {import('./stores').Store} store
  * @property {number} stock
  *   number of items currently in stock
+ * @property {Date} [restockDate]
+ *   Estimated date when the item gets restocked. Can be empty
  */
 
 // clientids taken from IKEA.tld websites
@@ -63,7 +65,8 @@ class IngkaApi {
           buCode: item.classUnitKey.classUnitCode,
           productId: item.itemKey.itemNo,
           stock: 0,
-          store: stores.findOneById(item.classUnitKey.classUnitCode)
+          store: stores.findOneById(item.classUnitKey.classUnitCode),
+          restockDate: null,
         };
 
         const cashNCarry = (item.availableStocks || [])
@@ -77,6 +80,9 @@ class IngkaApi {
           ));
           if (probability) {
             ret.probability = probability.communication.messageType;
+          }
+          if(cashNCarry.restocks) {
+            ret.restockDate = new Date(cashNCarry.restocks[0].earliestDate);
           }
         }
 
