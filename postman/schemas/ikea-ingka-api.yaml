@@ -52,25 +52,6 @@ components:
   schemas:
     AvailabilityResponse:
       type: object
-      required:
-        - id
-        - name
-        - type
-      properties:
-        id:
-          $ref: '#/components/schemas/SpacecraftId'
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-            - capsule
-            - probe
-            - satellite
-            - spaceplane
-            - station
-        description:
-          type: string
 
   securitySchemes:
     ApiKey:
