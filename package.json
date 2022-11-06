@@ -44,58 +44,50 @@
     "url": "https://github.com/Ephigenia/ikea-availability-checker/issues"
   },
   "files": [
-    "source",
-    "!source/**/*.test.js",
-    "!source/test",
-    "!.DS_Store",
-    "types",
-    "!types/**/*.test-d.ts"
+    "dist"
   ],
-  "main": "source/index.js",
-  "types": "types/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
-    "ikea-availability": "source/cli.js"
+    "ikea-availability": "dist/cli/index.js"
   },
   "scripts": {
-    "lint": "eslint source/**/*.js",
-    "lint:fix": "npm run -s lint -- --fix",
-    "lint:types": "tsd",
     "_postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
+    "clean": "rimraf dist coverage",
+    "lint:fix": "npm run -s lint -- --fix",
+    "lint": "eslint source/**/*.js",
     "postpublish": "pinst --enable",
-    "start": "node source/cli.js",
-    "tdd": "npm run -s test -- --watch",
-    "test": "NODE_ENV=test nyc --reporter=text-summary --reporter=lcov mocha \"source/**/*.test.js\"",
-    "test:ci": "npm run -s test",
+    "prepublishOnly": "pinst --disable",
     "semantic-release": "semantic-release",
-    "typings": "tsc"
+    "start": "ts-node src/cli/index.ts",
+    "tdd": "npm run -s test -- --watch",
+    "test:ci": "npm run -s test",
+    "test": "NODE_ENV=test jest"
   },
   "dependencies": {
     "axios": "1.1.3",
-    "chalk": "4.1.2",
+    "chalk": "5.1.2",
     "cli-table3": "0.6.3",
     "commander": "9.4.1",
-    "i18n-iso-countries": "7.5.0"
+    "i18n-iso-countries": "7.5.0",
+    "ts-node": "10.9.1"
   },
   "devDependencies": {
     "@commitlint/cli": "17.2.0",
     "@commitlint/config-angular": "17.2.0",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/commit-analyzer": "^9.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "9.0.1",
-    "@semantic-release/release-notes-generator": "^10.0.2",
+    "@commitlint/config-conventional": "17.2.0",
+    "@types/jest": "29.2.2",
     "@types/node": "18.11.9",
-    "chai": "4.3.6",
+    "@typescript-eslint/eslint-plugin": "5.42.0",
+    "@typescript-eslint/parser": "5.42.0",
     "eslint": "8.27.0",
     "husky": "8.0.1",
-    "mocha": "10.1.0",
-    "nock": "13.2.9",
+    "jest": "29.2.2",
     "nyc": "15.1.0",
     "pinst": "3.0.0",
+    "rimraf": "3.0.2",
     "semantic-release": "19.0.5",
-    "sinon": "14.0.1",
-    "tsd": "0.24.1",
+    "ts-jest": "29.0.3",
     "typescript": "4.8.4"
   }
 }

@@ -9,4 +9,6 @@ npm-debug.log
 coverage
 .nyc_output/
 
+.postman/
+
 *.tmp*

@@ -17,9 +17,3 @@ fi
 
 printf "%b>>>%b lint:fix...\n" "$GREEN" "$NO_COLOR"
 npm run -s lint:fix;
-
-printf "%b>>>%b regenerate typescript types...\n" "$GREEN" "$NO_COLOR"
-npm run -s typings;
-
-printf "%b>>>%b lint types...\n" "$GREEN" "$NO_COLOR"
-npm run -s lint:types;
