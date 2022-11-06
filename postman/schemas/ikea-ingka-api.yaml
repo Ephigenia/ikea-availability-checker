@@ -2,7 +2,7 @@ openapi: '3.0.0'
 info:
   version: '1.0.0'
   title: 'IKEA'
-  description: inofficial api description of ingka IKEA API
+  description: Inofficial description of IKEA ingka product and store availabilies API.
 servers:
   - url: https://api.ingka.ikea.com
     description: production
@@ -51,6 +51,7 @@ paths:
 components:
   schemas:
     AvailabilityResponse:
+      description: WIP response format description
       type: object
 
   securitySchemes:
