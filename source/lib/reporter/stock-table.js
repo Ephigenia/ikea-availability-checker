@@ -20,6 +20,10 @@ function availabilityColor(val) {
   }
 }
 
+function diffDays(date1, date2) {
+  return (date1.getTime() - date2.getTime()) / 60 / 60 / 24 / 1000;
+}
+
 /**
  * Returns a function which when applied on a string colors the string in cli
  *
@@ -53,6 +57,7 @@ module.exports = {
         'store',
         'stock',
         'probability',
+        'restockDate',
       ],
       colAligns: [
         null,
@@ -62,12 +67,21 @@ module.exports = {
         null,
         null,
         'right',
+        'right',
       ],
     });
 
     data
       .map(({ productId, store, availability }) => {
-        const { createdAt, stock, probability } = availability;
+        const { restockDate, createdAt, stock, probability } = availability;
+
+        let restockColumn = '';
+        if (restockDate) {
+          const daysUntilRestock = Math.floor(diffDays(restockDate, new Date()));
+          if (daysUntilRestock > 0) {
+            restockColumn = `in ${daysUntilRestock}d (${restockDate.toISOString().substr(0, 10)})`;
+          }
+        }
 
         return [
           createdAt.toISOString(),
@@ -78,6 +92,7 @@ module.exports = {
           store.name,
           availabilityColor(stock)(stock),
           probabilityColor(probability)(probability),
+          restockColumn,
         ]
       })
       .forEach(row => table.push(row));
