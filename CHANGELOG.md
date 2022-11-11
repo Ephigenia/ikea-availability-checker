@@ -1,3 +1,15 @@
+# [2.0.0-alpha.6](https://github.com/Ephigenia/ikea-availability-checker/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2022-11-11)
+
+
+### Bug Fixes
+
+* wip ([fba15ee](https://github.com/Ephigenia/ikea-availability-checker/commit/fba15eef98288b625f1db2e103bc6f20134b926a))
+
+
+### Features
+
+* **stock:** add restockDate for Ingka API ([#138](https://github.com/Ephigenia/ikea-availability-checker/issues/138)) ([c105bb2](https://github.com/Ephigenia/ikea-availability-checker/commit/c105bb2a4472f1a59818bbe102da81368e9d44e2))
+
 # [1.2.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.5...v1.2.0) (2022-08-21)
 
 
