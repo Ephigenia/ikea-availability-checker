@@ -35,5 +35,9 @@ type IngkaProductAvailability = {
      *   number of items currently in stock
      */
     stock: number;
+    /**
+     * Estimated date when the item gets restocked. Can be empty
+     */
+    restockDate?: Date;
 };
 //# sourceMappingURL=ingka.d.ts.map
