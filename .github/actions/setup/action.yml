@@ -17,7 +17,7 @@ runs:
         path: ./node_modules
         key: node-modules-${{ runner.name }}-${{ runner.arch}}-${{ hashFiles('package-lock.json') }}
     - name: install dependencies
-      run: npm ci --no-audit
+      run: npm ci --no-audit --no-scripts
       # only run npm ci when restoring the cache didn’t work to save some time
       # as npm ci would remove the node_modules again
       if: steps.cache.outputs.cache-hit != 'true'
