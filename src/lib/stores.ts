@@ -1,4 +1,5 @@
 import { getName } from 'i18n-iso-countries';
+import { normalizeCountryCode } from '../cli/lib/helper';
 import { default as data } from './../data/stores.json';
 
 export interface Store {
@@ -16,10 +17,6 @@ export type buCode = string;
  * ISO 3166-1 alpha 2 lowercase country code
  */
 export type countryCode = string;
-
-function normalizeCountryCode(countryCode: countryCode): countryCode {
-  return String(countryCode).trim().substring(0, 2).toLowerCase();
-}
 
 // create list of stores with typescript types and sorted by countryCode
 // and buCode in ascending order

@@ -1,11 +1,11 @@
 import { program } from './lib/program';
 import { findByCountryCode, Store, stores } from './../lib/stores';
-import args from './lib/arguments';
-import options from './lib/options';
+import { countryCode } from './lib/arguments';
+import * as options from './lib/options';
 import { show } from "./reporter/storesTable";
 
 program
-  .addArgument(args.countryCode)
+  .addArgument(countryCode)
   .addOption(options.plain)
   .addOption(options.pretty)
   .addOption(options.json)
@@ -35,7 +35,7 @@ Examples:
     ikea-availability-checker stores --plain | awk '{print $1} | uniq | sort
 `)
   .action((countryCodes: string[]) => {
-    const options = program.opts();
+    const opts = program.opts();
 
     let foundStores: Store[] = stores;
     if (countryCodes && countryCodes.length) {
@@ -43,9 +43,9 @@ Examples:
     }
 
     let format = 'table';
-    if (options.json) format = 'json';
-    if (options.plain) format = 'tsv';
-    if (options.pretty) format = 'table';
+    if (opts.json) format = 'json';
+    if (opts.plain) format = 'tsv';
+    if (opts.pretty) format = 'table';
 
     let report: string;
     switch (format) {
