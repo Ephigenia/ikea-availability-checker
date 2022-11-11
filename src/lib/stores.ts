@@ -7,7 +7,7 @@ export interface Store {
   coordinates: [number, number],
   countryCode: countryCode,
   country: string,
-};
+}
 
 /** buCode unique ikea store identification number */
 export type buCode = string;
@@ -28,8 +28,7 @@ export const stores = (data as Store[]).map(store => {
   return store;
 }).sort((a, b): number => {
   // sort by countryCode and buCode ascending order
-  return
-    a.countryCode.localeCompare(b.countryCode) +
+  return a.countryCode.localeCompare(b.countryCode) +
     a.buCode.localeCompare(b.buCode);
 });
 
