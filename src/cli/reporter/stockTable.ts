@@ -1,14 +1,14 @@
-import chalk, { ChalkInstance } from 'chalk';
+import * as color from 'ansi-colors';
 import CliTable3 from 'cli-table3';
 import { ItemStockInfo, PRODUCT_AVAILABILITY } from '../../lib/ingka';
 
-export function availabilityColor(val: number): ChalkInstance {
+export function availabilityColor(val: number): color.StyleFunction {
   if (val >= 5) {
-    return chalk.green;
+    return color.green;
   } else if (val >= 1) {
-    return chalk.yellow;
+    return color.yellow;
   } else {
-    return chalk.red;
+    return color.red;
   }
 }
 
@@ -16,16 +16,16 @@ export function diffDays(date1: Date, date2: Date): number {
   return (date1.getTime() - date2.getTime()) / 60 / 60 / 24 / 1000;
 }
 
-function probabilityColor(val: PRODUCT_AVAILABILITY): ChalkInstance {
+function probabilityColor(val: PRODUCT_AVAILABILITY): color.StyleFunction {
   switch (val) {
     case PRODUCT_AVAILABILITY.HIGH_IN_STOCK:
-      return chalk.green;
+      return color.green;
     case PRODUCT_AVAILABILITY.LOW_IN_STOCK:
-      return chalk.yellow;
+      return color.yellow;
     case PRODUCT_AVAILABILITY.OUT_IN_STOCK:
-        return chalk.yellow;
+        return color.yellow;
     default:
-      return chalk.white;
+      return color.white;
   }
 }
 
@@ -63,7 +63,7 @@ export function createStockInfoReportTable(data: ItemStockInfo[]): CliTable3.Tab
     stockInfo.store.country,
     stockInfo.store.buCode,
     stockInfo.store.name,
-    availabilityColor(stockInfo.stock)(stockInfo.stock),
+    availabilityColor(stockInfo.stock)(String(stockInfo.stock)),
     probabilityColor(stockInfo.probability)(stockInfo.probability),
     stockInfo.restockDate?.toISOString(),
   ]));

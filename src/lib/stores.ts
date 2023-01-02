@@ -13,9 +13,7 @@ export interface Store {
 /** buCode unique ikea store identification number */
 export type buCode = string;
 
-/**
- * ISO 3166-1 alpha 2 lowercase country code
- */
+/** ISO 3166-1 alpha 2 lowercase country code */
 export type countryCode = string;
 
 // create list of stores with typescript types and sorted by countryCode

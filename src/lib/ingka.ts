@@ -1,12 +1,11 @@
 
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios, { Axios, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 
-import { findOneById, Store } from './stores';
-import { IngkaNotFoundError, IngkaResponseError } from './ingkaErrors'
+import { buCode, countryCode, findOneById, Store } from './stores';
+import { IngkaNotFoundError, IngkaParseError, IngkaResponseError } from './ingkaErrors'
 import { IngkaAvailabilitiesResponse } from './ingkaResponse';
 
-// clientids taken from IKEA.tld websites
-// they may change in the future
+// clientids taken from IKEA.tld websites they may change in the future
 const CLIENT_ID_US = 'da465052-7912-43b2-82fa-9dc39cdccef8';
 // const CLIENT_ID_IT = 'b6c117e5-ae61-4ef5-b4cc-e0b1e37f0631';
 // const CLIENT_ID_NL = 'ac8b6bc1-b924-4bba-ba90-251610525145';
@@ -27,6 +26,8 @@ export enum PRODUCT_AVAILABILITY {
   OUT_IN_STOCK = 'OUT_IN_STOCK',
 };
 
+export const BASE_URL_DEFAULT = 'https://api.ingka.ikea.com';
+
 const cache: Record<string, ItemStockInfo[]> = {};
 
 export class IngkaApi {
@@ -39,32 +40,30 @@ export class IngkaApi {
   ) {
     this.client = axios.create({
       timeout: 5000,
-      baseURL: 'https://api.ingka.ikea.com',
+      baseURL: BASE_URL_DEFAULT,
       headers: {
         'x-client-id': clientId || CLIENT_ID_US,
+        'accept': 'application/json;version=1'
       },
       ...options,
-    })
+    });
   }
 
   parseAvailabilitiesResponse(
     responseData: IngkaAvailabilitiesResponse
   ): ItemStockInfo[] {
-    const validItems = responseData.data
-      // the ingka API response contains 2-3 items which don’t belong to a
-      // specific store and can be filtered out
-      .filter(item =>
-        item.classUnitKey &&
-        item.classUnitKey.classUnitType &&
-        item.classUnitKey.classUnitType === 'STO'
-      )
-      .filter(item =>
-        item.availableStocks &&
-        item.availableStocks.length > 0
-      );
+    // the INGKA API response can contain items which don’t belong to a store
+    // but to general storage units or unknown things. We should filter
+    // here just for items that list availabilities for a specific store
+    // indicated by the "classUnitType" "STO".
+    const itemsWithStores = responseData.data
+      .filter(item =>item.classUnitKey?.classUnitType === 'STO')
 
-    const tranformedItems = validItems
-      .map(item => {
+    // filter for Items that have a "availableStocks" property
+    const rawStockInfoItems = itemsWithStores.filter(item => item.availableStocks?.length);
+
+    return rawStockInfoItems
+      .map<ItemStockInfo>(item => {
         const stockInfo: ItemStockInfo = {
           buCode: item.classUnitKey.classUnitCode,
           productId: item.itemKey.itemNo,
@@ -92,28 +91,56 @@ export class IngkaApi {
 
         return stockInfo;
       });
-
-    return tranformedItems;
   }
 
   // TODO add the ability to pass over arrays for buCode and itemCode
   async getStoreProductAvailability(
-    countryCode: string,
+    countryCode: countryCode,
     productId: string,
-    buCode: string,
-  ) {
+    buCode: buCode,
+  ): Promise<ItemStockInfo|undefined> {
     const key = countryCode + productId;
     if (!cache[key]) {
       cache[key] = await this.getAvailabilities(countryCode, [productId]);
     }
-    return cache[key].find((item) => {
-      return item.store?.buCode === buCode
-    });
+    return cache[key].find((item) => item.store?.buCode === buCode);
+  }
+
+  private handleAxiosError(err): void {
+    if (err.response && err.response.status === 404) {
+      throw new IngkaNotFoundError('Not Found', err);
+    }
+    throw new IngkaResponseError('Response Error', err);
+  }
+
+  private handleResponseError(response: AxiosResponse): void {
+    if (response.data?.errors) {
+      if (response.data.errors[0].code === 404) {
+        throw new IngkaNotFoundError(response.data.errors[0].message);
+      }
+      throw new IngkaParseError('Unknown INGKA API error', response.data);
+    }
+  }
+
+  private validateResponseStructure(data: IngkaAvailabilitiesResponse): boolean {
+    if (
+      !data ||
+      !data.data ||
+      !Array.isArray(data.data) ||
+      !data.data.every(obj => typeof obj === 'object')
+    ) {
+      throw new IngkaParseError(`Unexpected response data structure detected`, data);
+    }
+    return true;
+  }
+
+  buildAvailabilityUri(countryCode: countryCode): string {
+    return `cia/availabilities/ru/${countryCode}`;
   }
 
   async getAvailabilities(
     /** a single supported country code */
-    countryCode: string,
+    countryCode: countryCode,
     /** one or multiple ikea article ids */
     itemNos: string[]|string,
     /** value of expand parameter */
@@ -121,7 +148,7 @@ export class IngkaApi {
     /** optional additional request configuration settings */
     options: AxiosRequestConfig = {}
   ): Promise<ItemStockInfo[]> {
-    const uri = `cia/availabilities/ru/${countryCode}`;
+    const uri = this.buildAvailabilityUri(countryCode);
 
     options = options || {};
     options.params = {
@@ -135,20 +162,10 @@ export class IngkaApi {
     try {
       response = await this.client.get<IngkaAvailabilitiesResponse>(uri, options);
     } catch (err) {
-      if (err.response && err.response.status === 404) {
-        throw new IngkaNotFoundError(err);
-      }
-      throw new IngkaResponseError(err);
+      this.handleAxiosError(err);
     }
-
-    // Ingka api replies with status 200 on invalid product codes
-    if (response.data && response.data.errors) {
-      if (response.data.errors[0].code === 404) {
-        throw new IngkaNotFoundError(response);
-      }
-      throw new IngkaResponseError(response);
-    }
-
+    this.handleResponseError(response);
+    this.validateResponseStructure(response.data);
     return this.parseAvailabilitiesResponse(response.data);
   }
 }

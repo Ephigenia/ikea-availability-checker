@@ -12,10 +12,12 @@ export class IngkaParseError extends IngkaError{
 
 export class IngkaResponseError extends IngkaError {
   res: AxiosResponse;
-  constructor(error: AxiosError) {
-    super(error.message);
+  constructor(message: string, error?: AxiosError) {
+    super(message);
     Object.assign(this, error);
-    this.res = error.request.res;
+    if (error) {
+      this.res = error.request.res;
+    }
   }
 }
 

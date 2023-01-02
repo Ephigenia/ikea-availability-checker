@@ -1,31 +1,17 @@
-import { AxiosRequestConfig } from "axios";
-import { IngkaApi, ItemStockInfo } from "./lib/ingka";
-import { findById, findOneById, Store } from "./lib/stores";
+import { AxiosRequestConfig } from 'axios';
+import { IngkaApi, ItemStockInfo } from './lib/ingka';
+import { findOneById, Store } from './lib/stores';
 
-const assert = require('assert');
+export * as errors from './lib/ingkaErrors';
+export * as stores from './lib/stores';
 
-// const IngkaApi = require('./lib/ingka');
-// const stores = require('./lib/stores');
-// const errors = require('./lib/ingkaErrors');
-
-// module.exports = {
-
-//    * @param {string}
-//    * @param {string} productId
-//    * @param {import('axios').AxiosRequestConfig} [options] axios requrest options
-//    * @throws AssertionError when the store wasn’t found
-//    * @returns {Promise<import('./lib/ingka').IngkaProductAvailability>}
-//    *   resulting product availability
-//    */
 //   availability: async (buCode, productId, options) => {
 //     const store = stores.findOneById(buCode);
-//     assert.ok(store, `Unable to find a store with the given buCode: ${buCode}.`);
 //     const client = new IngkaApi(undefined, options);
 //     return client.getStoreProductAvailability(buCode, productId);
 //   },
 //   // stores,
 //   // errors,
-// };
 
 /**
  * Asynchronously requests the availability of a specific product in one

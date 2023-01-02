@@ -48,5 +48,6 @@ export interface IngkaAvailabilitiesResponseDataItem {
 
 export interface IngkaAvailabilitiesResponse {
   availabilities: null;
+  errors?: unknown[],
   data: IngkaAvailabilitiesResponseDataItem[]
 }
