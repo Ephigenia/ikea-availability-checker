@@ -1428,6 +1428,11 @@
     "countryCode": "lt"
   },
   {
+    "buCode": "648",
+    "name": "Tallinn",
+    "countryCode": "ee"
+  },
+  {
     "buCode": "415",
     "name": "Amersfoort",
     "coordinates": [
