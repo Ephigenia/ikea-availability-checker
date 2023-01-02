@@ -3,6 +3,7 @@ import { productIds } from './lib/arguments';
 import * as options from './lib/options';
 import { availabilities } from '..';
 import { findByCountryCode, findById, findByQuery, Store } from '../lib/stores';
+import { createStockInfoReportTable } from './reporter/stockTable';
 
 program
   .addArgument(productIds.argRequired())
@@ -21,13 +22,13 @@ program
 Examples:
 
   query single product in single store
-    ikea-availability-checker stock --store 148 40299687
+    ikea-availability-checker stock --store 174 40299687
 
   query multiple products in a single store
-    ikea-availability-checker stock --store 148 40299687 S69022537
+    ikea-availability-checker stock --store 174 40299687 S69022537
 
   query single product in multiple stores
-    ikea-availability-checker stock --store 148,328 40299687
+    ikea-availability-checker stock --store 174,328 40299687
 
   query single product in all stores in a country
     ikea-availability-checker stock --country=at 40299687
@@ -65,7 +66,31 @@ Examples:
 
     const data = await availabilities(stores, productIds);
 
-  })
+    let report: string;
+    switch (format) {
+      case 'json':
+        report = JSON.stringify(data, null, '  ');
+        break;
+      case 'tsv':
+        report = data.map((availability) => [
+          availability.createdAt.toISOString(),
+          availability.productId,
+          availability.store.countryCode,
+          availability.store.country,
+          availability.store.buCode,
+          availability.store.name,
+          availability.stock,
+          availability.probability,
+          availability.restockDate?.toISOString(),
+        ].join('\t')).join('\n');
+        break;
+      case 'table':
+        report = createStockInfoReportTable(data).toString();
+        break;
+    }
+    process.stdout.write(report);
+
+  });
 
 try {
   program.parseAsync();

@@ -2,7 +2,7 @@ import { program } from './lib/program';
 import { findByCountryCode, Store, stores } from './../lib/stores';
 import { countryCode } from './lib/arguments';
 import * as options from './lib/options';
-import { show } from "./reporter/storesTable";
+import { createStoresReportTable } from "./reporter/storesTable";
 
 program
   .addArgument(countryCode)
@@ -63,7 +63,7 @@ Examples:
           .join('\n');
         break;
       case 'table':
-        report = show(foundStores);
+        report = createStoresReportTable(foundStores).toString();
         break;
     }
     process.stdout.write(report);

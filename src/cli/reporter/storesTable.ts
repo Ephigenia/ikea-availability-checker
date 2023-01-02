@@ -1,7 +1,7 @@
 import CliTable3 from "cli-table3";
 import { Store } from "../../lib/stores";
 
-export function show(stores: Store[]) {
+export function createStoresReportTable(stores: Store[]): CliTable3.Table {
   const table = new CliTable3({
     head: [
       'countryCode',
@@ -11,8 +11,6 @@ export function show(stores: Store[]) {
     ],
   });
 
-
-
   table.push(...stores.map((store) => [
     store.countryCode,
     store.country,
@@ -20,5 +18,5 @@ export function show(stores: Store[]) {
     store.name,
   ]))
 
-  return table.toString();
+  return table;
 }

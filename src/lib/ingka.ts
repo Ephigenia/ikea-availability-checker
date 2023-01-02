@@ -1,7 +1,6 @@
 
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
-import { normalizeProductId } from '../cli/lib/helper';
 import { findOneById, Store } from './stores';
 import { IngkaNotFoundError, IngkaResponseError } from './ingkaErrors'
 import { IngkaAvailabilitiesResponse } from './ingkaResponse';
@@ -10,18 +9,23 @@ import { IngkaAvailabilitiesResponse } from './ingkaResponse';
 // they may change in the future
 const CLIENT_ID_US = 'da465052-7912-43b2-82fa-9dc39cdccef8';
 // const CLIENT_ID_IT = 'b6c117e5-ae61-4ef5-b4cc-e0b1e37f0631';
-// const CLIENT_ID_BE = 'b6c117e5-ae61-4ef5-b4cc-e0b1e37f0631';
 // const CLIENT_ID_NL = 'ac8b6bc1-b924-4bba-ba90-251610525145';
 
 export interface ItemStockInfo {
   createdAt?: Date;
-  probability?: string;
+  probability?: PRODUCT_AVAILABILITY;
   buCode: string;
   productId: string;
   stock: number;
-  store?: Store;
+  store: Store;
   restockDate?: Date;
 }
+
+export enum PRODUCT_AVAILABILITY {
+  HIGH_IN_STOCK = 'HIGH_IN_STOCK',
+  LOW_IN_STOCK = 'LOW_IN_STOCK',
+  OUT_IN_STOCK = 'OUT_IN_STOCK',
+};
 
 const cache: Record<string, ItemStockInfo[]> = {};
 
@@ -79,7 +83,7 @@ export class IngkaApi {
             item.communication && item.communication.messageType
           ));
           if (probability) {
-            stockInfo.probability = probability.communication.messageType;
+            stockInfo.probability = probability.communication.messageType as PRODUCT_AVAILABILITY;
           }
           if(cashNCarry.restocks) {
             stockInfo.restockDate = new Date(cashNCarry.restocks[0].earliestDate);

@@ -55,7 +55,7 @@ export async function availabilities(
   stores: Store[],
   productIds: string[],
   options: AxiosRequestConfig = {},
-) {
+): Promise<ItemStockInfo[]> {
   const storesProductMap = productIds.map(productId => {
     return stores.map(store => ({ productId, store }));
   });

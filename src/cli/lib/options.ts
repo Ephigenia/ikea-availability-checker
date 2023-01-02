@@ -1,6 +1,5 @@
 import { Option } from 'commander';
 
-
 export const country = new Option(
   '-c, --country [countryCode]',
   'optional single country code or multiple country codes separated by comma'
