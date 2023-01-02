@@ -1433,6 +1433,11 @@
     "countryCode": "ee"
   },
   {
+    "buCode": "516",
+    "name": "Riga",
+    "countryCode": "lv"
+  },
+  {
     "buCode": "415",
     "name": "Amersfoort",
     "coordinates": [
