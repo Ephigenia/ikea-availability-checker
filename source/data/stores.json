@@ -3308,6 +3308,15 @@
     "countryCode": "gb"
   },
   {
+    "buCode": "642",
+    "name": "Hammersmith",
+    "coordinates": [
+      -0.2403,
+      51.4935
+    ],
+    "countryCode": "gb"
+  },
+  {
     "buCode": "482",
     "name": "Anderlecht",
     "coordinates": [
