@@ -62,6 +62,7 @@
 188,Warszawa / Janki,pl
 198,Reims,fr
 199,Caen Fleury-sur-Orne,fr
+202,Espoo,fi
 203,Gdańsk,pl
 204,Kraków,pl
 205,Poznań,pl
@@ -79,7 +80,6 @@
 240,Paris Est Villiers sur Marne,fr
 242,Toulouse,fr
 245,Hamburg-Altona,de
-255,Tottenham,gb
 260,Metz,fr
 261,Leeds,gb
 262,Lakeside,gb
@@ -101,6 +101,7 @@
 292,Pratteln BL,ch
 294,Wrocław,pl
 298,Aarhus,dk
+301,Raisio,fi
 306,Katowice,pl
 307,Warszawa / Targówek,pl
 309,Ostrava,cz
@@ -158,13 +159,16 @@
 488,Renton,us
 493,Wetzlar,de
 494,Kaarst,de
+516,Riga,lv
 519,Sheffield,gb
 522,Goyang,kr
 548,Exeter,gb
 556,Perth,au
 557,Adelaid,au
 567,Greenwich,gb
+642,Hammersmith,gb
 645,Rivoli,fr
+648,Tallinn,ee
 650,Jurong,sg
 917,St. Gallen SG,ch
 918,Vernier GE,ch

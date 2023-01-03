@@ -1053,6 +1053,24 @@
     "countryCode": "fi"
   },
   {
+    "buCode": "202",
+    "name": "Espoo",
+    "coordinates": [
+      24.6627,
+      60.2177
+    ],
+    "countryCode": "fi"
+  },
+  {
+    "buCode": "301",
+    "name": "Raisio",
+    "coordinates": [
+      22.2277,
+      60.4943
+    ],
+    "countryCode": "fi"
+  },
+  {
     "buCode": "062",
     "name": "Causeway Bay",
     "coordinates": [
@@ -1408,6 +1426,16 @@
     "buCode": "235",
     "name": "Vilnius",
     "countryCode": "lt"
+  },
+  {
+    "buCode": "648",
+    "name": "Tallinn",
+    "countryCode": "ee"
+  },
+  {
+    "buCode": "516",
+    "name": "Riga",
+    "countryCode": "lv"
   },
   {
     "buCode": "415",
@@ -3290,15 +3318,6 @@
     "countryCode": "gb"
   },
   {
-    "buCode": "255",
-    "name": "Tottenham",
-    "coordinates": [
-      -0.047207,
-      51.608716
-    ],
-    "countryCode": "gb"
-  },
-  {
     "buCode": "140",
     "name": "Warrington",
     "coordinates": [
@@ -3313,6 +3332,15 @@
     "coordinates": [
       -0.260354,
       51.553735
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "642",
+    "name": "Hammersmith",
+    "coordinates": [
+      -0.2403,
+      51.4935
     ],
     "countryCode": "gb"
   },
