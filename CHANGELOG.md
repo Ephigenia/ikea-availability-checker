@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.2.0...v1.2.1) (2023-01-03)
+
+
+### Bug Fixes
+
+* **stores:** add fi, gb, ee, lv stores and remove closed gb store ([#152](https://github.com/Ephigenia/ikea-availability-checker/issues/152)) ([694e514](https://github.com/Ephigenia/ikea-availability-checker/commit/694e5141b46694e3599c6d51360e19b54fe94ae2))
+
 # [1.2.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.5...v1.2.0) (2022-08-21)
 
 
