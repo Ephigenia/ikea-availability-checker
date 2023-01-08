@@ -53,18 +53,19 @@
   },
   "scripts": {
     "_postinstall": "husky install",
-    "build": "tsc --build src",
-    "clean": "rimraf dist coverage",
+    "build": "tsc --sourceMap false",
+    "clean": "tsc --build --clean",
     "format": "prettier -w \"{src,test}/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "lint": "eslint \"{src,test}/**/*.ts\"",
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable",
+    "preversion": "npm run build",
     "semantic-release": "semantic-release",
     "start": "node -r ts-node/register src/cli/index.ts",
     "tdd": "npm run -s test -- --watch",
     "test:ci": "npm run -s test",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest src/"
   },
   "dependencies": {
     "ansi-colors": "4.1.3",
@@ -92,7 +93,6 @@
     "nyc": "15.1.0",
     "pinst": "3.0.0",
     "prettier": "2.8.1",
-    "rimraf": "3.0.2",
     "semantic-release": "19.0.5",
     "ts-jest": "29.0.3",
     "typescript": "4.9.4"

@@ -1,5 +1,5 @@
 
-import axios, { Axios, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { Axios, AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, isAxiosError } from 'axios';
 
 import { buCode, countryCode, findOneById, Store } from './stores';
 import { IngkaNotFoundError, IngkaParseError, IngkaResponseError } from './ingkaErrors'
@@ -60,15 +60,18 @@ export class IngkaApi {
       .filter(item =>item.classUnitKey?.classUnitType === 'STO')
 
     // filter for Items that have a "availableStocks" property
-    const rawStockInfoItems = itemsWithStores.filter(item => item.availableStocks?.length);
+    const rawStockInfoItems = itemsWithStores
+      .filter(item => item.availableStocks?.length)
+      .filter(item => findOneById(item.classUnitKey.classUnitCode));
 
+    // remove all stores which are not known
     return rawStockInfoItems
       .map<ItemStockInfo>(item => {
         const stockInfo: ItemStockInfo = {
           buCode: item.classUnitKey.classUnitCode,
           productId: item.itemKey.itemNo,
           stock: 0,
-          store: findOneById(item.classUnitKey.classUnitCode) || undefined,
+          store: findOneById(item.classUnitKey.classUnitCode) as Store,
         };
 
         const cashNCarry = (item.availableStocks || [])
@@ -100,13 +103,13 @@ export class IngkaApi {
     buCode: buCode,
   ): Promise<ItemStockInfo|undefined> {
     const key = countryCode + productId;
-    if (!this.cache[key]) {
+    if (!(key in this.cache)) {
       this.cache[key] = await this.getAvailabilities(countryCode, [productId]);
     }
     return this.cache[key].find((item) => item.store?.buCode === buCode);
   }
 
-  private handleAxiosError(err): void {
+  private handleAxiosError(err: AxiosError): void {
     if (err.response && err.response.status === 404) {
       throw new IngkaNotFoundError('Not Found', err);
     }
@@ -158,14 +161,20 @@ export class IngkaApi {
       ...options.params || {}
     };
 
-    let response;
+    let stockInfos: ItemStockInfo[] = [];
     try {
-      response = await this.client.get<IngkaAvailabilitiesResponse>(uri, options);
+      const response = await this.client.get<IngkaAvailabilitiesResponse>(uri, options);
+      this.handleResponseError(response);
+      this.validateResponseStructure(response.data);
+      stockInfos = this.parseAvailabilitiesResponse(response.data) || [];
     } catch (err) {
-      this.handleAxiosError(err);
+      if (isAxiosError(err)) {
+        this.handleAxiosError(err);
+      } else {
+        throw err;
+      }
     }
-    this.handleResponseError(response);
-    this.validateResponseStructure(response.data);
-    return this.parseAvailabilitiesResponse(response.data);
+
+    return stockInfos;
   }
 }

@@ -62,6 +62,7 @@ Examples:
           .join('\t'))
           .join('\n');
         break;
+      default:
       case 'table':
         report = createStoresReportTable(foundStores).toString();
         break;

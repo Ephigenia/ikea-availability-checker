@@ -73,7 +73,7 @@ Examples:
         break;
       case 'tsv':
         report = data.map((availability) => [
-          availability.createdAt.toISOString(),
+          availability.createdAt?.toISOString(),
           availability.productId,
           availability.store.countryCode,
           availability.store.country,
@@ -84,18 +84,18 @@ Examples:
           availability.restockDate?.toISOString(),
         ].join('\t')).join('\n');
         break;
+      default:
       case 'table':
         report = createStockInfoReportTable(data).toString();
         break;
     }
     process.stdout.write(report);
-
   });
 
 try {
   program.parseAsync();
-} catch (err) {
-  const message = err.message || 'Unknonwn Error';
+} catch (err: unknown) {
+  let message = err instanceof Error ? err.message : String(err);
   process.stderr.write(message + '\n');
-  process.exit(err.exitCode || 1);
+  process.exit(1);
 }

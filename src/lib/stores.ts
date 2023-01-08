@@ -79,7 +79,7 @@ export function getLanguageCode (countryCode: countryCode): string {
   const cc = normalizeCountryCode(countryCode);
   // the best matching language code to use when sending requests to a
   // specific country
-  const map = {
+  const map: Record<string, string> = {
     ae: 'en',
     at: 'de',
     au: 'en',

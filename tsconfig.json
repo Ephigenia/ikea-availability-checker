@@ -1,28 +1,13 @@
 {
-  "preset": "ts-jest",
+  "include": ["src"],
   "compilerOptions": {
-    "module": "commonjs",
+    "target": "es2018",
+    "moduleResolution": "node",
     "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "strict": true,
     "esModuleInterop": true,
-    "target": "es2017",
-    "sourceMap": false,
-    "outDir": "./../dist",
-    "rootDir": ".",
-    "baseUrl": ".",
-    "incremental": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true
-  },
-  "types": [
-    "@types/nock",
-    "@types/node"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "resolveJsonModule": true
+  }
 }

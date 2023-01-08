@@ -28,7 +28,7 @@ export async function availability (
   productId: string,
   /** axios requrest options */
   options: AxiosRequestConfig = {}
-): Promise<ItemStockInfo> {
+): Promise<ItemStockInfo|undefined> {
   const store = findOneById(buCode);
   if (!store) {
     throw new Error(`Unable to find a store with the given buCode: ${buCode}.`);
@@ -41,7 +41,7 @@ export async function availabilities(
   stores: Store[],
   productIds: string[],
   options: AxiosRequestConfig = {},
-): Promise<ItemStockInfo[]> {
+): Promise<Array<ItemStockInfo>> {
   const storesProductMap = productIds.map(productId => {
     return stores.map(store => ({ productId, store }));
   });
@@ -50,5 +50,6 @@ export async function availabilities(
     return iows.getStoreProductAvailability(store.countryCode, productId, store.buCode);
   });
 
-  return Promise.all(promises);
+  const availabilities = await Promise.all(promises);
+  return availabilities.filter(a => a) as ItemStockInfo[];
 }
