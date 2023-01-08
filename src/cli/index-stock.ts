@@ -66,13 +66,16 @@ Examples:
 
     const data = await availabilities(stores, productIds);
 
+    // only show items with at least "amount" items in stock
+    const displayedData = data.filter(availability => availability.stock >= opts.minStock);
+
     let report: string;
     switch (format) {
       case 'json':
-        report = JSON.stringify(data, null, '  ');
+        report = JSON.stringify(displayedData, null, '  ');
         break;
       case 'tsv':
-        report = data.map((availability) => [
+        report = displayedData.map((availability) => [
           availability.createdAt?.toISOString(),
           availability.productId,
           availability.store.countryCode,
@@ -86,7 +89,7 @@ Examples:
         break;
       default:
       case 'table':
-        report = createStockInfoReportTable(data).toString();
+        report = createStockInfoReportTable(displayedData).toString();
         break;
     }
     process.stdout.write(report);
