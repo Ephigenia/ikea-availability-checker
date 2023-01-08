@@ -53,6 +53,7 @@
   },
   "scripts": {
     "_postinstall": "husky install",
+    "build": "tsc --build src",
     "clean": "rimraf dist coverage",
     "format": "prettier -w \"{src,test}/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",

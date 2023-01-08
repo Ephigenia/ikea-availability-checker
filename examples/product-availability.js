@@ -5,7 +5,7 @@
  *     node product-availability.js 394 00501436
  */
 
-const ikea = require('../source');
+const ikea = require('../dist');
 const args = process.argv.slice(2);
 
 (async function() {

@@ -9,18 +9,17 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "target": "es2017",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
+    "sourceMap": false,
+    "outDir": "./../dist",
+    "rootDir": ".",
+    "baseUrl": ".",
     "incremental": true,
     "resolveJsonModule": true,
     "skipLibCheck": true
   },
-  "include": [
-    "src/**/*"
-  ],
   "types": [
-    "@types/nock"
+    "@types/nock",
+    "@types/node"
   ],
   "exclude": [
     "node_modules",
