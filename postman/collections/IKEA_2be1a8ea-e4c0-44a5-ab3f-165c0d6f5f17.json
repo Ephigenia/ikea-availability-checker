@@ -38,16 +38,14 @@
 					],
 					"id": "d1636c26-d767-4715-85b5-622b11f278c0",
 					"protocolProfileBehavior": {
-						"disableBodyPruning": true
+						"disableBodyPruning": true,
+						"followRedirects": false,
+						"disableCookies": true,
+						"maxRedirects": 0
 					},
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "x-client-id",
-								"value": "{{apiKey}}"
-							}
-						],
+						"header": [],
 						"url": {
 							"raw": "https://api.ingka.ikea.com/cia/availabilities/ru/:countryCode?itemNos={{productId}}&expand=StoresList,Restocks",
 							"protocol": "https",
@@ -82,7 +80,8 @@
 									"description": "alpha-2 lowercase country code to request availabilities from"
 								}
 							]
-						}
+						},
+						"description": "Retreive the number of available items in stock for a specific product id in all stores of a specific country.\n\nSome stores may also provide restock information."
 					},
 					"response": [
 						{
@@ -304,11 +303,26 @@
 			]
 		}
 	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "x-client-id",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e1524e5f-2027-4970-a90a-00d363f2f3d8",
+				"id": "1356212b-b915-445b-8a19-ad3d73ff06d1",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -318,7 +332,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a46c010b-8762-4e2a-9311-b8449d809193",
+				"id": "fbfddaa8-a6fc-4196-97fd-e99ba7e67950",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -328,23 +342,23 @@
 	],
 	"variable": [
 		{
-			"id": "59b6273e-c348-42d1-ae8b-8e4216345031",
+			"id": "e740bcc6-8668-4b93-848c-bb2e804b69cc",
 			"key": "productId",
 			"value": "50411990"
 		},
 		{
-			"id": "260957eb-306f-4d27-aa30-fd77f03bd81c",
+			"id": "6200f329-a460-4d31-8170-5c91df995ff6",
 			"key": "countryCode",
 			"value": "de"
 		},
 		{
-			"id": "45dab54a-53f3-438b-b58b-31fc394cfa18",
+			"id": "54e2d8c8-0f4c-420c-95fb-d09008768903",
 			"key": "apiKey",
 			"value": "da465052-7912-43b2-82fa-9dc39cdccef8",
 			"type": "string"
 		},
 		{
-			"id": "5ab7d798-f356-49cb-81ad-2f2380d68558",
+			"id": "b63900e7-9c26-430d-8c1d-615a9b7c2bc4",
 			"key": "use_datafile",
 			"value": "false",
 			"type": "string"
