@@ -4,7 +4,7 @@
  *     node stores.js AT
  */
 
-const ikea = require('../source');
+const ikea = require('../dist/src');
 const args = process.argv.slice(2);
 
 const [countryCode] = args;

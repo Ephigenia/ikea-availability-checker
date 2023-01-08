@@ -23,7 +23,7 @@ export interface ItemStockInfo {
 export enum PRODUCT_AVAILABILITY {
   HIGH_IN_STOCK = 'HIGH_IN_STOCK',
   LOW_IN_STOCK = 'LOW_IN_STOCK',
-  OUT_IN_STOCK = 'OUT_IN_STOCK',
+  OUT_OF_STOCK = 'OUT_OF_STOCK',
 };
 
 export const BASE_URL_DEFAULT = 'https://api.ingka.ikea.com';

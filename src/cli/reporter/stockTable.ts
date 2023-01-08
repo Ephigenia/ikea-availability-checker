@@ -1,4 +1,4 @@
-import * as color from 'ansi-colors';
+import * as color from '@colors/colors/safe';
 import CliTable3 from 'cli-table3';
 import { ItemStockInfo, PRODUCT_AVAILABILITY } from '../../lib/ingka';
 
@@ -14,7 +14,7 @@ export function availabilityColor(val: number): string {
   } else if (val >= 1) {
     return color.yellow(String(val));
   } else {
-    return color.red(String(val || ''));
+    return color.red(String(val || '0'));
   }
 }
 
@@ -24,8 +24,8 @@ function probabilityColor(val: PRODUCT_AVAILABILITY|unknown): string {
       return color.green(val);
     case PRODUCT_AVAILABILITY.LOW_IN_STOCK:
       return color.yellow(val);
-    case PRODUCT_AVAILABILITY.OUT_IN_STOCK:
-        return color.yellow(val);
+    case PRODUCT_AVAILABILITY.OUT_OF_STOCK:
+        return color.red(val);
     default:
       return color.white(String(val || ''));
   }
