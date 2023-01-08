@@ -28,9 +28,9 @@ export enum PRODUCT_AVAILABILITY {
 
 export const BASE_URL_DEFAULT = 'https://api.ingka.ikea.com';
 
-const cache: Record<string, ItemStockInfo[]> = {};
-
 export class IngkaApi {
+
+  cache: Record<string, ItemStockInfo[]> = {};
 
   private client: AxiosInstance;
 
@@ -100,10 +100,10 @@ export class IngkaApi {
     buCode: buCode,
   ): Promise<ItemStockInfo|undefined> {
     const key = countryCode + productId;
-    if (!cache[key]) {
-      cache[key] = await this.getAvailabilities(countryCode, [productId]);
+    if (!this.cache[key]) {
+      this.cache[key] = await this.getAvailabilities(countryCode, [productId]);
     }
-    return cache[key].find((item) => item.store?.buCode === buCode);
+    return this.cache[key].find((item) => item.store?.buCode === buCode);
   }
 
   private handleAxiosError(err): void {
