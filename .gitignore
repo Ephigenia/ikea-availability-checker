@@ -7,8 +7,7 @@ node_modules
 npm-debug.log
 
 coverage
-.nyc_output/
-
-.postman/
+.nyc_output
+dist
 
 *.tmp*
