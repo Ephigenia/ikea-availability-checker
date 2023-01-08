@@ -5,12 +5,12 @@ set -e
 
 cd "$(dirname "$0")" || exit
 
-npm run start -s -- stock --country "de" "80213074"
-npm run start -s -- stock --plain --country "de" "80213074"
-npm run start -s -- stock --json --country "de" "80213074"
-npm run start -s -- stock --pretty --country "de" "80213074"
+npm run start -s -- stock --country "at" "80213074"
+npm run start -s -- stock --plain --country "at" "80213074"
+npm run start -s -- stock --json --country "at" "80213074"
+npm run start -s -- stock --pretty --country "at" "80213074"
 
-npm run start -s -- stores "de" "80213074"
-npm run start -s -- stores --plain "de" "80213074"
-npm run start -s -- stores --pretty "de" "80213074"
-npm run start -s -- stores --json "de" "80213074"
+npm run start -s -- stores "at" "80213074"
+npm run start -s -- stores --plain "at" "80213074"
+npm run start -s -- stores --pretty "at" "80213074"
+npm run start -s -- stores --json "at" "80213074"
