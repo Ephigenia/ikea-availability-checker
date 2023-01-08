@@ -54,7 +54,7 @@ Examples:
     if (opts.pretty) format = 'table';
 
     let stores: Store[];
-    if (opts.store && opts.country) {
+    if (!opts.store && opts.country) {
       stores = findByCountryCode(opts.country);
     } else if (Array.isArray(opts.store)) {
       stores = findById(opts.store);
