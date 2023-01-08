@@ -1,0 +1,193 @@
+openapi: '3.0.0'
+info:
+  version: '1.0.0'
+  title: 'IKEA'
+  description: Inofficial description of IKEA ingka product and store availabilies API.
+servers:
+  - url: https://api.ingka.ikea.com
+    description: production
+paths:
+  /cia/availabilities/ru/{{countryCode}}:
+    parameters:
+      - name: countryCode
+        description: alpha-2 country code
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[A-Z]{2}$
+      - name: expand
+        description: fields to expand
+        in: query
+        required: false
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: 'string'
+            enum:
+              - StoresList
+              - Restocks
+      - name: itemNos
+        description: product id(s)
+        in: query
+        required: true
+        style: form
+        explode: false
+        schema:
+          type: array
+          items:
+            type: number
+    get:
+      summary: Get Product Availabilites
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvailabilityResponse'
+components:
+  schemas:
+    AvailableStocks:
+      type: object
+      properties:
+        type:
+          type: string
+          example: CASHCARRY
+          enum:
+            - CASHCARRY
+        quantity:
+          type: number
+          example: 30
+          minimum: 0
+        updateDateTime:
+          type: string
+          format: date-time
+          example: 2022-11-06T05:12:34.914Z
+        propabilitites:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                example: THIS_DAY
+                enum:
+                  - THIS_DAY
+              updateDateTime:
+                type: string
+                format: date-time
+                example: 2022-11-06T05:12:34.914Z
+              communication:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    colour:
+                      type: object
+                      properties:
+                        rgbDec:
+                          type: string
+                          example: 10,138,0
+                        rgbHex:
+                          type: string
+                          example: '#0A8A00'
+                          format: '#[0-9A-Z]{6}'
+                        token:
+                          type: string
+                          example: colour-positive
+                          enum:
+                            - colour-positive
+                            - colour-negative
+                    messageType:
+                      type: string
+                      example: HIGH_IN_STOCK
+                      enum:
+                        - HIGH_IN_STOCK
+                        - OUT_OF_STOCK
+              restocks:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                      example: DELIVERY
+                      enum:
+                        - DELIVERY
+                    quantity:
+                      type: number
+                      example: 44
+                      minimum: 0
+                    earliestDate:
+                      type: string
+                      format: date
+                      example: 2022-11-25
+                    latestDate:
+                      type: string
+                      format: date
+                      example: 2022-12-02
+                    updateDateTime:
+                      type: string
+                      format: date-time
+                      example: 2022-11-06T04:07:24.755Z
+                    reliability:
+                      type: string
+                      example: HIGH
+                      enum:
+                        - HIGH
+                        - LOW
+
+    AvailabilityObject:
+      type: object
+      properties:
+        isInCashAndCarryRange:
+          type: boolean
+        isInHomeDeliveryRange:
+          type: boolean
+        availableStocks:
+          type: array
+          items:
+            $ref: "#/components/schemas/AvailableStocks"
+        classUnitKey:
+          type: object
+          properties:
+            classUnitCode:
+              type: string
+              example: '063'
+            classUnitType:
+              type: string
+              example: 'STO'
+              enum:
+                - STO
+        itemKey:
+          type: object
+          properties:
+            itemNo:
+              type: string
+              example: 50411990
+            itemType:
+              type: string
+              example: ART
+              enum:
+                - ART
+    AvailabilityResponse:
+      description: WIP response format description
+      type: object
+      properties:
+        availabilities:
+          default: null
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/AvailabilityObject"
+
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: header
+      name: x-client-id
+security:
+  - ApiKey: []

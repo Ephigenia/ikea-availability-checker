@@ -1,9 +1,14 @@
-## [1.2.1](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.2.0...v1.2.1) (2023-01-03)
+# [2.0.0-alpha.6](https://github.com/Ephigenia/ikea-availability-checker/compare/v2.0.0-alpha.5...v2.0.0-alpha.6) (2022-11-11)
 
 
 ### Bug Fixes
 
-* **stores:** add fi, gb, ee, lv stores and remove closed gb store ([#152](https://github.com/Ephigenia/ikea-availability-checker/issues/152)) ([694e514](https://github.com/Ephigenia/ikea-availability-checker/commit/694e5141b46694e3599c6d51360e19b54fe94ae2))
+* wip ([fba15ee](https://github.com/Ephigenia/ikea-availability-checker/commit/fba15eef98288b625f1db2e103bc6f20134b926a))
+
+
+### Features
+
+* **stock:** add restockDate for Ingka API ([#138](https://github.com/Ephigenia/ikea-availability-checker/issues/138)) ([c105bb2](https://github.com/Ephigenia/ikea-availability-checker/commit/c105bb2a4472f1a59818bbe102da81368e9d44e2))
 
 # [1.2.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.5...v1.2.0) (2022-08-21)
 
@@ -15,9 +20,9 @@
 ## [1.1.5](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.4...v1.1.5) (2022-08-14)
 
 
-### Bug Fixes
+### Features
 
-* **stores:** adds Jurong store in Singapore ([#123](https://github.com/Ephigenia/ikea-availability-checker/issues/123)) ([eaf735e](https://github.com/Ephigenia/ikea-availability-checker/commit/eaf735e08c037f8a04155d7ab8744a5af6394bcb))
+* **stores:** adds the ability to list all stores ([83a1a41](https://github.com/Ephigenia/ikea-availability-checker/commit/83a1a41d08af42c387cfa65e67ccdb8668345b57))
 
 ## [1.1.4](https://github.com/Ephigenia/ikea-availability-checker/compare/v1.1.3...v1.1.4) (2022-05-15)
 

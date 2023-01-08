@@ -7,10 +7,6 @@ ignores:
   # related to linting commits
   - "@commitlint/cli"
   - "@commitlint/config-angular"
-  # related to release tool semantic release
-  - "@semantic-release/changelog"
-  - "@semantic-release/commit-analyzer"
-  - "@semantic-release/git"
-  - "@semantic-release/npm"
-  - "@semantic-release/release-notes-generator"
-  - "@types/node"
+  - "@commitlint/config-conventional"
+  # types usually are not required directly
+  - "@types/jest"

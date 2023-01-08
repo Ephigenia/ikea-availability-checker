@@ -1,5 +1,3 @@
-# SEE https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
-
 # Runs `npx depcheck`
 #
 # Depcheck is a tool for analyzing the dependencies in a project to see: how
@@ -13,8 +11,6 @@ name: depcheck
 on:
   # allow manual trigger workflow
   pull_request:
-    branches:
-      - main
     paths:
       # run only when one of the files matching the glob patterns changed
       - 'package.json'

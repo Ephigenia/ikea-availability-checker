@@ -12,12 +12,12 @@ runs:
         cache: npm
     - name: cache dependencies
       id: cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ./node_modules
         key: node-modules-${{ runner.name }}-${{ runner.arch}}-${{ hashFiles('package-lock.json') }}
     - name: install dependencies
-      run: npm ci --no-audit --no-scripts
+      run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline
       # only run npm ci when restoring the cache didn’t work to save some time
       # as npm ci would remove the node_modules again
       if: steps.cache.outputs.cache-hit != 'true'

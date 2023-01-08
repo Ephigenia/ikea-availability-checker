@@ -1,7 +1,11 @@
 name: Inspect dependencies
 
 on:
-  - pull_request
+  pull_request:
+    paths:
+      # run only when one of the files matching the glob patterns changed
+      - 'package.json'
+      - 'package-lock.json'
 
 jobs:
   check_new_dependencies:

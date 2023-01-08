@@ -1,5 +1,3 @@
-# SEE https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
-
 name: default
 
 on:
@@ -31,18 +29,19 @@ jobs:
         VALIDATE_YAML: true
         VALIDATE_BASH: true
         VALIDATE_BASH_EXEC: true
-        FILTER_REGEX_EXCLUDE: CHANGELOG.md
+        FILTER_REGEX_EXCLUDE: CHANGELOG.md,postman/**/*.yaml,postman/**/*.json
 
-  lint-types:
+  build:
     runs-on: ubuntu-latest
+    needs: [lint]
     steps:
     - uses: actions/checkout@v3
     - uses: ./.github/actions/setup
-    - run: npm run lint:types
+    - run: npm run build
 
   test:
     runs-on: ubuntu-latest
-    needs: [lint, lint-types]
+    needs: [lint, build]
 
     steps:
     - uses: actions/checkout@v3
