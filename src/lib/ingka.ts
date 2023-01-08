@@ -1,5 +1,5 @@
 
-import axios, { Axios, AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, isAxiosError } from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse, isAxiosError } from 'axios';
 
 import { buCode, countryCode, findOneById, Store } from './stores';
 import { IngkaNotFoundError, IngkaParseError, IngkaResponseError } from './ingkaErrors'
@@ -24,7 +24,7 @@ export enum PRODUCT_AVAILABILITY {
   HIGH_IN_STOCK = 'HIGH_IN_STOCK',
   LOW_IN_STOCK = 'LOW_IN_STOCK',
   OUT_OF_STOCK = 'OUT_OF_STOCK',
-};
+}
 
 export const BASE_URL_DEFAULT = 'https://api.ingka.ikea.com';
 

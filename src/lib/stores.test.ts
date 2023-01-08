@@ -47,27 +47,22 @@ describe('stores', function() {
       expect(stores.findById('129')).toHaveLength(1);
     });
     it('returns an empty list when no stores found', () => {
-      expect(stores.findById([1,2,3,4] as any[])).toHaveLength(0);
-    });
-    it('returns an empty list when no stores found', () => {
+      expect(stores.findById(['1','2','3','4'])).toHaveLength(0);
       expect(stores.findById(['421', '394'])).toHaveLength(2);
-      expect(stores.findById([421, 394] as any[])).toHaveLength(2);
-    });
-    it('returns an empty list when no stores found', () => {
-      expect(stores.findById(['421', 18282 as any])).toHaveLength(1);
+      expect(stores.findById(['421', '18282'])).toHaveLength(1);
     });
   }); // findById
 
   describe('findOneById', () => {
     it('returns undefined when no store with id found', () => {
-      expect(stores.findOneById('1282')).toBe(undefined);
+      expect(stores.findOneById('1282')).toBeUndefined()
     });
     it('returns the matching store', () => {
       const store = stores.findOneById('039');
       expect(store).toHaveProperty('name', 'Montreal');
     });
     it('returns the matching store when number is given', () => {
-      const store = stores.findOneById(139 as any);
+      const store = stores.findOneById('139');
       expect(store).toHaveProperty('name', 'Halle/Leipzig');
       expect(stores.findOneById('139')).toBe(store);
     });

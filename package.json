@@ -20,9 +20,6 @@
     "warehouse"
   ],
   "license": "MIT",
-  "engines": {
-    "node": ">=18"
-  },
   "maintainer": {
     "name": "Marcel Eichner",
     "email": "marcel.eichner@ephigenia.de"
@@ -79,7 +76,6 @@
     "@commitlint/config-angular": "17.3.0",
     "@commitlint/config-conventional": "17.3.0",
     "@types/jest": "29.2.5",
-    "@types/nock": "11.1.0",
     "@types/node": "18.11.18",
     "@typescript-eslint/eslint-plugin": "5.47.1",
     "@typescript-eslint/parser": "5.47.1",

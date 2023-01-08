@@ -95,7 +95,7 @@ Examples:
 try {
   program.parseAsync();
 } catch (err: unknown) {
-  let message = err instanceof Error ? err.message : String(err);
+  const message = err instanceof Error ? err.message : String(err);
   process.stderr.write(message + '\n');
   process.exit(1);
 }

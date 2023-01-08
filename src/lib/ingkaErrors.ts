@@ -3,7 +3,7 @@ import { AxiosError, AxiosResponse } from "axios";
 export class IngkaError extends Error {}
 
 export class IngkaParseError extends IngkaError{
-  data: any;
+  data: unknown;
   constructor(message: string, data: unknown = null) {
     super(message);
     this.data = data;

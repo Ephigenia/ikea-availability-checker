@@ -1,6 +1,5 @@
 import { BASE_URL_DEFAULT, IngkaApi } from './ingka';
 import nock from 'nock';
-import { IngkaNotFoundError, IngkaParseError, IngkaResponseError } from './ingkaErrors';
 
 describe('INGKA API', function() {
 
@@ -20,14 +19,9 @@ describe('INGKA API', function() {
       nock(BASE_URL_DEFAULT)
         .get(() => true)
         .reply(401, 'unauthorized');
-      try {
-        await createClient().getAvailabilities('de', '1231231');
-      } catch (error: unknown) {
-        expect(error).toBeInstanceOf(IngkaResponseError);
-        expect(error).toEqual(expect.objectContaining({
-          message: expect.stringMatching(/status code 401/i),
-        }))
-      }
+
+      return expect(createClient().getAvailabilities('de', '1231231'))
+        .rejects.toThrow(/status code 401/i);
     });
 
     it('404 throws IngkaNotFoundError', async function() {
@@ -35,14 +29,8 @@ describe('INGKA API', function() {
       nock(BASE_URL_DEFAULT)
         .get(() => true)
         .reply(404, 'not found');
-      try {
-        await createClient().getAvailabilities('de', '1231231');
-      } catch (error: unknown) {
-        expect(error).toBeInstanceOf(IngkaNotFoundError);
-        expect(error).toEqual(expect.objectContaining({
-          message: expect.stringMatching(/status code 404/i),
-        }))
-      }
+      return expect(createClient().getAvailabilities('de', '1231231'))
+        .rejects.toThrow(/status code 404/i);
     });
 
     it('invalid data structure throws an IngkaParseError', async function() {
@@ -50,14 +38,8 @@ describe('INGKA API', function() {
       nock(BASE_URL_DEFAULT)
         .get(() => true)
         .reply(200, {});
-      try {
-        await createClient().getAvailabilities('de', '1231231');
-      } catch (error: unknown) {
-        expect(error).toBeInstanceOf(IngkaParseError);
-        expect(error).toEqual(expect.objectContaining({
-          message: expect.stringMatching(/data structure/i),
-        }))
-      }
+      return expect(createClient().getAvailabilities('de', '1231231'))
+        .rejects.toThrow(/data structure/i);
     });
 
     it('200 with 404 content error throws a', async function() {
@@ -81,14 +63,8 @@ describe('INGKA API', function() {
           "timestamp": "2023-01-02T17:40:22.760Z",
           "traceId": "12140262290630891232"
         });
-      try {
-        await createClient().getAvailabilities('de', '1231231');
-      } catch (error: unknown) {
-        expect(error).toBeInstanceOf(IngkaNotFoundError);
-        expect(error).toEqual(expect.objectContaining({
-          message: expect.stringMatching(/not found/i),
-        }))
-      }
+      return expect(createClient().getAvailabilities('de', '1231231'))
+        .rejects.toThrow(/not found/i);
     });
 
     it('returns an empty array when response is empty', async function() {

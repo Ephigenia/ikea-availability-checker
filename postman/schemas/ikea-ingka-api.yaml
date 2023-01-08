@@ -179,7 +179,6 @@ components:
       properties:
         availabilities:
           default: null
-          nullable: true
         data:
           type: array
           items:
