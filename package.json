@@ -46,7 +46,7 @@
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "bin": {
-    "ikea-availability": "src/cli/index.js"
+    "ikea-availability": "dist/src/cli/index.js"
   },
   "scripts": {
     "_postinstall": "husky install",
