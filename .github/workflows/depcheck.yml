@@ -10,7 +10,7 @@ name: depcheck
 
 on:
   # allow manual trigger workflow
-  pull_request:
+  push:
     paths:
       # run only when one of the files matching the glob patterns changed
       - 'package.json'

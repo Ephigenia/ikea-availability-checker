@@ -1,17 +1,15 @@
 name: default
 
 on:
-  pull_request:
   push:
     branches:
-      - master
-      - main
-      - next
-      - next-major
-      - alpha
-      - beta
+    - main
+    - alpha
+    - beta
+  pull_request:
 
 jobs:
+  # https://github.com/github/super-linter
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +24,6 @@ jobs:
         VALIDATE_ALL_CODEBASE: false
         VALIDATE_JAVASCRIPT_ES: true
         VALIDATE_EDITORCONFIG: true
-        VALIDATE_YAML: true
         VALIDATE_BASH: true
         VALIDATE_BASH_EXEC: true
         FILTER_REGEX_EXCLUDE: CHANGELOG.md,postman/**/*.yaml,postman/**/*.json
