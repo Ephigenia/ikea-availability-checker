@@ -57,7 +57,7 @@
     "lint": "eslint \"{src,test}/**/*.ts\"",
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable",
-    "preversion": "npm run build",
+    "prepare": "npm run build",
     "semantic-release": "semantic-release",
     "start": "node -r ts-node/register src/cli/index.ts",
     "tdd": "npm run -s test -- --watch",
