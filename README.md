@@ -9,19 +9,15 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
 
 Please report any bugs related to this alpha in the issues: https://github.com/Ephigenia/ikea-availability-checker/issues
 
-
 Features
 ================================================================================
 
-- list 403 IKEA stores worldwide
+- supports listings from >400 IKEA stores worldwide
 - get product stock amount for a whole country or single store in JSON, Text and CLI-Table format
-- support for many countries (see below)
-    at, be, ca, ch, cz, de, dk, es, fi, fr, gb, hu, ie, it, jo, kw, lt, nl, no, pl, pt, qa, ro, sa, se, sk, us [![smokey](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml/badge.svg?branch=alpha)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml)
-- javascript API for easy integration in your library or project
-
-Some countries don’t support the new ingka API and cannot be used with the 2.x release: au, cn, hk, hr, jp, kr, my, sg, th.
-
-Please use the 1.x release for accessing data for those countries.
+- support for many countries:
+    - at, au, be, ca, ch, cn, cz, de, dk, es, fi, fr, gb, hk, hu, hr, ie, it, jo, jp, kr, kw, lt, lv, my, nl, no, pl, pt, qa, ro, sa, se, sg, sk, th, tw, us - [![smokey](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml/badge.svg?branch=alpha)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml)
+    - Russia (ru) is closed down
+- [javascript API](#api) for easy integration in your library or project
 
 Command Line
 ================================================================================
