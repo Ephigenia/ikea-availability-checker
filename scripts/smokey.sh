@@ -44,48 +44,79 @@ function printReport() {
     fi
 }
 
-CODE="80213074"
+# big thanks to @Teko012 for providing a list of working productIds & countries
+# SEE https://github.com/Ephigenia/ikea-availability-checker/issues/155
 
-smokeCountry "at" "${CODE}";
-# smokeCountry "au" "${CODE}"; # no support in ingka api
-smokeCountry "be" "${CODE}";
-smokeCountry "ca" "${CODE}";
-smokeCountry "ch" "${CODE}";
-# smokeCountry "cn" "${CODE}"; # no support in ingka api
-smokeCountry "cz" "${CODE}";
-smokeCountry "de" "${CODE}";
-smokeCountry "dk" "${CODE}";
-smokeCountry "es" "${CODE}";
-smokeCountry "fi" "${CODE}";
-smokeCountry "fr" "${CODE}";
-smokeCountry "gb" "${CODE}";
-# smokeCountry "hk" "${CODE}"; # no support in ingka api
-# smokeCountry "hr" "${CODE}"; # no support in ingka api
-smokeCountry "hu" "${CODE}";
-smokeCountry "ie" "${CODE}";
-smokeCountry "it" "${CODE}";
-smokeCountry "jo" "${CODE}";
-# smokeCountry "jp" "${CODE}"; # no support in ingka api
-# smokeCountry "kr" "${CODE}"; # no support in ingka api
-smokeCountry "kw" "${CODE}";
-smokeCountry "lt" "${CODE}";
-# smokeCountry "my" "${CODE}"; # no support in ingka api
-smokeCountry "nl" "${CODE}";
-smokeCountry "no" "${CODE}";
-smokeCountry "pl" "${CODE}";
-smokeCountry "pt" "${CODE}";
-smokeCountry "qa" "${CODE}";
-smokeCountry "ro" "${CODE}";
+smokeCountry "at" "80213074";
+smokeCountry "au" "10514792";
+smokeCountry "be" "80213074";
+smokeCountry "ca" "80213074";
+smokeCountry "ch" "80213074";
+smokeCountry "cn" "10514792";
+smokeCountry "cz" "80213074";
+smokeCountry "de" "80213074";
+smokeCountry "dk" "80213074";
+smokeCountry "es" "80213074";
+smokeCountry "fi" "80213074";
+smokeCountry "fr" "80213074";
+smokeCountry "gb" "80213074";
+smokeCountry "hk" "10514792";
+smokeCountry "hr" "00263850";
+smokeCountry "hu" "80213074";
+smokeCountry "ie" "80213074";
+smokeCountry "it" "80213074";
+smokeCountry "jo" "80213074";
+smokeCountry "jp" "10514792";
+smokeCountry "kr" "10514792";
+smokeCountry "kw" "80213074";
+smokeCountry "lt" "80213074";
+smokeCountry "lv" "30514791";
+smokeCountry "my" "10514792";
+smokeCountry "nl" "80213074";
+smokeCountry "no" "80213074";
+smokeCountry "pl" "80213074";
+smokeCountry "pt" "80213074";
+smokeCountry "qa" "80213074";
+smokeCountry "ro" "80213074";
+smokeCountry "sa" "80213074";
+smokeCountry "se" "80213074";
+smokeCountry "sg" "10514792";
+smokeCountry "sk" "80213074";
+smokeCountry "th" "10514792";
+smokeCountry "tw" "80213074";
+smokeCountry "us" "80213074";
+
+# countries to be added
+# AE - 30514791
+# BG - 30514791
+# BH - 30514791
+# CE - 30514791 (this is ES but it's the Islands website, same as SP, but a different country code on API from them)
+# CL - 30449908 (different product from the same family)
+# CY - 30514791
+# DO - 30514791
+# EE - 30514791
+# EG - 30514791
+# GR - 30514791
+# ID - 10514792
+# IL - 30514791
+# IN - 10514792
+# INTSALES - N/A
+# IS - 30514791
+# MA - 30514791
+# MX - 30514791
+# OM - 30514791
+# PH - 10514792
+# PR - 30514791
+# RS - 30514791
+# SI - 30514791
+# SP - 30514791 (this is ES but it's the Islands website, same as CE domain, but a different country code on API from them)
+# TR - 30514791
+# UA - 00263850
+
+
 # russia lists stores but their APIs seems to be closed, every store returns
 # "Service not available"
-# smokeCountry "ru" "${CODE}"; # problems with one city
-smokeCountry "sa" "${CODE}";
-smokeCountry "se" "${CODE}";
-# smokeCountry "sg" "${CODE}"; # no support in ingka api
-smokeCountry "sk" "${CODE}";
-# smokeCountry "th" "${CODE}"; # no support in ingka api
-# smokeCountry "tw" "${CODE}"; # no support in ingka api
-smokeCountry "us" "${CODE}";
+# smokeCountry "ru" "80213074"; # problems with one city
 
 printReport
 
