@@ -55,7 +55,7 @@ Examples:
     let report: string;
     switch (format) {
       case "json":
-        report = JSON.stringify(foundStores, null, "  ");
+        report = JSON.stringify(foundStores);
         break;
       case "tsv":
         report = foundStores

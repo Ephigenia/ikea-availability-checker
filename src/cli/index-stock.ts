@@ -79,7 +79,7 @@ Examples:
     let report: string;
     switch (format) {
       case "json":
-        report = JSON.stringify(displayedData, null, "  ");
+        report = JSON.stringify(displayedData);
         break;
       case "tsv":
         report = displayedData
