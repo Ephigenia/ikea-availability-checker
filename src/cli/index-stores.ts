@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { program } from "./lib/program";
 import { findByCountryCode, Store, stores } from "./../lib/stores";
 import { countryCode } from "./lib/arguments";

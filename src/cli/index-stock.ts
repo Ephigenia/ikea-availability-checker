@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { program } from "./lib/program";
 import { productIds } from "./lib/arguments";
 import * as options from "./lib/options";

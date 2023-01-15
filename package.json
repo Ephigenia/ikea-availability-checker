@@ -62,6 +62,7 @@
     "start": "node -r ts-node/register src/cli/index.ts",
     "tdd": "npm run -s test -- --watch",
     "test:ci": "npm run -s test",
+    "test:build": "npm run build && ./dist/index.ts",
     "test": "NODE_ENV=test jest src/"
   },
   "dependencies": {
