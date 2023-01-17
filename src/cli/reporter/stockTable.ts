@@ -70,7 +70,11 @@ export function createStockInfoReportTable(
       stockInfo.store.name,
       availabilityColor(stockInfo.stock),
       probabilityColor(stockInfo.probability),
-      stockInfo.restockDate ? `in ${daysUntil(stockInfo.restockDate)}` : "",
+      stockInfo.restockDate
+        ? `in ${daysUntil(stockInfo.restockDate)} (${stockInfo.restockDate
+            .toISOString()
+            .substring(0, 10)})`
+        : "",
     ])
   );
 
