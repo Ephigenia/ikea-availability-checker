@@ -60,6 +60,20 @@ describe('createStockInfoReportTable', function() {
       createdAt: now,
       probability: PRODUCT_AVAILABILITY.OUT_OF_STOCK,
     },
+    {
+      buCode: '3',
+      productId: '34',
+      stock: 20,
+      store: {
+        buCode: '2',
+        coordinates: [2, 3],
+        country: 'Belgium',
+        countryCode: 'be',
+        name: 'Berlin',
+      },
+      createdAt: now,
+      probability: PRODUCT_AVAILABILITY.LOW_IN_STOCK,
+    },
   ];
 
   it('returns an empty table when no data is provided', function() {
@@ -68,9 +82,9 @@ describe('createStockInfoReportTable', function() {
   });
   it('returns valid table data', function() {
     const table = createStockInfoReportTable(exampleData);
-    expect(table).toHaveLength(2);
+    expect(table).toHaveLength(3);
     const str = table.toString().split(/\n/);
-    expect(str).toHaveLength(7);
+    expect(str).toHaveLength(9);
     expect(str[3]).toMatch(/2023-01-19T11:18:06.774Z/);
     expect(str[3]).toMatch(/HIGH_IN_STOCK/);
   });

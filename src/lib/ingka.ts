@@ -39,7 +39,7 @@ export const BASE_URL_DEFAULT = "https://api.ingka.ikea.com";
 
 export class IngkaApi {
 
-  private client: AxiosInstance;
+  public client: AxiosInstance;
 
   constructor(
     clientId: string = CLIENT_ID_US,
@@ -128,7 +128,7 @@ export class IngkaApi {
 
   private handleResponseError(response: AxiosResponse): void {
     if (response.data?.errors) {
-      if (response.data.errors[0].code === 404) {
+      if (response.data?.errors[0]?.code === 404) {
         throw new IngkaNotFoundError(response.data.errors[0].message);
       }
       throw new IngkaParseError("Unknown INGKA API error", response.data);
@@ -183,7 +183,7 @@ export class IngkaApi {
       );
       this.handleResponseError(response);
       this.validateResponseStructure(response.data);
-      stockInfos = this.parseAvailabilitiesResponse(response.data) || [];
+      stockInfos = this.parseAvailabilitiesResponse(response.data);
     } catch (err) {
       if (isAxiosError(err)) {
         this.handleAxiosError(err);

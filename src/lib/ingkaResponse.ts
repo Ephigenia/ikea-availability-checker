@@ -16,7 +16,7 @@ export interface IngkaAvailabilitiesResponseAvailableStockItem {
       messageType: "HIGH_IN_STOCK" | "OUT_OF_STOCK";
     };
   }[];
-  restocks: {
+  restocks?: {
     type: "DELIVERY";
     quantity: number;
     /** Date (RFC 3339, f.e. "2022-11-01") */

@@ -1,13 +1,14 @@
 import * as checker from "./index";
 import { BASE_URL_DEFAULT } from "./lib/ingka";
 import nock from "nock";
+import { IngkaAvailabilitiesResponseAvailableStockItem, IngkaAvailabilitiesResponseDataItem } from "./lib/ingkaResponse";
 
 describe("API", function () {
   const BU_CODE = "063";
   const PRODUCT_ID = "50411990";
 
   afterEach(() => {
-    // nock.isDone();
+    nock.isDone();
   });
 
   describe("availability", function () {
@@ -85,6 +86,16 @@ describe("API", function () {
                       },
                     },
                   ],
+                  restocks: [
+                    {
+                      type: 'DELIVERY',
+                      quantity: 23,
+                      earliestDate: '2021-12-13',
+                      latestDate: '2021-12-12',
+                      updateDateTime: '2023-12-12',
+                      reliability: 'HIGH',
+                    }
+                  ]
                 },
               ],
               classUnitKey: {
@@ -95,7 +106,7 @@ describe("API", function () {
                 itemNo: PRODUCT_ID,
                 itemType: "ART",
               },
-            },
+            } as IngkaAvailabilitiesResponseDataItem
           ],
         });
       const stores = checker.stores.findById([BU_CODE, '343', '326']);
