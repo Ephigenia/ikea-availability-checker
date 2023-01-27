@@ -3,10 +3,15 @@ import { normalizeCountryCode } from "../cli/lib/helper";
 import { default as data } from "./../data/stores.json";
 
 export interface Store {
+  /** unique identifier of a store */
   buCode: buCode;
+  /** name of the store */
   name: string;
+  /** geo-coordinates of the store, longitude, latitude */
   coordinates: [number, number];
+  /** alpha-2 country code */
   countryCode: countryCode;
+  /** country name */
   country: string;
 }
 

@@ -12,62 +12,64 @@ describe("INGKA API", function () {
   });
 
   describe("getAvailabilities", function () {
-    it("non 200 status codes throw IngkaResponseError", async function () {
-      expect.hasAssertions();
-      nock(BASE_URL_DEFAULT)
-        .get(() => true)
-        .reply(401, "unauthorized");
+    describe('error handling', function() {
+      it("non 200 status codes throw IngkaResponseError", async function () {
+        expect.hasAssertions();
+        nock(BASE_URL_DEFAULT)
+          .get(() => true)
+          .reply(401, "unauthorized");
 
-      return expect(
-        createClient().getAvailabilities("de", "1231231")
-      ).rejects.toThrow(/status code 401/i);
-    });
+        return expect(
+          createClient().getAvailabilities("de", "1231231")
+        ).rejects.toThrow(/status code 401/i);
+      });
 
-    it("404 throws IngkaNotFoundError", async function () {
-      expect.hasAssertions();
-      nock(BASE_URL_DEFAULT)
-        .get(() => true)
-        .reply(404, "not found");
-      return expect(
-        createClient().getAvailabilities("de", "1231231")
-      ).rejects.toThrow(/status code 404/i);
-    });
+      it("404 throws IngkaNotFoundError", async function () {
+        expect.hasAssertions();
+        nock(BASE_URL_DEFAULT)
+          .get(() => true)
+          .reply(404, "not found");
+        return expect(
+          createClient().getAvailabilities("de", "1231231")
+        ).rejects.toThrow(/status code 404/i);
+      });
 
-    it("invalid data structure throws an IngkaParseError", async function () {
-      expect.hasAssertions();
-      nock(BASE_URL_DEFAULT)
-        .get(() => true)
-        .reply(200, {});
-      return expect(
-        createClient().getAvailabilities("de", "1231231")
-      ).rejects.toThrow(/data structure/i);
-    });
+      it("invalid data structure throws an IngkaParseError", async function () {
+        expect.hasAssertions();
+        nock(BASE_URL_DEFAULT)
+          .get(() => true)
+          .reply(200, {});
+        return expect(
+          createClient().getAvailabilities("de", "1231231")
+        ).rejects.toThrow(/data structure/i);
+      });
 
-    it("200 with 404 content error throws a", async function () {
-      expect.hasAssertions();
-      nock(BASE_URL_DEFAULT)
-        .get(() => true)
-        .reply(200, {
-          availabilities: null,
-          data: [],
-          errors: [
-            {
-              code: 404,
-              details: {
-                classUnitCode: "DE",
-                classUnitType: "RU",
-                itemNo: "12313123",
+      it("200 with 404 content error throws an error", async function () {
+        expect.hasAssertions();
+        nock(BASE_URL_DEFAULT)
+          .get(() => true)
+          .reply(200, {
+            availabilities: null,
+            data: [],
+            errors: [
+              {
+                code: 404,
+                details: {
+                  classUnitCode: "DE",
+                  classUnitType: "RU",
+                  itemNo: "12313123",
+                },
+                message: "Not found",
               },
-              message: "Not found",
-            },
-          ],
-          timestamp: "2023-01-02T17:40:22.760Z",
-          traceId: "12140262290630891232",
-        });
-      return expect(
-        createClient().getAvailabilities("de", "1231231")
-      ).rejects.toThrow(/not found/i);
-    });
+            ],
+            timestamp: "2023-01-02T17:40:22.760Z",
+            traceId: "12140262290630891232",
+          });
+        return expect(
+          createClient().getAvailabilities("de", "1231231")
+        ).rejects.toThrow(/not found/i);
+      });
+    }); // error handling
 
     it("returns an empty array when response is empty", async function () {
       expect.hasAssertions();

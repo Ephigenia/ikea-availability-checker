@@ -2,16 +2,8 @@ import { AxiosRequestConfig } from "axios";
 import { IngkaApi, ItemStockInfo } from "./lib/ingka";
 import { findOneById, Store } from "./lib/stores";
 
-export * as errors from "./lib/ingkaErrors";
-export * as stores from "./lib/stores";
-
-//   availability: async (buCode, productId, options) => {
-//     const store = stores.findOneById(buCode);
-//     const client = new IngkaApi(undefined, options);
-//     return client.getStoreProductAvailability(buCode, productId);
-//   },
-//   // stores,
-//   // errors,
+export * as errors from './lib/ingkaErrors';
+export * as stores from './lib/stores';
 
 /**
  * Asynchronously requests the availability of a specific product in one
@@ -37,6 +29,9 @@ export async function availability(
   return iows.getStoreProductAvailability(store.countryCode, productId, buCode);
 }
 
+/**
+ * Query one or multiple stores for one or multiple product ids.
+ */
 export async function availabilities(
   stores: Store[],
   productIds: string[],

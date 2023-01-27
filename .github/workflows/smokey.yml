@@ -1,5 +1,7 @@
 name: smokey
 
+# run smoke tests actually testing different countries each day
+
 on:
   push:
   schedule:

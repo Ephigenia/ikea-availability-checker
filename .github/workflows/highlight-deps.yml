@@ -10,6 +10,10 @@ on:
 jobs:
   check_new_dependencies:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # required by hiwelo/new-dependencies-action
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
       - name: Check for new dependencies

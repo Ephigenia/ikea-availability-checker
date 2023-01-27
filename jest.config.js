@@ -8,6 +8,7 @@ const config = {
   coverageReporters: [
     // show a short summary on each test run
     'text-summary',
+    'text',
     // creates "coverage" directory and "coverage/lcov.info" &
     // "/coverage/lcov-report"
     'lcov'

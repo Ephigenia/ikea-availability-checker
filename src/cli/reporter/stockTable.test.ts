@@ -22,6 +22,11 @@ describe("daysUntil", function () {
 });
 
 describe('createStockInfoReportTable', function() {
+  beforeEach(() => {
+    jest
+      .useFakeTimers()
+      .setSystemTime(new Date('2023-01-20'));
+  });
   const now = new Date('2023-01-19T11:18:06.774Z');
   const in2Days = new Date(now.getTime());
   in2Days.setDate(now.getDate() + 2);

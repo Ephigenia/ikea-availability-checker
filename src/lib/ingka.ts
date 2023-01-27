@@ -38,7 +38,6 @@ export enum PRODUCT_AVAILABILITY {
 export const BASE_URL_DEFAULT = "https://api.ingka.ikea.com";
 
 export class IngkaApi {
-  cache: Record<string, ItemStockInfo[]> = {};
 
   private client: AxiosInstance;
 
@@ -106,17 +105,18 @@ export class IngkaApi {
     });
   }
 
-  // TODO add the ability to pass over arrays for buCode and itemCode
+  cache: Map<string, Promise<ItemStockInfo[]>> = new Map();
+
   async getStoreProductAvailability(
     countryCode: countryCode,
     productId: string,
     buCode: buCode
   ): Promise<ItemStockInfo | undefined> {
     const key = countryCode + productId;
-    if (!(key in this.cache)) {
-      this.cache[key] = await this.getAvailabilities(countryCode, [productId]);
+    if (!this.cache.has(key)) {
+      this.cache.set(key, this.getAvailabilities(countryCode, [productId]));
     }
-    return this.cache[key].find((item) => item.store?.buCode === buCode);
+    return this.cache.get(key)?.then(arr => arr.find(item => item.store?.buCode === buCode));
   }
 
   private handleAxiosError(err: AxiosError): void {
@@ -167,7 +167,6 @@ export class IngkaApi {
     options: AxiosRequestConfig = {}
   ): Promise<ItemStockInfo[]> {
     const uri = this.buildAvailabilityUri(countryCode);
-
     options = options || {};
     options.params = {
       // StoresList,Restocks,SalesLocations
