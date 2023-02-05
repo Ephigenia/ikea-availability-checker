@@ -1,7 +1,8 @@
+import nock from "nock";
+
 import * as checker from "./index";
 import { BASE_URL_DEFAULT } from "./lib/ingka";
-import nock from "nock";
-import { IngkaAvailabilitiesResponseAvailableStockItem, IngkaAvailabilitiesResponseDataItem } from "./lib/ingkaResponse";
+import { IngkaAvailabilitiesResponseDataItem } from "./lib/ingkaResponse";
 
 describe("API", function () {
   const BU_CODE = "063";

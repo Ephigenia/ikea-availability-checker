@@ -1,5 +1,6 @@
-import { BASE_URL_DEFAULT, IngkaApi } from "./ingka";
 import nock from "nock";
+
+import { BASE_URL_DEFAULT, IngkaApi } from "./ingka";
 
 describe("INGKA API", function () {
   function createClient() {

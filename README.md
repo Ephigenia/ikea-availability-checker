@@ -112,7 +112,7 @@ Or call it directly using [npx](https://www.npmjs.com/package/npx):
 
 ##### Store-Name / Location / City-Name
 
-The "store" option also accepts strings which match on the location’s name:
+The "store" option also accepts strings that match on the location’s name:
 
     npx ikea-availability-checker stock --store=Berlin 40413131
 
@@ -163,7 +163,7 @@ Development
 ## Requirements
 
 - [nodejs](https://nodejs.org) for version info check [.nvmrc](./.nvmrc).
-*it is strongly recommended to use either nvm and the exact same node version or the docker container as development environment*
+*it is strongly recommended to use either nvm and the same node version or the docker container as a development environment*
 
 
 ## Debug
@@ -191,7 +191,7 @@ Running all tests will also create coverage reports shown after the test results
 
 ### Smoke Testing
 
-There are two shell scripts that can be used for testing the different output formats and all or some countries in the "/scripts" directory.
+Two shell scripts can be used for testing the different output formats and all or some countries in the "/scripts" directory.
 
 ### Request Testing
 
@@ -203,8 +203,6 @@ Releases are automated and created by CI managed by [semantic-release](https://g
 
 ## Trouble Shooting
 
-- `DEPRECATED`
-    You’re trying to check the availability of a product that may not be available in the country/store. Read more about it in the [Discussions](https://github.com/Ephigenia/ikea-availability-checker/discussions/83)](https://github.com/Ephigenia/ikea-availability-checker/discussions/83)
 - I want to deactivate colored output
     Colored output can be disabled by setting the `FORCE_COLOR=1` before running a command: `FORCE_COLOR=0 npx ikea-availability-checker stores de`
 
@@ -221,6 +219,7 @@ Other Projects & Articles
 
 ## Packages
 
+* [vrslev/ikea-api-client](https://github.com/vrslev/ikea-api-client) alternate IKEA API Client
 * [ikea stock checker](https://github.com/lovegandhi/ikea-stock-checker)
 * [ikea stock finder](https://github.com/sasasoni/ikea_stock_finder) Japanese ruby
 * [ikea scraper](https://github.com/LordBonzi/ikea-scraper) python stock scraper
