@@ -16,5 +16,8 @@ indent_size = 2
 indent_size = 4
 trim_trailing_whitespace = false
 
+[postman/**/*.json]
+indent_style = tab
+
 [Makefile]
 indent_style = tab
