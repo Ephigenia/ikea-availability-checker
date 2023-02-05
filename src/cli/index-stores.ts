@@ -75,7 +75,7 @@ Examples:
   });
 
 program.parseAsync()
-  .catch((err: unknown) {
+  .catch((err: unknown) => {
     const message = err instanceof Error ? err.message : String(err);
     process.stderr.write(message + "\n");
     process.exit(1);
