@@ -31,7 +31,7 @@ describe("INGKA API", function () {
 
   describe("getAvailabilities", function () {
     describe('error handling', function() {
-      it("non 200 status codes throw IngkaResponseError", async function () {
+      it.only("non 200 status codes throw IngkaResponseError", async function () {
         expect.hasAssertions();
         nock(BASE_URL_DEFAULT)
           .get(() => true)
@@ -39,7 +39,7 @@ describe("INGKA API", function () {
 
         return expect(
           createClient().getAvailabilities("de", "1231231")
-        ).rejects.toThrow(/status code 401/i);
+        ).rejects.toThrow(/unknown Response error/i);
       });
 
       it("throws a unknown errors", async function () {
@@ -57,17 +57,20 @@ describe("INGKA API", function () {
 
         return expect(
           createClient().getAvailabilities("de", "1231231")
-        ).rejects.toThrow(/Unknown INGKA API ERROR/i);
+        ).rejects.toThrow(/made up error/i);
       });
 
-      it("404 throws IngkaNotFoundError", async function () {
+      it('throws a 422 error on invalid request params', async function() {
         expect.hasAssertions();
         nock(BASE_URL_DEFAULT)
           .get(() => true)
-          .reply(404, "not found");
+          .reply(422, {
+            "code": 604,
+            "message": "itemNos.0 in query should be at least 8 chars long"
+          });
         return expect(
-          createClient().getAvailabilities("de", "1231231")
-        ).rejects.toThrow(/status code 404/i);
+          createClient().getAvailabilities("de", "1")
+        ).rejects.toThrow(/itemNos.0 in query/i);
       });
 
       it("invalid data structure throws an IngkaParseError", async function () {

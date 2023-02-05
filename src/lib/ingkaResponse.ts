@@ -45,8 +45,20 @@ export interface IngkaAvailabilitiesResponseDataItem {
   };
 }
 
+export interface IngkaAvailabilitiesErrorResponse {
+  code: string;
+  message: string;
+}
+
 export interface IngkaAvailabilitiesResponse {
   availabilities: null;
-  errors?: unknown[];
   data: IngkaAvailabilitiesResponseDataItem[];
+  /** contains one ore more errorrs if there has been any */
+  errors?: Array<{
+    code: number,
+    details?: Record<string, string>
+    message: string,
+  }>;
+  timestamp?: string;
+  traceId?: string;
 }

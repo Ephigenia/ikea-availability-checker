@@ -3,16 +3,16 @@ import axios, {
   AxiosInstance,
   AxiosRequestConfig,
   AxiosResponse,
-  isAxiosError,
+  isAxiosError
 } from "axios";
 
 import { buCode, countryCode, findOneById, Store } from "./stores";
 import {
-  IngkaNotFoundError,
+  IngkaHttpError,
   IngkaParseError,
   IngkaResponseError,
 } from "./ingkaErrors";
-import { IngkaAvailabilitiesResponse } from "./ingkaResponse";
+import { IngkaAvailabilitiesErrorResponse, IngkaAvailabilitiesResponse } from "./ingkaResponse";
 
 // clientids taken from IKEA.tld websites they may change in the future
 const CLIENT_ID_US = "da465052-7912-43b2-82fa-9dc39cdccef8";
@@ -119,20 +119,10 @@ export class IngkaApi {
     return this.cache.get(key)?.then(arr => arr.find(item => item.store?.buCode === buCode));
   }
 
-  private handleAxiosError(err: AxiosError): void {
-    if (err.response && err.response.status === 404) {
-      throw new IngkaNotFoundError("Not Found", err);
-    }
-    throw new IngkaResponseError("Response Error", err);
-  }
-
   private handleResponseError(response: AxiosResponse): void {
-    if (response.data?.errors) {
-      if (response.data?.errors[0]?.code === 404) {
-        throw new IngkaNotFoundError(response.data.errors[0].message);
-      }
-      throw new IngkaParseError("Unknown INGKA API error", response.data);
-    }
+    if (!response.data.errors?.length) return;
+    const message = (response.data?.errors || [])[0]?.message || 'Unknown response error';
+    throw new IngkaResponseError(message, response);
   }
 
   private validateResponseStructure(
@@ -152,8 +142,8 @@ export class IngkaApi {
     return true;
   }
 
-  buildAvailabilityUri(countryCode: countryCode): string {
-    return `cia/availabilities/ru/${countryCode}`;
+  buildAvailabilityUri(countryCode: countryCode, unitType = 'ru'): string {
+    return `cia/availabilities/${unitType}/${countryCode}`;
   }
 
   async getAvailabilities(
@@ -175,23 +165,18 @@ export class IngkaApi {
       ...(options.params || {}),
     };
 
-    let stockInfos: ItemStockInfo[] = [];
-    try {
-      const response = await this.client.get<IngkaAvailabilitiesResponse>(
-        uri,
-        options
-      );
-      this.handleResponseError(response);
-      this.validateResponseStructure(response.data);
-      stockInfos = this.parseAvailabilitiesResponse(response.data);
-    } catch (err) {
-      if (isAxiosError(err)) {
-        this.handleAxiosError(err);
-      } else {
+    return this.client.get<IngkaAvailabilitiesResponse>(uri, options)
+      .then(response => {
+        this.handleResponseError(response);
+        this.validateResponseStructure(response.data);
+        return this.parseAvailabilitiesResponse(response.data);
+      })
+      .catch((err: AxiosError<IngkaAvailabilitiesErrorResponse>) => {
+        if (isAxiosError(err)) {
+          const message = err.response?.data.message || 'Unknown Response error';
+          throw new IngkaHttpError(message, err);
+        }
         throw err;
-      }
-    }
-
-    return stockInfos;
+      });
   }
 }
