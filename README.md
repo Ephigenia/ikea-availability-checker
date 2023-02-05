@@ -212,26 +212,26 @@ Other Projects & Articles
 
 ## Articles & Resources
 
-* npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
-* [API of the Day: Checking IKEA Availability and Warehouse Locations](https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
-* [IKEA Reddit](https://www.reddit.com/r/IKEA/)
-* [IKEA Mobile api description](https://del.dog/ikeamobileapi.md)
+- npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
+- [API of the Day: Checking IKEA Availability and Warehouse Locations](https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
+- [IKEA Reddit](https://www.reddit.com/r/IKEA/)
+- [IKEA Mobile api description](https://del.dog/ikeamobileapi.md)
 
 ## Packages
 
-* [vrslev/ikea-api-client](https://github.com/vrslev/ikea-api-client) alternate IKEA API Client
-* [ikea stock checker](https://github.com/lovegandhi/ikea-stock-checker)
-* [ikea stock finder](https://github.com/sasasoni/ikea_stock_finder) Japanese ruby
-* [ikea scraper](https://github.com/LordBonzi/ikea-scraper) python stock scraper
-* [ikea bot](https://github.com/xorik/ikea-bot) telegram notification bot
+- [vrslev/ikea-api-client](https://github.com/vrslev/ikea-api-client) alternate IKEA API Client
+- [ikea stock checker](https://github.com/lovegandhi/ikea-stock-checker)
+- [ikea stock finder](https://github.com/sasasoni/ikea_stock_finder) Japanese ruby
+- [ikea scraper](https://github.com/LordBonzi/ikea-scraper) python stock scraper
+- [ikea bot](https://github.com/xorik/ikea-bot) telegram notification bot
 
 ## Services
 
-* [Stock Hound](https://github.com/spgill/stock-hound) [website](http://stockhound.spgill.me/)
-* [IKEA Click & Collect Availability](https://ikea-status.dong.st/) website for us-stores
-* [ikea-availability-web](https://github.com/anditosl/ikea-availability-web)
+- [Stock Hound](https://github.com/spgill/stock-hound) [website](http://stockhound.spgill.me/)
+- [IKEA Click & Collect Availability](https://ikea-status.dong.st/) website for us-stores
+- [ikea-availability-web](https://github.com/anditosl/ikea-availability-web)
 
-* [ikeaprices](https://github.com/mnazarov/ikeaprices) browser snippet for comparing prices in different countries
+- [ikeaprices](https://github.com/mnazarov/ikeaprices) browser snippet for comparing prices in different countries
 
 <hr>
 <small>
