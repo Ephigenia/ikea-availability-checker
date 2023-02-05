@@ -1,0 +1,17 @@
+name: smokey
+
+# run smoke tests actually testing different countries each day
+
+on:
+  push:
+  schedule:
+    - cron: "0 0/12 * * *"
+
+jobs:
+  smokey:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ./.github/actions/setup
+    - run: scripts/smokey.sh
+    - run: scripts/smokey-formats.sh

@@ -19,5 +19,6 @@ jobs:
           failure-state: Title does not follow the specification.
           context-name: conventional-pr-title
           preset: conventional-changelog-angular@latest
+          target-url: https://www.conventionalcommits.org
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
