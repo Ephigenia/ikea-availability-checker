@@ -10,3 +10,5 @@ ignores:
   - "@commitlint/config-conventional"
   # types usually are not required directly
   - "@types/jest"
+  # used to cleanup before build
+  - "rimraf"
