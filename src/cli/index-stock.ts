@@ -69,7 +69,16 @@ Examples:
       throw new Error("please provide country code and/or store id");
     }
 
-    const data = await availabilities(stores, productIds);
+    let data;
+    try {
+      data = await availabilities(stores, productIds);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.log(err.message);
+      }
+      console.log(err);
+    }
+    if (!data) return;
 
     // only show items with at least "amount" items in stock
     const displayedData = data.filter(
