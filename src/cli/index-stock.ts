@@ -69,16 +69,7 @@ Examples:
       throw new Error("please provide country code and/or store id");
     }
 
-    let data;
-    try {
-      data = await availabilities(stores, productIds);
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        console.log(err.message);
-      }
-      console.log(err);
-    }
-    if (!data) return;
+    const data = await availabilities(stores, productIds);
 
     // only show items with at least "amount" items in stock
     const displayedData = data.filter(
@@ -115,10 +106,10 @@ Examples:
     process.stdout.write(report);
   });
 
-try {
-  program.parseAsync();
-} catch (err: unknown) {
-  const message = err instanceof Error ? err.message : String(err);
-  process.stderr.write(message + "\n");
-  process.exit(1);
-}
+
+program.parseAsync()
+  .catch((err: unknown) => {
+    const message = err instanceof Error ? err.message : String(err);
+    process.stderr.write(message + "\n");
+    process.exit(1);
+  });
