@@ -50,12 +50,18 @@ jobs:
         path: coverage
         retention-days: 30
     - uses: vebr/jest-lcov-reporter@v0.2.1
+      # ignore pull-requests created by dependabot as it doesn’t has access
+      # to the secrets used
+      if: ${{ github.actor != 'dependabot[bot]' }}
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         lcov-file: ./coverage/lcov.info
         update-comment: true
 
   release:
+    # ignore pull-requests created by dependabot as it doesn’t has access
+    # to the secrets used
+    if: ${{ github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
     needs: [test]
     steps:
