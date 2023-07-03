@@ -73,7 +73,7 @@
     "i18n-iso-countries": "7.6.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.5.1",
+    "@commitlint/cli": "17.6.6",
     "@commitlint/config-angular": "17.6.3",
     "@commitlint/config-conventional": "17.6.1",
     "@types/jest": "29.5.1",
