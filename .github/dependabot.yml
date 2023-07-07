@@ -11,6 +11,31 @@ updates:
     schedule:
       interval: "weekly"
 
+    groups:
+      dev-ci:
+        patterns:
+          - "@commitlint*"
+          - "husky*"
+          - "semantic-release"
+      dev-types:
+        patterns:
+          - "@types*"
+      dev-testing:
+        - "ts-jest"
+        - "jest*"
+        - "nock*"
+      dev-other:
+        patterns:
+          - "eslint*"
+          - "pinst*"
+          - "prettier*"
+          - "rimraf"
+      dev-typescript:
+        patterns:
+          - "ts-node"
+          - "typescript"
+
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
