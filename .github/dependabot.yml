@@ -21,9 +21,10 @@ updates:
         patterns:
           - "@types*"
       dev-testing:
-        - "ts-jest"
-        - "jest*"
-        - "nock*"
+        patterns:
+          - "ts-jest"
+          - "jest*"
+          - "nock*"
       dev-other:
         patterns:
           - "eslint*"
