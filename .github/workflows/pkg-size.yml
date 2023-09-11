@@ -15,7 +15,7 @@ jobs:
       # required by pkg-size/action@v1
       pull-requests: write
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: ./.github/actions/setup
     - uses: pkg-size/action@v1
       env:
