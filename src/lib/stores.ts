@@ -25,7 +25,7 @@ export type countryCode = string;
 // and buCode in ascending order
 export const stores = (data as Store[])
   .map((store) => {
-    store.country = getName(store.countryCode, "en");
+    store.country = getName(store.countryCode, "en") || '';
     return store;
   })
   .sort((a, b): number => {
