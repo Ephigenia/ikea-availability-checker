@@ -43,6 +43,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: ./.github/actions/setup
+    - run: npx browserslist@latest --update-db
     - run: npm test
     - uses: actions/upload-artifact@v3
       with:
