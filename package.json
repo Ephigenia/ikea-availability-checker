@@ -73,9 +73,9 @@
     "i18n-iso-countries": "7.7.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "18.4.1",
-    "@commitlint/config-angular": "18.4.0",
-    "@commitlint/config-conventional": "18.4.0",
+    "@commitlint/cli": "18.4.2",
+    "@commitlint/config-angular": "18.4.2",
+    "@commitlint/config-conventional": "18.4.2",
     "@types/jest": "29.5.8",
     "@types/node": "20.9.1",
     "@typescript-eslint/eslint-plugin": "6.11.0",
@@ -89,7 +89,7 @@
     "pinst": "3.0.0",
     "prettier": "3.1.0",
     "rimraf": "5.0.5",
-    "semantic-release": "22.0.7",
+    "semantic-release": "22.0.8",
     "ts-jest": "29.1.1",
     "ts-node": "10.9.1",
     "typescript": "5.2.2"
