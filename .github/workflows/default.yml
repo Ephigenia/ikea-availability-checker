@@ -45,7 +45,7 @@ jobs:
     - uses: ./.github/actions/setup
     - run: npx browserslist@latest --update-db
     - run: npm test
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         name: code-coverage-report
         path: coverage
