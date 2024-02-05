@@ -70,7 +70,7 @@
     "axios": "1.6.7",
     "cli-table3": "0.6.3",
     "commander": "11.1.0",
-    "i18n-iso-countries": "7.8.0"
+    "i18n-iso-countries": "7.9.0"
   },
   "devDependencies": {
     "@commitlint/cli": "18.6.0",
