@@ -69,7 +69,7 @@
     "@colors/colors": "1.6.0",
     "axios": "1.6.7",
     "cli-table3": "0.6.3",
-    "commander": "11.1.0",
+    "commander": "12.0.0",
     "i18n-iso-countries": "7.9.0"
   },
   "devDependencies": {
