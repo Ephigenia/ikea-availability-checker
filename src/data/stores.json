@@ -3,8 +3,8 @@
     "buCode": "066",
     "name": "Augsburg",
     "coordinates": [
-      10.871165,
-      48.404947
+      10.8713152,
+      48.4047727
     ],
     "countryCode": "de"
   },
@@ -12,8 +12,8 @@
     "buCode": "324",
     "name": "Berlin-Lichtenberg",
     "coordinates": [
-      13.514063,
-      52.534041
+      13.51439017,
+      52.53395663
     ],
     "countryCode": "de"
   },
@@ -21,8 +21,8 @@
     "buCode": "394",
     "name": "Berlin-Spandau",
     "coordinates": [
-      13.214343,
-      52.527997
+      13.21462368,
+      52.52811168
     ],
     "countryCode": "de"
   },
@@ -30,8 +30,8 @@
     "buCode": "421",
     "name": "Berlin-Tempelhof",
     "coordinates": [
-      13.365855,
-      52.46988
+      13.36625688,
+      52.46958147
     ],
     "countryCode": "de"
   },
@@ -39,8 +39,8 @@
     "buCode": "129",
     "name": "Berlin-Waltersdorf",
     "coordinates": [
-      13.555562,
-      52.3669
+      13.5563,
+      52.3668
     ],
     "countryCode": "de"
   },
@@ -48,8 +48,8 @@
     "buCode": "119",
     "name": "Bielefeld",
     "coordinates": [
-      8.492475,
-      51.982224
+      8.49225392,
+      51.98214858
     ],
     "countryCode": "de"
   },
@@ -57,8 +57,8 @@
     "buCode": "117",
     "name": "Braunschweig",
     "coordinates": [
-      10.504367,
-      52.308754
+      10.5045591,
+      52.3090339
     ],
     "countryCode": "de"
   },
@@ -66,8 +66,8 @@
     "buCode": "412",
     "name": "Bremerhaven",
     "coordinates": [
-      8.60191,
-      53.493494
+      8.60557004,
+      53.48903308
     ],
     "countryCode": "de"
   },
@@ -75,8 +75,8 @@
     "buCode": "228",
     "name": "Brinkum",
     "coordinates": [
-      8.803546,
-      53.026271
+      8.80364824,
+      53.0264079
     ],
     "countryCode": "de"
   },
@@ -84,8 +84,8 @@
     "buCode": "118",
     "name": "Chemnitz",
     "coordinates": [
-      12.859647,
-      50.802463
+      12.85975825,
+      50.80238823
     ],
     "countryCode": "de"
   },
@@ -93,8 +93,8 @@
     "buCode": "223",
     "name": "Dortmund",
     "coordinates": [
-      7.368908,
-      51.491244
+      7.36942207,
+      51.49114718
     ],
     "countryCode": "de"
   },
@@ -102,8 +102,8 @@
     "buCode": "221",
     "name": "Dresden",
     "coordinates": [
-      13.695145,
-      51.086461
+      13.69434213,
+      51.08640651
     ],
     "countryCode": "de"
   },
@@ -111,8 +111,8 @@
     "buCode": "425",
     "name": "Duisburg",
     "coordinates": [
-      6.764252,
-      51.482412
+      6.7638779,
+      51.4821721
     ],
     "countryCode": "de"
   },
@@ -120,8 +120,8 @@
     "buCode": "321",
     "name": "Düsseldorf",
     "coordinates": [
-      6.848602,
-      51.187763
+      6.8489371,
+      51.1875844
     ],
     "countryCode": "de"
   },
@@ -129,8 +129,8 @@
     "buCode": "396",
     "name": "Erfurt",
     "coordinates": [
-      10.949421,
-      50.959535
+      10.94904477,
+      50.9594997
     ],
     "countryCode": "de"
   },
@@ -138,8 +138,8 @@
     "buCode": "148",
     "name": "Essen",
     "coordinates": [
-      7.000179,
-      51.460371
+      7.0009114,
+      51.4603732
     ],
     "countryCode": "de"
   },
@@ -147,8 +147,8 @@
     "buCode": "393",
     "name": "Frankfurt",
     "coordinates": [
-      8.656883,
-      50.195515
+      8.6570205,
+      50.1958783
     ],
     "countryCode": "de"
   },
@@ -156,17 +156,8 @@
     "buCode": "320",
     "name": "Freiburg",
     "coordinates": [
-      7.832801,
-      48.028882
-    ],
-    "countryCode": "de"
-  },
-  {
-    "buCode": "226",
-    "name": "Großburgwedel",
-    "coordinates": [
-      9.837956,
-      52.492436
+      7.8328693,
+      48.0286081
     ],
     "countryCode": "de"
   },
@@ -174,8 +165,8 @@
     "buCode": "139",
     "name": "Halle/Leipzig",
     "coordinates": [
-      12.183044,
-      51.34852
+      12.1831434,
+      51.3486862
     ],
     "countryCode": "de"
   },
@@ -183,8 +174,8 @@
     "buCode": "245",
     "name": "Hamburg-Altona",
     "coordinates": [
-      9.941504,
-      53.552165
+      9.94162073,
+      53.55159758
     ],
     "countryCode": "de"
   },
@@ -192,8 +183,8 @@
     "buCode": "325",
     "name": "Hamburg-Moorfleet",
     "coordinates": [
-      10.092938,
-      53.511237
+      10.09223035,
+      53.5111654
     ],
     "countryCode": "de"
   },
@@ -201,8 +192,8 @@
     "buCode": "146",
     "name": "Hamburg-Schnelsen",
     "coordinates": [
-      9.928164,
-      53.64895
+      9.92747005,
+      53.64886399
     ],
     "countryCode": "de"
   },
@@ -210,8 +201,8 @@
     "buCode": "222",
     "name": "Hanau",
     "coordinates": [
-      8.942442,
-      50.149819
+      8.942477,
+      50.1496729
     ],
     "countryCode": "de"
   },
@@ -219,8 +210,17 @@
     "buCode": "187",
     "name": "Hannover EXPO-Park",
     "coordinates": [
-      9.817421,
-      52.313595
+      9.8169591,
+      52.313743
+    ],
+    "countryCode": "de"
+  },
+  {
+    "buCode": "226",
+    "name": "Hannover-Großburgwedel",
+    "coordinates": [
+      9.83772312,
+      52.49217842
     ],
     "countryCode": "de"
   },
@@ -228,8 +228,8 @@
     "buCode": "494",
     "name": "Kaarst",
     "coordinates": [
-      6.640966,
-      51.211061
+      6.64034903,
+      51.21135828
     ],
     "countryCode": "de"
   },
@@ -237,8 +237,8 @@
     "buCode": "430",
     "name": "Kaiserslautern",
     "coordinates": [
-      7.69536,
-      49.437424
+      7.7011199,
+      49.4404562
     ],
     "countryCode": "de"
   },
@@ -246,8 +246,8 @@
     "buCode": "323",
     "name": "Kamen",
     "coordinates": [
-      7.669101,
-      51.569695
+      7.6692708,
+      51.5693436
     ],
     "countryCode": "de"
   },
@@ -255,8 +255,8 @@
     "buCode": "551",
     "name": "Karlsruhe",
     "coordinates": [
-      8.4420776,
-      49.0048648
+      8.44202492,
+      49.00488474
     ],
     "countryCode": "de"
   },
@@ -264,8 +264,8 @@
     "buCode": "174",
     "name": "Kassel",
     "coordinates": [
-      9.525447,
-      51.277461
+      9.5255785,
+      51.2776732
     ],
     "countryCode": "de"
   },
@@ -273,8 +273,8 @@
     "buCode": "333",
     "name": "Kiel",
     "coordinates": [
-      10.106971,
-      54.31427
+      10.10739409,
+      54.31388305
     ],
     "countryCode": "de"
   },
@@ -282,17 +282,17 @@
     "buCode": "332",
     "name": "Koblenz",
     "coordinates": [
-      7.564516,
-      50.381707
+      7.5678478,
+      50.3823076
     ],
     "countryCode": "de"
   },
   {
     "buCode": "102",
-    "name": "Köln-Butzweilerhof",
+    "name": "Köln-Am Butzweilerhof",
     "coordinates": [
-      6.900251,
-      50.982384
+      6.8966186,
+      50.9849209
     ],
     "countryCode": "de"
   },
@@ -300,8 +300,8 @@
     "buCode": "147",
     "name": "Köln-Godorf",
     "coordinates": [
-      6.971276,
-      50.861349
+      6.9710502,
+      50.8615936
     ],
     "countryCode": "de"
   },
@@ -309,8 +309,8 @@
     "buCode": "289",
     "name": "Lübeck",
     "coordinates": [
-      10.737548,
-      53.914753
+      10.73499377,
+      53.91202381
     ],
     "countryCode": "de"
   },
@@ -318,8 +318,8 @@
     "buCode": "225",
     "name": "Ludwigsburg",
     "coordinates": [
-      9.15395,
-      48.918579
+      9.1539393,
+      48.9180169
     ],
     "countryCode": "de"
   },
@@ -327,8 +327,8 @@
     "buCode": "520",
     "name": "Magdeburg",
     "coordinates": [
-      11.61184,
-      52.16676
+      11.611555,
+      52.1688305
     ],
     "countryCode": "de"
   },
@@ -336,8 +336,8 @@
     "buCode": "397",
     "name": "Mannheim",
     "coordinates": [
-      8.444066,
-      49.555744
+      8.44385199,
+      49.55584098
     ],
     "countryCode": "de"
   },
@@ -345,8 +345,8 @@
     "buCode": "343",
     "name": "München-Brunnthal",
     "coordinates": [
-      11.658297,
-      48.040648
+      11.6580197,
+      48.0404658
     ],
     "countryCode": "de"
   },
@@ -354,8 +354,8 @@
     "buCode": "063",
     "name": "München-Eching",
     "coordinates": [
-      11.63362,
-      48.30455
+      11.6342291,
+      48.30451793
     ],
     "countryCode": "de"
   },
@@ -363,8 +363,8 @@
     "buCode": "326",
     "name": "Nürnberg/Fürth",
     "coordinates": [
-      11.009331,
-      49.485231
+      11.0097905,
+      49.4854251
     ],
     "countryCode": "de"
   },
@@ -372,8 +372,8 @@
     "buCode": "069",
     "name": "Oldenburg",
     "coordinates": [
-      8.252749,
-      53.139292
+      8.25497267,
+      53.14015975
     ],
     "countryCode": "de"
   },
@@ -381,8 +381,17 @@
     "buCode": "184",
     "name": "Osnabrück",
     "coordinates": [
-      7.971268,
-      52.263075
+      7.9714331,
+      52.2632567
+    ],
+    "countryCode": "de"
+  },
+  {
+    "buCode": "617",
+    "name": "Potsdam",
+    "coordinates": [
+      13.0492,
+      52.3996
     ],
     "countryCode": "de"
   },
@@ -390,8 +399,8 @@
     "buCode": "229",
     "name": "Regensburg",
     "coordinates": [
-      12.177186,
-      49.002069
+      12.1776994,
+      49.001756
     ],
     "countryCode": "de"
   },
@@ -399,8 +408,8 @@
     "buCode": "092",
     "name": "Rostock",
     "coordinates": [
-      12.048569,
-      54.107232
+      12.051639,
+      54.10863267
     ],
     "countryCode": "de"
   },
@@ -408,8 +417,8 @@
     "buCode": "227",
     "name": "Saarlouis",
     "coordinates": [
-      6.760068,
-      49.293841
+      6.7606477,
+      49.2933549
     ],
     "countryCode": "de"
   },
@@ -417,8 +426,8 @@
     "buCode": "369",
     "name": "Siegen",
     "coordinates": [
-      8.001995,
-      50.86292
+      8.0021806,
+      50.8626233
     ],
     "countryCode": "de"
   },
@@ -426,8 +435,8 @@
     "buCode": "224",
     "name": "Sindelfingen",
     "coordinates": [
-      9.005785,
-      48.701229
+      9.00545146,
+      48.70144946
     ],
     "countryCode": "de"
   },
@@ -435,8 +444,8 @@
     "buCode": "328",
     "name": "Ulm",
     "coordinates": [
-      9.977002,
-      48.404263
+      9.9769172,
+      48.4040207
     ],
     "countryCode": "de"
   },
@@ -444,8 +453,8 @@
     "buCode": "322",
     "name": "Wallau",
     "coordinates": [
-      8.371732,
-      50.058819
+      8.3717528,
+      50.058063
     ],
     "countryCode": "de"
   },
@@ -453,8 +462,8 @@
     "buCode": "075",
     "name": "Walldorf",
     "coordinates": [
-      8.629396,
-      49.305916
+      8.62934443,
+      49.30552288
     ],
     "countryCode": "de"
   },
@@ -462,8 +471,8 @@
     "buCode": "493",
     "name": "Wetzlar",
     "coordinates": [
-      8.49747,
-      50.56793
+      8.4974441,
+      50.5689576
     ],
     "countryCode": "de"
   },
@@ -471,8 +480,8 @@
     "buCode": "492",
     "name": "Wuppertal",
     "coordinates": [
-      7.251961,
-      51.308316
+      7.255747,
+      51.30983
     ],
     "countryCode": "de"
   },
@@ -480,8 +489,8 @@
     "buCode": "124",
     "name": "Würzburg",
     "coordinates": [
-      9.983997,
-      49.820985
+      9.98357782,
+      49.82212726
     ],
     "countryCode": "de"
   },
@@ -489,17 +498,8 @@
     "buCode": "387",
     "name": "Graz",
     "coordinates": [
-      15.421565,
-      47.033689
-    ],
-    "countryCode": "at"
-  },
-  {
-    "buCode": "388",
-    "name": "Haid",
-    "coordinates": [
-      14.250512,
-      48.198076
+      15.4223,
+      47.0332
     ],
     "countryCode": "at"
   },
@@ -507,8 +507,8 @@
     "buCode": "273",
     "name": "Innsbruck",
     "coordinates": [
-      11.431081,
-      47.261961
+      11.4309,
+      47.2619
     ],
     "countryCode": "at"
   },
@@ -516,8 +516,17 @@
     "buCode": "155",
     "name": "Klagenfurt",
     "coordinates": [
-      14.369097,
-      46.639934
+      14.3694,
+      46.6394
+    ],
+    "countryCode": "at"
+  },
+  {
+    "buCode": "388",
+    "name": "Linz Haid",
+    "coordinates": [
+      14.2503,
+      48.1976
     ],
     "countryCode": "at"
   },
@@ -525,8 +534,17 @@
     "buCode": "386",
     "name": "Salzburg",
     "coordinates": [
-      13.006268,
-      47.819494
+      13.0068,
+      47.8168
+    ],
+    "countryCode": "at"
+  },
+  {
+    "buCode": "085",
+    "name": "Vösendorf",
+    "coordinates": [
+      16.3184,
+      48.1065
     ],
     "countryCode": "at"
   },
@@ -534,101 +552,110 @@
     "buCode": "090",
     "name": "Wien Nord",
     "coordinates": [
-      16.47254,
-      48.255641
+      16.4723,
+      48.2545
     ],
     "countryCode": "at"
   },
   {
-    "buCode": "085",
-    "name": "Wien Vösendorf",
+    "buCode": "587",
+    "name": "Wien Westbahnhof",
     "coordinates": [
-      16.317959,
-      48.108692
+      16.3381,
+      48.1956
     ],
     "countryCode": "at"
   },
   {
     "buCode": "078",
-    "name": "Aubonne VD",
+    "name": "Aubonne",
     "coordinates": [
-      6.398978,
-      46.477088
+      6.3973,
+      46.4765
     ],
     "countryCode": "ch"
   },
   {
     "buCode": "291",
-    "name": "Dietlikon ZH",
+    "name": "Dietlikon",
     "coordinates": [
-      8.622379,
-      47.414092
+      8.6236,
+      47.4147
     ],
     "countryCode": "ch"
   },
   {
     "buCode": "101",
-    "name": "Grancia TI",
+    "name": "Grancia",
     "coordinates": [
-      8.92637,
-      45.972987
+      8.927,
+      45.9733
     ],
     "countryCode": "ch"
   },
   {
     "buCode": "290",
-    "name": "Lyssach BE",
+    "name": "Lyssach",
     "coordinates": [
-      7.567778,
-      47.074009
+      7.5684,
+      47.074
     ],
     "countryCode": "ch"
   },
   {
     "buCode": "292",
-    "name": "Pratteln BL",
+    "name": "Pratteln",
     "coordinates": [
-      7.689443,
-      47.527663
+      7.6893,
+      47.5278
+    ],
+    "countryCode": "ch"
+  },
+  {
+    "buCode": "688",
+    "name": "Riddes",
+    "coordinates": [
+      7.212,
+      46.166
     ],
     "countryCode": "ch"
   },
   {
     "buCode": "275",
-    "name": "Rothenburg LU",
+    "name": "Rothenburg",
     "coordinates": [
-      8.245132,
-      47.092945
+      8.243709431626906,
+      47.098112014056
     ],
     "countryCode": "ch"
   },
   {
     "buCode": "079",
-    "name": "Spreitenbach AG",
+    "name": "Spreitenbach",
     "coordinates": [
-      8.375165,
-      47.422106
+      8.3752,
+      47.4217
     ],
     "countryCode": "ch"
   },
   {
     "buCode": "917",
-    "name": "St. Gallen SG",
+    "name": "St. Gallen",
     "coordinates": [
-      9.306986,
-      47.408777
+      9.3069,
+      47.4084
     ],
     "countryCode": "ch"
   },
   {
     "buCode": "918",
-    "name": "Vernier GE",
+    "name": "Vernier",
     "coordinates": [
-      6.092434,
-      46.219693
+      6.0924,
+      46.2193
     ],
     "countryCode": "ch"
-  },
+  },,
   {
     "buCode": "030",
     "name": "Valladolid",
@@ -786,17 +813,17 @@
     "buCode": "018",
     "name": "Avignon",
     "coordinates": [
-      4.890718,
-      43.978379
+      4.891127345993009,
+      43.97830544461172
     ],
     "countryCode": "fr"
   },
   {
     "buCode": "310",
-    "name": "Bayonne Ametzondo",
+    "name": "Bayonne",
     "coordinates": [
-      -1.442449,
-      43.480218
+      -1.4449194303340758,
+      43.480561971611664
     ],
     "countryCode": "fr"
   },
@@ -804,8 +831,8 @@
     "buCode": "134",
     "name": "Bordeaux",
     "coordinates": [
-      -0.565732,
-      44.884846
+      -0.5658,
+      44.8851
     ],
     "countryCode": "fr"
   },
@@ -813,17 +840,17 @@
     "buCode": "060",
     "name": "Brest",
     "coordinates": [
-      -4.441609,
-      48.417951
+      -4.4413,
+      48.4178
     ],
     "countryCode": "fr"
   },
   {
     "buCode": "199",
-    "name": "Caen Fleury-sur-Orne",
+    "name": "Caen",
     "coordinates": [
-      -0.367742,
-      49.141797
+      -0.3640724300306005,
+      49.145819724429145
     ],
     "countryCode": "fr"
   },
@@ -831,8 +858,8 @@
     "buCode": "345",
     "name": "Clermont-Ferrand",
     "coordinates": [
-      3.138834,
-      45.803800
+      3.1388,
+      45.8038
     ],
     "countryCode": "fr"
   },
@@ -840,17 +867,26 @@
     "buCode": "086",
     "name": "Dijon",
     "coordinates": [
-      5.064257,
-      47.339154
+      5.064184712334835,
+      47.3408339951798
     ],
     "countryCode": "fr"
   },
   {
-    "buCode": "562",
-    "name": "Grand Parilly",
+    "buCode": "082",
+    "name": "Evry",
     "coordinates": [
-      4.882778,
-      45.720556
+      2.439204012938318,
+      48.59669576528127
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "389",
+    "name": "Franconville",
+    "coordinates": [
+      2.2147,
+      48.9867
     ],
     "countryCode": "fr"
   },
@@ -858,8 +894,8 @@
     "buCode": "435",
     "name": "Grenoble",
     "coordinates": [
-      5.776631,
-      45.181311
+      5.775836400587793,
+      45.181343511477905
     ],
     "countryCode": "fr"
   },
@@ -867,8 +903,26 @@
     "buCode": "051",
     "name": "Hénin-Beaumont",
     "coordinates": [
-      2.9775913,
-      50.3920724
+      2.9775,
+      50.3921
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "719",
+    "name": "Italie Deux",
+    "coordinates": [
+      2.354864903742871,
+      48.830385638900374
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "433",
+    "name": "La Valentine",
+    "coordinates": [
+      5.481076826113443,
+      43.29317920469646
     ],
     "countryCode": "fr"
   },
@@ -876,26 +930,17 @@
     "buCode": "133",
     "name": "Lille",
     "coordinates": [
-      2.97811,
-      50.650039
+      2.9777361431978626,
+      50.649828962865364
     ],
     "countryCode": "fr"
   },
   {
-    "buCode": "433",
-    "name": "Marseille - La Valentine",
+    "buCode": "562",
+    "name": "Lyon - Grand Parilly",
     "coordinates": [
-      5.481167,
-      43.293862
-    ],
-    "countryCode": "fr"
-  },
-  {
-    "buCode": "130",
-    "name": "Marseille - Vitrolles",
-    "coordinates": [
-      5.2679222,
-      43.4292027
+      4.881498981564166,
+      45.718609733846
     ],
     "countryCode": "fr"
   },
@@ -903,8 +948,8 @@
     "buCode": "260",
     "name": "Metz",
     "coordinates": [
-      6.1881137,
-      49.1499377
+      6.188146083592657,
+      49.15007792189972
     ],
     "countryCode": "fr"
   },
@@ -912,8 +957,8 @@
     "buCode": "402",
     "name": "Montpellier",
     "coordinates": [
-      3.9244151,
-      43.6042288
+      3.9244,
+      43.6042
     ],
     "countryCode": "fr"
   },
@@ -921,8 +966,8 @@
     "buCode": "444",
     "name": "Mulhouse",
     "coordinates": [
-      7.283263,
-      47.729283
+      7.2828611105020915,
+      47.73246437811007
     ],
     "countryCode": "fr"
   },
@@ -930,89 +975,44 @@
     "buCode": "316",
     "name": "Nantes",
     "coordinates": [
-      -1.632038,
-      47.222465
+      -1.6318846318518032,
+      47.222448649966275
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "518",
+    "name": "Nice St. Isidore",
+    "coordinates": [
+      7.195417710302401,
+      43.7057453324836
     ],
     "countryCode": "fr"
   },
   {
     "buCode": "487",
-    "name": "Orléans Ardon",
+    "name": "Orléans",
     "coordinates": [
-      1.9191433,
-      47.8280725
-    ],
-    "countryCode": "fr"
-  },
-  {
-    "buCode": "240",
-    "name": "Paris Est, Villiers sur Marne",
-    "coordinates": [
-      2.529715,
-      48.828908
-    ],
-    "countryCode": "fr"
-  },
-  {
-    "buCode": "580",
-    "name": "Paris La Madeleine",
-    "coordinates": [
-      2.3253967,
-      48.8691255
-    ],
-    "countryCode": "fr"
-  },
-  {
-    "buCode": "389",
-    "name": "Paris N-O, Franconville",
-    "coordinates": [
-      2.2138618,
-      48.9864475
+      1.9188728123597907,
+      47.82759342153324
     ],
     "countryCode": "fr"
   },
   {
     "buCode": "131",
-    "name": "Paris Nord, Roissy",
+    "name": "Paris Nord",
     "coordinates": [
-      2.4945436,
-      48.9749884
+      2.4945,
+      48.9751
     ],
     "countryCode": "fr"
   },
   {
     "buCode": "083",
-    "name": "Paris Ouest, Plaisir",
+    "name": "Plaisir",
     "coordinates": [
-      1.9678375,
-      48.8293535
-    ],
-    "countryCode": "fr"
-  },
-  {
-    "buCode": "285",
-    "name": "Paris Ouest, Vélizy",
-    "coordinates": [
-      2.2242332,
-      48.7834461
-    ],
-    "countryCode": "fr"
-  },
-  {
-    "buCode": "082",
-    "name": "Paris Sud, Evry",
-    "coordinates": [
-      2.439544,
-      48.596124
-    ],
-    "countryCode": "fr"
-  },
-  {
-    "buCode": "432",
-    "name": "Paris Sud, Thiais",
-    "coordinates": [
-      2.387858,
-      48.757041
+      1.9680016277564276,
+      48.82962043902274
     ],
     "countryCode": "fr"
   },
@@ -1020,8 +1020,8 @@
     "buCode": "198",
     "name": "Reims",
     "coordinates": [
-      3.9645752,
-      49.2583854
+      3.9643556161401636,
+      49.25817095433124
     ],
     "countryCode": "fr"
   },
@@ -1029,8 +1029,17 @@
     "buCode": "177",
     "name": "Rennes",
     "coordinates": [
-      -1.762984,
-      48.138084
+      -1.7634751876241634,
+      48.137727043458845
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "645",
+    "name": "Rivoli",
+    "coordinates": [
+      2.342574597069094,
+      48.860577631039334
     ],
     "countryCode": "fr"
   },
@@ -1038,17 +1047,17 @@
     "buCode": "163",
     "name": "Rouen",
     "coordinates": [
-      1.095639,
-      49.331862
+      1.0977066812276535,
+      49.33258909155832
     ],
     "countryCode": "fr"
   },
   {
     "buCode": "431",
-    "name": "St Etienne",
+    "name": "Saint-Étienne",
     "coordinates": [
-      4.41792,
-      45.449406
+      4.41912126991202,
+      45.449160617013696
     ],
     "countryCode": "fr"
   },
@@ -1056,17 +1065,26 @@
     "buCode": "239",
     "name": "Strasbourg",
     "coordinates": [
-      7.730818,
-      48.600569
+      7.730440231219902,
+      48.60045362535256
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "432",
+    "name": "Thiais",
+    "coordinates": [
+      2.385285298699516,
+      48.75945082056943
     ],
     "countryCode": "fr"
   },
   {
     "buCode": "315",
-    "name": "Toulon",
+    "name": "Toulon - La Valette-du-Var",
     "coordinates": [
-      6.0111228,
-      43.141745
+      6.0111,
+      43.1418
     ],
     "countryCode": "fr"
   },
@@ -1074,8 +1092,8 @@
     "buCode": "242",
     "name": "Toulouse",
     "coordinates": [
-      1.376848,
-      43.51656
+      1.3766,
+      43.5171
     ],
     "countryCode": "fr"
   },
@@ -1083,37 +1101,37 @@
     "buCode": "434",
     "name": "Tours",
     "coordinates": [
-      0.717126,
-      47.375472
+      0.718,
+      47.3761
     ],
     "countryCode": "fr"
   },
   {
-    "buCode": "208",
-    "name": "Kuopio",
+    "buCode": "285",
+    "name": "Velizy",
     "coordinates": [
-      27.605994,
-      62.823838
+      2.2242,
+      48.7835
     ],
-    "countryCode": "fi"
+    "countryCode": "fr"
   },
   {
-    "buCode": "008",
-    "name": "Tampere",
+    "buCode": "240",
+    "name": "Villiers",
     "coordinates": [
-      23.775423,
-      61.452839
+      2.5300976547396212,
+      48.82824105605143
     ],
-    "countryCode": "fi"
+    "countryCode": "fr"
   },
   {
-    "buCode": "422",
-    "name": "Vantaa",
+    "buCode": "130",
+    "name": "Vitrolles",
     "coordinates": [
-      25.083675,
-      60.276717
+      5.267922527486527,
+      43.42949830249604
     ],
-    "countryCode": "fi"
+    "countryCode": "fr"
   },
   {
     "buCode": "202",
@@ -1125,11 +1143,38 @@
     "countryCode": "fi"
   },
   {
+    "buCode": "208",
+    "name": "Kuopio",
+    "coordinates": [
+      27.605,
+      62.8246
+    ],
+    "countryCode": "fi"
+  },
+  {
     "buCode": "301",
     "name": "Raisio",
     "coordinates": [
       22.2277,
       60.4943
+    ],
+    "countryCode": "fi"
+  },
+  {
+    "buCode": "008",
+    "name": "Tampere",
+    "coordinates": [
+      23.7704,
+      61.451
+    ],
+    "countryCode": "fi"
+  },
+  {
+    "buCode": "422",
+    "name": "Vantaa",
+    "coordinates": [
+      25.0843,
+      60.2762
     ],
     "countryCode": "fi"
   },
@@ -1173,8 +1218,8 @@
     "buCode": "021",
     "name": "Zagreb",
     "coordinates": [
-      16.155517,
-      45.791437
+      16.15555,
+      45.7925
     ],
     "countryCode": "hr"
   },
@@ -1182,26 +1227,17 @@
     "buCode": "457",
     "name": "Ancona",
     "coordinates": [
-      13.518961,
-      43.530159
+      13.5185,
+      43.5298
     ],
     "countryCode": "it"
-  },
-  {
-    "buCode": "518",
-    "name": "Nice St. Isidore",
-    "coordinates": [
-      7.1950505,
-      43.7065167
-    ],
-    "countryCode": "fr"
   },
   {
     "buCode": "356",
     "name": "Bari",
     "coordinates": [
-      16.897037,
-      41.089177
+      16.8971,
+      41.0892
     ],
     "countryCode": "it"
   },
@@ -1209,8 +1245,8 @@
     "buCode": "231",
     "name": "Bologna Casalecchio",
     "coordinates": [
-      11.249866,
-      44.488703
+      11.2499,
+      44.4889
     ],
     "countryCode": "it"
   },
@@ -1218,8 +1254,8 @@
     "buCode": "354",
     "name": "Brescia Roncadelle",
     "coordinates": [
-      10.165572,
-      45.534127
+      10.1655,
+      45.5341
     ],
     "countryCode": "it"
   },
@@ -1227,26 +1263,26 @@
     "buCode": "098",
     "name": "Catania",
     "coordinates": [
-      15.036871,
-      37.447334
+      15.03625493631573,
+      37.446606848460526
     ],
     "countryCode": "it"
   },
   {
     "buCode": "029",
-    "name": "Chieti S.G. Teatino",
+    "name": "Chieti San Giovanni Teatino",
     "coordinates": [
-      14.167621,
-      42.396587
+      14.168,
+      42.3941
     ],
     "countryCode": "it"
   },
   {
     "buCode": "352",
-    "name": "Firenze Sesto F.no",
+    "name": "Firenze Sesto Fiorentino",
     "coordinates": [
-      11.187258,
-      43.807333
+      11.1871,
+      43.8081
     ],
     "countryCode": "it"
   },
@@ -1254,17 +1290,17 @@
     "buCode": "232",
     "name": "Genova",
     "coordinates": [
-      8.884643,
-      44.423465
+      8.8846,
+      44.4234
     ],
     "countryCode": "it"
   },
   {
     "buCode": "116",
-    "name": "Gorizia_Villesse",
+    "name": "Gorizia Villesse",
     "coordinates": [
-      13.444476,
-      45.87144
+      13.4334,
+      45.8657
     ],
     "countryCode": "it"
   },
@@ -1272,8 +1308,8 @@
     "buCode": "233",
     "name": "Milano Carugate",
     "coordinates": [
-      9.330008,
-      45.549614
+      9.33175,
+      45.55009
     ],
     "countryCode": "it"
   },
@@ -1281,8 +1317,8 @@
     "buCode": "455",
     "name": "Milano Corsico",
     "coordinates": [
-      9.079696,
-      45.426769
+      9.079226298079185,
+      45.42665744738561
     ],
     "countryCode": "it"
   },
@@ -1290,8 +1326,8 @@
     "buCode": "295",
     "name": "Milano San Giuliano",
     "coordinates": [
-      9.259392,
-      45.38837
+      9.261179880514911,
+      45.38867937286069
     ],
     "countryCode": "it"
   },
@@ -1299,8 +1335,8 @@
     "buCode": "353",
     "name": "Napoli Afragola",
     "coordinates": [
-      14.316489,
-      40.907502
+      14.3162,
+      40.909
     ],
     "countryCode": "it"
   },
@@ -1308,8 +1344,8 @@
     "buCode": "355",
     "name": "Padova",
     "coordinates": [
-      11.933877,
-      45.418203
+      11.9338,
+      45.4182
     ],
     "countryCode": "it"
   },
@@ -1317,8 +1353,8 @@
     "buCode": "303",
     "name": "Parma",
     "coordinates": [
-      10.364442,
-      44.83075
+      10.363952884655754,
+      44.83089556719736
     ],
     "countryCode": "it"
   },
@@ -1326,8 +1362,8 @@
     "buCode": "314",
     "name": "Pisa",
     "coordinates": [
-      10.383517,
-      43.692471
+      10.38272191484798,
+      43.69277751922904
     ],
     "countryCode": "it"
   },
@@ -1335,8 +1371,8 @@
     "buCode": "111",
     "name": "Rimini",
     "coordinates": [
-      12.477143,
-      44.078055
+      12.4752,
+      44.0793
     ],
     "countryCode": "it"
   },
@@ -1344,8 +1380,17 @@
     "buCode": "234",
     "name": "Roma Anagnina",
     "coordinates": [
-      12.592499,
-      41.836496
+      12.5924,
+      41.8364
+    ],
+    "countryCode": "it"
+  },
+  {
+    "buCode": "682",
+    "name": "Roma Fiumicino",
+    "coordinates": [
+      12.298905009399677,
+      41.79746810784544
     ],
     "countryCode": "it"
   },
@@ -1353,8 +1398,8 @@
     "buCode": "427",
     "name": "Roma Porta di Roma",
     "coordinates": [
-      12.542599,
-      41.971783
+      12.5425,
+      41.9717
     ],
     "countryCode": "it"
   },
@@ -1362,8 +1407,8 @@
     "buCode": "458",
     "name": "Salerno Baronissi",
     "coordinates": [
-      14.789674,
-      40.755234
+      14.7896,
+      40.7552
     ],
     "countryCode": "it"
   },
@@ -1371,117 +1416,179 @@
     "buCode": "456",
     "name": "Torino Collegno",
     "coordinates": [
-      7.583474,
-      45.097935
+      7.5838,
+      45.0983
     ],
     "countryCode": "it"
   },
   {
-    "buCode": "447",
-    "name": "Tokyo-Bay",
-    "countryCode": "jp"
-  },
-  {
-    "buCode": "509",
-    "name": "長久手",
+    "buCode": "392",
+    "name": "仙台",
     "coordinates": [
-      137.075637,
-      35.17601
+      140.8861,
+      38.2255
     ],
     "countryCode": "jp"
   },
   {
-    "buCode": "448",
-    "name": "港北",
-    "countryCode": "jp"
-  },
-  {
-    "buCode": "647",
-    "name": "渋谷",
+    "buCode": "697",
+    "name": "前橋",
+    "coordinates": [
+      139.0904,
+      36.332
+    ],
     "countryCode": "jp"
   },
   {
     "buCode": "887",
     "name": "新三郷",
+    "coordinates": [
+      139.8704,
+      35.8562
+    ],
     "countryCode": "jp"
   },
   {
-    "buCode": "651",
-    "name": "新宿",
-    "countryCode": "jp"
-  },
-  {
-    "buCode": "486",
-    "name": "神戸",
-    "countryCode": "jp"
-  },
-  {
-    "buCode": "392",
-    "name": "仙台",
-    "countryCode": "jp"
-  },
-  {
-    "buCode": "509",
-    "name": "長久手",
-    "countryCode": "jp"
-  },
-  {
-    "buCode": "496",
-    "name": "鶴浜",
-    "countryCode": "jp"
-  },
-  {
-    "buCode": "189",
-    "name": "福岡新宮",
+    "buCode": "447",
+    "name": "Tokyo-Bay",
+    "coordinates": [
+      139.9922,
+      35.6821
+    ],
     "countryCode": "jp"
   },
   {
     "buCode": "359",
     "name": "立川",
+    "coordinates": [
+      139.4119,
+      35.7073
+    ],
+    "countryCode": "jp"
+  },
+  {
+    "buCode": "671",
+    "name": "原宿",
+    "coordinates": [
+      139.7032,
+      35.6705
+    ],
+    "countryCode": "jp"
+  },
+  {
+    "buCode": "647",
+    "name": "渋谷",
+    "coordinates": [
+      139.6995,
+      35.6603
+    ],
+    "countryCode": "jp"
+  },
+  {
+    "buCode": "651",
+    "name": "新宿",
+    "coordinates": [
+      139.7048,
+      35.6902
+    ],
+    "countryCode": "jp"
+  },
+  {
+    "buCode": "448",
+    "name": "港北(横浜)",
+    "coordinates": [
+      139.5905,
+      35.5229
+    ],
+    "countryCode": "jp"
+  },
+  {
+    "buCode": "509",
+    "name": "長久手",
+    "coordinates": [
+      137.0758,
+      35.176
+    ],
+    "countryCode": "jp"
+  },
+  {
+    "buCode": "496",
+    "name": "鶴浜(大阪)",
+    "coordinates": [
+      135.4498,
+      34.6369
+    ],
+    "countryCode": "jp"
+  },
+  {
+    "buCode": "486",
+    "name": "神戸",
+    "coordinates": [
+      135.2184,
+      34.6648
+    ],
+    "countryCode": "jp"
+  },
+  {
+    "buCode": "189",
+    "name": "福岡新宮",
+    "coordinates": [
+      130.4496,
+      33.7101
+    ],
     "countryCode": "jp"
   },
   {
     "buCode": "522",
-    "name": "고양",
+    "name": "고양점",
     "coordinates": [
-      126.86328,
-      37.630119
+      126.8632,
+      37.6303
     ],
     "countryCode": "kr"
   },
   {
     "buCode": "373",
-    "name": "광명",
+    "name": "광명점",
     "coordinates": [
-      126.8828,
-      37.42426
+      126.8832,
+      37.4242
     ],
     "countryCode": "kr"
   },
   {
     "buCode": "582",
-    "name": "기흥",
+    "name": "기흥점",
     "coordinates": [
-      127.113498,
-      37.222187
+      127.1159,
+      37.223
     ],
     "countryCode": "kr"
   },
   {
     "buCode": "602",
-    "name": "동부산",
+    "name": "동부산점",
     "coordinates": [
-      129.210454,
-      35.192682
+      129.2101,
+      35.1905
     ],
     "countryCode": "kr"
   },
   {
     "buCode": "219",
-    "name": "Kuwait",
+    "name": "الأفنيوز",
     "coordinates": [
-      47.929648,
-      29.301697
+      47.9272038,
+      29.3017923
+    ],
+    "countryCode": "kw"
+  },
+  {
+    "buCode": "677",
+    "name": "ذا وير هاوس",
+    "coordinates": [
+      48.1052502,
+      29.0857218
     ],
     "countryCode": "kw"
   },
@@ -1504,8 +1611,8 @@
     "buCode": "415",
     "name": "Amersfoort",
     "coordinates": [
-      5.416131,
-      52.186405
+      5.4183,
+      52.1844
     ],
     "countryCode": "nl"
   },
@@ -1513,17 +1620,17 @@
     "buCode": "088",
     "name": "Amsterdam",
     "coordinates": [
-      4.949427,
-      52.303782
+      4.9494,
+      52.3031
     ],
     "countryCode": "nl"
   },
   {
     "buCode": "274",
-    "name": "Barendrecht (Rotterdam)",
+    "name": "Barendrecht",
     "coordinates": [
-      4.512248,
-      51.849631
+      4.5123,
+      51.8494
     ],
     "countryCode": "nl"
   },
@@ -1531,8 +1638,8 @@
     "buCode": "403",
     "name": "Breda",
     "coordinates": [
-      4.728928,
-      51.580697
+      4.7291,
+      51.5803
     ],
     "countryCode": "nl"
   },
@@ -1540,8 +1647,8 @@
     "buCode": "151",
     "name": "Delft",
     "coordinates": [
-      4.379489,
-      52.012782
+      4.3816,
+      52.0127
     ],
     "countryCode": "nl"
   },
@@ -1549,8 +1656,8 @@
     "buCode": "272",
     "name": "Duiven",
     "coordinates": [
-      5.995917,
-      51.96693
+      5.9976,
+      51.9661
     ],
     "countryCode": "nl"
   },
@@ -1558,8 +1665,8 @@
     "buCode": "087",
     "name": "Eindhoven",
     "coordinates": [
-      5.467415,
-      51.498057
+      5.4708,
+      51.4976
     ],
     "countryCode": "nl"
   },
@@ -1567,8 +1674,8 @@
     "buCode": "404",
     "name": "Groningen",
     "coordinates": [
-      6.587205,
-      53.217726
+      6.5895,
+      53.2187
     ],
     "countryCode": "nl"
   },
@@ -1576,8 +1683,8 @@
     "buCode": "378",
     "name": "Haarlem",
     "coordinates": [
-      4.670134,
-      52.385266
+      4.6703,
+      52.3847
     ],
     "countryCode": "nl"
   },
@@ -1585,8 +1692,8 @@
     "buCode": "089",
     "name": "Heerlen",
     "coordinates": [
-      5.943861,
-      50.899433
+      5.9454,
+      50.8992
     ],
     "countryCode": "nl"
   },
@@ -1594,8 +1701,8 @@
     "buCode": "312",
     "name": "Hengelo",
     "coordinates": [
-      6.768608,
-      52.289268
+      6.7687,
+      52.2888
     ],
     "countryCode": "nl"
   },
@@ -1603,8 +1710,8 @@
     "buCode": "270",
     "name": "Utrecht",
     "coordinates": [
-      5.100574,
-      52.062504
+      5.1006,
+      52.0625
     ],
     "countryCode": "nl"
   },
@@ -1612,8 +1719,8 @@
     "buCode": "391",
     "name": "Zwolle",
     "coordinates": [
-      6.162285,
-      52.533027
+      6.1624,
+      52.5336
     ],
     "countryCode": "nl"
   },
@@ -1621,8 +1728,8 @@
     "buCode": "429",
     "name": "Bydgoszcz",
     "coordinates": [
-      18.119955,
-      53.131665
+      18.1194,
+      53.1324
     ],
     "countryCode": "pl"
   },
@@ -1630,8 +1737,8 @@
     "buCode": "203",
     "name": "Gdańsk",
     "coordinates": [
-      18.517787,
-      54.37334
+      18.517,
+      54.374
     ],
     "countryCode": "pl"
   },
@@ -1639,8 +1746,8 @@
     "buCode": "306",
     "name": "Katowice",
     "coordinates": [
-      19.059857,
-      50.270677
+      19.0604,
+      50.2712
     ],
     "countryCode": "pl"
   },
@@ -1648,17 +1755,8 @@
     "buCode": "204",
     "name": "Kraków",
     "coordinates": [
-      19.898223,
-      50.089585
-    ],
-    "countryCode": "pl"
-  },
-  {
-    "buCode": "329",
-    "name": "Łódź",
-    "coordinates": [
-      19.412817,
-      51.701928
+      19.8976,
+      50.0894
     ],
     "countryCode": "pl"
   },
@@ -1666,8 +1764,17 @@
     "buCode": "311",
     "name": "Lublin",
     "coordinates": [
-      22.572879,
-      51.281585
+      22.5742,
+      51.2817
+    ],
+    "countryCode": "pl"
+  },
+  {
+    "buCode": "329",
+    "name": "Łódź",
+    "coordinates": [
+      19.412,
+      51.7015
     ],
     "countryCode": "pl"
   },
@@ -1675,26 +1782,35 @@
     "buCode": "205",
     "name": "Poznań",
     "coordinates": [
-      16.98837,
-      52.382666
+      16.9875,
+      52.3828
+    ],
+    "countryCode": "pl"
+  },
+  {
+    "buCode": "583",
+    "name": "Szczecin",
+    "coordinates": [
+      14.514004,
+      53.407522
     ],
     "countryCode": "pl"
   },
   {
     "buCode": "188",
-    "name": "Warszawa / Janki",
+    "name": "Warszawa Janki",
     "coordinates": [
-      20.897065,
-      52.132764
+      20.8958,
+      52.1331
     ],
     "countryCode": "pl"
   },
   {
     "buCode": "307",
-    "name": "Warszawa / Targówek",
+    "name": "Warszawa Targówek",
     "coordinates": [
-      21.082417,
-      52.305317
+      21.0828,
+      52.3063
     ],
     "countryCode": "pl"
   },
@@ -1702,44 +1818,44 @@
     "buCode": "294",
     "name": "Wrocław",
     "coordinates": [
-      16.959003,
-      51.048571
+      16.9553,
+      51.0472
     ],
     "countryCode": "pl"
   },
   {
     "buCode": "059",
-    "name": "Bucureşti Băneasa",
+    "name": "Băneasa",
     "coordinates": [
-      26.086006,
-      44.511687
+      26.085,
+      44.5062
     ],
     "countryCode": "ro"
   },
   {
     "buCode": "500",
-    "name": "Bucureşti Pallady",
+    "name": "Pallady",
     "coordinates": [
-      26.206361,
-      44.407823
+      26.2064,
+      44.4078
     ],
     "countryCode": "ro"
   },
   {
-    "buCode": "441",
-    "name": "Åsane",
+    "buCode": "664",
+    "name": "Timișoara",
     "coordinates": [
-      5.331609,
-      60.474025
+      21.2126,
+      45.7928
     ],
-    "countryCode": "no"
+    "countryCode": "ro"
   },
   {
     "buCode": "126",
     "name": "Forus",
     "coordinates": [
-      5.720873,
-      58.88691
+      5.7212,
+      58.8867
     ],
     "countryCode": "no"
   },
@@ -1747,8 +1863,8 @@
     "buCode": "095",
     "name": "Furuset",
     "coordinates": [
-      10.872602,
-      59.933731
+      10.8731,
+      59.9338
     ],
     "countryCode": "no"
   },
@@ -1756,8 +1872,17 @@
     "buCode": "371",
     "name": "Leangen",
     "coordinates": [
-      10.474348,
-      63.428595
+      10.4738,
+      63.4286
+    ],
+    "countryCode": "no"
+  },
+  {
+    "buCode": "722",
+    "name": "på Karl Johan",
+    "coordinates": [
+      10.7438,
+      59.9127
     ],
     "countryCode": "no"
   },
@@ -1765,8 +1890,8 @@
     "buCode": "390",
     "name": "Ringsaker",
     "coordinates": [
-      11.055361,
-      60.840801
+      11.0575,
+      60.8402
     ],
     "countryCode": "no"
   },
@@ -1774,8 +1899,8 @@
     "buCode": "091",
     "name": "Slependen",
     "coordinates": [
-      10.497866,
-      59.874035
+      10.4974,
+      59.8739
     ],
     "countryCode": "no"
   },
@@ -1783,8 +1908,17 @@
     "buCode": "007",
     "name": "Sørlandet",
     "coordinates": [
-      8.158035,
-      58.189641
+      8.1584,
+      58.1873
+    ],
+    "countryCode": "no"
+  },
+  {
+    "buCode": "441",
+    "name": "Åsane",
+    "coordinates": [
+      5.3249,
+      60.4712
     ],
     "countryCode": "no"
   },
@@ -1792,8 +1926,8 @@
     "buCode": "367",
     "name": "Alfragide",
     "coordinates": [
-      -9.2156,
-      38.72875
+      -9.2162,
+      38.7291
     ],
     "countryCode": "pt"
   },
@@ -1801,8 +1935,8 @@
     "buCode": "499",
     "name": "Braga",
     "coordinates": [
-      -8.431013,
-      41.577704
+      -8.4303879,
+      41.578299
     ],
     "countryCode": "pt"
   },
@@ -1810,8 +1944,8 @@
     "buCode": "453",
     "name": "Loulé",
     "coordinates": [
-      -7.995564,
-      37.096452
+      -7.9959882,
+      37.0973447
     ],
     "countryCode": "pt"
   },
@@ -1819,8 +1953,8 @@
     "buCode": "001",
     "name": "Loures",
     "coordinates": [
-      -9.148468,
-      38.815185
+      -9.148,
+      38.8176
     ],
     "countryCode": "pt"
   },
@@ -1828,8 +1962,8 @@
     "buCode": "009",
     "name": "Matosinhos",
     "coordinates": [
-      -8.689111,
-      41.210348
+      -8.6884153,
+      41.2094959
     ],
     "countryCode": "pt"
   },
@@ -1999,26 +2133,17 @@
     "buCode": "489",
     "name": "Bratislava",
     "coordinates": [
-      17.182953,
-      48.168547
+      17.183,
+      48.1683
     ],
     "countryCode": "sk"
-  },
-  {
-    "buCode": "268",
-    "name": "Älmhult",
-    "coordinates": [
-      14.161674,
-      56.550534
-    ],
-    "countryCode": "se"
   },
   {
     "buCode": "248",
     "name": "Borlänge",
     "coordinates": [
-      15.421457,
-      60.482664
+      15.4198,
+      60.4815
     ],
     "countryCode": "se"
   },
@@ -2026,8 +2151,8 @@
     "buCode": "122",
     "name": "Gävle",
     "coordinates": [
-      16.989895,
-      60.633906
+      16.9898,
+      60.6339
     ],
     "countryCode": "se"
   },
@@ -2035,26 +2160,26 @@
     "buCode": "398",
     "name": "Göteborg Bäckebol",
     "coordinates": [
-      11.999672,
-      57.771771
+      12.0018,
+      57.7744
     ],
     "countryCode": "se"
   },
   {
-    "buCode": "014",
+    "buCode": "589",
     "name": "Göteborg Kållered",
     "coordinates": [
-      12.048397,
-      57.60379
+      12.0468,
+      57.6059
     ],
     "countryCode": "se"
   },
   {
     "buCode": "470",
-    "name": "HaparandaTornio",
+    "name": "Haparanda",
     "coordinates": [
-      24.13192,
-      65.842982
+      24.1316,
+      65.8429
     ],
     "countryCode": "se"
   },
@@ -2062,8 +2187,8 @@
     "buCode": "468",
     "name": "Helsingborg",
     "coordinates": [
-      12.760899,
-      56.092426
+      12.7604,
+      56.092
     ],
     "countryCode": "se"
   },
@@ -2071,8 +2196,8 @@
     "buCode": "109",
     "name": "Jönköping",
     "coordinates": [
-      14.205751,
-      57.77267
+      14.2038,
+      57.7719
     ],
     "countryCode": "se"
   },
@@ -2080,8 +2205,8 @@
     "buCode": "469",
     "name": "Kalmar",
     "coordinates": [
-      16.321199,
-      56.68556
+      16.3162,
+      56.685
     ],
     "countryCode": "se"
   },
@@ -2089,8 +2214,8 @@
     "buCode": "471",
     "name": "Karlstad",
     "coordinates": [
-      13.41966,
-      59.378797
+      13.4185,
+      59.3788
     ],
     "countryCode": "se"
   },
@@ -2098,8 +2223,8 @@
     "buCode": "017",
     "name": "Linköping",
     "coordinates": [
-      15.58755,
-      58.433189
+      15.5867,
+      58.4333
     ],
     "countryCode": "se"
   },
@@ -2107,17 +2232,8 @@
     "buCode": "445",
     "name": "Malmö",
     "coordinates": [
-      12.986215,
-      55.552634
-    ],
-    "countryCode": "se"
-  },
-  {
-    "buCode": "106",
-    "name": "Örebro",
-    "coordinates": [
-      15.134397,
-      59.211089
+      12.985,
+      55.5526
     ],
     "countryCode": "se"
   },
@@ -2125,8 +2241,17 @@
     "buCode": "019",
     "name": "Stockholm Barkarby",
     "coordinates": [
-      17.857064,
-      59.420331
+      17.8581,
+      59.4208
+    ],
+    "countryCode": "se"
+  },
+  {
+    "buCode": "669",
+    "name": "Stockholm Gallerian",
+    "coordinates": [
+      18.0681,
+      59.3306
     ],
     "countryCode": "se"
   },
@@ -2134,8 +2259,8 @@
     "buCode": "012",
     "name": "Stockholm Kungens Kurva",
     "coordinates": [
-      17.916201,
-      59.271155
+      17.9173,
+      59.2707
     ],
     "countryCode": "se"
   },
@@ -2143,8 +2268,8 @@
     "buCode": "467",
     "name": "Sundsvall",
     "coordinates": [
-      17.334119,
-      62.444195
+      17.3352,
+      62.4456
     ],
     "countryCode": "se"
   },
@@ -2152,8 +2277,8 @@
     "buCode": "053",
     "name": "Uddevalla",
     "coordinates": [
-      11.818371,
-      58.355878
+      11.8176,
+      58.356
     ],
     "countryCode": "se"
   },
@@ -2161,8 +2286,8 @@
     "buCode": "416",
     "name": "Umeå",
     "coordinates": [
-      20.25501,
-      63.80771
+      20.2541,
+      63.8085
     ],
     "countryCode": "se"
   },
@@ -2170,8 +2295,8 @@
     "buCode": "070",
     "name": "Uppsala",
     "coordinates": [
-      17.692156,
-      59.847755
+      17.6931,
+      59.8471
     ],
     "countryCode": "se"
   },
@@ -2179,8 +2304,26 @@
     "buCode": "020",
     "name": "Västerås",
     "coordinates": [
-      16.456017,
-      59.607596
+      16.457,
+      59.6078
+    ],
+    "countryCode": "se"
+  },
+  {
+    "buCode": "268",
+    "name": "Älmhult",
+    "coordinates": [
+      14.1637,
+      56.5497
+    ],
+    "countryCode": "se"
+  },
+  {
+    "buCode": "106",
+    "name": "Örebro",
+    "coordinates": [
+      15.1359,
+      59.2127
     ],
     "countryCode": "se"
   },
@@ -2188,8 +2331,17 @@
     "buCode": "045",
     "name": "Alexandra",
     "coordinates": [
-      103.806184,
-      1.292501
+      103.8056,
+      1.2884
+    ],
+    "countryCode": "sg"
+  },
+  {
+    "buCode": "650",
+    "name": "Jurong @ JEM",
+    "coordinates": [
+      103.74388112648363,
+      1.333876791307745
     ],
     "countryCode": "sg"
   },
@@ -2197,503 +2349,512 @@
     "buCode": "022",
     "name": "Tampines",
     "coordinates": [
-      103.936040000,
-      1.371100000
+      103.93235696881214,
+      1.3744558681055423
     ],
     "countryCode": "sg"
-  },
-  {
-    "buCode": "650",
-    "name": "Jurong",
-    "coordinates": [
-      103.9325,
-      1.3741
-    ],
-    "countryCode": "sg"
-  },
-  {
-    "buCode": "209",
-    "name": "AZ, Tempe",
-    "coordinates": [
-      -111.971461,
-      33.340854
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "399",
-    "name": "CA, Burbank",
-    "coordinates": [
-      -118.306264,
-      34.17642
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "162",
-    "name": "CA, Carson",
-    "coordinates": [
-      -118.260269,
-      33.843829
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "167",
-    "name": "CA, Costa Mesa",
-    "coordinates": [
-      -117.9142,
-      33.697208
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "413",
-    "name": "CA, Covina",
-    "coordinates": [
-      -117.879795,
-      34.076123
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "347",
-    "name": "CA, East Palo Alto",
-    "coordinates": [
-      -122.139562,
-      37.461557
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "165",
-    "name": "CA, Emeryville",
-    "coordinates": [
-      -122.292595,
-      37.832717
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "166",
-    "name": "CA, San Diego",
-    "coordinates": [
-      -117.126495,
-      32.780961
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "157",
-    "name": "CA, West Sacramento",
-    "coordinates": [
-      -121.553421,
-      38.59165
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "064",
-    "name": "CO, Centennial",
-    "coordinates": [
-      -104.875237,
-      39.572748
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "213",
-    "name": "CT, New Haven",
-    "coordinates": [
-      -72.919184,
-      41.295897
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "537",
-    "name": "FL, Jacksonville",
-    "coordinates": [
-      -81.655651,
-      30.332184
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "327",
-    "name": "FL, Miami",
-    "coordinates": [
-      -80.386262,
-      25.833631
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "145",
-    "name": "FL, Orlando",
-    "coordinates": [
-      -81.427194,
-      28.483743
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "207",
-    "name": "FL, Sunrise",
-    "coordinates": [
-      -80.332203,
-      26.124078
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "042",
-    "name": "FL, Tampa",
-    "coordinates": [
-      -82.433338,
-      27.95923
-    ],
-    "countryCode": "us"
   },
   {
     "buCode": "257",
-    "name": "GA, Atlanta",
+    "name": "Atlanta, GA",
     "coordinates": [
-      -84.403545,
-      33.789456
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "170",
-    "name": "IL, Bolingbrook",
-    "coordinates": [
-      -88.03776,
-      41.728264
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "210",
-    "name": "IL, Schaumburg",
-    "coordinates": [
-      -88.036243,
-      42.057641
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "536",
-    "name": "IN, Fishers",
-    "coordinates": [
-      -86.007287,
-      39.953661
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "374",
-    "name": "KS, Merriam",
-    "coordinates": [
-      -94.68993,
-      39.021088
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "158",
-    "name": "MA, Stoughton",
-    "coordinates": [
-      -71.068718,
-      42.138491
+      -84.4062,
+      33.7878
     ],
     "countryCode": "us"
   },
   {
     "buCode": "152",
-    "name": "MD, Baltimore",
+    "name": "Baltimore, MD",
     "coordinates": [
-      -76.462466,
-      39.37863
+      -76.4623,
+      39.3747
     ],
     "countryCode": "us"
   },
   {
-    "buCode": "411",
-    "name": "MD, College Park",
+    "buCode": "170",
+    "name": "Bolingbrook, IL",
     "coordinates": [
-      -76.925609,
-      39.024518
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "026",
-    "name": "MI, Canton",
-    "coordinates": [
-      -83.417233,
-      42.338245
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "212",
-    "name": "MN, Twin Cities",
-    "coordinates": [
-      -93.245825,
-      44.864873
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "410",
-    "name": "MO, St. Louis",
-    "coordinates": [
-      -90.245614,
-      38.633515
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "067",
-    "name": "NC, Charlotte",
-    "coordinates": [
-      -80.766678,
-      35.307281
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "154",
-    "name": "NJ, Elizabeth",
-    "coordinates": [
-      -74.169909,
-      40.675821
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "409",
-    "name": "NJ, Paramus",
-    "coordinates": [
-      -74.073257,
-      40.925706
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "462",
-    "name": "NV, Las Vegas",
-    "coordinates": [
-      -115.280825,
-      36.068926
+      -88.0379,
+      41.7274
     ],
     "countryCode": "us"
   },
   {
     "buCode": "921",
-    "name": "NY, Brooklyn",
+    "name": "Brooklyn, NY",
     "coordinates": [
-      -74.010994,
-      40.672306
+      -74.0115,
+      40.672
     ],
     "countryCode": "us"
   },
   {
-    "buCode": "156",
-    "name": "NY, Long Island",
+    "buCode": "399",
+    "name": "Burbank, CA",
     "coordinates": [
-      -73.536987,
-      40.797177
+      -118.3032,
+      34.1745
     ],
     "countryCode": "us"
   },
   {
-    "buCode": "622",
-    "name": "NY, Queens",
+    "buCode": "026",
+    "name": "Canton, MI",
     "coordinates": [
-      -73.861990,
-      40.730310
+      -83.4516,
+      42.3252
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "162",
+    "name": "Carson, CA",
+    "coordinates": [
+      -118.2601,
+      33.8419
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "064",
+    "name": "Centennial, CO",
+    "coordinates": [
+      -104.8749,
+      39.572
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "067",
+    "name": "Charlotte, NC",
+    "coordinates": [
+      -80.7642,
+      35.293
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "411",
+    "name": "College Park, MD",
+    "coordinates": [
+      -76.9289,
+      39.0208
     ],
     "countryCode": "us"
   },
   {
     "buCode": "511",
-    "name": "OH, Columbus",
+    "name": "Columbus, OH",
     "coordinates": [
-      -82.998794,
-      39.961176
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "175",
-    "name": "OH, West Chester",
-    "coordinates": [
-      -84.435081,
-      39.32155
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "028",
-    "name": "OR, Portland",
-    "coordinates": [
-      -122.555243,
-      45.572236
+      -82.9671,
+      40.1507
     ],
     "countryCode": "us"
   },
   {
     "buCode": "211",
-    "name": "PA, Conshohocken",
+    "name": "Conshohocken, PA",
     "coordinates": [
-      -75.307546,
-      40.095506
+      -75.3079,
+      40.0942
     ],
     "countryCode": "us"
   },
   {
-    "buCode": "153",
-    "name": "PA, Pittsburgh",
+    "buCode": "167",
+    "name": "Costa Mesa, CA",
     "coordinates": [
-      -80.165262,
-      40.454132
+      -117.9163,
+      33.6905
     ],
     "countryCode": "us"
   },
   {
-    "buCode": "215",
-    "name": "PA, South Philadelphia",
+    "buCode": "413",
+    "name": "Covina, CA",
     "coordinates": [
-      -75.142219,
-      39.920533
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "508",
-    "name": "TN, Memphis",
-    "coordinates": [
-      -89.799303,
-      35.189991
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "183",
-    "name": "TX, Frisco",
-    "coordinates": [
-      -96.821823,
-      33.100745
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "535",
-    "name": "TX, Grand Prairie",
-    "coordinates": [
-      -97.028338,
-      32.67942
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "379",
-    "name": "TX, Houston",
-    "coordinates": [
-      -95.472228,
-      29.785051
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "570",
-    "name": "TX, Live Oak",
-    "coordinates": [
-      -98.340573,
-      29.566386
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "027",
-    "name": "TX, Round Rock",
-    "coordinates": [
-      -97.689878,
-      30.558455
+      -117.8801,
+      34.0744
     ],
     "countryCode": "us"
   },
   {
     "buCode": "103",
-    "name": "UT, Draper",
+    "name": "Draper, UT",
     "coordinates": [
-      -111.893198,
-      40.508938
+      -111.8922,
+      40.5083
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "347",
+    "name": "East Palo Alto, CA",
+    "coordinates": [
+      -122.139,
+      37.4609
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "154",
+    "name": "Elizabeth, NJ",
+    "coordinates": [
+      -74.1697,
+      40.6751
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "165",
+    "name": "Emeryville, CA",
+    "coordinates": [
+      -122.2925,
+      37.8312
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "536",
+    "name": "Fishers, IN",
+    "coordinates": [
+      -86.0059,
+      39.9537
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "183",
+    "name": "Frisco, TX",
+    "coordinates": [
+      -96.8216,
+      33.0951
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "535",
+    "name": "Grand Prairie, TX",
+    "coordinates": [
+      -97.02283805344578,
+      32.70265769389484
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "379",
+    "name": "Houston, TX",
+    "coordinates": [
+      -95.4723,
+      29.7855
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "537",
+    "name": "Jacksonville, FL",
+    "coordinates": [
+      -81.5185,
+      30.2366
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "462",
+    "name": "Las Vegas, NV",
+    "coordinates": [
+      -115.2811,
+      36.0688
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "570",
+    "name": "Live Oak, TX",
+    "coordinates": [
+      -98.3381,
+      29.5667
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "156",
+    "name": "Long Island, NY",
+    "coordinates": [
+      -73.5315,
+      40.7744
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "508",
+    "name": "Memphis, TN",
+    "coordinates": [
+      -89.7994,
+      35.1853
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "374",
+    "name": "Merriam, KS",
+    "coordinates": [
+      -94.6906,
+      39.0199
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "327",
+    "name": "Miami, FL",
+    "coordinates": [
+      -80.3615,
+      25.7866
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "212",
+    "name": "Minneapolis, MN",
+    "coordinates": [
+      -93.2435,
+      44.859
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "213",
+    "name": "New Haven, CT",
+    "coordinates": [
+      -72.9192,
+      41.295
     ],
     "countryCode": "us"
   },
   {
     "buCode": "569",
-    "name": "VA, Norfolk",
+    "name": "Norfolk, VA",
     "coordinates": [
-      -76.200831,
-      36.874673
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "168",
-    "name": "VA, Woodbridge",
-    "coordinates": [
-      -77.288996,
-      38.643992
-    ],
-    "countryCode": "us"
-  },
-  {
-    "buCode": "488",
-    "name": "WA, Renton",
-    "coordinates": [
-      -122.22496,
-      47.446897
+      -76.2014,
+      36.8763
     ],
     "countryCode": "us"
   },
   {
     "buCode": "560",
-    "name": "WI, Oak Creek",
+    "name": "Oak Creek, WI",
     "coordinates": [
-      -87.938251,
-      42.906633
+      -87.9387,
+      42.9079
     ],
     "countryCode": "us"
   },
   {
-    "buCode": "065",
-    "name": "Dhahran",
+    "buCode": "145",
+    "name": "Orlando, FL",
     "coordinates": [
-      50.167524,
-      26.309661
+      -81.4273,
+      28.483
     ],
-    "countryCode": "sa"
+    "countryCode": "us"
   },
   {
-    "buCode": "110",
-    "name": "Jeddah, Al Tahlyah",
+    "buCode": "409",
+    "name": "Paramus, NJ",
     "coordinates": [
-      39.183288,
-      21.55723
+      -74.0749,
+      40.9246
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "153",
+    "name": "Pittsburgh, PA",
+    "coordinates": [
+      -80.1676,
+      40.4522
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "028",
+    "name": "Portland, OR",
+    "coordinates": [
+      -122.5537,
+      45.5712
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "488",
+    "name": "Renton, WA",
+    "coordinates": [
+      -122.2278,
+      47.4424
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "027",
+    "name": "Round Rock, TX",
+    "coordinates": [
+      -97.6897,
+      30.5569
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "166",
+    "name": "San Diego, CA",
+    "coordinates": [
+      -117.1264,
+      32.78
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "658",
+    "name": "San Francisco, CA",
+    "coordinates": [
+      -122.4088,
+      37.7828
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "210",
+    "name": "Schaumburg, IL",
+    "coordinates": [
+      -88.0353,
+      42.0567
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "215",
+    "name": "South Philadelphia, PA",
+    "coordinates": [
+      -75.1401,
+      39.9167
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "410",
+    "name": "St. Louis, MO",
+    "coordinates": [
+      -90.2449,
+      38.6337
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "158",
+    "name": "Stoughton, MA",
+    "coordinates": [
+      -71.0687,
+      42.1367
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "207",
+    "name": "Sunrise, FL",
+    "coordinates": [
+      -80.3319,
+      26.1215
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "042",
+    "name": "Tampa, FL",
+    "coordinates": [
+      -82.4327,
+      27.9541
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "209",
+    "name": "Tempe, AZ",
+    "coordinates": [
+      -111.9702,
+      33.3406
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "175",
+    "name": "West Chester, OH",
+    "coordinates": [
+      -84.4353,
+      39.316
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "157",
+    "name": "West Sacramento, CA",
+    "coordinates": [
+      -121.5535,
+      38.5866
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "168",
+    "name": "Woodbridge, VA",
+    "coordinates": [
+      -77.2901,
+      38.6431
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "608",
+    "name": "الثمامة",
+    "coordinates": [
+      46.7749,
+      24.8503
     ],
     "countryCode": "sa"
   },
   {
     "buCode": "197",
-    "name": "Riyadh",
+    "name": "الرياض",
     "coordinates": [
-      46.787301,
-      24.659193
+      46.7873,
+      24.6594
+    ],
+    "countryCode": "sa"
+  },
+  {
+    "buCode": "703",
+    "name": "المدينة المنورة",
+    "coordinates": [
+      39.6985,
+      24.4522
+    ],
+    "countryCode": "sa"
+  },
+  {
+    "buCode": "110",
+    "name": "جدة",
+    "coordinates": [
+      39.1829,
+      21.5577
+    ],
+    "countryCode": "sa"
+  },
+  {
+    "buCode": "065",
+    "name": "الظهران",
+    "coordinates": [
+      50.1675,
+      26.3097
     ],
     "countryCode": "sa"
   },
@@ -2744,10 +2905,10 @@
   },
   {
     "buCode": "244",
-    "name": "Qatar",
+    "name": "IKEA Doha store",
     "coordinates": [
-      51.439325,
-      25.387315
+      51.443192,
+      25.385584
     ],
     "countryCode": "qa"
   },
@@ -2755,8 +2916,8 @@
     "buCode": "557",
     "name": "Adelaide",
     "coordinates": [
-      138.538300,
-      -34.932869
+      138.538,
+      -34.9343
     ],
     "countryCode": "au"
   },
@@ -2764,8 +2925,8 @@
     "buCode": "451",
     "name": "Canberra",
     "coordinates": [
-      149.194606,
-      -35.277174
+      149.1946,
+      -35.2769
     ],
     "countryCode": "au"
   },
@@ -2773,8 +2934,8 @@
     "buCode": "919",
     "name": "Logan",
     "coordinates": [
-      153.135828,
-      -27.636166
+      153.1358,
+      -27.6366
     ],
     "countryCode": "au"
   },
@@ -2782,17 +2943,8 @@
     "buCode": "377",
     "name": "Marsden Park",
     "coordinates": [
-      150.918930,
-      -33.648659
-    ],
-    "countryCode": "au"
-  },
-  {
-    "buCode": "460",
-    "name": "North Lakes",
-    "coordinates": [
-      153.015589,
-      -27.243452
+      150.8417,
+      -33.7206
     ],
     "countryCode": "au"
   },
@@ -2800,17 +2952,26 @@
     "buCode": "556",
     "name": "Perth",
     "coordinates": [
-      115.803040,
-      -31.895690
+      115.803,
+      -31.8965
     ],
     "countryCode": "au"
   },
   {
-    "buCode": "556",
+    "buCode": "460",
+    "name": "North Lakes",
+    "coordinates": [
+      153.015,
+      -27.2431
+    ],
+    "countryCode": "au"
+  },
+  {
+    "buCode": "385",
     "name": "Rhodes",
     "coordinates": [
-      151.083710,
-      -33.835650
+      151.0838,
+      -33.8362
     ],
     "countryCode": "au"
   },
@@ -2818,8 +2979,8 @@
     "buCode": "384",
     "name": "Richmond",
     "coordinates": [
-      145.0145128,
-      -37.8120608
+      145.007,
+      -37.8087
     ],
     "countryCode": "au"
   },
@@ -2827,8 +2988,8 @@
     "buCode": "006",
     "name": "Springvale",
     "coordinates": [
-      145.143914,
-      -37.9279425
+      145.1438,
+      -37.9275
     ],
     "countryCode": "au"
   },
@@ -2836,8 +2997,8 @@
     "buCode": "446",
     "name": "Tempe",
     "coordinates": [
-      151.1663153,
-      -33.92255
+      151.1659,
+      -33.9233
     ],
     "countryCode": "au"
   },
@@ -2845,8 +3006,8 @@
     "buCode": "414",
     "name": "Boucherville",
     "coordinates": [
-      -73.402963,
-      45.573287
+      -73.4007,
+      45.5716
     ],
     "countryCode": "ca"
   },
@@ -2854,8 +3015,8 @@
     "buCode": "040",
     "name": "Burlington",
     "coordinates": [
-      -79.827991,
-      43.326177
+      -79.8292,
+      43.3279
     ],
     "countryCode": "ca"
   },
@@ -2863,8 +3024,8 @@
     "buCode": "216",
     "name": "Calgary",
     "coordinates": [
-      -114.044523,
-      50.980128
+      -114.0448,
+      50.9799
     ],
     "countryCode": "ca"
   },
@@ -2872,8 +3033,8 @@
     "buCode": "313",
     "name": "Coquitlam",
     "coordinates": [
-      -122.865129,
-      49.235156
+      -122.8658,
+      49.2351
     ],
     "countryCode": "ca"
   },
@@ -2881,8 +3042,8 @@
     "buCode": "349",
     "name": "Edmonton",
     "coordinates": [
-      -113.489682,
-      53.442766
+      -113.4897,
+      53.4432
     ],
     "countryCode": "ca"
   },
@@ -2890,8 +3051,8 @@
     "buCode": "256",
     "name": "Etobicoke",
     "coordinates": [
-      -79.536016,
-      43.618726
+      -79.535,
+      43.619
     ],
     "countryCode": "ca"
   },
@@ -2899,8 +3060,8 @@
     "buCode": "529",
     "name": "Halifax",
     "coordinates": [
-      -63.55767,
-      44.71293
+      -63.5575,
+      44.713
     ],
     "countryCode": "ca"
   },
@@ -2908,8 +3069,8 @@
     "buCode": "039",
     "name": "Montreal",
     "coordinates": [
-      -73.691912,
-      45.490494
+      -73.6908,
+      45.4912
     ],
     "countryCode": "ca"
   },
@@ -2917,8 +3078,8 @@
     "buCode": "149",
     "name": "North York",
     "coordinates": [
-      -79.367723,
-      43.768367
+      -79.3693,
+      43.7676
     ],
     "countryCode": "ca"
   },
@@ -2926,17 +3087,17 @@
     "buCode": "004",
     "name": "Ottawa",
     "coordinates": [
-      -75.78691,
-      45.348617
+      -75.7841,
+      45.3503
     ],
     "countryCode": "ca"
   },
   {
     "buCode": "559",
-    "name": "Québec",
+    "name": "Quebec City",
     "coordinates": [
-      -71.350216,
-      46.77725
+      -71.349492,
+      46.776551
     ],
     "countryCode": "ca"
   },
@@ -2944,8 +3105,26 @@
     "buCode": "003",
     "name": "Richmond",
     "coordinates": [
-      -123.080224,
-      49.182896
+      -123.0797,
+      49.1899
+    ],
+    "countryCode": "ca"
+  },
+  {
+    "buCode": "698",
+    "name": "Scarborough Town Centre",
+    "coordinates": [
+      -79.2568,
+      43.7772
+    ],
+    "countryCode": "ca"
+  },
+  {
+    "buCode": "659",
+    "name": "Toronto Downtown",
+    "coordinates": [
+      -79.383,
+      43.6597
     ],
     "countryCode": "ca"
   },
@@ -2953,8 +3132,8 @@
     "buCode": "372",
     "name": "Vaughan",
     "coordinates": [
-      79.8334908,
-      43.3281787
+      -79.5296,
+      43.7877
     ],
     "countryCode": "ca"
   },
@@ -2962,8 +3141,8 @@
     "buCode": "249",
     "name": "Winnipeg",
     "coordinates": [
-      -97.212181,
-      49.840197
+      -97.2104,
+      49.8389
     ],
     "countryCode": "ca"
   },
@@ -3076,8 +3255,17 @@
     "buCode": "278",
     "name": "Brno",
     "coordinates": [
-      16.627607,
-      49.158359
+      16.6274,
+      49.1555
+    ],
+    "countryCode": "cz"
+  },
+  {
+    "buCode": "408",
+    "name": "Cerny Most",
+    "coordinates": [
+      14.5873,
+      50.1043
     ],
     "countryCode": "cz"
   },
@@ -3085,53 +3273,35 @@
     "buCode": "309",
     "name": "Ostrava",
     "coordinates": [
-      18.227727,
-      49.80027
-    ],
-    "countryCode": "cz"
-  },
-  {
-    "buCode": "408",
-    "name": "Praha Černý Most",
-    "coordinates": [
-      14.587927,
-      50.106488
+      18.2277,
+      49.7991
     ],
     "countryCode": "cz"
   },
   {
     "buCode": "178",
-    "name": "Praha-Zličín",
+    "name": "Zličín",
     "coordinates": [
-      14.299679,
-      50.057359
+      14.2984,
+      50.0511
     ],
     "countryCode": "cz"
-  },
-  {
-    "buCode": "005",
-    "name": "Aalborg",
-    "coordinates": [
-      9.866555,
-      56.998867
-    ],
-    "countryCode": "dk"
-  },
-  {
-    "buCode": "298",
-    "name": "Aarhus",
-    "coordinates": [
-      10.181558,
-      56.203697
-    ],
-    "countryCode": "dk"
   },
   {
     "buCode": "121",
     "name": "Gentofte",
     "coordinates": [
-      12.519644,
-      55.753781
+      12.519070184814545,
+      55.75499959890006
+    ],
+    "countryCode": "dk"
+  },
+  {
+    "buCode": "686",
+    "name": "København",
+    "coordinates": [
+      12.561302608313804,
+      55.663932922334496
     ],
     "countryCode": "dk"
   },
@@ -3139,8 +3309,8 @@
     "buCode": "172",
     "name": "Odense",
     "coordinates": [
-      10.429582,
-      55.380576
+      10.42974757094324,
+      55.38054250266927
     ],
     "countryCode": "dk"
   },
@@ -3148,82 +3318,143 @@
     "buCode": "094",
     "name": "Taastrup",
     "coordinates": [
-      12.288411,
-      55.659747
+      12.286570982964511,
+      55.659344218196985
+    ],
+    "countryCode": "dk"
+  },
+  {
+    "buCode": "005",
+    "name": "Aalborg",
+    "coordinates": [
+      9.865353140687175,
+      56.996218445547804
+    ],
+    "countryCode": "dk"
+  },
+  {
+    "buCode": "298",
+    "name": "Aarhus",
+    "coordinates": [
+      10.1810210406561,
+      56.20312412319454
     ],
     "countryCode": "dk"
   },
   {
     "buCode": "182",
-    "name": "Budaörs",
+    "name": "Budaörsi IKEA",
     "coordinates": [
-      18.940319,
-      47.454268
+      18.9398,
+      47.4541
     ],
     "countryCode": "hu"
   },
   {
     "buCode": "180",
-    "name": "Örs vezér tere Budapest",
+    "name": "Örs vezér téri IKEA",
     "coordinates": [
-      19.137962,
-      47.506592
+      19.1386,
+      47.5056
     ],
     "countryCode": "hu"
   },
   {
     "buCode": "507",
-    "name": "Soroksár / online házhozszállítás",
+    "name": "Soroksári IKEA",
     "coordinates": [
-      19.159645,
-      47.412188
+      19.1600391,
+      47.4113818
     ],
     "countryCode": "hu"
   },
   {
     "buCode": "237",
-    "name": "Amman",
+    "name": "عمَّان",
     "coordinates": [
-      35.901656,
-      31.826223
+      35.9016,
+      31.8262
     ],
     "countryCode": "jo"
   },
   {
     "buCode": "057",
-    "name": "Bangna",
+    "name": "บางนา",
+    "coordinates": [
+      100.6788506,
+      13.6476897
+    ],
     "countryCode": "th"
+  },
+  {
+    "buCode": "479",
+    "name": "บางใหญ่",
+    "coordinates": [
+      100.4126,
+      13.8786
+    ],
+    "countryCode": "th"
+  },
+  {
+    "buCode": "694",
+    "name": "สุขุมวิท",
+    "coordinates": [
+      100.5765043,
+      13.7233717
+    ],
+    "countryCode": "th"
+  },
+  {
+    "buCode": "566",
+    "name": "Batu Kawan",
+    "coordinates": [
+      100.44012,
+      5.23378
+    ],
+    "countryCode": "my"
   },
   {
     "buCode": "362",
     "name": "Cheras",
+    "coordinates": [
+      101.7211,
+      3.1352
+    ],
     "countryCode": "my"
   },
   {
     "buCode": "438",
     "name": "Damansara",
+    "coordinates": [
+      101.6132,
+      3.157
+    ],
+    "countryCode": "my"
+  },
+  {
+    "buCode": "477",
+    "name": "Tebrau",
+    "coordinates": [
+      103.7992,
+      1.5514
+    ],
     "countryCode": "my"
   },
   {
     "buCode": "038",
-    "name": "Dublin",
+    "name": "Ballymun",
+    "coordinates": [
+      -6.2758,
+      53.4073
+    ],
     "countryCode": "ie"
   },
   {
     "buCode": "113",
     "name": "Belfast",
     "coordinates": [
-      -5.859231,
-      54.626391
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "142",
-    "name": "Birmingham",
-    "coordinates": [
-      -2.014489,
-      52.56876
+      -5.863119619198685,
+      54.62149967112336
     ],
     "countryCode": "gb"
   },
@@ -3231,8 +3462,8 @@
     "buCode": "264",
     "name": "Bristol",
     "coordinates": [
-      -2.564943,
-      51.472816
+      -2.5675,
+      51.4734
     ],
     "countryCode": "gb"
   },
@@ -3240,8 +3471,8 @@
     "buCode": "267",
     "name": "Cardiff",
     "coordinates": [
-      -3.188267,
-      51.462189
+      -3.1886,
+      51.4626
     ],
     "countryCode": "gb"
   },
@@ -3249,8 +3480,8 @@
     "buCode": "144",
     "name": "Croydon",
     "coordinates": [
-      -0.123897,
-      51.380071
+      -0.124,
+      51.3794
     ],
     "countryCode": "gb"
   },
@@ -3258,8 +3489,8 @@
     "buCode": "265",
     "name": "Edinburgh",
     "coordinates": [
-      -3.168268,
-      55.88104
+      -3.1705,
+      55.8795
     ],
     "countryCode": "gb"
   },
@@ -3267,8 +3498,8 @@
     "buCode": "548",
     "name": "Exeter",
     "coordinates": [
-      -3.481548,
-      50.706806
+      -3.4775,
+      50.7068
     ],
     "countryCode": "gb"
   },
@@ -3276,8 +3507,8 @@
     "buCode": "143",
     "name": "Gateshead",
     "coordinates": [
-      -1.680994,
-      54.959236
+      -1.6804839582590516,
+      54.958493037608314
     ],
     "countryCode": "gb"
   },
@@ -3285,8 +3516,8 @@
     "buCode": "266",
     "name": "Glasgow",
     "coordinates": [
-      -4.358525,
-      55.870231
+      -4.3572,
+      55.868
     ],
     "countryCode": "gb"
   },
@@ -3294,98 +3525,8 @@
     "buCode": "567",
     "name": "Greenwich",
     "coordinates": [
-      0.013971,
-      51.489511
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "262",
-    "name": "Lakeside",
-    "coordinates": [
-      0.283134,
-      51.480207
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "261",
-    "name": "Leeds",
-    "coordinates": [
-      -1.648808,
-      53.745462
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "186",
-    "name": "Manchester",
-    "coordinates": [
-      -2.101393,
-      53.491007
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "185",
-    "name": "Milton Keynes",
-    "coordinates": [
-      -0.729218,
-      52.005729
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "263",
-    "name": "Nottingham",
-    "coordinates": [
-      -1.280723,
-      53.002673
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "461",
-    "name": "Reading",
-    "coordinates": [
-      -1.067257,
-      51.442125
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "519",
-    "name": "Sheffield",
-    "coordinates": [
-      -1.410659,
-      53.407182
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "125",
-    "name": "Southampton",
-    "coordinates": [
-      -1.411314,
-      50.903791
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "140",
-    "name": "Warrington",
-    "coordinates": [
-      -2.628479,
-      53.418382
-    ],
-    "countryCode": "gb"
-  },
-  {
-    "buCode": "141",
-    "name": "Wembley",
-    "coordinates": [
-      -0.260354,
-      51.553735
+      0.015,
+      51.4897
     ],
     "countryCode": "gb"
   },
@@ -3393,8 +3534,107 @@
     "buCode": "642",
     "name": "Hammersmith",
     "coordinates": [
-      -0.2403,
-      51.4935
+      -0.2283080314386541,
+      51.492937969424254
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "262",
+    "name": "Lakeside",
+    "coordinates": [
+      0.284,
+      51.4799
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "261",
+    "name": "Leeds",
+    "coordinates": [
+      -1.6462,
+      53.7448
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "186",
+    "name": "Manchester",
+    "coordinates": [
+      -2.1013,
+      53.4907
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "185",
+    "name": "Milton Keynes",
+    "coordinates": [
+      -0.7289,
+      52.0054
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "263",
+    "name": "Nottingham",
+    "coordinates": [
+      -1.2851,
+      53.0017
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "461",
+    "name": "Reading",
+    "coordinates": [
+      -1.0654,
+      51.4424
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "519",
+    "name": "Sheffield",
+    "coordinates": [
+      -1.4108,
+      53.4071
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "125",
+    "name": "Southampton",
+    "coordinates": [
+      -1.4129,
+      50.9037
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "140",
+    "name": "Warrington",
+    "coordinates": [
+      -2.6289,
+      53.4178
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "142",
+    "name": "Wednesbury",
+    "coordinates": [
+      -2.0156,
+      52.5697
+    ],
+    "countryCode": "gb"
+  },
+  {
+    "buCode": "141",
+    "name": "Wembley",
+    "coordinates": [
+      -0.2605,
+      51.5537
     ],
     "countryCode": "gb"
   },
@@ -3402,8 +3642,8 @@
     "buCode": "482",
     "name": "Anderlecht",
     "coordinates": [
-      4.289643,
-      50.810943
+      4.2916,
+      50.8103
     ],
     "countryCode": "be"
   },
@@ -3411,8 +3651,8 @@
     "buCode": "483",
     "name": "Arlon",
     "coordinates": [
-      5.89056,
-      49.637565
+      5.8905,
+      49.6371
     ],
     "countryCode": "be"
   },
@@ -3420,8 +3660,8 @@
     "buCode": "169",
     "name": "Gent",
     "coordinates": [
-      3.687866,
-      51.022812
+      3.6954,
+      51.0266
     ],
     "countryCode": "be"
   },
@@ -3429,44 +3669,17 @@
     "buCode": "452",
     "name": "Hasselt",
     "coordinates": [
-      5.320069,
-      50.918641
+      5.32,
+      50.9186
     ],
     "countryCode": "be"
-  },
-  {
-    "buCode": "202",
-    "name": "Espoo",
-    "coordinates": [
-      24.6626878,
-      60.2168983
-    ],
-    "countryCode": "fi"
-  },
-  {
-    "buCode": "301",
-    "name": "Raisio",
-    "coordinates": [
-      22.2287403,
-      60.4949172
-    ],
-    "countryCode": "fi"
-  },
-  {
-    "buCode": "422",
-    "name": "Vantaa",
-    "coordinates": [
-      25.084695,
-      60.2767137
-    ],
-    "countryCode": "fi"
   },
   {
     "buCode": "375",
     "name": "Liège",
     "coordinates": [
-      5.46205,
-      50.681123
+      5.4647,
+      50.6788
     ],
     "countryCode": "be"
   },
@@ -3474,8 +3687,8 @@
     "buCode": "423",
     "name": "Mons",
     "coordinates": [
-      3.930841,
-      50.456170
+      3.932,
+      50.4618
     ],
     "countryCode": "be"
   },
@@ -3483,36 +3696,90 @@
     "buCode": "179",
     "name": "Wilrijk",
     "coordinates": [
-      4.383523,
-      51.157977
+      4.3835,
+      51.1576
     ],
     "countryCode": "be"
-  },
-  {
-    "buCode": "645",
-    "name": "Rivoli",
-    "coordinates": [
-      2.3425746,
-      48.8604859
-    ],
-    "countryCode": "fr"
   },
   {
     "buCode": "376",
     "name": "Zaventem",
     "coordinates": [
-      4.494374,
-      50.870829
+      4.4912,
+      50.8723
     ],
     "countryCode": "be"
   },
   {
-    "buCode": "583",
-    "name": "Szczecin",
+    "buCode": "482",
+    "name": "Anderlecht",
     "coordinates": [
-      53.407562,
-      14.513889
+      4.2916,
+      50.8103
     ],
-    "countryCode": "pl"
+    "countryCode": "be"
+  },
+  {
+    "buCode": "483",
+    "name": "Arlon",
+    "coordinates": [
+      5.8905,
+      49.6371
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "169",
+    "name": "Gent",
+    "coordinates": [
+      3.6954,
+      51.0266
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "452",
+    "name": "Hasselt",
+    "coordinates": [
+      5.32,
+      50.9186
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "375",
+    "name": "Liège",
+    "coordinates": [
+      5.4647,
+      50.6788
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "423",
+    "name": "Mons",
+    "coordinates": [
+      3.932,
+      50.4618
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "179",
+    "name": "Wilrijk",
+    "coordinates": [
+      4.3835,
+      51.1576
+    ],
+    "countryCode": "be"
+  },
+  {
+    "buCode": "376",
+    "name": "Zaventem",
+    "coordinates": [
+      4.4912,
+      50.8723
+    ],
+    "countryCode": "be"
   }
 ]
