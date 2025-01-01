@@ -1,4 +1,4 @@
-import { green, yellow, white, red } from "@colors/colors";
+import { green, yellow, white, red } from "ansis";
 import CliTable3 from "cli-table3";
 import { ItemStockInfo, PRODUCT_AVAILABILITY } from "../../lib/ingka";
 
