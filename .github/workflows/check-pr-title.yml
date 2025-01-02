@@ -13,6 +13,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - uses: ./.github/actions/setup
       - uses: aslafy-z/conventional-pr-title-action@v3.2.0
         with:
           success-state: Title follows the specification.
