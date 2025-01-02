@@ -17,9 +17,9 @@ jobs:
       with:
         # Full git history is needed to get a proper list of changed files within `super-linter`
         fetch-depth: 0
-    - uses: github/super-linter/slim@v7
+    - uses: super-linter/super-linter@v7.2.1
       env:
-        DEFAULT_BRANCH: master
+        DEFAULT_BRANCH: main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         VALIDATE_ALL_CODEBASE: false
         VALIDATE_JAVASCRIPT_ES: true
@@ -70,7 +70,7 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup
-      - run: npm run semantic-release
+      - run: npx run semantic-release@24.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
