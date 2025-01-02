@@ -19,7 +19,7 @@ jobs:
         fetch-depth: 0
     - uses: super-linter/super-linter@v7.2.1
       env:
-        DEFAULT_BRANCH: master
+        DEFAULT_BRANCH: main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         VALIDATE_ALL_CODEBASE: false
         VALIDATE_JAVASCRIPT_ES: true
