@@ -9,7 +9,6 @@ on:
   pull_request:
 
 jobs:
-  # https://github.com/github/super-linter
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -38,8 +37,9 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: [lint, build]
-
+    needs:
+      - lint
+      - build
     steps:
     - uses: actions/checkout@v4
     - uses: ./.github/actions/setup
@@ -64,13 +64,27 @@ jobs:
     # to the secrets used
     if: ${{ github.actor != 'dependabot[bot]' }}
     runs-on: ubuntu-latest
-    needs: [test]
+    needs:
+      - test
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target-branch: ${{ github.ref_name }}
+          release-type: node
+
+  publish:
+    if: ${{ needs.release.outputs.release_created }}
+    runs-on: ubuntu-latest
+    needs:
+      - release
+    steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - run: npx run semantic-release@24.2.0
+      - run: npm publish --dry-run --provenance --access public
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

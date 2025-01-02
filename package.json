@@ -22,12 +22,12 @@
   "license": "MIT",
   "maintainer": {
     "name": "Marcel Eichner",
-    "email": "marcel.eichner@ephigenia.de"
+    "email": "love@ephigenia.de"
   },
   "contributors": [
     {
       "name": "Marcel Eichner",
-      "email": "marcel.eichner@ephigenia.de"
+      "email": "love@ephigenia.de"
     }
   ],
   "repository": {
@@ -51,14 +51,12 @@
   "scripts": {
     "_postinstall": "husky install",
     "build": "tsc --module commonjs --project tsconfig.build.json",
-    "clean": "rimraf dist",
     "format": "prettier -w \"{src,test}/**/*.ts\"",
     "lint:fix": "npm run lint -- --fix",
     "lint": "eslint \"{src,test}/**/*.ts\"",
     "postpublish": "pinst --enable",
     "prepublishOnly": "pinst --disable",
     "prepare": "npm run build",
-    "semantic-release": "semantic-release",
     "start": "node -r ts-node/register src/cli/index.ts",
     "tdd": "TZ=Europe/Berlin npm run -s test -- --watch --coverage false",
     "test:ci": "npm run -s test",
@@ -88,7 +86,6 @@
     "nock": "13.5.6",
     "pinst": "3.0.0",
     "prettier": "3.4.2",
-    "rimraf": "6.0.1",
     "ts-jest": "29.2.5",
     "ts-node": "10.9.2",
     "typescript": "5.7.2"
