@@ -89,7 +89,6 @@
     "pinst": "3.0.0",
     "prettier": "3.4.2",
     "rimraf": "6.0.1",
-    "semantic-release": "24.2.0",
     "ts-jest": "29.2.5",
     "ts-node": "10.9.2",
     "typescript": "5.7.2"
