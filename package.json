@@ -71,9 +71,9 @@
     "i18n-iso-countries": "7.13.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "19.6.1",
-    "@commitlint/config-angular": "19.6.0",
-    "@commitlint/config-conventional": "19.6.0",
+    "@commitlint/cli": "19.7.1",
+    "@commitlint/config-angular": "19.7.1",
+    "@commitlint/config-conventional": "19.7.1",
     "@types/jest": "29.5.14",
     "@types/node": "22.10.2",
     "@typescript-eslint/eslint-plugin": "8.18.2",
