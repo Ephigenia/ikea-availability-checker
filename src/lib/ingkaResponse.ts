@@ -1,38 +1,59 @@
-export interface IngkaAvailabilitiesResponseAvailableStockItem {
-  type: "CASHCARRY";
-  quantity: number;
-  /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
-  updateDateTime: string;
-  probabilities: {
-    type: "THIS_DAY";
-    /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
-    updateDateTime: string;
-    communication: {
-      colour: {
-        rgbDec: string;
-        rgbHex: string;
-        token: "colour-positive" | "colour-negative";
+export interface  IngkaAvailabilitiesResponseBuyingOption {
+  cashCarry: {
+    availability?: {
+      probability: {
+        thisDay: {
+          colour: {
+            rgbDec: string
+            rgbHex: string
+            token: "colour-positive" | "colour-negative";
+          };
+          messageType: "HIGH_IN_STOCK" | "LOW_IN_STOCK" | "OUT_OF_STOCK";
+        };
+        /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
+        updateDateTime: string
       };
-      messageType: "HIGH_IN_STOCK" | "OUT_OF_STOCK";
+      quantity: number
+      /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
+      updateDateTime: string
     };
-  }[];
-  restocks?: {
-    type: "DELIVERY";
-    quantity: number;
-    /** Date (RFC 3339, f.e. "2022-11-01") */
-    earliestDate: string;
-    /** Date (RFC 3339, f.e. "2022-11-01") */
-    latestDate: string;
+    eligibleForStockNotification: boolean
+    range: {
+      inRange: boolean
+    };
+    unitOfMeasure: "PIECE"
     /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
-    updateDateTime: string;
-    reliability: "HIGH" | "LOW";
-  }[];
+    updateDateTime: string
+  };
+  clickCollect: {
+    range: {
+      inRange: boolean
+    }
+  };
+  homeDelivery: {
+    range: {
+      inRange: boolean
+    };
+    /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
+    updateDateTime: string
+  }
+  // restocks?: {
+  //   type: "DELIVERY";
+  //   quantity: number;
+  //   /** Date (RFC 3339, f.e. "2022-11-01") */
+  //   earliestDate: string;
+  //   /** Date (RFC 3339, f.e. "2022-11-01") */
+  //   latestDate: string;
+  //   /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
+  //   updateDateTime: string;
+  //   reliability: "HIGH" | "LOW";
+  // }[];
 }
 
 export interface IngkaAvailabilitiesResponseDataItem {
-  isInCashAndCarryRange: boolean;
-  isInHomeDeliveryRange: boolean;
-  availableStocks: IngkaAvailabilitiesResponseAvailableStockItem[];
+  availableForCashCarry: boolean;
+  availableForClickCollect: boolean;
+  buyingOption: IngkaAvailabilitiesResponseBuyingOption;
   classUnitKey: {
     /** 3-letter buCode of the store */
     classUnitCode: string;
@@ -51,8 +72,7 @@ export interface IngkaAvailabilitiesErrorResponse {
 }
 
 export interface IngkaAvailabilitiesResponse {
-  availabilities: null;
-  data: IngkaAvailabilitiesResponseDataItem[];
+  availabilities: IngkaAvailabilitiesResponseDataItem[];
   /** contains one ore more errorrs if there has been any */
   errors?: Array<{
     code: number,

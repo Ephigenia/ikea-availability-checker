@@ -63,13 +63,13 @@ export class IngkaApi {
     // but to general storage units or unknown things. We should filter
     // here just for items that list availabilities for a specific store
     // indicated by the "classUnitType" "STO".
-    const itemsWithStores = responseData.data.filter(
+    const itemsWithStores = responseData.availabilities.filter(
       (item) => item.classUnitKey?.classUnitType === "STO"
     );
 
     // filter for Items that have a "availableStocks" property
     const rawStockInfoItems = itemsWithStores
-      .filter((item) => item.availableStocks?.length)
+      .filter((item) => item.buyingOption !== null)
       .filter((item) => findOneById(item.classUnitKey.classUnitCode));
 
     // remove all stores which are not known
@@ -81,24 +81,16 @@ export class IngkaApi {
         store: findOneById(item.classUnitKey.classUnitCode) as Store,
       };
 
-      const cashNCarry = (item.availableStocks || []).find(
-        (item) => item.type === "CASHCARRY"
-      );
-
-      if (cashNCarry) {
-        stockInfo.stock = parseInt(String(cashNCarry.quantity), 10);
-        stockInfo.createdAt = new Date(cashNCarry.updateDateTime);
-
-        const probability = (cashNCarry.probabilities || []).find(
-          (item) => item.communication && item.communication.messageType
-        );
-        if (probability) {
-          stockInfo.probability = probability.communication
-            .messageType as PRODUCT_AVAILABILITY;
-        }
-        if (cashNCarry.restocks) {
-          stockInfo.restockDate = new Date(cashNCarry.restocks[0].earliestDate);
-        }
+      if (item.availableForCashCarry) {
+        const cashCarry = item.buyingOption.cashCarry;
+        stockInfo.stock = parseInt(String(cashCarry.availability?.quantity), 10);
+        stockInfo.createdAt = new Date(cashCarry.availability?.updateDateTime ?? "");
+        stockInfo.probability = cashCarry.availability?.probability.thisDay
+          .messageType as PRODUCT_AVAILABILITY;
+        // TODO: Find an item that has restocks
+        // if (cashNCarry.restocks) {
+        //   stockInfo.restockDate = new Date(cashNCarry.restocks[0].earliestDate);
+        // }
       }
 
       return stockInfo;
@@ -130,9 +122,9 @@ export class IngkaApi {
   ): boolean {
     if (
       !data ||
-      !data.data ||
-      !Array.isArray(data.data) ||
-      !data.data.every((obj) => typeof obj === "object")
+      !data.availabilities ||
+      !Array.isArray(data.availabilities) ||
+      !data.availabilities.every((obj) => typeof obj === "object")
     ) {
       throw new IngkaParseError(
         `Unexpected response data structure detected`,
