@@ -82,15 +82,15 @@ export class IngkaApi {
       };
 
       if (item.availableForCashCarry) {
-        const cashCarry = item.buyingOption.cashCarry;
-        stockInfo.stock = parseInt(String(cashCarry.availability?.quantity), 10);
-        stockInfo.createdAt = new Date(cashCarry.availability?.updateDateTime ?? "");
-        stockInfo.probability = cashCarry.availability?.probability.thisDay
+        const availability = item.buyingOption.cashCarry.availability;
+        stockInfo.stock = parseInt(String(availability?.quantity), 10);
+        stockInfo.createdAt = new Date(availability?.updateDateTime ?? "");
+        stockInfo.probability = availability?.probability.thisDay
           .messageType as PRODUCT_AVAILABILITY;
-        // TODO: Find an item that has restocks
-        // if (cashNCarry.restocks) {
-        //   stockInfo.restockDate = new Date(cashNCarry.restocks[0].earliestDate);
-        // }
+      }
+
+      if (item.buyingOption.cashCarry.availability?.restocks) {
+        stockInfo.restockDate = new Date(item.buyingOption.cashCarry.availability?.restocks[0].earliestDate);
       }
 
       return stockInfo;

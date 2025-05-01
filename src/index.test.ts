@@ -29,6 +29,16 @@ describe("API", function () {
                 updateDateTime: UPDATE_DATE_TIME,
               },
               quantity: 88,
+              restocks: [
+                {
+                  type: 'DELIVERY',
+                  quantity: 23,
+                  earliestDate: '2021-12-13',
+                  latestDate: '2021-12-12',
+                  updateDateTime: '2023-12-12',
+                  reliability: 'HIGH',
+                }
+              ],
               updateDateTime: UPDATE_DATE_TIME,
             },
             eligibleForStockNotification: false,

@@ -14,6 +14,17 @@ export interface  IngkaAvailabilitiesResponseBuyingOption {
         updateDateTime: string
       };
       quantity: number
+      restocks?: {
+        type: "DELIVERY";
+        quantity: number;
+        /** Date (RFC 3339, f.e. "2022-11-01") */
+        earliestDate: string;
+        /** Date (RFC 3339, f.e. "2022-11-01") */
+        latestDate: string;
+        /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
+        updateDateTime: string;
+        reliability: "HIGH" | "LOW";
+      }[];
       /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
       updateDateTime: string
     };
@@ -37,17 +48,6 @@ export interface  IngkaAvailabilitiesResponseBuyingOption {
     /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
     updateDateTime: string
   }
-  // restocks?: {
-  //   type: "DELIVERY";
-  //   quantity: number;
-  //   /** Date (RFC 3339, f.e. "2022-11-01") */
-  //   earliestDate: string;
-  //   /** Date (RFC 3339, f.e. "2022-11-01") */
-  //   latestDate: string;
-  //   /** Date-Time (RFC 3339, f.e. "2022-11-06T05:14:33.299Z") */
-  //   updateDateTime: string;
-  //   reliability: "HIGH" | "LOW";
-  // }[];
 }
 
 export interface IngkaAvailabilitiesResponseDataItem {
