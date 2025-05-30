@@ -2,11 +2,75 @@ import nock from "nock";
 
 import * as checker from "./index";
 import { BASE_URL_DEFAULT } from "./lib/ingka";
-import { IngkaAvailabilitiesResponseDataItem } from "./lib/ingkaResponse";
+import { IngkaAvailabilitiesResponse } from "./lib/ingkaResponse";
 
 describe("API", function () {
   const BU_CODE = "063";
   const PRODUCT_ID = "50411990";
+  const UPDATE_DATE_TIME = "2025-04-09T14:25:41.818Z";
+
+  const RESPONSE = {
+    availabilities: [
+      {
+        availableForCashCarry: true,
+        availableForClickCollect: true,
+        buyingOption: {
+          cashCarry: {
+            availability: {
+              probability: {
+                thisDay: {
+                  colour: {
+                    rgbDec: "10,138,0",
+                    rgbHex: "#0A8A00",
+                    token: "colour-positive",
+                  },
+                  messageType: "HIGH_IN_STOCK",
+                },
+                updateDateTime: UPDATE_DATE_TIME,
+              },
+              quantity: 88,
+              restocks: [
+                {
+                  type: 'DELIVERY',
+                  quantity: 23,
+                  earliestDate: '2021-12-13',
+                  latestDate: '2021-12-12',
+                  updateDateTime: '2023-12-12',
+                  reliability: 'HIGH',
+                }
+              ],
+              updateDateTime: UPDATE_DATE_TIME,
+            },
+            eligibleForStockNotification: false,
+            range: {
+              inRange: true,
+            },
+            unitOfMeasure: "PIECE",
+            updateDateTime: UPDATE_DATE_TIME,
+          },
+          clickCollect: {
+            range: {
+              inRange: true,
+            },
+          },
+          homeDelivery: {
+            range: {
+              inRange: true,
+            },
+            updateDateTime: UPDATE_DATE_TIME,
+          },
+        },
+        classUnitKey: {
+          classUnitCode: BU_CODE,
+          classUnitType: "STO",
+        },
+        itemKey: {
+          itemNo: PRODUCT_ID,
+          itemType: "ART",
+        },
+      },
+    ],
+  } as IngkaAvailabilitiesResponse;
 
   afterEach(() => {
     nock.isDone();
@@ -25,35 +89,8 @@ describe("API", function () {
 
     it("parses the reply to an stock item info", async function () {
       nock(BASE_URL_DEFAULT)
-        .get((uri) => uri.includes('availabilities'))
-        .reply(200, {
-          data: [
-            {
-              availableStocks: [
-                {
-                  type: "CASHCARRY",
-                  quantity: 122,
-                  updateDateTime: "2022-11-06T05:34:08.207Z",
-                  probabilities: [
-                    {
-                      communication: {
-                        messageType: "HIGH_IN_STOCK",
-                      },
-                    },
-                  ],
-                },
-              ],
-              classUnitKey: {
-                classUnitCode: BU_CODE,
-                classUnitType: "STO",
-              },
-              itemKey: {
-                itemNo: PRODUCT_ID,
-                itemType: "ART",
-              },
-            },
-          ],
-        });
+        .get((uri) => uri.includes("availabilities"))
+        .reply(200, RESPONSE);
 
       const stockInfo = await checker.availability(BU_CODE, PRODUCT_ID);
       expect(stockInfo).toEqual(
@@ -61,9 +98,9 @@ describe("API", function () {
           buCode: BU_CODE,
           productId: PRODUCT_ID,
           store: expect.objectContaining({}),
-          createdAt: new Date("2022-11-06T05:34:08.207Z"),
+          createdAt: new Date(UPDATE_DATE_TIME),
           probability: "HIGH_IN_STOCK",
-        })
+        }),
       );
     });
   }); // availability
@@ -71,47 +108,10 @@ describe("API", function () {
   describe('availabilities', function() {
     it('returns results', async function() {
       nock(BASE_URL_DEFAULT)
-        .get((uri) => uri.includes('availabilities'))
-        .reply(200, {
-          data: [
-            {
-              availableStocks: [
-                {
-                  type: "CASHCARRY",
-                  quantity: 122,
-                  updateDateTime: "2022-11-06T05:34:08.207Z",
-                  probabilities: [
-                    {
-                      communication: {
-                        messageType: "HIGH_IN_STOCK",
-                      },
-                    },
-                  ],
-                  restocks: [
-                    {
-                      type: 'DELIVERY',
-                      quantity: 23,
-                      earliestDate: '2021-12-13',
-                      latestDate: '2021-12-12',
-                      updateDateTime: '2023-12-12',
-                      reliability: 'HIGH',
-                    }
-                  ]
-                },
-              ],
-              classUnitKey: {
-                classUnitCode: BU_CODE,
-                classUnitType: "STO",
-              },
-              itemKey: {
-                itemNo: PRODUCT_ID,
-                itemType: "ART",
-              },
-            } as IngkaAvailabilitiesResponseDataItem
-          ],
-        });
-      const stores = checker.stores.findById([BU_CODE, '343', '326']);
-      const stockinfo = await checker.availabilities(stores, ['1238127']);
+        .get((uri) => uri.includes("availabilities"))
+        .reply(200, RESPONSE);
+      const stores = checker.stores.findById([BU_CODE, "343", "326"]);
+      const stockinfo = await checker.availabilities(stores, ["1238127"]);
       // the mocked response doesn’t contain data for the second bu code
       // and therefor the result only contains data for 1 store.
       expect(stockinfo).toHaveLength(1);
@@ -120,9 +120,9 @@ describe("API", function () {
           buCode: BU_CODE,
           productId: PRODUCT_ID,
           store: expect.objectContaining({}),
-          createdAt: new Date("2022-11-06T05:34:08.207Z"),
+          createdAt: new Date(UPDATE_DATE_TIME),
           probability: "HIGH_IN_STOCK",
-        })
+        }),
       );
     });
   }); // availabilities
