@@ -67,7 +67,7 @@
     "ansis": "3.5.2",
     "axios": "1.7.9",
     "cli-table3": "0.6.5",
-    "commander": "13.0.0",
+    "commander": "14.0.0",
     "i18n-iso-countries": "7.13.0"
   },
   "devDependencies": {
