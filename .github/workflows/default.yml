@@ -16,7 +16,7 @@ jobs:
       with:
         # Full git history is needed to get a proper list of changed files within `super-linter`
         fetch-depth: 0
-    - uses: super-linter/super-linter@v7.2.1
+    - uses: super-linter/super-linter@v7.4.0
       env:
         DEFAULT_BRANCH: main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -62,7 +62,7 @@ jobs:
   release:
     # ignore pull-requests created by dependabot as it doesn’t has access
     # to the secrets used
-    if: ${{ github.actor != 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' && github.event_name != 'pull_request' }}
     runs-on: ubuntu-latest
     needs:
       - test
