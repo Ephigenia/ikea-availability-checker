@@ -10,6 +10,7 @@ runs:
         node-version-file: '.nvmrc'
         check-latest: false
         cache: npm
+        registry-url: 'https://registry.npmjs.org'
     - name: install dependencies
       run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline  --no-fund
       # only run npm ci when restoring the cache didn’t work to save some time
