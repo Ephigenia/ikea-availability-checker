@@ -83,7 +83,7 @@
     "eslint-plugin-prettier": "5.5.4",
     "husky": "9.1.7",
     "jest": "30.0.5",
-    "nock": "14.0.8",
+    "nock": "14.0.9",
     "pinst": "3.0.0",
     "prettier": "3.6.2",
     "ts-jest": "29.4.1",
