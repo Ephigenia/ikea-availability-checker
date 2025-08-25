@@ -12,7 +12,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         # Full git history is needed to get a proper list of changed files within `super-linter`
         fetch-depth: 0
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [lint]
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/setup
     - run: npm run build
 
@@ -41,7 +41,7 @@ jobs:
       - lint
       - build
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - uses: ./.github/actions/setup
     - run: npx browserslist@latest --update-db
     - run: npm test
@@ -69,7 +69,7 @@ jobs:
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           persist-credentials: false
       - uses: googleapis/release-please-action@v4
@@ -85,7 +85,7 @@ jobs:
     needs:
       - release
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ./.github/actions/setup
       - run: npm publish --provenance --access public
         env:
