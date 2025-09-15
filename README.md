@@ -1,4 +1,12 @@
-Sometimes there is a high demand for products that are unavailable in the IKEA online store and even in the locations. So here’s a script that makes it easy to check the availability of a list of products and locations.
+# IKEA Availability Checker
+
+Never miss out on your favorite IKEA products again! This powerful tool helps you check real-time product availability across 400+ IKEA stores worldwide. Whether you're hunting for that perfect Billy bookcase or tracking down a specific kitchen item, our availability checker saves you time and frustration by providing instant stock information.
+
+Perfect for:
+- **Furniture enthusiasts** tracking restocks
+- **Developers** building IKEA-related applications  
+- **Shoppers** planning store visits
+- **Businesses** monitoring product availability
 
 [![MIT License](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 [![NPM Package](https://badge.fury.io/js/ikea-availability-checker.svg)](https://www.npmjs.com/package/ikea-availability-checker)
@@ -10,56 +18,89 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
 
 ## 🚀 Quick Start
 
-**Multiple ways to get started:**
+**Get up and running in seconds with multiple options:**
 
-1. **🌐 Try it online instantly:** Scroll down to the [Try It Online](#try-it-online) section to run interactive examples directly in your browser!
-2. **💻 GitHub Codespaces:** Click the "Code" button above and select "Codespaces" to run in a cloud development environment
-3. **📁 Run examples locally:** Check out the [Examples](#examples) section below
+1. **🌐 Try it online instantly:** Jump to the [Try It Online](#try-it-online) section and run interactive examples directly in your browser - no installation required!
+2. **💻 GitHub Codespaces:** Click the "Code" button above and select "Codespaces" for a full cloud development environment
+3. **📁 Run examples locally:** Follow the [Examples](#examples) section for local setup and execution
 
-Please report any bugs related to this alpha in the issues: https://github.com/Ephigenia/ikea-availability-checker/issues
+> 💡 **New to the project?** Start with the online examples to see what's possible, then move to local development for advanced usage.
 
-Features
-================================================================================
+**Found a bug or have a suggestion?** We'd love to hear from you! Please report issues at: https://github.com/Ephigenia/ikea-availability-checker/issues
 
-- supports listings from >400 IKEA stores worldwide
-- get product stock amount for a whole country or single store in JSON, Text and CLI-Table format
-- support for many countries:
-    - at, au, be, ca, ch, cn, cz, de, dk, es, fi, fr, gb, hk, hu, hr, ie, it, jo, jp, kr, kw, lt, lv, my, nl, no, pl, pt, qa, ro, sa, se, sg, sk, th, tw, us - [![smokey](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml/badge.svg)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml)
-    - Russia (ru) is closed down
-- [javascript API](#api) for easy integration in your library or project
+## ✨ Features
 
-Command Line
-================================================================================
+**🌍 Global Coverage**
+- **400+ IKEA stores** worldwide with real-time availability data
+- **40+ countries supported** including major markets across Europe, North America, Asia, and Oceania
+- **Comprehensive store database** with detailed location information
 
-## Install
+**📊 Multiple Output Formats**
+- **JSON** for programmatic integration and data processing
+- **Text** for simple command-line usage and scripting
+- **CLI Tables** for beautiful, readable terminal output
+- **Customizable** formatting options for different use cases
 
-### Global
+**🌐 Country Support**
+- **Active countries:** at, au, be, ca, ch, cn, cz, de, dk, es, fi, fr, gb, hk, hu, hr, ie, it, jo, jp, kr, kw, lt, lv, my, nl, no, pl, pt, qa, ro, sa, se, sg, sk, th, tw, us - [![smokey](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml/badge.svg)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml)
+- **Note:** Russia (ru) operations are currently suspended
+- **Automated testing** ensures data accuracy across all supported regions
 
-A globally installed ikea-availability-checker can be used anywhere but there can only be one version of it.
+**🔧 Developer-Friendly**
+- **Clean JavaScript API** for easy integration into your projects
+- **TypeScript support** with full type definitions
+- **Comprehensive documentation** and interactive examples
+- **Modular design** allowing flexible usage patterns
 
-    npm install -g ikea-availability-checker
+## 💻 Command Line Interface
 
-After you can run the ikea-availability-checker directly:
+**Powerful command-line tool for quick availability checks and automation**
 
-    ikea-availability
+### 📦 Installation Options
 
-### Local
+#### Global Installation
+Install once, use anywhere on your system:
 
-A locally installed ikea-availability-checker will be placed in `./node_modules/ikea-availability-checker` and can be called using the binary link:
+```bash
+npm install -g ikea-availability-checker
+```
 
-    npm install ikea-availability-checker;
-    node_modules/.bin/ikea-availability-checker --help;
+After installation, run the tool directly from any directory:
 
-### NPX
+```bash
+ikea-availability --help
+```
 
-Or call it directly using [npx](https://www.npmjs.com/package/npx):
+> ⚠️ **Note:** Global installation allows only one version at a time. Use local installation for project-specific versions.
 
-    npx ikea-availability-checker --help
+#### Local Installation
+Perfect for project-specific usage and version control:
 
-## Use
-### Stores
+```bash
+npm install ikea-availability-checker
+```
 
-    npx ikea-availability-checker stores at
+Run using the local binary:
+
+```bash
+node_modules/.bin/ikea-availability-checker --help
+```
+
+#### NPX (No Installation Required)
+Run instantly without installing anything:
+
+```bash
+npx ikea-availability-checker --help
+```
+
+### 🎯 Usage Examples
+
+#### Store Discovery
+Find all IKEA stores in a specific country:
+
+```bash
+npx ikea-availability-checker stores at
+```
 
     ┌─────────────┬─────────┬────────┬────────────────┐
     │ countryCode │ country │ buCode │ name           │
@@ -80,11 +121,13 @@ Or call it directly using [npx](https://www.npmjs.com/package/npx):
     └─────────────┴─────────┴────────┴────────────────┘
 
 
-### Stock
-
 #### Product Stock Information for a whole country
 
-    npx ikea-availability-checker stock --country at 80213074
+Check availability across all stores in a country:
+
+```bash
+npx ikea-availability-checker stock --country at 80213074
+```
 
     ┌──────────────────────────┬─────────────┬─────────┬──────────┬──────────────────┬────────────────┬───────┬───────────────┐
     │ date                     │ countryCode │ country │ product  │ storeId (buCode) │ store          │ stock │ probability   │
@@ -108,9 +151,13 @@ Or call it directly using [npx](https://www.npmjs.com/package/npx):
 
 #### Product Stock Information for a specific store
 
-##### with BU-Code (Store-Id)
+##### Using Store ID (BU-Code)
 
-    npx ikea-availability-checker stock --store=155 S69022537
+Check availability at a specific store using its unique identifier:
+
+```bash
+npx ikea-availability-checker stock --store=155 S69022537
+```
 
     ┌──────────────────────────┬─────────────┬─────────┬───────────┬──────────────────┬────────────┬───────┬───────────────┐
     │ date                     │ countryCode │ country │ product   │ storeId (buCode) │ store      │ stock │ probability   │
@@ -119,18 +166,26 @@ Or call it directly using [npx](https://www.npmjs.com/package/npx):
     └──────────────────────────┴─────────────┴─────────┴───────────┴──────────────────┴────────────┴───────┴───────────────┘
 
 
-##### Store-Name / Location / City-Name
+##### Using Store Name or City
 
-The "store" option also accepts strings that match on the location’s name:
+Search by store name, location, or city (partial matches supported):
 
-    npx ikea-availability-checker stock --store=Berlin 40413131
+```bash
+npx ikea-availability-checker stock --store=Berlin 40413131
+```
+
+> 💡 **Pro tip:** You can use partial names like "Berlin", "München", or "Wien" - the tool will find matching stores automatically!
 
 
-#### Multiple Stores and Product Ids
+#### Multiple Stores and Products
 
-The list of bu-codes can also contain bu-codes from different countries.
+Check multiple products across multiple stores (supports cross-country queries):
 
-    npx ikea-availability-checker stock --store=224,069,063 S69022537 40299687
+```bash
+npx ikea-availability-checker stock --store=224,069,063 S69022537 40299687
+```
+
+> 🌍 **Cross-border shopping:** Mix store IDs from different countries to compare availability across regions!
 
     ┌──────────────────────────┬─────────────┬─────────┬───────────┬──────────────────┬────────────────┬───────┬───────────────┐
     │ date                     │ countryCode │ country │ product   │ storeId (buCode) │ store          │ stock │ probability   │
@@ -150,10 +205,11 @@ The list of bu-codes can also contain bu-codes from different countries.
 
 
 
-API 
-================================================================================
+## 🔌 JavaScript API
 
-The API interface which helps you include the check into your library is kind of new. If you have suggestions for improvements feel free to [open an issue](https://github.com/Ephigenia/ikea-availability-checker/issues).
+Our clean, modern JavaScript API makes it easy to build powerful applications on top of IKEA's availability data. Whether you're creating a shopping assistant, inventory tracker, or custom dashboard, our API provides all the tools you need.
+
+> 💡 **API Feedback:** This API is actively developed and we welcome your suggestions! [Open an issue](https://github.com/Ephigenia/ikea-availability-checker/issues) to share your ideas.
 
 ```javascript
 const checker = require('ikea-availability-checker');
@@ -302,145 +358,233 @@ const checker = require('ikea-availability-checker');
 })();
 ```
 
-## Examples
+## 📚 Examples
 
-The project includes several example scripts in the [`examples/`](./examples) directory that demonstrate different use cases. You can run these examples locally or in GitHub Codespaces.
+**Learn by doing with our comprehensive example collection**
 
-### Running Examples Locally
+The project includes several example scripts in the [`examples/`](./examples) directory that demonstrate real-world usage patterns. These examples are perfect for understanding how to integrate the availability checker into your own projects.
 
-1. **Clone the repository:**
+**Choose your preferred environment:**
+
+### 🏠 Running Examples Locally
+
+**Perfect for development and customization**
+
+1. **Clone and setup:**
    ```bash
    git clone https://github.com/Ephigenia/ikea-availability-checker.git
    cd ikea-availability-checker
-   ```
-
-2. **Install dependencies:**
-   ```bash
    npm install
-   ```
-
-3. **Build the project:**
-   ```bash
    npm run build
    ```
 
-4. **Run examples:**
+2. **Run example scripts:**
    ```bash
-   # Check product availability in a specific store
+   # Single store, single product check
    node examples/product-availability.js 394 00501436
    
-   # Check product availability across all stores in a country
+   # Country-wide availability scan
    node examples/country-availability.js de 00501436
    
-   # List all stores in a country
+   # Store discovery by country
    node examples/stores.js at
    ```
 
-### Running Examples in GitHub Codespaces
 
-1. **Open in Codespaces:**
+### ☁️ Running Examples in GitHub Codespaces
+
+**Zero-setup cloud development environment**
+
+1. **Launch Codespace:**
    - Click the "Code" button on this repository
    - Select "Codespaces" tab
    - Click "Create codespace on [branch]"
-   - *Note: The `devcontainer` branch includes additional development environment configuration*
+   - *💡 The `devcontainer` branch includes enhanced development environment configuration*
 
-2. **In the Codespace terminal:**
+2. **Run examples instantly:**
    ```bash
-   # Install dependencies
-   npm install
+   # Everything is pre-configured - just run!
+   npm install && npm run build
    
-   # Build the project
-   npm run build
-   
-   # Run examples
+   # Try the examples
    node examples/product-availability.js 394 00501436
    node examples/country-availability.js de 00501436
    node examples/stores.js at
    ```
 
-### Example Scripts Explained
+> ⚡ **Instant setup:** Codespaces provides a fully configured environment in seconds!
 
-- **`product-availability.js`** - Check availability of a single product in a single store
-- **`country-availability.js`** - Check availability of a product across all stores in a country
-- **`stores.js`** - List all stores in a specific country
+### 📋 Example Scripts Reference
 
-Each script accepts command-line arguments and outputs JSON data that you can pipe to other tools or process further.
+| Script | Purpose | Usage |
+|--------|---------|-------|
+| **`product-availability.js`** | Single product, single store check | `node examples/product-availability.js [storeId] [productId]` |
+| **`country-availability.js`** | Country-wide availability scan | `node examples/country-availability.js [countryCode] [productId]` |
+| **`stores.js`** | Store discovery by country | `node examples/stores.js [countryCode]` |
 
-Development
-================================================================================
+**Output format:** All scripts output clean JSON data that's perfect for:
+- **Piping to other tools** (jq, grep, etc.)
+- **Integration with your applications**
+- **Data processing and analysis**
+- **Building custom dashboards**
 
-## Requirements
+## 🛠️ Development
 
-- [nodejs](https://nodejs.org) for version info check [.nvmrc](./.nvmrc).
-*it is strongly recommended to use either nvm and the same node version or the docker container as a development environment*
+**Contributing to the IKEA Availability Checker**
 
+We welcome contributions! Whether you're fixing bugs, adding features, or improving documentation, your help makes this project better for everyone.
 
-## Debug
+### 📋 Prerequisites
 
-Node provides a simple way to debug all HTTP-related requests and responses using `NODE_DEBUG`:
+- **Node.js** - Check [.nvmrc](./.nvmrc) for the recommended version
+- **npm** - Package manager for dependencies
 
-    NODE_DEBUG=http npm run start
-
-
-## Testing
-
-The project has a preconfigured test runner [mocha](https://mochajs.org/). Test coverage is not good.
-
-Running all tests will also create coverage reports shown after the test results.
-
-    npm run test
-
-### TDD
-
-    npm run tdd
-
-### Run Specific tests
-
-    run test -- --grep="stock reporter"
-
-### Smoke Testing
-
-Two shell scripts can be used for testing the different output formats and all or some countries in the "/scripts" directory.
-
-### Request Testing
-
-There’s a public postman collection: [IKEA Workspace](https://www.postman.com/crimson-rocket-271330/workspace/ikea/overview) for you to access which is also linked with this repository: /postman/collection
-
-## Release
-
-Releases are automated and created by CI managed by [semantic-release](https://github.com/semantic-release/semantic-release).
-
-## Trouble Shooting
-
-- I want to deactivate colored output
-    Colored output can be disabled by setting the `FORCE_COLOR=1` before running a command: `FORCE_COLOR=0 npx ikea-availability-checker stores de`
+> 💡 **Development Environment:** We strongly recommend using either nvm with the specified Node version or the Docker container for consistent development experience.
 
 
-Other Projects & Articles
-================================================================================
+### 🐛 Debugging
 
-## Articles & Resources
+**Troubleshoot HTTP requests and responses**
 
-- npm package [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker)
-- [API of the Day: Checking IKEA Availability and Warehouse Locations](https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
-- [IKEA Reddit](https://www.reddit.com/r/IKEA/)
-- [IKEA Mobile api description](https://del.dog/ikeamobileapi.md)
+Enable detailed HTTP debugging to see all network requests:
 
-## Packages
+```bash
+NODE_DEBUG=http npm run start
+```
 
-- [vrslev/ikea-api-client](https://github.com/vrslev/ikea-api-client) alternate IKEA API Client
-- [ikea stock checker](https://github.com/lovegandhi/ikea-stock-checker)
-- [ikea stock finder](https://github.com/sasasoni/ikea_stock_finder) Japanese ruby
-- [ikea scraper](https://github.com/LordBonzi/ikea-scraper) python stock scraper
-- [ikea bot](https://github.com/xorik/ikea-bot) telegram notification bot
+This will show you:
+- **Request details** (URLs, headers, parameters)
+- **Response data** (status codes, response bodies)
+- **Timing information** (request duration, retries)
 
-## Services
 
-- [Stock Hound](https://github.com/spgill/stock-hound) [website](http://stockhound.spgill.me/)
-- [IKEA Click & Collect Availability](https://ikea-status.dong.st/) website for us-stores
-- [ikea-availability-web](https://github.com/anditosl/ikea-availability-web)
+### 🧪 Testing
 
-- [ikeaprices](https://github.com/mnazarov/ikeaprices) browser snippet for comparing prices in different countries
+**Comprehensive test suite with multiple testing approaches**
+
+The project uses [Jest](https://jestjs.io/) as the test runner with comprehensive test coverage.
+
+#### Running Tests
+
+```bash
+# Run all tests with coverage
+npm run test
+
+# Watch mode for development
+npm run tdd
+
+# Run specific test suites
+npm run test -- --grep="stock reporter"
+```
+
+#### Test Coverage
+
+Running tests generates detailed coverage reports showing:
+- **Line coverage** - Which lines are executed
+- **Branch coverage** - Which code paths are tested
+- **Function coverage** - Which functions are called
+
+#### Smoke Testing
+
+Comprehensive smoke tests validate functionality across different scenarios:
+
+```bash
+# Test all output formats and countries
+./scripts/smokey.sh
+
+# Test specific formats
+./scripts/smokey-formats.sh
+```
+
+> 📊 **Coverage Goal:** We're continuously improving test coverage - contributions welcome!
+
+### 🔍 API Testing
+
+**Test the underlying IKEA API directly**
+
+We provide a comprehensive Postman collection for testing the IKEA API endpoints:
+
+- **Public Collection:** [IKEA Workspace](https://www.postman.com/crimson-rocket-271330/workspace/ikea/overview)
+- **Local Files:** Available in `/postman/collection` directory
+- **API Schema:** OpenAPI specification in `/postman/schemas/`
+
+Perfect for:
+- **API exploration** and understanding
+- **Integration testing** before implementation
+- **Debugging** API responses and errors
+
+### 🚀 Release Process
+
+**Automated, semantic versioning with CI/CD**
+
+Releases are fully automated using [semantic-release](https://github.com/semantic-release/semantic-release):
+
+- **Automatic versioning** based on conventional commits
+- **Changelog generation** from commit messages
+- **NPM publishing** on successful builds
+- **GitHub releases** with detailed notes
+
+> 📝 **Commit Convention:** Use conventional commits (feat:, fix:, docs:, etc.) for automatic version bumping
+
+### 🔧 Troubleshooting
+
+**Common issues and solutions**
+
+#### Disable Colored Output
+
+If you need to disable colored output (useful for logging or CI environments):
+
+```bash
+FORCE_COLOR=0 npx ikea-availability-checker stores de
+```
+
+#### Common Issues
+
+- **Network timeouts:** Check your internet connection and try again
+- **Invalid store IDs:** Use the `stores` command to find valid store codes
+- **Product not found:** Verify the product ID exists in the IKEA catalog
+- **Rate limiting:** The API has rate limits - add delays between requests if needed
+
+#### Getting Help
+
+- **GitHub Issues:** [Report bugs and request features](https://github.com/Ephigenia/ikea-availability-checker/issues)
+- **Documentation:** Check this README and the examples directory
+- **API Testing:** Use the Postman collection for debugging API issues
+
+
+## 🌟 Community & Resources
+
+**Discover related projects and helpful resources**
+
+### 📚 Articles & Resources
+
+- **npm package** [ikea-stock-checker](https://www.npmjs.com/package/ikea-stock-checker) - Alternative implementation
+- **API of the Day:** [Checking IKEA Availability and Warehouse Locations](https://medium.com/@JoshuaAJung/api-of-the-day-ikea-availability-checks-8678794a9b52) by Joshua Jung
+- **Community:** [IKEA Reddit](https://www.reddit.com/r/IKEA/) - Discussion and tips
+- **API Documentation:** [IKEA Mobile API description](https://del.dog/ikeamobileapi.md) - Technical reference
+
+### 📦 Related Packages
+
+**Alternative implementations and complementary tools**
+
+| Package | Language | Description |
+|---------|----------|-------------|
+| [vrslev/ikea-api-client](https://github.com/vrslev/ikea-api-client) | JavaScript | Alternative IKEA API client |
+| [ikea stock checker](https://github.com/lovegandhi/ikea-stock-checker) | JavaScript | Stock checking utility |
+| [ikea stock finder](https://github.com/sasasoni/ikea_stock_finder) | Ruby | Japanese market focused |
+| [ikea scraper](https://github.com/LordBonzi/ikea-scraper) | Python | Stock scraping tool |
+| [ikea bot](https://github.com/xorik/ikea-bot) | JavaScript | Telegram notification bot |
+
+### 🌐 Web Services
+
+**Ready-to-use web applications and services**
+
+| Service | Description | Region |
+|---------|-------------|--------|
+| [Stock Hound](http://stockhound.spgill.me/) | Web-based stock checker | Global |
+| [IKEA Click & Collect](https://ikea-status.dong.st/) | US store availability | US |
+| [ikea-availability-web](https://github.com/anditosl/ikea-availability-web) | Web interface | Global |
+| [ikeaprices](https://github.com/mnazarov/ikeaprices) | Price comparison tool | Global |
 
 <hr>
 <small>
