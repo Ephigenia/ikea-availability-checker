@@ -371,24 +371,24 @@ The project includes several example scripts in the [`examples/`](./examples) di
 **Perfect for development and customization**
 
 1. **Clone and setup:**
-   ```bash
-   git clone https://github.com/Ephigenia/ikea-availability-checker.git
-   cd ikea-availability-checker
-   npm install
-   npm run build
-   ```
+    ```bash
+    git clone https://github.com/Ephigenia/ikea-availability-checker.git
+    cd ikea-availability-checker
+    npm install
+    npm run build
+    ```
 
 2. **Run example scripts:**
-   ```bash
-   # Single store, single product check
-   node examples/product-availability.js 394 00501436
-   
-   # Country-wide availability scan
-   node examples/country-availability.js de 00501436
-   
-   # Store discovery by country
-   node examples/stores.js at
-   ```
+    ```bash
+    # Single store, single product check
+    node examples/product-availability.js 394 00501436
+    
+    # Country-wide availability scan
+    node examples/country-availability.js de 00501436
+    
+    # Store discovery by country
+    node examples/stores.js at
+    ```
 
 
 ### ☁️ Running Examples in GitHub Codespaces
@@ -396,21 +396,20 @@ The project includes several example scripts in the [`examples/`](./examples) di
 **Zero-setup cloud development environment**
 
 1. **Launch Codespace:**
-   - Click the "Code" button on this repository
-   - Select "Codespaces" tab
-   - Click "Create codespace on [branch]"
-   - *💡 The `devcontainer` branch includes enhanced development environment configuration*
+    - Click the "Code" button on this repository
+    - Select "Codespaces" tab
+    - Click "Create codespace on [branch]"
 
 2. **Run examples instantly:**
-   ```bash
-   # Everything is pre-configured - just run!
-   npm install && npm run build
-   
-   # Try the examples
-   node examples/product-availability.js 394 00501436
-   node examples/country-availability.js de 00501436
-   node examples/stores.js at
-   ```
+    ```bash
+    # Everything is pre-configured - just run!
+    npm install && npm run build
+    
+    # Try the examples
+    node examples/product-availability.js 394 00501436
+    node examples/country-availability.js de 00501436
+    node examples/stores.js at
+    ```
 
 > ⚡ **Instant setup:** Codespaces provides a fully configured environment in seconds!
 
