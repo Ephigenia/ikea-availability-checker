@@ -6,6 +6,15 @@ Sometimes there is a high demand for products that are unavailable in the IKEA o
 [![Known Vulnerabilities](https://snyk.io/test/github/ephigenia/ikea-availability-checker/badge.svg)](https://snyk.io/test/github/ephigenia/ikea-availability-checker)
 [![default](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/default.yml/badge.svg?branch=master)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/default.yml)
 [![smokey](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml/badge.svg)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=master&repo=ephigenia%2Fikea-availability-checker)
+
+## 🚀 Quick Start
+
+**Multiple ways to get started:**
+
+1. **🌐 Try it online instantly:** Scroll down to the [Try It Online](#try-it-online) section to run interactive examples directly in your browser!
+2. **💻 GitHub Codespaces:** Click the "Code" button above and select "Codespaces" to run in a cloud development environment
+3. **📁 Run examples locally:** Check out the [Examples](#examples) section below
 
 Please report any bugs related to this alpha in the issues: https://github.com/Ephigenia/ikea-availability-checker/issues
 
@@ -155,7 +164,207 @@ const checker = require('ikea-availability-checker');
 })();
 ```
 
-Checkout more examples in the [examples](./examples) directory.
+## Try It Online
+
+You can try out the package directly in your browser using Runkit! Click on any of the examples below to run them interactively.
+
+### Basic Product Availability Check
+
+Check the availability of a specific product in a single store:
+
+```javascript
+// @runkit
+const checker = require('ikea-availability-checker');
+
+(async function() {
+    try {
+        // Check availability of product 00501436 (Billy bookcase) in store 394 (Berlin)
+        const result = await checker.availability('394', '00501436');
+        console.log('Product Availability:', result);
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+})();
+```
+
+### Country-wide Availability Check
+
+Find all stores in a country and check product availability across multiple locations:
+
+```javascript
+// @runkit
+const checker = require('ikea-availability-checker');
+
+(async function() {
+    try {
+        // Get all stores in Austria
+        const stores = checker.stores.findByCountryCode('at');
+        console.log(`Found ${stores.length} stores in Austria`);
+        
+        // Check availability of product 80213074 across all Austrian stores
+        const availabilities = await checker.availabilities(stores, ['80213074']);
+        
+        console.log('\nAvailability across Austrian stores:');
+        availabilities.forEach(availability => {
+            if (availability) {
+                console.log(`${availability.store}: ${availability.stock} units (${availability.probability})`);
+            }
+        });
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+})();
+```
+
+### Store Discovery
+
+Find stores by country code and explore store information:
+
+```javascript
+// @runkit
+const checker = require('ikea-availability-checker');
+
+try {
+    // Get all stores in Germany
+    const stores = checker.stores.findByCountryCode('de');
+    
+    console.log(`Found ${stores.length} stores in Germany:`);
+    stores.slice(0, 10).forEach(store => {
+        console.log(`${store.buCode}: ${store.name} (${store.country})`);
+    });
+    
+    if (stores.length > 10) {
+        console.log(`... and ${stores.length - 10} more stores`);
+    }
+} catch (error) {
+    console.error('Error:', error.message);
+}
+```
+
+### Multiple Products Check
+
+Check availability of multiple products across multiple stores:
+
+```javascript
+// @runkit
+const checker = require('ikea-availability-checker');
+
+(async function() {
+    try {
+        // Get stores from different countries
+        const germanStores = checker.stores.findByCountryCode('de').slice(0, 3);
+        const austrianStores = checker.stores.findByCountryCode('at').slice(0, 2);
+        const allStores = [...germanStores, ...austrianStores];
+        
+        // Check multiple products
+        const productIds = ['00501436', '80213074'];
+        
+        console.log(`Checking ${productIds.length} products across ${allStores.length} stores...`);
+        
+        const availabilities = await checker.availabilities(allStores, productIds);
+        
+        console.log('\nResults:');
+        availabilities.forEach(availability => {
+            if (availability) {
+                console.log(`${availability.product} at ${availability.store} (${availability.country}): ${availability.stock} units`);
+            }
+        });
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+})();
+```
+
+### Error Handling Example
+
+Learn how to handle errors gracefully:
+
+```javascript
+// @runkit
+const checker = require('ikea-availability-checker');
+
+(async function() {
+    try {
+        // Try with an invalid store ID
+        const result = await checker.availability('99999', '00501436');
+        console.log('Result:', result);
+    } catch (error) {
+        console.log('Caught error as expected:', error.message);
+    }
+    
+    try {
+        // Try with a valid store but potentially invalid product
+        const result = await checker.availability('394', 'invalid-product');
+        console.log('Result:', result);
+    } catch (error) {
+        console.log('Product not found:', error.message);
+    }
+})();
+```
+
+## Examples
+
+The project includes several example scripts in the [`examples/`](./examples) directory that demonstrate different use cases. You can run these examples locally or in GitHub Codespaces.
+
+### Running Examples Locally
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Ephigenia/ikea-availability-checker.git
+   cd ikea-availability-checker
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Build the project:**
+   ```bash
+   npm run build
+   ```
+
+4. **Run examples:**
+   ```bash
+   # Check product availability in a specific store
+   node examples/product-availability.js 394 00501436
+   
+   # Check product availability across all stores in a country
+   node examples/country-availability.js de 00501436
+   
+   # List all stores in a country
+   node examples/stores.js at
+   ```
+
+### Running Examples in GitHub Codespaces
+
+1. **Open in Codespaces:**
+   - Click the "Code" button on this repository
+   - Select "Codespaces" tab
+   - Click "Create codespace on [branch]"
+   - *Note: The `devcontainer` branch includes additional development environment configuration*
+
+2. **In the Codespace terminal:**
+   ```bash
+   # Install dependencies
+   npm install
+   
+   # Build the project
+   npm run build
+   
+   # Run examples
+   node examples/product-availability.js 394 00501436
+   node examples/country-availability.js de 00501436
+   node examples/stores.js at
+   ```
+
+### Example Scripts Explained
+
+- **`product-availability.js`** - Check availability of a single product in a single store
+- **`country-availability.js`** - Check availability of a product across all stores in a country
+- **`stores.js`** - List all stores in a specific country
+
+Each script accepts command-line arguments and outputs JSON data that you can pipe to other tools or process further.
 
 Development
 ================================================================================
