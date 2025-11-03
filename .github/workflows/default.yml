@@ -16,7 +16,7 @@ jobs:
       with:
         # Full git history is needed to get a proper list of changed files within `super-linter`
         fetch-depth: 0
-    - uses: super-linter/super-linter@v8.1.0
+    - uses: super-linter/super-linter@v8.2.1
       env:
         DEFAULT_BRANCH: main
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
