@@ -64,7 +64,7 @@
     "test": "NODE_ENV=test jest src/"
   },
   "dependencies": {
-    "ansis": "4.1.0",
+    "ansis": "4.2.0",
     "axios": "1.12.2",
     "cli-table3": "0.6.5",
     "commander": "14.0.1",
