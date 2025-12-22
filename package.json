@@ -86,7 +86,7 @@
     "nock": "14.0.10",
     "pinst": "3.0.0",
     "prettier": "3.6.2",
-    "ts-jest": "29.4.5",
+    "ts-jest": "29.4.6",
     "ts-node": "10.9.2",
     "typescript": "5.9.3"
   }
