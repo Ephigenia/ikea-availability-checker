@@ -18,7 +18,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: actions/github-script@v8.0.0
+      - uses: actions/github-script@v9.0.0
         if: ${{ failure() }}
         # do not use user injected variable values directly here as they are
         # open to injection attacks
