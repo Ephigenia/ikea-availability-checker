@@ -31,7 +31,7 @@ describe("INGKA API", function () {
 
   describe("getAvailabilities", function () {
     describe('error handling', function() {
-      it.only("non 200 status codes throw IngkaResponseError", async function () {
+      it("non 200 status codes throw IngkaResponseError", async function () {
         expect.hasAssertions();
         nock(BASE_URL_DEFAULT)
           .get(() => true)
@@ -118,7 +118,7 @@ describe("INGKA API", function () {
           expand: "StoresList,Restocks",
           itemNos: "123123",
         })
-        .reply(200, { data: [] });
+        .reply(200, { availabilities: [] });
       const stockInfo = await createClient().getAvailabilities("234", "123123");
       expect(stockInfo).toBeInstanceOf(Array);
       expect(stockInfo).toHaveLength(0);
@@ -127,7 +127,7 @@ describe("INGKA API", function () {
     it("uses the given options correctly", async function () {
       expect.hasAssertions();
       const client = await createClient();
-      jest.spyOn(client.client, 'get').mockResolvedValueOnce({ data: { data: [] }});
+      jest.spyOn(client.client, 'get').mockResolvedValueOnce({ data: { availabilities: [] }});
       await client.getAvailabilities(
         "982",
         "0982",
@@ -148,4 +148,120 @@ describe("INGKA API", function () {
       })
     });
   }); // getAvailabilities
+
+  describe("multi-retail-unit fan-out (Spain)", function () {
+    // A minimal-but-valid availability entry for the given store buCode,
+    // so it survives validateResponseStructure / parseAvailabilitiesResponse
+    // and is enriched with the Store record from src/data/stores.json.
+    function storeEntry(buCode: string) {
+      return {
+        availableForCashCarry: true,
+        buyingOption: {
+          cashCarry: {
+            availability: {
+              probability: {
+                thisDay: {
+                  colour: { rgbDec: "", rgbHex: "", token: "" },
+                  messageType: "HIGH_IN_STOCK",
+                },
+                updateDateTime: "2026-01-01T00:00:00Z",
+              },
+              quantity: 5,
+              updateDateTime: "2026-01-01T00:00:00Z",
+            },
+            range: { inRange: true },
+          },
+          homeDelivery: { range: { inRange: true } },
+        },
+        classUnitKey: { classUnitCode: buCode, classUnitType: "STO" },
+        itemKey: { itemNo: "11112222", itemType: "ART" },
+      };
+    }
+
+    it("fans `--country es` out to ES + CE + SP and merges the results", async function () {
+      expect.hasAssertions();
+      nock(BASE_URL_DEFAULT)
+        .get("/cia/availabilities/ru/ES")
+        .query(true)
+        .reply(200, { availabilities: [storeEntry("030")] }) // Valladolid
+        .get("/cia/availabilities/ru/CE")
+        .query(true)
+        .reply(200, { availabilities: [storeEntry("023")] }) // Gran Canaria
+        .get("/cia/availabilities/ru/SP")
+        .query(true)
+        .reply(200, { availabilities: [storeEntry("047")] }); // Mallorca
+
+      const stockInfo = await createClient().getAvailabilities("es", "11112222");
+      const buCodes = stockInfo.map((s) => s.buCode).sort();
+      expect(buCodes).toEqual(["023", "030", "047"]);
+      expect(nock.isDone()).toBe(true);
+    });
+
+    it("swallows a 404 from an extra retail unit", async function () {
+      expect.hasAssertions();
+      nock(BASE_URL_DEFAULT)
+        .get("/cia/availabilities/ru/ES")
+        .query(true)
+        .reply(200, { availabilities: [storeEntry("030")] })
+        .get("/cia/availabilities/ru/CE")
+        .query(true)
+        .reply(404, { message: "Not found" })
+        .get("/cia/availabilities/ru/SP")
+        .query(true)
+        .reply(200, { availabilities: [storeEntry("047")] });
+
+      const stockInfo = await createClient().getAvailabilities("es", "11112222");
+      // mainland + the SP store survives; the 404 on CE is silently dropped.
+      const buCodes = stockInfo.map((s) => s.buCode).sort();
+      expect(buCodes).toEqual(["030", "047"]);
+    });
+
+    it("propagates non-404 failures from extra retail units", async function () {
+      expect.hasAssertions();
+      nock(BASE_URL_DEFAULT)
+        .get("/cia/availabilities/ru/ES")
+        .query(true)
+        .reply(200, { availabilities: [] })
+        .get("/cia/availabilities/ru/CE")
+        .query(true)
+        .reply(500, "internal server error")
+        .get("/cia/availabilities/ru/SP")
+        .query(true)
+        .reply(200, { availabilities: [] });
+
+      await expect(
+        createClient().getAvailabilities("es", "11112222")
+      ).rejects.toThrow();
+    });
+
+    it("propagates a failure from the primary retail unit", async function () {
+      expect.hasAssertions();
+      nock(BASE_URL_DEFAULT)
+        .get("/cia/availabilities/ru/ES")
+        .query(true)
+        .reply(500, "internal server error")
+        .get("/cia/availabilities/ru/CE")
+        .query(true)
+        .reply(200, { availabilities: [] })
+        .get("/cia/availabilities/ru/SP")
+        .query(true)
+        .reply(200, { availabilities: [] });
+
+      await expect(
+        createClient().getAvailabilities("es", "11112222")
+      ).rejects.toThrow();
+    });
+
+    it("does not fan out for single-retail-unit countries", async function () {
+      expect.hasAssertions();
+      nock(BASE_URL_DEFAULT)
+        .get("/cia/availabilities/ru/de")
+        .query(true)
+        .reply(200, { availabilities: [] });
+
+      const stockInfo = await createClient().getAvailabilities("de", "11112222");
+      expect(stockInfo).toHaveLength(0);
+      expect(nock.isDone()).toBe(true); // no extra CE/SP requests
+    });
+  }); // multi-retail-unit fan-out
 }); // suite
