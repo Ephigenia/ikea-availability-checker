@@ -31,7 +31,7 @@ describe("INGKA API", function () {
 
   describe("getAvailabilities", function () {
     describe('error handling', function() {
-      it("non 200 status codes throw IngkaResponseError", async function () {
+      it("non 200 status codes throw IngkaHttpError", async function () {
         expect.hasAssertions();
         nock(BASE_URL_DEFAULT)
           .get(() => true)
