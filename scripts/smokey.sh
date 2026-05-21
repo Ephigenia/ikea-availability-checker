@@ -26,11 +26,11 @@ function smokeCountry() {
         # non-zero exit code — show the error message
         ERRORS=$((ERRORS+1))
         printf "    error: %b%s%b\n" "${RED}" "${countryCode}   ${productCode}" "${NC}";
-        echo "${result}"
+        printf '%s\n' "${result}"
     elif [[ -z "${result}" || "${lines}" -eq "0" ]]; then
         ERRORS=$((ERRORS+1))
         printf "    error: %b%s%b\n" "${RED}" "${countryCode}   ${productCode}    0 (no results)" "${NC}";
-    elif echo "${result}" | grep -qiE '^(Not found|Unknown Response error|HTTP [0-9]+)$'; then
+    elif printf '%s\n' "${result}" | grep -qiE '^(Not found|Unknown Response error|HTTP [0-9]+)$'; then
         # INGKA bubbled back an error in stdout (e.g. "Not found" when the
         # item isn't stocked in the country) — pick a different productCode.
         ERRORS=$((ERRORS+1))
