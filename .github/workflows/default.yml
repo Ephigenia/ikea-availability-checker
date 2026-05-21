@@ -41,10 +41,12 @@ jobs:
       - lint
       - build
     # jest-lcov-reporter posts a coverage comment on the PR which requires
-    # `pull-requests: write`. With the repo's default token permissions set
-    # to read-only the action would 403.
+    # `issues: write` (and may also use pull request write access). With
+    # the repo's default token permissions set to read-only the action
+    # would 403.
     permissions:
       contents: read
+      issues: write
       pull-requests: write
     steps:
     - uses: actions/checkout@v6
