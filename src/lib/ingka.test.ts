@@ -216,6 +216,40 @@ describe("INGKA API", function () {
       expect(buCodes).toEqual(["030", "047"]);
     });
 
+    it("swallows a content-404 (HTTP 200 with errors[0].code=404) from an extra retail unit", async function () {
+      // INGKA also represents "not found" as a 200 response with a 404
+      // entry in `errors` (see the existing "200 with 404 content error
+      // throws an error" test). The fan-out must accept this on extras
+      // too, otherwise an item that the islands don't stock would break
+      // the whole ES query.
+      expect.hasAssertions();
+      nock(BASE_URL_DEFAULT)
+        .get("/cia/availabilities/ru/ES")
+        .query(true)
+        .reply(200, { availabilities: [storeEntry("030")] })
+        .get("/cia/availabilities/ru/CE")
+        .query(true)
+        .reply(200, {
+          availabilities: null,
+          errors: [
+            {
+              code: 404,
+              details: { classUnitCode: "CE", classUnitType: "RU", itemNo: "11112222" },
+              message: "Not found",
+            },
+          ],
+          timestamp: "2026-01-01T00:00:00Z",
+          traceId: "trace-id",
+        })
+        .get("/cia/availabilities/ru/SP")
+        .query(true)
+        .reply(200, { availabilities: [storeEntry("047")] });
+
+      const stockInfo = await createClient().getAvailabilities("es", "11112222");
+      const buCodes = stockInfo.map((s) => s.buCode).sort();
+      expect(buCodes).toEqual(["030", "047"]);
+    });
+
     it("propagates non-404 failures from extra retail units", async function () {
       expect.hasAssertions();
       nock(BASE_URL_DEFAULT)

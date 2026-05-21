@@ -203,9 +203,20 @@ export class IngkaApi {
     // a 404 — that's the expected "this item isn't sold in Canarias /
     // Baleares" response. Parse errors, 5xx, auth failures and anything
     // else are real breakages and propagate.
+    //
+    // INGKA represents "not found" two ways:
+    //   1. HTTP 404 → wrapped as IngkaHttpError
+    //   2. HTTP 200 with `data.errors[0].code === 404` → IngkaResponseError
+    // We accept both for extras.
     const swallow404 = (err: unknown): ItemStockInfo[] => {
       if (err instanceof IngkaHttpError && err.err.response?.status === 404) {
         return [];
+      }
+      if (err instanceof IngkaResponseError) {
+        const errors = (err.response.data as IngkaAvailabilitiesResponse | undefined)?.errors;
+        if (Array.isArray(errors) && errors.some((e) => e?.code === 404)) {
+          return [];
+        }
       }
       throw err;
     };
