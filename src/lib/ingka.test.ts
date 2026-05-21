@@ -214,6 +214,8 @@ describe("INGKA API", function () {
       // mainland + the SP store survives; the 404 on CE is silently dropped.
       const buCodes = stockInfo.map((s) => s.buCode).sort();
       expect(buCodes).toEqual(["030", "047"]);
+      // confirm all three retail units were actually queried.
+      expect(nock.isDone()).toBe(true);
     });
 
     it("swallows a content-404 (HTTP 200 with errors[0].code=404) from an extra retail unit", async function () {
@@ -248,6 +250,7 @@ describe("INGKA API", function () {
       const stockInfo = await createClient().getAvailabilities("es", "11112222");
       const buCodes = stockInfo.map((s) => s.buCode).sort();
       expect(buCodes).toEqual(["030", "047"]);
+      expect(nock.isDone()).toBe(true);
     });
 
     it("propagates non-404 failures from extra retail units", async function () {
@@ -266,6 +269,10 @@ describe("INGKA API", function () {
       await expect(
         createClient().getAvailabilities("es", "11112222")
       ).rejects.toThrow();
+      // All three retail-unit requests were issued in parallel before the
+      // rejection short-circuited Promise.all, so nock must have matched
+      // each interceptor exactly once.
+      expect(nock.isDone()).toBe(true);
     });
 
     it("propagates a failure from the primary retail unit", async function () {
@@ -284,6 +291,7 @@ describe("INGKA API", function () {
       await expect(
         createClient().getAvailabilities("es", "11112222")
       ).rejects.toThrow();
+      expect(nock.isDone()).toBe(true);
     });
 
     it("does not fan out for single-retail-unit countries", async function () {

@@ -30,7 +30,7 @@ function smokeCountry() {
     elif [[ -z "${result}" || "${lines}" -eq "0" ]]; then
         ERRORS=$((ERRORS+1))
         printf "    error: %b%s%b\n" "${RED}" "${countryCode}   ${productCode}    0 (no results)" "${NC}";
-    elif printf '%s\n' "${result}" | grep -qiE '^(Not found|Unknown Response error|HTTP [0-9]+)$'; then
+    elif printf '%s\n' "${result}" | grep -qiE '^(Not found|Unknown [Rr]esponse error|HTTP [0-9]+)$'; then
         # INGKA bubbled back an error in stdout (e.g. "Not found" when the
         # item isn't stocked in the country) — pick a different productCode.
         ERRORS=$((ERRORS+1))
