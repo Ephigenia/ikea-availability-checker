@@ -37,6 +37,15 @@ export enum PRODUCT_AVAILABILITY {
 
 export const BASE_URL_DEFAULT = "https://api.ingka.ikea.com";
 
+// Some country codes map to multiple INGKA retail units (`classUnitCode`
+// values used in the `cia/availabilities/ru/<code>` endpoint). Spain is
+// split into mainland (ES), Canary Islands (CE) and Balearic Islands (SP),
+// each with its own stock pool — a `--country es` query has to fan out to
+// all three to cover every store listed in stores.json under `es`.
+const COUNTRY_TO_RETAIL_UNITS: Record<string, string[]> = {
+  es: ["ES", "CE", "SP"],
+};
+
 export class IngkaApi {
 
   public client: AxiosInstance;
@@ -138,6 +147,29 @@ export class IngkaApi {
     return `cia/availabilities/${unitType}/${countryCode}`;
   }
 
+  private async fetchAvailabilities(
+    retailUnit: string,
+    params: AxiosRequestConfig["params"],
+    options: AxiosRequestConfig
+  ): Promise<ItemStockInfo[]> {
+    const uri = this.buildAvailabilityUri(retailUnit);
+    return this.client
+      .get<IngkaAvailabilitiesResponse>(uri, { ...options, params })
+      .then((response) => {
+        this.handleResponseError(response);
+        this.validateResponseStructure(response.data);
+        return this.parseAvailabilitiesResponse(response.data);
+      })
+      .catch((err: AxiosError<IngkaAvailabilitiesErrorResponse>) => {
+        if (isAxiosError(err)) {
+          const message =
+            err.response?.data.message || "Unknown Response error";
+          throw new IngkaHttpError(message, err);
+        }
+        throw err;
+      });
+  }
+
   async getAvailabilities(
     /** a single supported country code */
     countryCode: countryCode,
@@ -148,27 +180,34 @@ export class IngkaApi {
     /** optional additional request configuration settings */
     options: AxiosRequestConfig = {}
   ): Promise<ItemStockInfo[]> {
-    const uri = this.buildAvailabilityUri(countryCode);
     options = options || {};
-    options.params = {
+    const params = {
       // StoresList,Restocks,SalesLocations
       expand: (expand || ["StoresList", "Restocks"]).join(","),
       itemNos: (Array.isArray(itemNos) ? itemNos : [itemNos]).join(","),
       ...(options.params || {}),
     };
 
-    return this.client.get<IngkaAvailabilitiesResponse>(uri, options)
-      .then(response => {
-        this.handleResponseError(response);
-        this.validateResponseStructure(response.data);
-        return this.parseAvailabilitiesResponse(response.data);
-      })
-      .catch((err: AxiosError<IngkaAvailabilitiesErrorResponse>) => {
-        if (isAxiosError(err)) {
-          const message = err.response?.data.message || 'Unknown Response error';
-          throw new IngkaHttpError(message, err);
-        }
-        throw err;
-      });
+    // Most countries map one-to-one to an INGKA retail unit; a few (e.g.
+    // Spain) split into multiple, in which case we have to query each.
+    const retailUnits = COUNTRY_TO_RETAIL_UNITS[countryCode.toLowerCase()] || [
+      countryCode,
+    ];
+
+    if (retailUnits.length === 1) {
+      return this.fetchAvailabilities(retailUnits[0], params, options);
+    }
+
+    // Multi-unit fan-out: query the primary unit strictly (any failure
+    // propagates) and the extras best-effort (a 404 on an island unit
+    // shouldn't kill the mainland response).
+    const [primary, ...extras] = retailUnits;
+    const [primaryResults, ...extraResults] = await Promise.all([
+      this.fetchAvailabilities(primary, params, options),
+      ...extras.map((unit) =>
+        this.fetchAvailabilities(unit, params, options).catch(() => [] as ItemStockInfo[])
+      ),
+    ]);
+    return [...primaryResults, ...extraResults.flat()];
   }
 }
