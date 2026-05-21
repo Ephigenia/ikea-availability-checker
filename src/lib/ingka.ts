@@ -199,13 +199,21 @@ export class IngkaApi {
     }
 
     // Multi-unit fan-out: query the primary unit strictly (any failure
-    // propagates) and the extras best-effort (a 404 on an island unit
-    // shouldn't kill the mainland response).
+    // propagates). For the extras (island retail units) we only swallow
+    // a 404 — that's the expected "this item isn't sold in Canarias /
+    // Baleares" response. Parse errors, 5xx, auth failures and anything
+    // else are real breakages and propagate.
+    const swallow404 = (err: unknown): ItemStockInfo[] => {
+      if (err instanceof IngkaHttpError && err.err.response?.status === 404) {
+        return [];
+      }
+      throw err;
+    };
     const [primary, ...extras] = retailUnits;
     const [primaryResults, ...extraResults] = await Promise.all([
       this.fetchAvailabilities(primary, params, options),
       ...extras.map((unit) =>
-        this.fetchAvailabilities(unit, params, options).catch(() => [] as ItemStockInfo[])
+        this.fetchAvailabilities(unit, params, options).catch(swallow404)
       ),
     ]);
     return [...primaryResults, ...extraResults.flat()];

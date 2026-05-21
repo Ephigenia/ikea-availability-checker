@@ -17,14 +17,17 @@ function smokeCountry() {
     # to see if there has been an error
     result=$(npm run start -s -- stock --plain --country "${countryCode}" "${productCode}");
     exit_code=$?
-    lines=$(echo -e "${result}" | wc -l)
+    # Count lines without padding the input with an extra newline so that
+    # an empty `result` yields 0 (plain `echo -e` always appends a newline
+    # and would make this branch unreachable).
+    lines=$(printf '%s' "${result}" | grep -c '^')
 
     if [[ $exit_code != 0 ]]; then
         # non-zero exit code — show the error message
         ERRORS=$((ERRORS+1))
         printf "    error: %b%s%b\n" "${RED}" "${countryCode}   ${productCode}" "${NC}";
         echo "${result}"
-    elif [[ "${lines}" -eq "0" ]]; then
+    elif [[ -z "${result}" || "${lines}" -eq "0" ]]; then
         ERRORS=$((ERRORS+1))
         printf "    error: %b%s%b\n" "${RED}" "${countryCode}   ${productCode}    0 (no results)" "${NC}";
     elif echo "${result}" | grep -qiE '^(Not found|Unknown Response error|HTTP [0-9]+)$'; then
