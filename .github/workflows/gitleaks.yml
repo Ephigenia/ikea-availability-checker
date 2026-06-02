@@ -12,6 +12,6 @@ jobs:
       with:
         fetch-depth: 0
     - name: gitleaks-action
-      uses: zricethezav/gitleaks-action@v2
+      uses: zricethezav/gitleaks-action@v2.3.9
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
