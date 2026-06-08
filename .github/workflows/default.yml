@@ -40,6 +40,14 @@ jobs:
     needs:
       - lint
       - build
+    # jest-lcov-reporter posts a coverage comment on the PR which requires
+    # `issues: write` (and may also use pull request write access). With
+    # the repo's default token permissions set to read-only the action
+    # would 403.
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
     steps:
     - uses: actions/checkout@v6
     - uses: ./.github/actions/setup
@@ -51,9 +59,14 @@ jobs:
         path: coverage
         retention-days: 30
     - uses: vebr/jest-lcov-reporter@v0.2.1
-      # ignore pull-requests created by dependabot as it doesn’t has access
-      # to the secrets used
-      if: ${{ github.actor != 'dependabot[bot]' }}
+      # skip on dependabot and on PRs from forks — in both cases the
+      # GITHUB_TOKEN is read-only and the action would 403 when trying
+      # to post the coverage comment.
+      if: >-
+        ${{ github.actor != 'dependabot[bot]'
+            && github.event_name == 'pull_request'
+            && github.event.pull_request.head.repo.full_name == github.repository }}
+      continue-on-error: true
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         lcov-file: ./coverage/lcov.info
