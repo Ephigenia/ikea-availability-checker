@@ -11,7 +11,7 @@ jobs:
   smokey:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6.0.2
+    - uses: actions/checkout@v7.0.0
     - uses: ./.github/actions/setup
     - run: scripts/smokey.sh
     - run: scripts/smokey-formats.sh
