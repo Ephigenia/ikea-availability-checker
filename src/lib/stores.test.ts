@@ -59,7 +59,7 @@ describe("stores", function () {
     });
     it("returns the matching store", () => {
       const store = stores.findOneById("039");
-      expect(store).toHaveProperty("name", "Montreal");
+      expect(store).toHaveProperty("name", "Montreal │ Montréal");
     });
     it("returns the matching store when number is given", () => {
       const store = stores.findOneById("139");
@@ -84,8 +84,8 @@ describe("stores", function () {
     it("returns an array of ordered supported country codes", () => {
       const codes = stores.getCountryCodes();
       expect(codes.length).toBeGreaterThanOrEqual(1);
-      expect(codes[0]).toBe("at");
-      expect(codes[1]).toBe("au");
+      expect(codes[0]).toBe("ae");
+      expect(codes[1]).toBe("at");
     });
   }); // getCountryCodes
 }); // suite
