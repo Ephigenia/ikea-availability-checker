@@ -1,6 +1,6 @@
 # IKEA Availability Checker
 
-Never miss out on your favorite IKEA products again! This powerful tool helps you check real-time product availability across 400+ IKEA stores worldwide. Whether you're hunting for that perfect Billy bookcase or tracking down a specific kitchen item, our availability checker saves you time and frustration by providing instant stock information.
+Never miss out on your favorite IKEA products again! This powerful tool helps you check real-time product availability across 500+ IKEA stores worldwide. Whether you're hunting for that perfect Billy bookcase or tracking down a specific kitchen item, our availability checker saves you time and frustration by providing instant stock information.
 
 Perfect for:
 - **Furniture enthusiasts** tracking restocks
@@ -31,8 +31,8 @@ Perfect for:
 ## ✨ Features
 
 **🌍 Global Coverage**
-- **400+ IKEA stores** worldwide with real-time availability data
-- **40+ countries supported** including major markets across Europe, North America, Asia, and Oceania
+- **500+ IKEA stores** worldwide with real-time availability data
+- **55+ countries supported** including major markets across Europe, North America, Asia, and Oceania
 - **Comprehensive store database** with detailed location information
 
 **📊 Multiple Output Formats**
@@ -42,8 +42,7 @@ Perfect for:
 - **Customizable** formatting options for different use cases
 
 **🌐 Country Support**
-- **Active countries:** at, au, be, ca, ch, cn, cz, de, dk, es, fi, fr, gb, hk, hu, hr, ie, it, jo, jp, kr, kw, lt, lv, my, nl, no, pl, pt, qa, ro, sa, se, sg, sk, th, tw, us - [![smokey](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml/badge.svg)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml)
-- **Note:** Russia (ru) operations are currently suspended
+- **Active countries:** ae, at, au, be, bh, ca, ch, cl, cn, co, cz, de, dk, ee, eg, es, fi, fr, gb, hk, hr, hu, ie, il, in, is, it, jo, jp, kr, kw, lt, lv, ma, mx, my, nl, no, nz, om, ph, pl, pt, qa, ro, rs, sa, se, sg, si, sk, th, tr, tw, ua, us - [![smokey](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml/badge.svg)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml)
 - **Automated testing** ensures data accuracy across all supported regions
 
 **🔧 Developer-Friendly**
