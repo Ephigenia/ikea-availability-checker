@@ -214,7 +214,11 @@ export class IngkaApi {
       }
       if (err instanceof IngkaResponseError) {
         const errors = (err.response.data as IngkaAvailabilitiesResponse | undefined)?.errors;
-        if (Array.isArray(errors) && errors.some((e) => e?.code === 404)) {
+        if (
+           Array.isArray(errors) &&
+           errors.length > 0 &&
+           errors.every((e) => e?.code === 404)
+         ) {
           return [];
         }
       }
