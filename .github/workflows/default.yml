@@ -47,16 +47,12 @@ jobs:
     needs:
       - lint
       - build
-    # jest-lcov-reporter posts a coverage comment on the PR which requires
-    # `issues: write` (and may also use pull request write access). With
-    # the repo's default token permissions set to read-only the action
-    # would 403.
     permissions:
       contents: read
-      issues: write
-      pull-requests: write
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      with:
+        persist-credentials: false
     - uses: ./.github/actions/setup
     - run: npm test
     - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
@@ -64,14 +60,22 @@ jobs:
         name: code-coverage-report
         path: coverage
         retention-days: 30
+
+  coverage-comment:
+    needs: test
+    if: >-
+      ${{ github.actor != 'dependabot[bot]'
+          && github.event_name == 'pull_request'
+          && github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+    - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+      with:
+        name: code-coverage-report
+        path: coverage
     - uses: vebr/jest-lcov-reporter@eacce47f9cc1b8dff73ddaca35a3b9e797b9207f # v0.2.1
-      # skip on dependabot and on PRs from forks — in both cases the
-      # GITHUB_TOKEN is read-only and the action would 403 when trying
-      # to post the coverage comment.
-      if: >-
-        ${{ github.actor != 'dependabot[bot]'
-            && github.event_name == 'pull_request'
-            && github.event.pull_request.head.repo.full_name == github.repository }}
       continue-on-error: true
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
