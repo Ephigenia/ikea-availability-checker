@@ -513,16 +513,13 @@ Perfect for:
 
 ### 🚀 Release Process
 
-**Automated, semantic versioning with CI/CD**
+Releases are automated with [release-please](https://github.com/googleapis/release-please):
 
-Releases are fully automated using [semantic-release](https://github.com/semantic-release/semantic-release):
+1. Every push to `main` updates an open **release PR** with the next version and the [CHANGELOG.md](CHANGELOG.md) entries.
+2. Merging the release PR creates a git tag and a **GitHub release**.
+3. The new version is then **published to npm** automatically.
 
-- **Automatic versioning** based on conventional commits
-- **Changelog generation** from commit messages
-- **NPM publishing** on successful builds
-- **GitHub releases** with detailed notes
-
-> 📝 **Commit Convention:** Use conventional commits (feat:, fix:, docs:, etc.) for automatic version bumping
+> 📝 **Commit Convention:** Use [conventional commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, …). `fix` bumps the patch version, `feat` the minor version and `feat!` / `BREAKING CHANGE` the major version. PR titles are checked for this format.
 
 ### 🔧 Troubleshooting
 
