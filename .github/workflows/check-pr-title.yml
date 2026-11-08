@@ -8,9 +8,14 @@ on:
       - edited
       - synchronize
 
+permissions: {}
+
 jobs:
   lint:
     runs-on: ubuntu-latest
+    # read the PR title and comment on the PR when it is invalid
+    permissions:
+      pull-requests: write
     steps:
       - id: lint
         # SEE https://github.com/amannn/action-semantic-pull-request

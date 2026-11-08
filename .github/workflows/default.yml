@@ -8,9 +8,16 @@ on:
     - beta
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     runs-on: ubuntu-latest
+    # super-linter reports a commit status per linter
+    permissions:
+      contents: read
+      statuses: write
     steps:
     - uses: actions/checkout@v7.0.1
       with:
@@ -77,6 +84,12 @@ jobs:
     # to the secrets used
     if: ${{ github.actor != 'dependabot[bot]' && github.event_name != 'pull_request' }}
     runs-on: ubuntu-latest
+    # release-please creates/updates the release PR, its labels, tags and
+    # GitHub releases
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     needs:
       - test
     outputs:
@@ -93,6 +106,10 @@ jobs:
           release-type: node
 
   publish:
+    # id-token is required for npm provenance
+    permissions:
+      contents: read
+      id-token: write
     if: ${{ needs.release.outputs.release_created }}
     runs-on: ubuntu-latest
     needs:

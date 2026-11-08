@@ -2,6 +2,9 @@ name: newman
 
 on: push
 
+permissions:
+  contents: read
+
 jobs:
   smokey:
     runs-on: ubuntu-latest

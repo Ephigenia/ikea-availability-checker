@@ -4,9 +4,16 @@ on:
   - push
   - pull_request
 
+permissions:
+  contents: read
+
 jobs:
   gitleaks:
     runs-on: ubuntu-latest
+    # gitleaks-action comments on PRs when it finds leaks
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
     - uses: actions/checkout@v7.0.1
       with:
