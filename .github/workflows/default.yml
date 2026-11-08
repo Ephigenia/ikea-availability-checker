@@ -116,5 +116,4 @@ jobs:
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: ./.github/actions/setup
-      - run: npm install -g npm@latest
       - run: npm stage publish
