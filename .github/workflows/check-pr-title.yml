@@ -31,16 +31,20 @@ jobs:
         env:
           TITLE: ${{ github.event.pull_request.title }}
           ERROR: ${{ steps.lint.outputs.error_message }}
+          WORKFLOW: ${{ github.workflow }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           # javascript
           script: |
-            const output = `The pull-request title "${{ env.TITLE}}" does not apply to [Conventional Commit Guidelines](https://www.conventionalcommits.org).
+            const title = process.env.TITLE ?? "";
+            const error = process.env.ERROR ?? "";
+            const workflow = process.env.WORKFLOW ?? "Check PR title";
+            const output = `The pull-request title "${title}" does not apply to [Conventional Commit Guidelines](https://www.conventionalcommits.org).
             \`\`\`
-            ${{ env.ERROR }}
+            ${error}
             \`\`\`
-            <sub>🤖 This comment was automatically created by the "${{github.workflow}}" workflow.</sup>`;
-            github.rest.issues.createComment({
+            <sub>🤖 This comment was automatically created by the "${workflow}" workflow.</sub>`;
+            await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
