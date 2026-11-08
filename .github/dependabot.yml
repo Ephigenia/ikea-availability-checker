@@ -1,46 +1,74 @@
-# Basic dependabot.yml file with
-# minimum configuration for two package managers
-
 version: 2
 updates:
-  # Enable version updates for npm
   - package-ecosystem: "npm"
-    # Look for `package.json` and `lock` files in the `root` directory
     directory: "/"
-    # Check the npm registry for updates every day (weekdays)
     schedule:
       interval: "weekly"
     cooldown:
       default-days: 14
+    # release-please only creates releases for feat/fix commits, so runtime
+    # dependency updates use "fix" while dev dependencies stay on "build"
+    commit-message:
+      prefix: "fix"
+      prefix-development: "build"
+      include: "scope"
     groups:
+      # bundle security updates (incl. transitive dependencies) into one PR
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
       dev-ci:
+        dependency-type: "development"
         patterns:
-          - "@commitlint*"
-          - "husky*"
-          - "semantic-release"
+          - "@commitlint/*"
+          - "husky"
       dev-types:
+        dependency-type: "development"
         patterns:
-          - "@types*"
+          - "@types/*"
       dev-testing:
+        dependency-type: "development"
         patterns:
+          - "jest"
           - "ts-jest"
-          - "jest*"
-          - "nock*"
-      dev-other:
+          - "nock"
+          - "eslint-plugin-jest"
+      dev-lint:
+        dependency-type: "development"
         patterns:
-          - "eslint*"
-          - "pinst*"
-          - "prettier*"
-          - "rimraf"
+          - "eslint"
+          - "eslint-plugin-*"
+          - "@typescript-eslint/*"
+          - "prettier"
       dev-typescript:
+        dependency-type: "development"
         patterns:
-          - "ts-node"
           - "typescript"
-
+          - "ts-node"
+      dev-other:
+        dependency-type: "development"
+        patterns:
+          - "pinst"
+          - "rimraf"
 
   - package-ecosystem: "github-actions"
-    directory: "/"
+    # include the local composite actions, not only .github/workflows
+    directories:
+      - "/"
+      - "/.github/actions/*"
     schedule:
       interval: "weekly"
     cooldown:
       default-days: 14
+    commit-message:
+      prefix: "ci"
+    groups:
+      actions:
+        patterns:
+          - "*"
+
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: "monthly"
