@@ -239,13 +239,11 @@ npx ikea-availability-checker stock --store=224,155 --json 10347171
 Print tab-separated values for scripting (the `availability` column is always last):
 
 ```bash
-npx ikea-availability-checker stock --store=224,155 --plain 00263850 10347171
+npx ikea-availability-checker stock --store=224,155 --plain 00263850
 ```
 
     2026-11-08T23:55:51.278Z	00263850	at	Austria	155	Klagenfurt	39	HIGH_IN_STOCK		in stock
     2026-11-07T20:51:12.685Z	00263850	de	Germany	224	Sindelfingen	207	HIGH_IN_STOCK		in stock
-    2026-11-08T05:30:28.320Z	10347171	at	Austria	155	Klagenfurt	35	HIGH_IN_STOCK		in stock
-    	10347171	de	Germany	224	Sindelfingen	0			order only
 
 Only show stores with at least 10 items in stock:
 
