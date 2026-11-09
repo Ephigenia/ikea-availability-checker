@@ -119,4 +119,14 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: ./.github/actions/setup
+      # dist/ isn't committed and `npm ci --ignore-scripts` skips the
+      # `prepare` build, so build explicitly before publishing
+      - run: npm run build
+      # fail instead of publishing a package without the compiled code
+      - name: verify package contents
+        run: |
+          files=$(npm pack --dry-run --ignore-scripts --json | jq -r '.[0].files[].path')
+          for f in dist/src/index.js dist/src/cli/index.js; do
+            echo "$files" | grep -qx "$f" || { echo "::error::$f missing from package"; exit 1; }
+          done
       - run: npm stage publish
