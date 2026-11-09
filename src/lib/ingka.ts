@@ -27,6 +27,10 @@ export interface ItemStockInfo {
   stock: number;
   store: Store;
   restockDate?: Date;
+  /** the product is part of the store's cash & carry range (sold in-store) */
+  inRange: boolean;
+  /** the product can be ordered for home delivery from this store */
+  homeDeliveryInRange: boolean;
 }
 
 export enum PRODUCT_AVAILABILITY {
@@ -88,6 +92,9 @@ export class IngkaApi {
         productId: item.itemKey.itemNo,
         stock: 0,
         store: findOneById(item.classUnitKey.classUnitCode) as Store,
+        inRange: item.buyingOption.cashCarry?.range?.inRange === true,
+        homeDeliveryInRange:
+          item.buyingOption.homeDelivery?.range?.inRange === true,
       };
 
       if (item.availableForCashCarry) {

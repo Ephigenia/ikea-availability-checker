@@ -306,4 +306,64 @@ describe("INGKA API", function () {
       expect(nock.isDone()).toBe(true); // no extra CE/SP requests
     });
   }); // multi-retail-unit fan-out
+
+  describe("parseAvailabilitiesResponse", function () {
+    // Shapes mirror real INGKA responses, e.g. item 10347171 at 224
+    // (Sindelfingen) which isn't sold in-store but can be home-delivered.
+    function entry(cashCarryInRange: boolean, homeDeliveryInRange: boolean, quantity?: number) {
+      return {
+        availableForCashCarry: (quantity ?? 0) > 0,
+        availableForClickCollect: false,
+        buyingOption: {
+          cashCarry: {
+            ...(quantity !== undefined && {
+              availability: {
+                probability: {
+                  thisDay: {
+                    colour: { rgbDec: "", rgbHex: "", token: "colour-positive" },
+                    messageType: quantity > 0 ? "HIGH_IN_STOCK" : "OUT_OF_STOCK",
+                  },
+                  updateDateTime: "2026-01-05T05:12:35.000Z",
+                },
+                quantity,
+                updateDateTime: "2026-01-05T05:12:35.000Z",
+              },
+            }),
+            eligibleForStockNotification: false,
+            range: { inRange: cashCarryInRange },
+            unitOfMeasure: "PIECE",
+            updateDateTime: "2026-01-05T05:12:35.000Z",
+          },
+          clickCollect: { range: { inRange: false } },
+          homeDelivery: {
+            range: { inRange: homeDeliveryInRange },
+            updateDateTime: "2026-01-05T05:12:35.000Z",
+          },
+        },
+        classUnitKey: { classUnitCode: "224", classUnitType: "STO" },
+        itemKey: { itemNo: "10347171", itemType: "ART" },
+      };
+    }
+
+    it.each([
+      ["in stock", entry(true, true, 57), { stock: 57, inRange: true, homeDeliveryInRange: true }],
+      ["temporarily out of stock", entry(true, true, 0), { stock: 0, inRange: true, homeDeliveryInRange: true }],
+      ["order only", entry(false, true), { stock: 0, inRange: false, homeDeliveryInRange: true }],
+      ["not sold at this location", entry(false, false), { stock: 0, inRange: false, homeDeliveryInRange: false }],
+    ])("exposes range flags when %s", function (_label, item, expected) {
+      const [stockInfo] = createClient().parseAvailabilitiesResponse({
+        availabilities: [item],
+      } as never);
+      expect(stockInfo).toMatchObject({ buCode: "224", productId: "10347171", ...expected });
+    });
+
+    it("defaults range flags to false when the buying options lack them", function () {
+      const item = entry(false, false);
+      const { cashCarry, ...rest } = item.buyingOption;
+      const [stockInfo] = createClient().parseAvailabilitiesResponse({
+        availabilities: [{ ...item, buyingOption: { ...rest, cashCarry: { ...cashCarry, range: undefined } } }],
+      } as never);
+      expect(stockInfo).toMatchObject({ inRange: false, homeDeliveryInRange: false });
+    });
+  }); // parseAvailabilitiesResponse
 }); // suite

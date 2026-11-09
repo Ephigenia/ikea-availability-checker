@@ -5,7 +5,7 @@ import { productIds } from "./lib/arguments";
 import * as options from "./lib/options";
 import { availabilities } from "..";
 import { findByCountryCode, findById, findByQuery, Store } from "../lib/stores";
-import { createStockInfoReportTable } from "./reporter/stockTable";
+import { availabilityStatus, createStockInfoReportTable } from "./reporter/stockTable";
 
 program
   .addArgument(productIds.argRequired())
@@ -94,6 +94,8 @@ Examples:
               availability.stock,
               availability.probability,
               availability.restockDate?.toISOString(),
+              // appended last so existing column positions stay stable
+              availabilityStatus(availability),
             ].join("\t")
           )
           .join("\n");
@@ -103,7 +105,8 @@ Examples:
         report = createStockInfoReportTable(displayedData).toString();
         break;
     }
-    process.stdout.write(report);
+    // end with a newline so the shell prompt doesn't overwrite the last line
+    if (report) process.stdout.write(report + "\n");
   });
 
 
