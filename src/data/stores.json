@@ -612,15 +612,6 @@
     "countryCode": "cn"
   },
   {
-    "buCode": "1376",
-    "name": "Tmall Leads",
-    "coordinates": [
-      121.3511,
-      31.2232
-    ],
-    "countryCode": "cn"
-  },
-  {
     "buCode": "214",
     "name": "宜家北京西红门商场 │ Xihongmen",
     "coordinates": [
@@ -3263,15 +3254,6 @@
     "coordinates": [
       100.44012,
       5.23378
-    ],
-    "countryCode": "my"
-  },
-  {
-    "buCode": "728",
-    "name": "East Malaysia Online Store",
-    "coordinates": [
-      110.4061,
-      1.5886
     ],
     "countryCode": "my"
   },
