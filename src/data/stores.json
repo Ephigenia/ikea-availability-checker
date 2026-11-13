@@ -117,15 +117,6 @@
     "countryCode": "au"
   },
   {
-    "buCode": "1341",
-    "name": "Cockburn - Opening soon",
-    "coordinates": [
-      115.8689,
-      -32.1247
-    ],
-    "countryCode": "au"
-  },
-  {
     "buCode": "377",
     "name": "Marsden Park",
     "coordinates": [
@@ -320,6 +311,15 @@
     "coordinates": [
       -79.8292,
       43.3279
+    ],
+    "countryCode": "ca"
+  },
+  {
+    "buCode": "1340",
+    "name": "London – White Oaks",
+    "coordinates": [
+      -81.2229,
+      42.9308
     ],
     "countryCode": "ca"
   },
@@ -532,7 +532,7 @@
   },
   {
     "buCode": "058",
-    "name": "Tianjin",
+    "name": "宜家天津东丽商场 │ Tianjin",
     "coordinates": [
       117.3669,
       39.1055
@@ -541,7 +541,7 @@
   },
   {
     "buCode": "1134",
-    "name": "Baoan",
+    "name": "宜家深圳宝安商场 │ Baoan",
     "coordinates": [
       113.9768,
       22.5539
@@ -550,7 +550,7 @@
   },
   {
     "buCode": "1182",
-    "name": "Wenzhou MixC -即将开业 │ Wenzhou MixC - Opening soon",
+    "name": "宜家温州体验中心 -即将开业 │ Wenzhou MixC - Opening soon",
     "coordinates": [
       120.689,
       28.0011
@@ -559,7 +559,7 @@
   },
   {
     "buCode": "1183",
-    "name": "Beijing Wukesong Dinghuo -即将开业 │ Beijing Wukesong Dinghuo - Opening soon",
+    "name": "宜家北京五棵松体验中心 -即将开业 │ Beijing Wukesong Dinghuo - Opening soon",
     "coordinates": [
       116.2973,
       39.9041
@@ -568,7 +568,7 @@
   },
   {
     "buCode": "1278",
-    "name": "Wuxi Xishan -即将开业 │ Wuxi Xishan - Opening soon",
+    "name": "宜家无锡商场 │ Wuxi Xishan",
     "coordinates": [
       120.2933,
       31.5759
@@ -577,7 +577,7 @@
   },
   {
     "buCode": "1279",
-    "name": "Dongguan Haide",
+    "name": "宜家广州东莞商场 │ Dongguan Haide",
     "coordinates": [
       113.7586,
       23.0117
@@ -586,7 +586,7 @@
   },
   {
     "buCode": "1295",
-    "name": "BJTZ Well Town",
+    "name": "宜家北京通州商场 │ BJTZ Well Town",
     "coordinates": [
       116.6864,
       39.8538
@@ -594,17 +594,8 @@
     "countryCode": "cn"
   },
   {
-    "buCode": "1298",
-    "name": "Shenzhen Longhua Rainbow -即将开业 │ Shenzhen Longhua Rainbow - Opening soon",
-    "coordinates": [
-      114.0203,
-      22.6271
-    ],
-    "countryCode": "cn"
-  },
-  {
     "buCode": "1299",
-    "name": "Beijing Chaoyang -即将开业 │ Beijing Chaoyang - Opening soon",
+    "name": "Beijing Chaoyang",
     "coordinates": [
       116.5965,
       39.924
@@ -612,11 +603,11 @@
     "countryCode": "cn"
   },
   {
-    "buCode": "164",
-    "name": "宜家无锡商场 │ Wuxi",
+    "buCode": "1375",
+    "name": "Shenzhen Longhua Uniworld -即将开业 │ Shenzhen Longhua Uniworld - Opening soon",
     "coordinates": [
-      120.3991,
-      31.5868
+      114.0289,
+      22.6449
     ],
     "countryCode": "cn"
   },
@@ -676,7 +667,7 @@
   },
   {
     "buCode": "424",
-    "name": "Xian",
+    "name": "宜家西安沣东商场 │ Xian",
     "coordinates": [
       108.8332,
       34.2897
@@ -694,7 +685,7 @@
   },
   {
     "buCode": "466",
-    "name": "Gaoxin",
+    "name": "宜家成都高新商场 │ Gaoxin",
     "coordinates": [
       104.0687,
       30.6053
@@ -757,7 +748,7 @@
   },
   {
     "buCode": "584",
-    "name": "Tianhe",
+    "name": "宜家广州天河商场 │ Tianhe",
     "coordinates": [
       113.3619,
       23.1246
@@ -793,7 +784,7 @@
   },
   {
     "buCode": "630",
-    "name": "Nanning",
+    "name": "宜家南宁商场 │ Nanning",
     "coordinates": [
       108.3848,
       22.7613
@@ -802,7 +793,7 @@
   },
   {
     "buCode": "667",
-    "name": "Yanta",
+    "name": "宜家西安雁塔商场 │ Yanta",
     "coordinates": [
       108.9487,
       34.2225
@@ -1036,7 +1027,7 @@
   },
   {
     "buCode": "1319",
-    "name": "Ingolstadt - Öffnet bald │ Ingolstadt - Opening soon",
+    "name": "Ingolstadt",
     "coordinates": [
       11.3862,
       48.774
@@ -1575,6 +1566,15 @@
     "countryCode": "es"
   },
   {
+    "buCode": "1028",
+    "name": "Sant Pere de Ribes",
+    "coordinates": [
+      1.7529,
+      41.2384
+    ],
+    "countryCode": "es"
+  },
+  {
     "buCode": "1173",
     "name": "Vitoria-Gasteiz",
     "coordinates": [
@@ -1684,7 +1684,7 @@
   },
   {
     "buCode": "339",
-    "name": "Valencia (Alfafar)",
+    "name": "Valencia",
     "coordinates": [
       -0.4,
       39.4169
@@ -1756,7 +1756,7 @@
   },
   {
     "buCode": "691",
-    "name": "Almería - La Rambla",
+    "name": "Almería",
     "coordinates": [
       -2.4693,
       36.8536
@@ -1809,6 +1809,15 @@
     "countryCode": "es"
   },
   {
+    "buCode": "718",
+    "name": "La Vaguada",
+    "coordinates": [
+      -3.7072,
+      40.4798
+    ],
+    "countryCode": "es"
+  },
+  {
     "buCode": "747",
     "name": "Gran Canaria - Muebles y decoración",
     "coordinates": [
@@ -1828,7 +1837,7 @@
   },
   {
     "buCode": "1348",
-    "name": "Maili - Avataan pian │ Maili - Opening soon",
+    "name": "Lahti-Maili",
     "coordinates": [
       25.6615,
       60.9827
@@ -1936,10 +1945,19 @@
   },
   {
     "buCode": "1300",
-    "name": "Limoges - Ouverture prochaine │ Limoges - Opening soon",
+    "name": "Limoges",
     "coordinates": [
       1.2798364092,
       45.8962764
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "1301",
+    "name": "Le Mans - Les Hunaudières",
+    "coordinates": [
+      0.2394,
+      47.9441
     ],
     "countryCode": "fr"
   },
@@ -1949,6 +1967,15 @@
     "coordinates": [
       2.4958,
       48.9755
+    ],
+    "countryCode": "fr"
+  },
+  {
+    "buCode": "1328",
+    "name": "Angers - Ouverture prochaine",
+    "coordinates": [
+      -0.6291129127667104,
+      47.48247825222448
     ],
     "countryCode": "fr"
   },
@@ -2188,7 +2215,7 @@
   },
   {
     "buCode": "645",
-    "name": "Rivoli",
+    "name": "Paris - Rivoli",
     "coordinates": [
       2.342574597069094,
       48.860577631039334
@@ -2197,7 +2224,7 @@
   },
   {
     "buCode": "719",
-    "name": "Italie Deux",
+    "name": "Paris - Italie Deux",
     "coordinates": [
       2.354864903742871,
       48.830385638900374
@@ -2259,6 +2286,15 @@
     "countryCode": "gb"
   },
   {
+    "buCode": "1306",
+    "name": "Aberdeen Union Square",
+    "coordinates": [
+      -2.095,
+      57.1436
+    ],
+    "countryCode": "gb"
+  },
+  {
     "buCode": "140",
     "name": "Warrington",
     "coordinates": [
@@ -2278,7 +2314,7 @@
   },
   {
     "buCode": "142",
-    "name": "Wednesbury",
+    "name": "Birmingham - Wednesbury",
     "coordinates": [
       -2.0156,
       52.5697
@@ -2538,6 +2574,15 @@
     "countryCode": "ie"
   },
   {
+    "buCode": "1317",
+    "name": "Galway Gateway Shopping",
+    "coordinates": [
+      -8.88,
+      53.2275
+    ],
+    "countryCode": "ie"
+  },
+  {
     "buCode": "206",
     "name": "נתניה",
     "coordinates": [
@@ -2593,7 +2638,7 @@
   },
   {
     "buCode": "1140",
-    "name": "Purva Zentech - Opening soon",
+    "name": "Bangalore - Konanakunte Cross",
     "coordinates": [
       77.5597,
       12.8873
@@ -2611,10 +2656,19 @@
   },
   {
     "buCode": "1239",
-    "name": "Delhi DLF Avenue - Opening soon",
+    "name": "Delhi DLF Avenue",
     "coordinates": [
       77.2168,
       28.5281
+    ],
+    "countryCode": "in"
+  },
+  {
+    "buCode": "1297",
+    "name": "Chandigarh - Opening soon",
+    "coordinates": [
+      76.8014,
+      30.704
     ],
     "countryCode": "in"
   },
@@ -2710,19 +2764,28 @@
   },
   {
     "buCode": "1330",
-    "name": "Lecce CC Cavallino - Prossima apertura",
+    "name": "Lecce",
     "coordinates": [
-      18.1982,
-      40.2963
+      18.198177,
+      40.296235
     ],
     "countryCode": "it"
   },
   {
     "buCode": "1337",
-    "name": "Perugia Quasar Village - Prossima apertura",
+    "name": "Perugia",
     "coordinates": [
-      12.307,
-      43.1002
+      12.307541,
+      43.0987122
+    ],
+    "countryCode": "it"
+  },
+  {
+    "buCode": "1368",
+    "name": "Verona Uno - Prossima apertura",
+    "coordinates": [
+      11.0165,
+      45.3937
     ],
     "countryCode": "it"
   },
@@ -2916,6 +2979,15 @@
     "countryCode": "jp"
   },
   {
+    "buCode": "1324",
+    "name": "豊洲 │ Toyosu",
+    "coordinates": [
+      139.79294069596378,
+      35.655788885180584
+    ],
+    "countryCode": "jp"
+  },
+  {
     "buCode": "189",
     "name": "福岡新宮 │ Fukuoka Shingu",
     "coordinates": [
@@ -2944,7 +3016,7 @@
   },
   {
     "buCode": "447",
-    "name": "Tokyo-Bay",
+    "name": "トウキョウベイ │ Tokyo-Bay",
     "coordinates": [
       139.9922,
       35.6821
@@ -3013,6 +3085,15 @@
       35.8562
     ],
     "countryCode": "jp"
+  },
+  {
+    "buCode": "1358",
+    "name": "현대프리미엄아울렛 대전점 - 곧 오픈 │ Daejeon - Hyundai Premium - Opening soon",
+    "coordinates": [
+      127.3989,
+      36.4232
+    ],
+    "countryCode": "kr"
   },
   {
     "buCode": "373",
@@ -3097,7 +3178,7 @@
   },
   {
     "buCode": "269",
-    "name": "Zenata │ زناتة",
+    "name": "زناتة │ Zenata",
     "coordinates": [
       -7.4600212,
       33.6302821
@@ -3106,7 +3187,7 @@
   },
   {
     "buCode": "654",
-    "name": "Cabo │ كابو",
+    "name": "كابو │ Cabo",
     "coordinates": [
       -5.309765,
       35.6514239
@@ -3177,11 +3258,11 @@
     "countryCode": "my"
   },
   {
-    "buCode": "728",
-    "name": "East Malaysia Online Store",
+    "buCode": "779",
+    "name": "Kuching - Akan dibuka tidak lama lagi │ Kuching - Opening soon",
     "coordinates": [
-      110.4061,
-      1.5886
+      110.3155,
+      1.5131
     ],
     "countryCode": "my"
   },
@@ -3303,15 +3384,6 @@
     "countryCode": "nl"
   },
   {
-    "buCode": "739",
-    "name": "Leiderdorp - Opent binnenkort │ Leiderdorp - Opening soon",
-    "coordinates": [
-      4.5179,
-      52.1639
-    ],
-    "countryCode": "nl"
-  },
-  {
     "buCode": "007",
     "name": "Sørlandet",
     "coordinates": [
@@ -3349,7 +3421,7 @@
   },
   {
     "buCode": "1352",
-    "name": "Østfold - Opening soon",
+    "name": "Østfold",
     "coordinates": [
       10.993,
       59.2492
@@ -3411,6 +3483,15 @@
     "countryCode": "ph"
   },
   {
+    "buCode": "774",
+    "name": "Cebu-Mandaue - Opening soon",
+    "coordinates": [
+      123.9258,
+      10.317
+    ],
+    "countryCode": "ph"
+  },
+  {
     "buCode": "1224",
     "name": "Bielsko-Biała",
     "coordinates": [
@@ -3421,7 +3502,7 @@
   },
   {
     "buCode": "1322",
-    "name": "Bialystok - Wkrótce otwarcie │ Bialystok - Opening soon",
+    "name": "Białystok - Zielone Wzgórze",
     "coordinates": [
       23.0991,
       53.1246
@@ -3547,10 +3628,10 @@
   },
   {
     "buCode": "1325",
-    "name": "Coimbra Mondego - Abrimos em breve │ Coimbra Mondego - Opening soon",
+    "name": "Coimbra",
     "coordinates": [
-      -8.5113,
-      40.1912
+      -8.511494,
+      40.191158
     ],
     "countryCode": "pt"
   },
@@ -3583,7 +3664,7 @@
   },
   {
     "buCode": "244",
-    "name": "Doha store │ ايكيا الدوحة",
+    "name": "ايكيا الدوحة │ Doha store",
     "coordinates": [
       51.443192,
       25.385584
@@ -3673,7 +3754,7 @@
   },
   {
     "buCode": "761",
-    "name": "ايكيا تبوك │ Tabuk",
+    "name": "تبوك │ Tabuk",
     "coordinates": [
       36.5742,
       28.4287
@@ -3682,10 +3763,19 @@
   },
   {
     "buCode": "765",
-    "name": "ايكيا الهفوف │ Al Hafuf",
+    "name": "الهفوف │ Al Hafuf",
     "coordinates": [
       49.577898,
       25.400436
+    ],
+    "countryCode": "sa"
+  },
+  {
+    "buCode": "782",
+    "name": "ايكيا الخبر │ Al Khobar",
+    "coordinates": [
+      50.2108,
+      26.2276
     ],
     "countryCode": "sa"
   },
@@ -3738,8 +3828,8 @@
     "buCode": "070",
     "name": "Uppsala",
     "coordinates": [
-      17.6956,
-      59.844
+      17.6942,
+      59.847
     ],
     "countryCode": "se"
   },
@@ -3936,8 +4026,8 @@
     "buCode": "057",
     "name": "บางนา │ Bangna",
     "coordinates": [
-      100.6788506,
-      13.6476897
+      100.68,
+      13.643598
     ],
     "countryCode": "th"
   },
@@ -3945,7 +4035,7 @@
     "buCode": "479",
     "name": "บางใหญ่ │ Bang Yai",
     "coordinates": [
-      100.4126,
+      100.410996,
       13.8786
     ],
     "countryCode": "th"
@@ -3956,6 +4046,15 @@
     "coordinates": [
       100.566601,
       13.731
+    ],
+    "countryCode": "th"
+  },
+  {
+    "buCode": "781",
+    "name": "ภูเก็ต │ Phuket",
+    "coordinates": [
+      98.3788,
+      7.9368
     ],
     "countryCode": "th"
   },
@@ -4053,8 +4152,8 @@
     "buCode": "363",
     "name": "新莊店 │ Hsin Chuang",
     "coordinates": [
-      121.4653379,
-      25.041482
+      121.4652976,
+      25.0414321
     ],
     "countryCode": "tw"
   },
@@ -4097,6 +4196,15 @@
   {
     "buCode": "002",
     "name": "Київ",
+    "coordinates": [
+      30.5219,
+      50.4863
+    ],
+    "countryCode": "ua"
+  },
+  {
+    "buCode": "1256",
+    "name": "Kyiv — Незабаром відкриття",
     "coordinates": [
       30.5219,
       50.4863
@@ -4204,7 +4312,7 @@
   },
   {
     "buCode": "1130",
-    "name": "Chantilly, VA - Opening soon │ Chantilly, VA - Próxima apertura",
+    "name": "Chantilly, VA",
     "coordinates": [
       -77.43993,
       38.88808
@@ -4221,15 +4329,6 @@
     "countryCode": "us"
   },
   {
-    "buCode": "1147",
-    "name": "San Marcos, TX",
-    "coordinates": [
-      -97.91831,
-      29.88308
-    ],
-    "countryCode": "us"
-  },
-  {
     "buCode": "1232",
     "name": "Huntsville, AL",
     "coordinates": [
@@ -4239,8 +4338,17 @@
     "countryCode": "us"
   },
   {
+    "buCode": "1244",
+    "name": "Sarasota, FL - Opening soon │ Sarasota, FL - Próxima apertura",
+    "coordinates": [
+      -82.4582,
+      27.3833
+    ],
+    "countryCode": "us"
+  },
+  {
     "buCode": "1253",
-    "name": "Webster, TX - Opening soon │ Webster, TX - Próxima apertura",
+    "name": "Webster, TX",
     "coordinates": [
       -95.136,
       29.5385
@@ -4253,6 +4361,15 @@
     "coordinates": [
       -118.3848,
       34.0307
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "1309",
+    "name": "Tulsa, OK",
+    "coordinates": [
+      -96.0012,
+      36.0574
     ],
     "countryCode": "us"
   },
@@ -4631,6 +4748,15 @@
     "coordinates": [
       -122.4088,
       37.7828
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "680",
+    "name": "Arcadia, CA",
+    "coordinates": [
+      -118.05156754436383,
+      34.13488677043822
     ],
     "countryCode": "us"
   },
