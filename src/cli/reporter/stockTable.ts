@@ -31,6 +31,38 @@ function probabilityColor(val: PRODUCT_AVAILABILITY | unknown): string {
   }
 }
 
+export enum AVAILABILITY_STATUS {
+  IN_STOCK = "in stock",
+  OUT_OF_STOCK = "out of stock",
+  ORDER_ONLY = "order only",
+  NOT_SOLD = "not sold",
+}
+
+/**
+ * Summarizes how a product can be bought at a store, combining the stock
+ * with the cash & carry and home delivery range flags.
+ */
+export function availabilityStatus(
+  stockInfo: Pick<ItemStockInfo, "stock" | "inRange" | "homeDeliveryInRange">
+): AVAILABILITY_STATUS {
+  if (stockInfo.stock > 0) return AVAILABILITY_STATUS.IN_STOCK;
+  if (stockInfo.inRange) return AVAILABILITY_STATUS.OUT_OF_STOCK;
+  if (stockInfo.homeDeliveryInRange) return AVAILABILITY_STATUS.ORDER_ONLY;
+  return AVAILABILITY_STATUS.NOT_SOLD;
+}
+
+function availabilityStatusColor(val: AVAILABILITY_STATUS): string {
+  switch (val) {
+    case AVAILABILITY_STATUS.IN_STOCK:
+      return green(val);
+    case AVAILABILITY_STATUS.OUT_OF_STOCK:
+    case AVAILABILITY_STATUS.ORDER_ONLY:
+      return yellow(val);
+    default:
+      return red(val);
+  }
+}
+
 export function createStockInfoReportTable(
   data: ItemStockInfo[]
 ): CliTable3.Table {
@@ -45,6 +77,7 @@ export function createStockInfoReportTable(
       "stock",
       "probability",
       "restockDate",
+      "availability",
     ],
     colAligns: [
       "left",
@@ -56,6 +89,7 @@ export function createStockInfoReportTable(
       "left",
       "right",
       "right",
+      "left",
     ],
   });
 
@@ -75,6 +109,7 @@ export function createStockInfoReportTable(
             .toISOString()
             .substring(0, 10)})`
         : "",
+      availabilityStatusColor(availabilityStatus(stockInfo)),
     ])
   );
 

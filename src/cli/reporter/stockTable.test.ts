@@ -1,5 +1,10 @@
 import { ItemStockInfo, PRODUCT_AVAILABILITY } from "../../lib/ingka";
-import { createStockInfoReportTable, daysUntil } from "./stockTable";
+import {
+  AVAILABILITY_STATUS,
+  availabilityStatus,
+  createStockInfoReportTable,
+  daysUntil,
+} from "./stockTable";
 
 describe("daysUntil", function () {
   it("returns more than 1 day for days in the future", function () {
@@ -44,6 +49,8 @@ describe('createStockInfoReportTable', function() {
       },
       createdAt: now,
       probability: PRODUCT_AVAILABILITY.HIGH_IN_STOCK,
+      inRange: true,
+      homeDeliveryInRange: true,
       restockDate: in2Days,
     },
     {
@@ -59,6 +66,8 @@ describe('createStockInfoReportTable', function() {
       },
       createdAt: now,
       probability: PRODUCT_AVAILABILITY.OUT_OF_STOCK,
+      inRange: true,
+      homeDeliveryInRange: true,
     },
     {
       buCode: '3',
@@ -73,6 +82,8 @@ describe('createStockInfoReportTable', function() {
       },
       createdAt: now,
       probability: PRODUCT_AVAILABILITY.LOW_IN_STOCK,
+      inRange: true,
+      homeDeliveryInRange: true,
     },
   ];
 
@@ -105,5 +116,23 @@ describe('createStockInfoReportTable', function() {
     expect(str).toMatch(/stock/);
     expect(str).toMatch(/probability/);
     expect(str).toMatch(/restockDate/);
+    expect(str).toMatch(/availability/);
+  });
+  it('shows the availability status per row', function() {
+    const str = createStockInfoReportTable(exampleData).toString().split(/\n/);
+    expect(str[3]).toMatch(/in stock/);
+    expect(str[5]).toMatch(/out of stock/);
+  });
+});
+
+describe("availabilityStatus", function () {
+  it.each([
+    [{ stock: 57, inRange: true, homeDeliveryInRange: true }, AVAILABILITY_STATUS.IN_STOCK],
+    [{ stock: 0, inRange: true, homeDeliveryInRange: true }, AVAILABILITY_STATUS.OUT_OF_STOCK],
+    [{ stock: 0, inRange: true, homeDeliveryInRange: false }, AVAILABILITY_STATUS.OUT_OF_STOCK],
+    [{ stock: 0, inRange: false, homeDeliveryInRange: true }, AVAILABILITY_STATUS.ORDER_ONLY],
+    [{ stock: 0, inRange: false, homeDeliveryInRange: false }, AVAILABILITY_STATUS.NOT_SOLD],
+  ])("maps %o to %s", function (stockInfo, expected) {
+    expect(availabilityStatus(stockInfo)).toBe(expected);
   });
 });
