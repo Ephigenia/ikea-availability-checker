@@ -71,7 +71,8 @@ Examples:
         report = createStoresReportTable(foundStores).toString();
         break;
     }
-    process.stdout.write(report);
+    // end with a newline so the shell prompt doesn't overwrite the last line
+    if (report) process.stdout.write(report + "\n");
   });
 
 program.parseAsync()

@@ -22,7 +22,7 @@ Perfect for:
 
 1. **🌐 Try it online instantly:** Jump to the [Try It Online](#try-it-online) section and run interactive examples directly in your browser - no installation required!
 2. **💻 GitHub Codespaces:** Click the "Code" button above and select "Codespaces" for a full cloud development environment
-3. **📁 Run examples locally:** Follow the [Examples](#examples) section for local setup and execution
+3. **📁 Run examples locally:** Follow the [Examples](#-examples) section for local setup and execution
 
 > 💡 **New to the project?** Start with the online examples to see what's possible, then move to local development for advanced usage.
 
@@ -36,10 +36,13 @@ Perfect for:
 - **Comprehensive store database** with detailed location information
 
 **📊 Multiple Output Formats**
-- **JSON** for programmatic integration and data processing
-- **Text** for simple command-line usage and scripting
-- **CLI Tables** for beautiful, readable terminal output
-- **Customizable** formatting options for different use cases
+- **JSON** (`--json`) for programmatic integration and data processing
+- **TSV** (`--plain`) for scripting with `awk`, `cut`, `column`, …
+- **CLI Tables** (default, `--pretty`) for readable terminal output
+- **Filters** like `--min-stock` to only show stores with enough stock
+
+**🛒 Buying Options**
+- See whether a product is **in stock**, **temporarily out of stock**, **order only** (home delivery) or **not sold** at a store
 
 **🌐 Country Support**
 - **Active countries:** ae, at, au, be, bh, ca, ch, cl, cn, co, cz, de, dk, ee, eg, es, fi, fr, gb, hk, hr, hu, ie, il, in, is, it, jo, jp, kr, kw, lt, lv, ma, mx, my, nl, no, nz, om, ph, pl, pt, qa, ro, rs, sa, se, sg, si, sk, th, tr, tw, ua, us - [![smokey](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml/badge.svg)](https://github.com/Ephigenia/ikea-availability-checker/actions/workflows/smokey.yml)
@@ -82,7 +85,7 @@ npm install ikea-availability-checker
 Run using the local binary:
 
 ```bash
-node_modules/.bin/ikea-availability-checker --help
+node_modules/.bin/ikea-availability --help
 ```
 
 #### NPX (No Installation Required)
@@ -101,23 +104,25 @@ Find all IKEA stores in a specific country:
 npx ikea-availability-checker stores at
 ```
 
-    ┌─────────────┬─────────┬────────┬────────────────┐
-    │ countryCode │ country │ buCode │ name           │
-    ├─────────────┼─────────┼────────┼────────────────┤
-    │ at          │ Austria │ 085    │ Wien Vösendorf │
-    ├─────────────┼─────────┼────────┼────────────────┤
-    │ at          │ Austria │ 090    │ Wien Nord      │
-    ├─────────────┼─────────┼────────┼────────────────┤
-    │ at          │ Austria │ 155    │ Klagenfurt     │
-    ├─────────────┼─────────┼────────┼────────────────┤
-    │ at          │ Austria │ 273    │ Innsbruck      │
-    ├─────────────┼─────────┼────────┼────────────────┤
-    │ at          │ Austria │ 386    │ Salzburg       │
-    ├─────────────┼─────────┼────────┼────────────────┤
-    │ at          │ Austria │ 387    │ Graz           │
-    ├─────────────┼─────────┼────────┼────────────────┤
-    │ at          │ Austria │ 388    │ Haid           │
-    └─────────────┴─────────┴────────┴────────────────┘
+    ┌─────────────┬─────────┬────────┬───────────────────────┐
+    │ countryCode │ country │ buCode │ name                  │
+    ├─────────────┼─────────┼────────┼───────────────────────┤
+    │ at          │ Austria │ 085    │ Vösendorf             │
+    ├─────────────┼─────────┼────────┼───────────────────────┤
+    │ at          │ Austria │ 090    │ Wien Nord             │
+    ├─────────────┼─────────┼────────┼───────────────────────┤
+    │ at          │ Austria │ 155    │ Klagenfurt            │
+    ├─────────────┼─────────┼────────┼───────────────────────┤
+    │ at          │ Austria │ 273    │ Innsbruck             │
+    ├─────────────┼─────────┼────────┼───────────────────────┤
+    │ at          │ Austria │ 386    │ Salzburg              │
+    ├─────────────┼─────────┼────────┼───────────────────────┤
+    │ at          │ Austria │ 387    │ Graz                  │
+    ├─────────────┼─────────┼────────┼───────────────────────┤
+    │ at          │ Austria │ 388    │ Linz Haid │ Linz-Haid │
+    ├─────────────┼─────────┼────────┼───────────────────────┤
+    │ at          │ Austria │ 587    │ Wien Westbahnhof      │
+    └─────────────┴─────────┴────────┴───────────────────────┘
 
 
 #### Product Stock Information for a whole country
@@ -128,23 +133,25 @@ Check availability across all stores in a country:
 npx ikea-availability-checker stock --country at 80213074
 ```
 
-    ┌──────────────────────────┬─────────────┬─────────┬──────────┬──────────────────┬────────────────┬───────┬───────────────┐
-    │ date                     │ countryCode │ country │ product  │ storeId (buCode) │ store          │ stock │ probability   │
-    ├──────────────────────────┼─────────────┼─────────┼──────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T04:14:05.302Z │ at          │ Austria │ 80213074 │ 387              │ Graz           │    55 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼──────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T09:53:08.594Z │ at          │ Austria │ 80213074 │ 388              │ Haid           │    54 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼──────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T04:16:10.187Z │ at          │ Austria │ 80213074 │ 273              │ Innsbruck      │    86 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼──────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T04:05:41.339Z │ at          │ Austria │ 80213074 │ 155              │ Klagenfurt     │    64 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼──────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T04:02:42.000Z │ at          │ Austria │ 80213074 │ 386              │ Salzburg       │    69 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼──────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T04:20:21.286Z │ at          │ Austria │ 80213074 │ 090              │ Wien Nord      │    85 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼──────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T13:03:37.274Z │ at          │ Austria │ 80213074 │ 085              │ Wien Vösendorf │    94 │ HIGH_IN_STOCK │
-    └──────────────────────────┴─────────────┴─────────┴──────────┴──────────────────┴────────────────┴───────┴───────────────┘
+    ┌──────────────────────────┬──────────┬─────────────┬─────────┬──────────────────┬───────────────────────┬───────┬───────────────┬─────────────────────┬──────────────┐
+    │ date                     │ product  │ countryCode │ country │ storeId (buCode) │ store                 │ stock │   probability │         restockDate │ availability │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼───────────────────────┼───────┼───────────────┼─────────────────────┼──────────────┤
+    │ 2026-11-08T05:43:38.161Z │ 80213074 │ at          │ Austria │ 085              │ Vösendorf             │ 24    │ HIGH_IN_STOCK │                     │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼───────────────────────┼───────┼───────────────┼─────────────────────┼──────────────┤
+    │ 2026-11-08T05:39:25.666Z │ 80213074 │ at          │ Austria │ 090              │ Wien Nord             │ 7     │ HIGH_IN_STOCK │                     │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼───────────────────────┼───────┼───────────────┼─────────────────────┼──────────────┤
+    │ 2026-11-08T05:29:32.556Z │ 80213074 │ at          │ Austria │ 155              │ Klagenfurt            │ 16    │ HIGH_IN_STOCK │                     │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼───────────────────────┼───────┼───────────────┼─────────────────────┼──────────────┤
+    │ 2026-11-08T05:13:14.257Z │ 80213074 │ at          │ Austria │ 273              │ Innsbruck             │ 10    │ HIGH_IN_STOCK │                     │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼───────────────────────┼───────┼───────────────┼─────────────────────┼──────────────┤
+    │ 2026-11-08T05:25:39.333Z │ 80213074 │ at          │ Austria │ 386              │ Salzburg              │ 2     │  LOW_IN_STOCK │                     │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼───────────────────────┼───────┼───────────────┼─────────────────────┼──────────────┤
+    │ 2026-11-08T23:55:40.934Z │ 80213074 │ at          │ Austria │ 387              │ Graz                  │ 15    │ HIGH_IN_STOCK │                     │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼───────────────────────┼───────┼───────────────┼─────────────────────┼──────────────┤
+    │ 2026-11-08T05:35:58.955Z │ 80213074 │ at          │ Austria │ 388              │ Linz Haid │ Linz-Haid │ 15    │ HIGH_IN_STOCK │                     │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼───────────────────────┼───────┼───────────────┼─────────────────────┼──────────────┤
+    │                          │ 80213074 │ at          │ Austria │ 587              │ Wien Westbahnhof      │ 0     │               │                     │ order only   │
+    └──────────────────────────┴──────────┴─────────────┴─────────┴──────────────────┴───────────────────────┴───────┴───────────────┴─────────────────────┴──────────────┘
 
 
 
@@ -155,14 +162,14 @@ npx ikea-availability-checker stock --country at 80213074
 Check availability at a specific store using its unique identifier:
 
 ```bash
-npx ikea-availability-checker stock --store=155 S69022537
+npx ikea-availability-checker stock --store=155 00263850
 ```
 
-    ┌──────────────────────────┬─────────────┬─────────┬───────────┬──────────────────┬────────────┬───────┬───────────────┐
-    │ date                     │ countryCode │ country │ product   │ storeId (buCode) │ store      │ stock │ probability   │
-    ├──────────────────────────┼─────────────┼─────────┼───────────┼──────────────────┼────────────┼───────┼───────────────┤
-    │ 2022-09-11T04:06:00.066Z │ at          │ Austria │ S69022537 │ 155              │ Klagenfurt │    23 │ HIGH_IN_STOCK │
-    └──────────────────────────┴─────────────┴─────────┴───────────┴──────────────────┴────────────┴───────┴───────────────┘
+    ┌──────────────────────────┬──────────┬─────────────┬─────────┬──────────────────┬────────────┬───────┬───────────────┬─────────────┬──────────────┐
+    │ date                     │ product  │ countryCode │ country │ storeId (buCode) │ store      │ stock │   probability │ restockDate │ availability │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼────────────┼───────┼───────────────┼─────────────┼──────────────┤
+    │ 2026-11-08T23:55:51.278Z │ 00263850 │ at          │ Austria │ 155              │ Klagenfurt │ 39    │ HIGH_IN_STOCK │             │ in stock     │
+    └──────────────────────────┴──────────┴─────────────┴─────────┴──────────────────┴────────────┴───────┴───────────────┴─────────────┴──────────────┘
 
 
 ##### Using Store Name or City
@@ -170,8 +177,20 @@ npx ikea-availability-checker stock --store=155 S69022537
 Search by store name, location, or city (partial matches supported):
 
 ```bash
-npx ikea-availability-checker stock --store=Berlin 40413131
+npx ikea-availability-checker stock --store=Berlin 00263850
 ```
+
+    ┌──────────────────────────┬──────────┬─────────────┬─────────┬──────────────────┬────────────────────┬───────┬───────────────┬─────────────┬──────────────┐
+    │ date                     │ product  │ countryCode │ country │ storeId (buCode) │ store              │ stock │   probability │ restockDate │ availability │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼────────────────────┼───────┼───────────────┼─────────────┼──────────────┤
+    │ 2026-11-09T00:20:09.442Z │ 00263850 │ de          │ Germany │ 129              │ Berlin-Waltersdorf │ 37    │ HIGH_IN_STOCK │             │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼────────────────────┼───────┼───────────────┼─────────────┼──────────────┤
+    │ 2026-11-08T16:33:23.000Z │ 00263850 │ de          │ Germany │ 324              │ Berlin-Lichtenberg │ 72    │ HIGH_IN_STOCK │             │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼────────────────────┼───────┼───────────────┼─────────────┼──────────────┤
+    │ 2026-11-08T11:14:33.000Z │ 00263850 │ de          │ Germany │ 394              │ Berlin-Spandau     │ 82    │ HIGH_IN_STOCK │             │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼────────────────────┼───────┼───────────────┼─────────────┼──────────────┤
+    │ 2026-11-08T13:21:12.000Z │ 00263850 │ de          │ Germany │ 421              │ Berlin-Tempelhof   │ 22    │ HIGH_IN_STOCK │             │ in stock     │
+    └──────────────────────────┴──────────┴─────────────┴─────────┴──────────────────┴────────────────────┴───────┴───────────────┴─────────────┴──────────────┘
 
 > 💡 **Pro tip:** You can use partial names like "Berlin", "München", or "Wien" - the tool will find matching stores automatically!
 
@@ -181,28 +200,74 @@ npx ikea-availability-checker stock --store=Berlin 40413131
 Check multiple products across multiple stores (supports cross-country queries):
 
 ```bash
-npx ikea-availability-checker stock --store=224,069,063 S69022537 40299687
+npx ikea-availability-checker stock --store=224,155 00263850 10347171
 ```
 
 > 🌍 **Cross-border shopping:** Mix store IDs from different countries to compare availability across regions!
 
-    ┌──────────────────────────┬─────────────┬─────────┬───────────┬──────────────────┬────────────────┬───────┬───────────────┐
-    │ date                     │ countryCode │ country │ product   │ storeId (buCode) │ store          │ stock │ probability   │
-    ├──────────────────────────┼─────────────┼─────────┼───────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T04:23:06.064Z │ de          │ Germany │ S69022537 │ 063              │ München-Eching │    30 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼───────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T03:20:08.203Z │ de          │ Germany │ S69022537 │ 069              │ Oldenburg      │     8 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼───────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T12:24:09.811Z │ de          │ Germany │ S69022537 │ 224              │ Sindelfingen   │    14 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼───────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T04:20:27.278Z │ de          │ Germany │ 40299687  │ 063              │ München-Eching │    27 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼───────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T03:08:49.874Z │ de          │ Germany │ 40299687  │ 069              │ Oldenburg      │    11 │ HIGH_IN_STOCK │
-    ├──────────────────────────┼─────────────┼─────────┼───────────┼──────────────────┼────────────────┼───────┼───────────────┤
-    │ 2022-09-11T04:39:05.053Z │ de          │ Germany │ 40299687  │ 224              │ Sindelfingen   │    16 │ HIGH_IN_STOCK │
-    └──────────────────────────┴─────────────┴─────────┴───────────┴──────────────────┴────────────────┴───────┴───────────────┘
+    ┌──────────────────────────┬──────────┬─────────────┬─────────┬──────────────────┬──────────────┬───────┬───────────────┬─────────────┬──────────────┐
+    │ date                     │ product  │ countryCode │ country │ storeId (buCode) │ store        │ stock │   probability │ restockDate │ availability │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼──────────────┼───────┼───────────────┼─────────────┼──────────────┤
+    │ 2026-11-08T23:55:51.278Z │ 00263850 │ at          │ Austria │ 155              │ Klagenfurt   │ 39    │ HIGH_IN_STOCK │             │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼──────────────┼───────┼───────────────┼─────────────┼──────────────┤
+    │ 2026-11-07T20:51:12.685Z │ 00263850 │ de          │ Germany │ 224              │ Sindelfingen │ 207   │ HIGH_IN_STOCK │             │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼──────────────┼───────┼───────────────┼─────────────┼──────────────┤
+    │ 2026-11-08T05:30:28.320Z │ 10347171 │ at          │ Austria │ 155              │ Klagenfurt   │ 35    │ HIGH_IN_STOCK │             │ in stock     │
+    ├──────────────────────────┼──────────┼─────────────┼─────────┼──────────────────┼──────────────┼───────┼───────────────┼─────────────┼──────────────┤
+    │                          │ 10347171 │ de          │ Germany │ 224              │ Sindelfingen │ 0     │               │             │ order only   │
+    └──────────────────────────┴──────────┴─────────────┴─────────┴──────────────────┴──────────────┴───────┴───────────────┴─────────────┴──────────────┘
 
+The `availability` column summarizes how the product can be bought at each store:
 
+| availability | Meaning |
+|---|---|
+| `in stock` | Sold in the store and currently in stock |
+| `out of stock` | Sold in the store, but temporarily out of stock |
+| `order only` | Not sold in the store, but can be ordered for home delivery |
+| `not sold` | Neither sold in the store nor available for home delivery |
+
+#### Output Formats and Filters
+
+Print the results as JSON, e.g. to process them with `jq`:
+
+```bash
+npx ikea-availability-checker stock --store=224,155 --json 10347171
+```
+
+    [{"buCode":"155","productId":"10347171","stock":35,"store":{"buCode":"155","name":"Klagenfurt","coordinates":[14.3694,46.6394],"countryCode":"at","country":"Austria"},"inRange":true,"homeDeliveryInRange":true,"createdAt":"2026-11-08T05:30:28.320Z","probability":"HIGH_IN_STOCK"},{"buCode":"224","productId":"10347171","stock":0,"store":{"buCode":"224","name":"Sindelfingen","coordinates":[9.00545146,48.70144946],"countryCode":"de","country":"Germany"},"inRange":false,"homeDeliveryInRange":true}]
+
+Print tab-separated values for scripting (the `availability` column is always last):
+
+```bash
+npx ikea-availability-checker stock --store=224,155 --plain 00263850
+```
+
+    2026-11-08T23:55:51.278Z	00263850	at	Austria	155	Klagenfurt	39	HIGH_IN_STOCK		in stock
+    2026-11-07T20:51:12.685Z	00263850	de	Germany	224	Sindelfingen	207	HIGH_IN_STOCK		in stock
+
+Only show stores with at least 10 items in stock:
+
+```bash
+npx ikea-availability-checker stock --country de --min-stock 10 00263850
+```
+
+The `stores` command supports the same output formats and accepts multiple country codes; without any country code it lists all stores:
+
+```bash
+npx ikea-availability-checker stores --plain de at
+```
+
+#### Command Reference
+
+| Command | Option | Description |
+|---|---|---|
+| `stock <productIds...>` | `-c, --country <countryCode>` | Check all stores in a country |
+| | `-s, --store <storeIds\|query>` | Comma-separated store IDs, or a store name / city to search for |
+| | `--min-stock <amount>` | Only show stores with at least this many items in stock (default `0`) |
+| | `--json`, `--plain`, `--pretty` | Output as JSON, TSV or table (default) |
+| `stores [countryCodes...]` | `--json`, `--plain`, `--pretty` | List stores of one or more countries, or all stores |
+
+Run `npx ikea-availability-checker stock --help` or `npx ikea-availability-checker stores --help` for more examples.
 
 ## 🔌 JavaScript API
 
@@ -214,10 +279,50 @@ Our clean, modern JavaScript API makes it easy to build powerful applications on
 const checker = require('ikea-availability-checker');
 
 (async function() {
-    const result = await checker.availability('394', '00501436');
+    // BILLY bookcase (00263850) in Berlin-Spandau (394)
+    const result = await checker.availability('394', '00263850');
     console.log('RESULT', result);
 })();
 ```
+
+### API Reference
+
+| Function | Returns | Description |
+|---|---|---|
+| `availability(buCode, productId, options?)` | `Promise<ItemStockInfo \| undefined>` | Availability of one product in one store. Throws if the store ID is unknown. |
+| `availabilities(stores, productIds, options?)` | `Promise<ItemStockInfo[]>` | Availability of one or more products in one or more stores (stores can be from different countries). |
+| `stores.stores` | `Store[]` | All known stores. |
+| `stores.findByCountryCode(countryCodes)` | `Store[]` | Stores in one or more countries. |
+| `stores.findById(buCodes)` | `Store[]` | Stores with the given IDs. |
+| `stores.findOneById(buCode)` | `Store \| undefined` | A single store by ID. |
+| `stores.findByQuery(query, countryCode?)` | `Store[]` | Stores whose name matches the string or RegExp. |
+| `stores.getCountryCodes()` | `string[]` | All country codes with at least one store. |
+| `errors` | – | Error classes thrown by the API client (`IngkaHttpError`, `IngkaParseError`, `IngkaResponseError`). |
+
+`options` are passed on to [axios](https://axios-http.com/docs/req_config), e.g. to set a timeout or proxy.
+
+Each `ItemStockInfo` result contains:
+
+| Field | Type | Description |
+|---|---|---|
+| `buCode` | `string` | Store ID |
+| `productId` | `string` | Product ID |
+| `store` | `Store` | Store details (`buCode`, `name`, `coordinates`, `countryCode`, `country`) |
+| `stock` | `number` | Items currently in stock |
+| `probability` | `string?` | `HIGH_IN_STOCK`, `LOW_IN_STOCK` or `OUT_OF_STOCK` |
+| `createdAt` | `Date?` | When the stock information was last updated |
+| `restockDate` | `Date?` | Earliest expected restock date |
+| `inRange` | `boolean` | The product is sold in the store (cash & carry) |
+| `homeDeliveryInRange` | `boolean` | The product can be ordered for home delivery from this store |
+
+Combined, `stock`, `inRange` and `homeDeliveryInRange` tell you how a product can be bought at a store:
+
+| `inRange` | `homeDeliveryInRange` | `stock` | Meaning |
+|---|---|---|---|
+| `true` | – | `> 0` | In stock |
+| `true` | – | `0` | Sold here, temporarily out of stock |
+| `false` | `true` | `0` | Not sold in-store, order only |
+| `false` | `false` | `0` | Not sold at this location |
 
 ## Try It Online
 
@@ -233,8 +338,8 @@ const checker = require('ikea-availability-checker');
 
 (async function() {
     try {
-        // Check availability of product 00501436 (Billy bookcase) in store 394 (Berlin)
-        const result = await checker.availability('394', '00501436');
+        // Check availability of product 00263850 (BILLY bookcase) in store 394 (Berlin-Spandau)
+        const result = await checker.availability('394', '00263850');
         console.log('Product Availability:', result);
     } catch (error) {
         console.error('Error:', error.message);
@@ -262,7 +367,7 @@ const checker = require('ikea-availability-checker');
         console.log('\nAvailability across Austrian stores:');
         availabilities.forEach(availability => {
             if (availability) {
-                console.log(`${availability.store}: ${availability.stock} units (${availability.probability})`);
+                console.log(`${availability.store.name}: ${availability.stock} units (${availability.probability})`);
             }
         });
     } catch (error) {
@@ -312,7 +417,7 @@ const checker = require('ikea-availability-checker');
         const allStores = [...germanStores, ...austrianStores];
         
         // Check multiple products
-        const productIds = ['00501436', '80213074'];
+        const productIds = ['00263850', '80213074'];
         
         console.log(`Checking ${productIds.length} products across ${allStores.length} stores...`);
         
@@ -321,7 +426,7 @@ const checker = require('ikea-availability-checker');
         console.log('\nResults:');
         availabilities.forEach(availability => {
             if (availability) {
-                console.log(`${availability.product} at ${availability.store} (${availability.country}): ${availability.stock} units`);
+                console.log(`${availability.productId} at ${availability.store.name} (${availability.store.country}): ${availability.stock} units`);
             }
         });
     } catch (error) {
@@ -341,7 +446,7 @@ const checker = require('ikea-availability-checker');
 (async function() {
     try {
         // Try with an invalid store ID
-        const result = await checker.availability('99999', '00501436');
+        const result = await checker.availability('99999', '00263850');
         console.log('Result:', result);
     } catch (error) {
         console.log('Caught error as expected:', error.message);
@@ -380,10 +485,10 @@ The project includes several example scripts in the [`examples/`](./examples) di
 2. **Run example scripts:**
     ```bash
     # Single store, single product check
-    node examples/product-availability.js 394 00501436
+    node examples/product-availability.js 394 00263850
     
     # Country-wide availability scan
-    node examples/country-availability.js de 00501436
+    node examples/country-availability.js de 00263850
     
     # Store discovery by country
     node examples/stores.js at
@@ -405,8 +510,8 @@ The project includes several example scripts in the [`examples/`](./examples) di
     npm install && npm run build
     
     # Try the examples
-    node examples/product-availability.js 394 00501436
-    node examples/country-availability.js de 00501436
+    node examples/product-availability.js 394 00263850
+    node examples/country-availability.js de 00263850
     node examples/stores.js at
     ```
 
@@ -437,23 +542,20 @@ We welcome contributions! Whether you're fixing bugs, adding features, or improv
 - **Node.js** - Check [.nvmrc](./.nvmrc) for the recommended version
 - **npm** - Package manager for dependencies
 
-> 💡 **Development Environment:** We strongly recommend using either nvm with the specified Node version or the Docker container for consistent development experience.
+> 💡 **Development Environment:** We strongly recommend using either nvm with the specified Node version or the [Dev Container](./.devcontainer) for consistent development experience.
 
 
 ### 🐛 Debugging
 
 **Troubleshoot HTTP requests and responses**
 
-Enable detailed HTTP debugging to see all network requests:
+Run the CLI from source with Node's HTTP debugging enabled:
 
 ```bash
-NODE_DEBUG=http npm run start
+NODE_DEBUG=http npm start -- stock --store 224 00263850
 ```
 
-This will show you:
-- **Request details** (URLs, headers, parameters)
-- **Response data** (status codes, response bodies)
-- **Timing information** (request duration, retries)
+This logs Node's low-level HTTP activity (connections, sockets, incoming responses) to stderr. To inspect the raw API requests and responses, use the [Postman collection](#-api-testing).
 
 
 ### 🧪 Testing
@@ -471,8 +573,8 @@ npm run test
 # Watch mode for development
 npm run tdd
 
-# Run specific test suites
-npm run test -- --grep="stock reporter"
+# Run only tests whose name matches a pattern
+npm run test -- -t "createStockInfoReportTable"
 ```
 
 #### Test Coverage
@@ -503,7 +605,7 @@ Comprehensive smoke tests validate functionality across different scenarios:
 We provide a comprehensive Postman collection for testing the IKEA API endpoints:
 
 - **Public Collection:** [IKEA Workspace](https://www.postman.com/crimson-rocket-271330/workspace/ikea/overview)
-- **Local Files:** Available in `/postman/collection` directory
+- **Local Files:** Available in `/postman/collections` directory
 - **API Schema:** OpenAPI specification in `/postman/schemas/`
 
 Perfect for:
@@ -564,11 +666,11 @@ FORCE_COLOR=0 npx ikea-availability-checker stores de
 
 | Package | Language | Description |
 |---------|----------|-------------|
-| [vrslev/ikea-api-client](https://github.com/vrslev/ikea-api-client) | JavaScript | Alternative IKEA API client |
-| [ikea stock checker](https://github.com/lovegandhi/ikea-stock-checker) | JavaScript | Stock checking utility |
+| [vrslev/ikea-api-client](https://github.com/vrslev/ikea-api-client) | Python | Alternative IKEA API client (archived) |
+| [ikea stock checker](https://github.com/lovegandhi/ikea-stock-checker) | Python | Stock checking utility |
 | [ikea stock finder](https://github.com/sasasoni/ikea_stock_finder) | Ruby | Japanese market focused |
 | [ikea scraper](https://github.com/LordBonzi/ikea-scraper) | Python | Stock scraping tool |
-| [ikea bot](https://github.com/xorik/ikea-bot) | JavaScript | Telegram notification bot |
+| [ikea bot](https://github.com/xorik/ikea-bot) | TypeScript | Telegram notification bot |
 
 ### 🌐 Web Services
 
@@ -576,8 +678,6 @@ FORCE_COLOR=0 npx ikea-availability-checker stores de
 
 | Service | Description | Region |
 |---------|-------------|--------|
-| [Stock Hound](http://stockhound.spgill.me/) | Web-based stock checker | Global |
-| [IKEA Click & Collect](https://ikea-status.dong.st/) | US store availability | US |
 | [ikea-availability-web](https://github.com/anditosl/ikea-availability-web) | Web interface | Global |
 | [ikeaprices](https://github.com/mnazarov/ikeaprices) | Price comparison tool | Global |
 
