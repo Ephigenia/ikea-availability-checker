@@ -17,6 +17,18 @@
 
 * **stores:** adds the ability to list all stores ([83a1a41](https://github.com/Ephigenia/ikea-availability-checker/commit/83a1a41d08af42c387cfa65e67ccdb8668345b57))
 
+## [2.2.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v2.1.0...v2.2.0) (2026-11-13)
+
+
+### Features
+
+* **stock:** expose inRange and homeDeliveryInRange in availability results ([#735](https://github.com/Ephigenia/ikea-availability-checker/issues/735)) ([96fce7d](https://github.com/Ephigenia/ikea-availability-checker/commit/96fce7dd54740ddeb3726eb679d641a1834403b4))
+
+
+### Bug Fixes
+
+* **release:** build package before publishing to npm ([#736](https://github.com/Ephigenia/ikea-availability-checker/issues/736)) ([fa21da5](https://github.com/Ephigenia/ikea-availability-checker/commit/fa21da58b50b208e24c7f9c88b401b190db9afcc))
+
 ## [2.1.0](https://github.com/Ephigenia/ikea-availability-checker/compare/v2.0.4...v2.1.0) (2026-11-08)
 
 
