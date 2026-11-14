@@ -75,7 +75,7 @@
     "@commitlint/config-angular": "21.2.4",
     "@commitlint/config-conventional": "21.2.4",
     "@types/jest": "30.0.0",
-    "@types/node": "26.6.5",
+    "@types/node": "26.6.6",
     "@typescript-eslint/eslint-plugin": "8.72.0",
     "@typescript-eslint/parser": "8.72.0",
     "eslint": "10.13.0",
