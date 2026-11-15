@@ -1972,7 +1972,7 @@
   },
   {
     "buCode": "1328",
-    "name": "Angers - Ouverture prochaine",
+    "name": "Angers",
     "coordinates": [
       -0.6291129127667104,
       47.48247825222448
@@ -2514,8 +2514,8 @@
     "buCode": "611",
     "name": "澳門分店 │ 氹仔星皓廣場 │ Macau Taipa",
     "coordinates": [
-      113.5536515,
-      22.1606758
+      113.5535137,
+      22.1607364
     ],
     "countryCode": "hk"
   },
@@ -3681,6 +3681,15 @@
     "countryCode": "ro"
   },
   {
+    "buCode": "1364",
+    "name": "Rahova - Se va deschide în curând",
+    "coordinates": [
+      26.08010845460318,
+      44.41509375042491
+    ],
+    "countryCode": "ro"
+  },
+  {
     "buCode": "500",
     "name": "Pallady",
     "coordinates": [
@@ -4339,7 +4348,7 @@
   },
   {
     "buCode": "1244",
-    "name": "Sarasota, FL - Opening soon │ Sarasota, FL - Próxima apertura",
+    "name": "Sarasota, FL",
     "coordinates": [
       -82.4582,
       27.3833
