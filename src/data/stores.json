@@ -315,6 +315,42 @@
     "countryCode": "ca"
   },
   {
+    "buCode": "1094",
+    "name": "Vaudreuil - Plan and order point & Pick-up location │ Vaudreuil - Point de ramassage et Centre de planification et de commande",
+    "coordinates": [
+      -74.0562802,
+      45.3976246
+    ],
+    "countryCode": "ca"
+  },
+  {
+    "buCode": "1268",
+    "name": "Abbotsford - Plan and order point & Pick-up location │ Abbotsford - Point de ramassage et Centre de planification et de commande",
+    "coordinates": [
+      -122.31560047404919,
+      49.050120136522956
+    ],
+    "countryCode": "ca"
+  },
+  {
+    "buCode": "1269",
+    "name": "Kelowna - Plan and order point & Pick-up location │ Kelowna - Centre de planification et de commande",
+    "coordinates": [
+      -119.4273,
+      49.888
+    ],
+    "countryCode": "ca"
+  },
+  {
+    "buCode": "1270",
+    "name": "Gatineau - Plan and order point │ Gatineau - Centre de planification et de commande",
+    "coordinates": [
+      -75.6943,
+      45.4761
+    ],
+    "countryCode": "ca"
+  },
+  {
     "buCode": "1340",
     "name": "London – White Oaks",
     "coordinates": [
@@ -3294,6 +3330,15 @@
     "countryCode": "nl"
   },
   {
+    "buCode": "1009",
+    "name": "Leeuwarden",
+    "coordinates": [
+      5.8234,
+      53.2021
+    ],
+    "countryCode": "nl"
+  },
+  {
     "buCode": "151",
     "name": "Delft",
     "coordinates": [
@@ -3452,6 +3497,15 @@
     "coordinates": [
       5.332,
       60.4761
+    ],
+    "countryCode": "no"
+  },
+  {
+    "buCode": "722",
+    "name": "Karl Johan",
+    "coordinates": [
+      10.7438,
+      59.9127
     ],
     "countryCode": "no"
   },
@@ -4766,6 +4820,15 @@
     "coordinates": [
       -118.05156754436383,
       34.13488677043822
+    ],
+    "countryCode": "us"
+  },
+  {
+    "buCode": "716",
+    "name": "Gaithersburg, MD",
+    "coordinates": [
+      -77.19922916117193,
+      39.11714376023036
     ],
     "countryCode": "us"
   },
